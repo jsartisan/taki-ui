@@ -1,7 +1,6 @@
 import { registryItemSchema, type Registry } from "shadcn/schema"
 import { z } from "zod"
 
-import { blocks } from "@/registry/registry-blocks"
 import { charts } from "@/registry/registry-charts"
 import { examples } from "@/registry/registry-examples"
 import { hooks } from "@/registry/registry-hooks"
@@ -43,7 +42,6 @@ export const registry = {
         ...NEW_YORK_V4_STYLE,
       },
       ...ui,
-      ...blocks,
       ...charts,
       ...lib,
       ...hooks,

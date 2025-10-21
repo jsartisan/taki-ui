@@ -194,9 +194,6 @@ try {
   console.log("🗂️ Building registry/__index__.tsx...")
   await buildRegistryIndex()
 
-  console.log("🗂️ Building registry/__blocks__.json...")
-  await buildBlocksIndex()
-
   console.log("💅 Building registry.json...")
   await buildRegistryJsonFile()
 
