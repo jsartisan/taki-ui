@@ -69,7 +69,7 @@ export default function IndexPage() {
       </PageNav>
       <div className="container-wrapper section-soft flex-1 pb-6">
         <div className="container overflow-hidden">
-          <section className="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">
+          {/* <section className="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">
             <Image
               src="/r/styles/new-york-v4/dashboard-01-light.png"
               width={1400}
@@ -86,7 +86,7 @@ export default function IndexPage() {
               className="hidden dark:block"
               priority
             />
-          </section>
+          </section> */}
           <section className="theme-container hidden md:block">
             <RootComponents />
           </section>

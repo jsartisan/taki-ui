@@ -1,10 +1,14 @@
+"use client";
+
 import * as React from "react"
+
+import { Input as RACInput } from "react-aria-components";
 
 import { cn } from "@/lib/utils"
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
-    <input
+    <RACInput
       type={type}
       data-slot="input"
       className={cn(
