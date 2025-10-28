@@ -25,10 +25,7 @@ import {
   FieldSet,
   FieldTitle,
 } from "@/registry/new-york-v4/ui/field"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/new-york-v4/ui/radio-group"
+import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
 
 const plans = [
   {
@@ -126,7 +123,7 @@ export default function FormTanstackRadioGroup() {
                                 {plan.description}
                               </FieldDescription>
                             </FieldContent>
-                            <RadioGroupItem
+                            <Radio
                               value={plan.id}
                               id={`form-tanstack-radiogroup-${plan.id}`}
                               aria-invalid={isInvalid}

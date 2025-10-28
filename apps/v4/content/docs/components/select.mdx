@@ -54,25 +54,16 @@ npm install @radix-ui/react-select
 ## Usage
 
 ```tsx showLineNumbers
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+import { Select, SelectItem } from "@/components/ui/select"
 ```
 
 ```tsx showLineNumbers
-<Select>
-  <SelectTrigger className="w-[180px]">
-    <SelectValue placeholder="Theme" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
-  </SelectContent>
+<Select label="Fruit" placeholder="Select a fruit" className="w-[180px]">
+  <SelectItem id="apple">Apple</SelectItem>
+  <SelectItem id="banana">Banana</SelectItem>
+  <SelectItem id="blueberry">Blueberry</SelectItem>
+  <SelectItem id="grapes">Grapes</SelectItem>
+  <SelectItem id="pineapple">Pineapple</SelectItem>
 </Select>
 ```
 

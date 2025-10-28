@@ -5,12 +5,12 @@ import { Button } from "@/registry/new-york-v4/ui/button"
 import { Card, CardContent } from "@/registry/new-york-v4/ui/card"
 import {
   Dialog,
-  DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/registry/new-york-v4/ui/dialog"
+import { Modal } from "@/registry/new-york-v4/ui/modal"
 import {
   Empty,
   EmptyContent,
@@ -27,8 +27,8 @@ import {
 import { Kbd } from "@/registry/new-york-v4/ui/kbd"
 import {
   Popover,
-  PopoverContent,
-  PopoverTrigger,
+  
+  
 } from "@/registry/new-york-v4/ui/popover"
 
 export function EmptyDemo() {
@@ -180,51 +180,49 @@ export function EmptyDemo() {
       </div>
       <div className="grid grid-cols-3 gap-6">
         <div className="flex gap-4">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button>Open Dialog</Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader className="sr-only">
-                <DialogTitle>Dialog Title</DialogTitle>
-                <DialogDescription>Dialog Description</DialogDescription>
-              </DialogHeader>
-              <Empty className="p-4">
-                <EmptyHeader>
-                  <EmptyMedia variant="icon">
-                    <IconFolderCode />
-                  </EmptyMedia>
-                  <EmptyTitle>No projects yet</EmptyTitle>
-                  <EmptyDescription>
-                    You haven&apos;t created any projects yet. Get started by
-                    creating your first project.
-                  </EmptyDescription>
-                </EmptyHeader>
-                <EmptyContent>
-                  <div className="flex gap-2">
-                    <Button asChild>
-                      <a href="#">Create project</a>
+          <DialogTrigger>
+            <Button>Open Dialog</Button>
+            <Modal>
+              <Dialog>
+                <DialogHeader className="sr-only">
+                  <DialogTitle>Dialog Title</DialogTitle>
+                  <DialogDescription>Dialog Description</DialogDescription>
+                </DialogHeader>
+                <Empty className="p-4">
+                  <EmptyHeader>
+                    <EmptyMedia variant="icon">
+                      <IconFolderCode />
+                    </EmptyMedia>
+                    <EmptyTitle>No projects yet</EmptyTitle>
+                    <EmptyDescription>
+                      You haven&apos;t created any projects yet. Get started by
+                      creating your first project.
+                    </EmptyDescription>
+                  </EmptyHeader>
+                  <EmptyContent>
+                    <div className="flex gap-2">
+                      <Button asChild>
+                        <a href="#">Create project</a>
+                      </Button>
+                      <Button variant="outline">Import project</Button>
+                    </div>
+                    <Button
+                      variant="link"
+                      asChild
+                      className="text-muted-foreground"
+                    >
+                      <a href="#">
+                        Learn more <IconArrowUpRight />
+                      </a>
                     </Button>
-                    <Button variant="outline">Import project</Button>
-                  </div>
-                  <Button
-                    variant="link"
-                    asChild
-                    className="text-muted-foreground"
-                  >
-                    <a href="#">
-                      Learn more <IconArrowUpRight />
-                    </a>
-                  </Button>
-                </EmptyContent>
-              </Empty>
-            </DialogContent>
-          </Dialog>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button variant="outline">Open Popover</Button>
-            </PopoverTrigger>
-            <PopoverContent className="rounded-2xl p-2">
+                  </EmptyContent>
+                </Empty>
+              </Dialog>
+            </Modal>
+          </DialogTrigger>
+          <DialogTrigger>
+            <Button variant="outline">Open Popover</Button>
+            <Popover className="rounded-2xl p-2">
               <Empty className="rounded-sm p-6">
                 <EmptyHeader>
                   <EmptyTitle>Nothing to see here</EmptyTitle>
@@ -241,8 +239,8 @@ export function EmptyDemo() {
                   </Button>
                 </EmptyContent>
               </Empty>
-            </PopoverContent>
-          </Popover>
+            </Popover>
+          </DialogTrigger>
         </div>
       </div>
     </div>

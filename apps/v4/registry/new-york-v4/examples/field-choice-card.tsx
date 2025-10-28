@@ -7,10 +7,7 @@ import {
   FieldSet,
   FieldTitle,
 } from "@/registry/new-york-v4/ui/field"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/new-york-v4/ui/radio-group"
+import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
 
 export default function FieldChoiceCard() {
   return (
@@ -32,7 +29,7 @@ export default function FieldChoiceCard() {
                     Run GPU workloads on a K8s configured cluster.
                   </FieldDescription>
                 </FieldContent>
-                <RadioGroupItem value="kubernetes" id="kubernetes-r2h" />
+                <Radio value="kubernetes" id="kubernetes-r2h" />
               </Field>
             </FieldLabel>
             <FieldLabel htmlFor="vm-z4k">
@@ -43,7 +40,7 @@ export default function FieldChoiceCard() {
                     Access a VM configured cluster to run GPU workloads.
                   </FieldDescription>
                 </FieldContent>
-                <RadioGroupItem value="vm" id="vm-z4k" />
+                <Radio value="vm" id="vm-z4k" />
               </Field>
             </FieldLabel>
           </RadioGroup>

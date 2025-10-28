@@ -3,90 +3,57 @@ import {
   ChartBarIcon,
   ChartLineIcon,
   ChartPieIcon,
-  CircleDashed,
 } from "lucide-react"
 
 import {
   Select,
-  SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
+  SelectSection,
 } from "@/registry/new-york-v4/ui/select"
 
 export function SelectDemo() {
   return (
     <div className="flex flex-wrap items-start gap-4">
-      <Select>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Select a fruit" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            <SelectLabel>Fruits</SelectLabel>
-            <SelectItem value="apple">Apple</SelectItem>
-            <SelectItem value="banana">Banana</SelectItem>
-            <SelectItem value="blueberry">Blueberry</SelectItem>
-            <SelectItem value="grapes" disabled>
-              Grapes
-            </SelectItem>
-            <SelectItem value="pineapple">Pineapple</SelectItem>
-          </SelectGroup>
-        </SelectContent>
-      </Select>
-      <Select>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Large List" />
-        </SelectTrigger>
-        <SelectContent>
-          {Array.from({ length: 100 }).map((_, i) => (
-            <SelectItem key={i} value={`item-${i}`}>
-              Item {i}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-      <Select disabled>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder="Disabled" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="blueberry">Blueberry</SelectItem>
-          <SelectItem value="grapes" disabled>
+      <Select label="Fruit" className="w-[180px]">
+        <SelectSection title="Fruits">
+          <SelectItem id="apple">Apple</SelectItem>
+          <SelectItem id="banana">Banana</SelectItem>
+          <SelectItem id="blueberry">Blueberry</SelectItem>
+          <SelectItem id="grapes" isDisabled>
             Grapes
           </SelectItem>
-          <SelectItem value="pineapple">Pineapple</SelectItem>
-        </SelectContent>
+          <SelectItem id="pineapple">Pineapple</SelectItem>
+        </SelectSection>
       </Select>
-      <Select>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue
-            placeholder={
-              <>
-                <CircleDashed className="text-muted-foreground" />
-                With Icon
-              </>
-            }
-          />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="line">
-            <ChartLineIcon />
-            Line
+      <Select label="Items" className="w-[180px]">
+        {Array.from({ length: 100 }).map((_, i) => (
+          <SelectItem key={i} id={`item-${i}`}>
+            Item {i}
           </SelectItem>
-          <SelectItem value="bar">
-            <ChartBarIcon />
-            Bar
-          </SelectItem>
-          <SelectItem value="pie">
-            <ChartPieIcon />
-            Pie
-          </SelectItem>
-        </SelectContent>
+        ))}
+      </Select>
+      <Select label="Disabled" isDisabled className="w-[180px]">
+        <SelectItem id="apple">Apple</SelectItem>
+        <SelectItem id="banana">Banana</SelectItem>
+        <SelectItem id="blueberry">Blueberry</SelectItem>
+        <SelectItem id="grapes" isDisabled>
+          Grapes
+        </SelectItem>
+        <SelectItem id="pineapple">Pineapple</SelectItem>
+      </Select>
+      <Select label="Chart Type" className="w-[180px]">
+        <SelectItem id="line">
+          <ChartLineIcon />
+          Line
+        </SelectItem>
+        <SelectItem id="bar">
+          <ChartBarIcon />
+          Bar
+        </SelectItem>
+        <SelectItem id="pie">
+          <ChartPieIcon />
+          Pie
+        </SelectItem>
       </Select>
     </div>
   )

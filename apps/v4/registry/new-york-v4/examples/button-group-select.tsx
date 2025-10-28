@@ -6,12 +6,7 @@ import { ArrowRightIcon } from "lucide-react"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { ButtonGroup } from "@/registry/new-york-v4/ui/button-group"
 import { Input } from "@/registry/new-york-v4/ui/input"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 
 const CURRENCIES = [
   {
@@ -34,16 +29,17 @@ export default function ButtonGroupSelect() {
   return (
     <ButtonGroup>
       <ButtonGroup>
-        <Select value={currency} onValueChange={setCurrency}>
-          <SelectTrigger className="font-mono">{currency}</SelectTrigger>
-          <SelectContent className="min-w-24">
-            {CURRENCIES.map((currency) => (
-              <SelectItem key={currency.value} value={currency.value}>
-                {currency.value}{" "}
-                <span className="text-muted-foreground">{currency.label}</span>
-              </SelectItem>
-            ))}
-          </SelectContent>
+        <Select
+          selectedKey={currency}
+          onSelectionChange={(key) => setCurrency(key as string)}
+          className="min-w-24 font-mono"
+        >
+          {CURRENCIES.map((currency) => (
+            <SelectItem key={currency.value} id={currency.value}>
+              {currency.value}{" "}
+              <span className="text-muted-foreground">{currency.label}</span>
+            </SelectItem>
+          ))}
         </Select>
         <Input placeholder="10.00" pattern="[0-9]*" />
       </ButtonGroup>

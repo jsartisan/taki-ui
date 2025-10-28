@@ -11,13 +11,7 @@ import {
 } from "@/registry/new-york-v4/ui/card"
 import { Input } from "@/registry/new-york-v4/ui/input"
 import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 
 export default function CardWithForm() {
   return (
@@ -34,17 +28,11 @@ export default function CardWithForm() {
               <Input id="name" placeholder="Name of your project" />
             </div>
             <div className="flex flex-col gap-3">
-              <Label htmlFor="framework">Framework</Label>
-              <Select>
-                <SelectTrigger id="framework" className="w-full">
-                  <SelectValue placeholder="Select" />
-                </SelectTrigger>
-                <SelectContent position="popper">
-                  <SelectItem value="next">Next.js</SelectItem>
-                  <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                  <SelectItem value="astro">Astro</SelectItem>
-                  <SelectItem value="nuxt">Nuxt.js</SelectItem>
-                </SelectContent>
+              <Select label="Framework" className="w-full">
+                <SelectItem id="next">Next.js</SelectItem>
+                <SelectItem id="sveltekit">SvelteKit</SelectItem>
+                <SelectItem id="astro">Astro</SelectItem>
+                <SelectItem id="nuxt">Nuxt.js</SelectItem>
               </Select>
             </div>
           </div>

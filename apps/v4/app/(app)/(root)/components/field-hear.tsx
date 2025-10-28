@@ -55,8 +55,8 @@ export function FieldHear() {
                       <Checkbox
                         value={option.value}
                         id={option.value}
-                        defaultChecked={option.value === "social-media"}
-                        className="-ml-6 -translate-x-1 rounded-full transition-all duration-100 ease-linear data-[state=checked]:ml-0 data-[state=checked]:translate-x-0"
+                        defaultSelected={option.value === "social-media"}
+                        className="-ml-6 -translate-x-1 transition-all duration-100 ease-linear data-[selected=true]:ml-0 data-[selected=true]:translate-x-0 [&>[data-slot=checkbox-indicator]]:rounded-full"
                       />
                       <FieldTitle>{option.label}</FieldTitle>
                     </Field>

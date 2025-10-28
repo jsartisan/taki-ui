@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "inline-citation-demo",
+  "type": "registry:example",
+  "dependencies": [
+    "ai"
+  ],
+  "registryDependencies": [
+    "inline-citation",
+    "hover-card",
+    "badge",
+    "carousel"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/inline-citation-demo.tsx",
+      "content": "import {\n  InlineCitation,\n  InlineCitationCard,\n  InlineCitationCardBody,\n  InlineCitationCardCarousel,\n  InlineCitationCardCarouselContent,\n  InlineCitationCardCarouselControl,\n  InlineCitationCardCarouselItem,\n  InlineCitationCardTrigger,\n  InlineCitationText,\n} from \"@/registry/new-york-v4/ai-elements/inline-citation\"\n\nexport default function InlineCitationDemo() {\n  const sources = [\n    \"https://react.dev\",\n    \"https://developer.mozilla.org\",\n    \"https://www.typescriptlang.org\",\n  ]\n\n  return (\n    <div className=\"w-full max-w-2xl\">\n      <p className=\"text-sm leading-relaxed\">\n        <InlineCitation>\n          <InlineCitationText>\n            React is a JavaScript library for building user interfaces\n          </InlineCitationText>\n          <InlineCitationCard>\n            <InlineCitationCardTrigger sources={sources} />\n            <InlineCitationCardBody>\n              <InlineCitationCardCarousel>\n                <InlineCitationCardCarouselContent>\n                  <InlineCitationCardCarouselItem>\n                    <div className=\"space-y-2 p-4\">\n                      <h4 className=\"text-sm font-semibold\">\n                        React Documentation\n                      </h4>\n                      <p className=\"text-muted-foreground text-xs\">\n                        The official React documentation provides comprehensive\n                        guides and API references.\n                      </p>\n                      <a\n                        className=\"text-primary text-xs hover:underline\"\n                        href=\"https://react.dev\"\n                        rel=\"noreferrer\"\n                        target=\"_blank\"\n                      >\n                        Visit source →\n                      </a>\n                    </div>\n                  </InlineCitationCardCarouselItem>\n                  <InlineCitationCardCarouselItem>\n                    <div className=\"space-y-2 p-4\">\n                      <h4 className=\"text-sm font-semibold\">MDN Web Docs</h4>\n                      <p className=\"text-muted-foreground text-xs\">\n                        Mozilla's comprehensive web development documentation.\n                      </p>\n                      <a\n                        className=\"text-primary text-xs hover:underline\"\n                        href=\"https://developer.mozilla.org\"\n                        rel=\"noreferrer\"\n                        target=\"_blank\"\n                      >\n                        Visit source →\n                      </a>\n                    </div>\n                  </InlineCitationCardCarouselItem>\n                  <InlineCitationCardCarouselItem>\n                    <div className=\"space-y-2 p-4\">\n                      <h4 className=\"text-sm font-semibold\">TypeScript Docs</h4>\n                      <p className=\"text-muted-foreground text-xs\">\n                        Official TypeScript documentation and tutorials.\n                      </p>\n                      <a\n                        className=\"text-primary text-xs hover:underline\"\n                        href=\"https://www.typescriptlang.org\"\n                        rel=\"noreferrer\"\n                        target=\"_blank\"\n                      >\n                        Visit source →\n                      </a>\n                    </div>\n                  </InlineCitationCardCarouselItem>\n                </InlineCitationCardCarouselContent>\n                <InlineCitationCardCarouselControl />\n              </InlineCitationCardCarousel>\n            </InlineCitationCardBody>\n          </InlineCitationCard>\n        </InlineCitation>\n        , developed and maintained by Meta (formerly Facebook).\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

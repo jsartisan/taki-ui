@@ -5,19 +5,14 @@ import * as React from "react"
 import { getColorFormat, type Color } from "@/lib/colors"
 import { cn } from "@/lib/utils"
 import { useColors } from "@/hooks/use-colors"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Skeleton } from "@/registry/new-york-v4/ui/skeleton"
 
 export function ColorFormatSelector({
   color,
   className,
   ...props
-}: Omit<React.ComponentProps<typeof SelectTrigger>, "color"> & {
+}: React.ComponentProps<"div"> & {
   color: Color
 }) {
   const { format, setFormat, isLoading } = useColors()
@@ -28,32 +23,21 @@ export function ColorFormatSelector({
   }
 
   return (
-    <Select value={format} onValueChange={setFormat}>
-      <SelectTrigger
-        size="sm"
-        className={cn(
-          "bg-secondary text-secondary-foreground border-secondary shadow-none",
-          className
-        )}
-        {...props}
-      >
-        <span className="font-medium">Format: </span>
-        <span className="text-muted-foreground font-mono">{format}</span>
-      </SelectTrigger>
-      <SelectContent align="end" className="rounded-xl">
-        {Object.entries(formats).map(([format, value]) => (
-          <SelectItem
-            key={format}
-            value={format}
-            className="gap-2 rounded-lg [&>span]:flex [&>span]:items-center [&>span]:gap-2"
-          >
-            <span className="font-medium">{format}</span>
-            <span className="text-muted-foreground font-mono text-xs">
-              {value}
-            </span>
-          </SelectItem>
-        ))}
-      </SelectContent>
+    <Select
+      selectedKey={format}
+      onSelectionChange={(key) => setFormat(key as string)}
+      size="sm"
+      className={cn("min-w-[200px]", className)}
+      {...props}
+    >
+      {Object.entries(formats).map(([format, value]) => (
+        <SelectItem key={format} id={format}>
+          <span className="font-medium">{format}</span>
+          <span className="text-muted-foreground font-mono text-xs ml-2">
+            {value}
+          </span>
+        </SelectItem>
+      ))}
     </Select>
   )
 }

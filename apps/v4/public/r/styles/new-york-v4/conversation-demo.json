@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "conversation-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "conversation",
+    "message"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/conversation-demo.tsx",
+      "content": "import { MessageSquareIcon } from \"lucide-react\"\n\nimport {\n  Conversation,\n  ConversationContent,\n  ConversationEmptyState,\n} from \"@/registry/new-york-v4/ai-elements/conversation\"\nimport {\n  Message,\n  MessageAvatar,\n  MessageContent,\n} from \"@/registry/new-york-v4/ai-elements/message\"\n\nexport default function ConversationDemo() {\n  const messages = [\n    {\n      id: \"1\",\n      role: \"user\" as const,\n      content: \"What's the weather like today?\",\n    },\n    {\n      id: \"2\",\n      role: \"assistant\" as const,\n      content:\n        \"I don't have access to real-time weather data, but I can help you find weather information for your location.\",\n    },\n  ]\n\n  return (\n    <div className=\"h-[400px] rounded-md border\">\n      <Conversation>\n        <ConversationContent>\n          {messages.length === 0 ? (\n            <ConversationEmptyState\n              icon={<MessageSquareIcon className=\"size-8\" />}\n              title=\"No messages yet\"\n              description=\"Start a conversation to see messages here\"\n            />\n          ) : (\n            <div className=\"space-y-4\">\n              {messages.map((msg) => (\n                <Message key={msg.id} from={msg.role}>\n                  <MessageAvatar\n                    src={\n                      msg.role === \"user\"\n                        ? \"https://github.com/shadcn.png\"\n                        : \"/avatars/shadcn.jpg\"\n                    }\n                    name={msg.role === \"user\" ? \"User\" : \"AI\"}\n                  />\n                  <MessageContent>{msg.content}</MessageContent>\n                </Message>\n              ))}\n            </div>\n          )}\n        </ConversationContent>\n      </Conversation>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-range-picker-controlled",
+  "type": "registry:example",
+  "dependencies": [
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "date-range-picker"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/date-range-picker-controlled.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { parseDate } from \"@internationalized/date\"\n\nimport { DateRangePicker } from \"@/registry/new-york-v4/ui/date-range-picker\"\n\nexport default function DateRangePickerControlled() {\n  const [value, setValue] = useState({\n    start: parseDate(\"2024-12-20\"),\n    end: parseDate(\"2024-12-27\"),\n  })\n\n  return (\n    <div className=\"space-y-4\">\n      <DateRangePicker\n        label=\"Hotel reservation\"\n        description=\"Select your check-in and check-out dates.\"\n        value={value}\n        onChange={setValue}\n      />\n      <p className=\"text-muted-foreground text-sm\">\n        Selected range: {value.start.toString()} to {value.end.toString()}\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

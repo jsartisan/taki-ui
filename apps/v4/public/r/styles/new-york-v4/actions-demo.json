@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "actions-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "actions",
+    "button",
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/actions-demo.tsx",
+      "content": "import {\n  CopyIcon,\n  RefreshCwIcon,\n  ThumbsDownIcon,\n  ThumbsUpIcon,\n} from \"lucide-react\"\n\nimport { Action, Actions } from \"@/registry/new-york-v4/ai-elements/actions\"\n\nexport default function ActionsDemo() {\n  return (\n    <Actions>\n      <Action tooltip=\"Copy\" label=\"Copy\">\n        <CopyIcon className=\"size-4\" />\n      </Action>\n      <Action tooltip=\"Like\" label=\"Like\">\n        <ThumbsUpIcon className=\"size-4\" />\n      </Action>\n      <Action tooltip=\"Dislike\" label=\"Dislike\">\n        <ThumbsDownIcon className=\"size-4\" />\n      </Action>\n      <Action tooltip=\"Regenerate\" label=\"Regenerate\">\n        <RefreshCwIcon className=\"size-4\" />\n      </Action>\n    </Actions>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

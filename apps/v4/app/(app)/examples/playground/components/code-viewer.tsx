@@ -1,27 +1,26 @@
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Dialog,
-  DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/registry/new-york-v4/ui/dialog"
+import { Modal } from "@/registry/new-york-v4/ui/modal"
 
 export function CodeViewer() {
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="secondary">View code</Button>
-      </DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>View code</DialogTitle>
-          <DialogDescription>
-            You can use the following code to start integrating your current
-            prompt and settings into your application.
-          </DialogDescription>
-        </DialogHeader>
+    <DialogTrigger>
+      <Button variant="secondary">View code</Button>
+      <Modal>
+        <Dialog>
+          <DialogHeader>
+            <DialogTitle>View code</DialogTitle>
+            <DialogDescription>
+              You can use the following code to start integrating your current
+              prompt and settings into your application.
+            </DialogDescription>
+          </DialogHeader>
         <div className="grid gap-4">
           <div className="rounded-md bg-black p-6">
             <pre>
@@ -83,7 +82,8 @@ export function CodeViewer() {
             </p>
           </div>
         </div>
-      </DialogContent>
-    </Dialog>
+        </Dialog>
+      </Modal>
+    </DialogTrigger>
   )
 }

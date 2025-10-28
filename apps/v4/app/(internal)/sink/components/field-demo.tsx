@@ -63,22 +63,12 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/registry/new-york-v4/ui/input-otp"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 import {
   RadioGroup,
   RadioGroupItem,
 } from "@/registry/new-york-v4/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 import { Slider } from "@/registry/new-york-v4/ui/slider"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
@@ -943,15 +933,15 @@ function ClusterConfig() {
               <FieldDescription>You can add more time later.</FieldDescription>
               <ButtonGroup>
                 <Input />
-                <Select defaultValue="hours">
-                  <SelectTrigger id="duration-b9p" className="w-24">
-                    <SelectValue placeholder="Select duration" />
-                  </SelectTrigger>
-                  <SelectContent align="end">
-                    <SelectItem value="hours">Hours</SelectItem>
-                    <SelectItem value="days">Days</SelectItem>
-                    <SelectItem value="weeks">Weeks</SelectItem>
-                  </SelectContent>
+                <Select
+                  id="duration-b9p"
+                  defaultSelectedKey="hours"
+                  placeholder="Select duration"
+                  className="w-24"
+                >
+                  <SelectItem id="hours">Hours</SelectItem>
+                  <SelectItem id="days">Days</SelectItem>
+                  <SelectItem id="weeks">Weeks</SelectItem>
                 </Select>
               </ButtonGroup>
             </Field>
@@ -1373,29 +1363,28 @@ function FinderPreferencesForm() {
             <FieldSeparator />
             <Field>
               <FieldLabel>New Finder windows show:</FieldLabel>
-              <Select defaultValue="home">
-                <SelectTrigger id="finder-pref-9k2-new-window-zga">
-                  <SelectValue placeholder="Select location" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="recents">
-                    <ClockIcon />
-                    Recents
-                  </SelectItem>
-                  <SelectItem value="home">
-                    <FolderIcon />
-                    shadcn
-                  </SelectItem>
-                  <SelectItem value="desktop">
-                    <MonitorIcon /> Desktop
-                  </SelectItem>
-                  <SelectItem value="documents">
-                    <FileTextIcon /> Documents
-                  </SelectItem>
-                  <SelectItem value="downloads">
-                    <DownloadIcon /> Downloads
-                  </SelectItem>
-                </SelectContent>
+              <Select
+                id="finder-pref-9k2-new-window-zga"
+                defaultSelectedKey="home"
+                placeholder="Select location"
+              >
+                <SelectItem id="recents">
+                  <ClockIcon />
+                  Recents
+                </SelectItem>
+                <SelectItem id="home">
+                  <FolderIcon />
+                  shadcn
+                </SelectItem>
+                <SelectItem id="desktop">
+                  <MonitorIcon /> Desktop
+                </SelectItem>
+                <SelectItem id="documents">
+                  <FileTextIcon /> Documents
+                </SelectItem>
+                <SelectItem id="downloads">
+                  <DownloadIcon /> Downloads
+                </SelectItem>
               </Select>
               <InputGroup>
                 <InputGroupInput placeholder="Select location" />
@@ -1479,16 +1468,11 @@ function ContactForm() {
             </Field>
             <Field>
               <FieldLabel htmlFor="subject-exn">Subject</FieldLabel>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select a subject" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="general">General Inquiry</SelectItem>
-                  <SelectItem value="support">Technical Support</SelectItem>
-                  <SelectItem value="billing">Billing Question</SelectItem>
-                  <SelectItem value="partnership">Partnership</SelectItem>
-                </SelectContent>
+              <Select placeholder="Select a subject">
+                <SelectItem id="general">General Inquiry</SelectItem>
+                <SelectItem id="support">Technical Support</SelectItem>
+                <SelectItem id="billing">Billing Question</SelectItem>
+                <SelectItem id="partnership">Partnership</SelectItem>
               </Select>
             </Field>
             <Field>
@@ -1682,36 +1666,24 @@ export function JobApplicationForm() {
             </Field>
             <Field>
               <FieldLabel htmlFor="position-k7f">Position</FieldLabel>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select position" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="frontend">Frontend Developer</SelectItem>
-                  <SelectItem value="backend">Backend Developer</SelectItem>
-                  <SelectItem value="fullstack">
-                    Full Stack Developer
-                  </SelectItem>
-                  <SelectItem value="designer">UI/UX Designer</SelectItem>
-                  <SelectItem value="manager">Product Manager</SelectItem>
-                </SelectContent>
+              <Select placeholder="Select position">
+                <SelectItem id="frontend">Frontend Developer</SelectItem>
+                <SelectItem id="backend">Backend Developer</SelectItem>
+                <SelectItem id="fullstack">Full Stack Developer</SelectItem>
+                <SelectItem id="designer">UI/UX Designer</SelectItem>
+                <SelectItem id="manager">Product Manager</SelectItem>
               </Select>
             </Field>
             <Field>
               <FieldLabel htmlFor="experience-5ih">
                 Years of Experience
               </FieldLabel>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select experience level" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="0-1">0-1 years</SelectItem>
-                  <SelectItem value="2-3">2-3 years</SelectItem>
-                  <SelectItem value="4-6">4-6 years</SelectItem>
-                  <SelectItem value="7-10">7-10 years</SelectItem>
-                  <SelectItem value="10+">10+ years</SelectItem>
-                </SelectContent>
+              <Select placeholder="Select experience level">
+                <SelectItem id="0-1">0-1 years</SelectItem>
+                <SelectItem id="2-3">2-3 years</SelectItem>
+                <SelectItem id="4-6">4-6 years</SelectItem>
+                <SelectItem id="7-10">7-10 years</SelectItem>
+                <SelectItem id="10+">10+ years</SelectItem>
               </Select>
             </Field>
             <Field>
@@ -1931,16 +1903,11 @@ export function PaymentForm() {
                   <FieldLabel htmlFor="payment-9n3-country-7r4">
                     Country
                   </FieldLabel>
-                  <Select>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select country" />
-                    </SelectTrigger>
-                    <SelectContent position="item-aligned">
-                      <SelectItem value="us">United States</SelectItem>
-                      <SelectItem value="ca">Canada</SelectItem>
-                      <SelectItem value="uk">United Kingdom</SelectItem>
-                      <SelectItem value="au">Australia</SelectItem>
-                    </SelectContent>
+                  <Select placeholder="Select country">
+                    <SelectItem id="us">United States</SelectItem>
+                    <SelectItem id="ca">Canada</SelectItem>
+                    <SelectItem id="uk">United Kingdom</SelectItem>
+                    <SelectItem id="au">Australia</SelectItem>
                   </Select>
                 </Field>
               </FieldGroup>
@@ -2084,28 +2051,21 @@ export function FormSelectDemo() {
         <FieldGroup>
           <Field>
             <FieldLabel htmlFor="select-4c6-basic-ttc">Basic Select</FieldLabel>
-            <Select>
-              <SelectTrigger id="select-4c6-basic-ttc">
-                <SelectValue placeholder="Choose an option" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="option1">Option 1</SelectItem>
-                <SelectItem value="option2">Option 2</SelectItem>
-                <SelectItem value="option3">Option 3</SelectItem>
-              </SelectContent>
+            <Select id="select-4c6-basic-ttc" placeholder="Choose an option">
+              <SelectItem id="option1">Option 1</SelectItem>
+              <SelectItem id="option2">Option 2</SelectItem>
+              <SelectItem id="option3">Option 3</SelectItem>
             </Select>
           </Field>
           <Field>
             <FieldLabel htmlFor="select-4c6-country-dc2">Country</FieldLabel>
-            <Select>
-              <SelectTrigger id="select-4c6-country-dc2">
-                <SelectValue placeholder="Select your country" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="us">United States</SelectItem>
-                <SelectItem value="uk">United Kingdom</SelectItem>
-                <SelectItem value="ca">Canada</SelectItem>
-              </SelectContent>
+            <Select
+              id="select-4c6-country-dc2"
+              placeholder="Select your country"
+            >
+              <SelectItem id="us">United States</SelectItem>
+              <SelectItem id="uk">United Kingdom</SelectItem>
+              <SelectItem id="ca">Canada</SelectItem>
             </Select>
             <FieldDescription>
               Select the country where you currently reside.
@@ -2116,15 +2076,10 @@ export function FormSelectDemo() {
             <FieldDescription>
               Choose your local timezone for accurate scheduling.
             </FieldDescription>
-            <Select>
-              <SelectTrigger id="select-4c6-timezone-es6">
-                <SelectValue placeholder="Select timezone" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="utc">UTC</SelectItem>
-                <SelectItem value="est">Eastern Time</SelectItem>
-                <SelectItem value="pst">Pacific Time</SelectItem>
-              </SelectContent>
+            <Select id="select-4c6-timezone-es6" placeholder="Select timezone">
+              <SelectItem id="utc">UTC</SelectItem>
+              <SelectItem id="est">Eastern Time</SelectItem>
+              <SelectItem id="pst">Pacific Time</SelectItem>
             </Select>
           </Field>
         </FieldGroup>
@@ -2908,54 +2863,50 @@ export function FormDatePickerDemo() {
         <FieldGroup>
           <Field data-invalid={true}>
             <FieldLabel htmlFor="basic-date-6st">Select Date</FieldLabel>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  id="basic-date-6st"
-                  variant="outline"
-                  aria-invalid={true}
-                  className={cn(
-                    "w-full justify-start text-left font-normal",
-                    !date && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon />
-                  {date ? format(date, "PPP") : <span>Pick a date</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
+            <DialogTrigger>
+              <Button
+                id="basic-date-6st"
+                variant="outline"
+                aria-invalid={true}
+                className={cn(
+                  "w-full justify-start text-left font-normal",
+                  !date && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon />
+                {date ? format(date, "PPP") : <span>Pick a date</span>}
+              </Button>
+              <Popover className="w-auto p-0">
                 <Calendar mode="single" selected={date} onSelect={setDate} />
-              </PopoverContent>
-            </Popover>
+              </Popover>
+            </DialogTrigger>
           </Field>
           <Field>
             <FieldLabel htmlFor="birth-date-0fq">Date of Birth</FieldLabel>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  id="birth-date-0fq"
-                  variant="outline"
-                  className={cn(
-                    "w-full justify-start text-left font-normal",
-                    !birthDate && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon />
-                  {birthDate ? (
-                    format(birthDate, "PPP")
-                  ) : (
-                    <span>Select your birth date</span>
-                  )}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
+            <DialogTrigger>
+              <Button
+                id="birth-date-0fq"
+                variant="outline"
+                className={cn(
+                  "w-full justify-start text-left font-normal",
+                  !birthDate && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon />
+                {birthDate ? (
+                  format(birthDate, "PPP")
+                ) : (
+                  <span>Select your birth date</span>
+                )}
+              </Button>
+              <Popover className="w-auto p-0">
                 <Calendar
                   mode="single"
                   selected={birthDate}
                   onSelect={setBirthDate}
                 />
-              </PopoverContent>
-            </Popover>
+              </Popover>
+            </DialogTrigger>
             <FieldDescription>
               We use this to calculate your age and provide age-appropriate
               content.
@@ -2966,25 +2917,23 @@ export function FormDatePickerDemo() {
             <FieldDescription>
               Select a date for your appointment (weekdays only).
             </FieldDescription>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  id="appointment-f44"
-                  variant="outline"
-                  className={cn(
-                    "w-full justify-start text-left font-normal",
-                    !appointmentDate && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon />
-                  {appointmentDate ? (
-                    format(appointmentDate, "PPP")
-                  ) : (
-                    <span>Schedule appointment</span>
-                  )}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
+            <DialogTrigger>
+              <Button
+                id="appointment-f44"
+                variant="outline"
+                className={cn(
+                  "w-full justify-start text-left font-normal",
+                  !appointmentDate && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon />
+                {appointmentDate ? (
+                  format(appointmentDate, "PPP")
+                ) : (
+                  <span>Schedule appointment</span>
+                )}
+              </Button>
+              <Popover className="w-auto p-0">
                 <Calendar
                   mode="single"
                   selected={appointmentDate}
@@ -2995,37 +2944,35 @@ export function FormDatePickerDemo() {
                     date.getDay() === 6
                   }
                 />
-              </PopoverContent>
-            </Popover>
+              </Popover>
+            </DialogTrigger>
           </Field>
           <Field>
             <FieldLabel htmlFor="date-range-7yr">Date Range</FieldLabel>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  id="date-range-7yr"
-                  variant="outline"
-                  className={cn(
-                    "w-full justify-start text-left font-normal",
-                    !dateRange && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon />
-                  {dateRange?.from ? (
-                    dateRange.to ? (
-                      <>
-                        {format(dateRange.from, "LLL dd, y")} -{" "}
-                        {format(dateRange.to, "LLL dd, y")}
-                      </>
-                    ) : (
-                      format(dateRange.from, "LLL dd, y")
-                    )
+            <DialogTrigger>
+              <Button
+                id="date-range-7yr"
+                variant="outline"
+                className={cn(
+                  "w-full justify-start text-left font-normal",
+                  !dateRange && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon />
+                {dateRange?.from ? (
+                  dateRange.to ? (
+                    <>
+                      {format(dateRange.from, "LLL dd, y")} -{" "}
+                      {format(dateRange.to, "LLL dd, y")}
+                    </>
                   ) : (
-                    <span>Pick a date range</span>
-                  )}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
+                    format(dateRange.from, "LLL dd, y")
+                  )
+                ) : (
+                  <span>Pick a date range</span>
+                )}
+              </Button>
+              <Popover className="w-auto p-0">
                 <Calendar
                   mode="range"
                   defaultMonth={dateRange?.from}
@@ -3033,40 +2980,38 @@ export function FormDatePickerDemo() {
                   onSelect={setDateRange}
                   numberOfMonths={2}
                 />
-              </PopoverContent>
-            </Popover>
+              </Popover>
+            </DialogTrigger>
             <FieldDescription>
               Select start and end dates for your report.
             </FieldDescription>
           </Field>
           <Field>
             <FieldLabel htmlFor="vacation-w9w">Vacation Dates</FieldLabel>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button
-                  id="vacation-w9w"
-                  variant="outline"
-                  className={cn(
-                    "w-full justify-start text-left font-normal",
-                    !vacationDates && "text-muted-foreground"
-                  )}
-                >
-                  <CalendarIcon />
-                  {vacationDates?.from ? (
-                    vacationDates.to ? (
-                      <>
-                        {format(vacationDates.from, "LLL dd, y")} -{" "}
-                        {format(vacationDates.to, "LLL dd, y")}
-                      </>
-                    ) : (
-                      format(vacationDates.from, "LLL dd, y")
-                    )
+            <DialogTrigger>
+              <Button
+                id="vacation-w9w"
+                variant="outline"
+                className={cn(
+                  "w-full justify-start text-left font-normal",
+                  !vacationDates && "text-muted-foreground"
+                )}
+              >
+                <CalendarIcon />
+                {vacationDates?.from ? (
+                  vacationDates.to ? (
+                    <>
+                      {format(vacationDates.from, "LLL dd, y")} -{" "}
+                      {format(vacationDates.to, "LLL dd, y")}
+                    </>
                   ) : (
-                    <span>Select vacation dates</span>
-                  )}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
+                    format(vacationDates.from, "LLL dd, y")
+                  )
+                ) : (
+                  <span>Select vacation dates</span>
+                )}
+              </Button>
+              <Popover className="w-auto p-0">
                 <div className="flex flex-col">
                   <div className="flex gap-2 border-b p-3">
                     <Button
@@ -3102,8 +3047,8 @@ export function FormDatePickerDemo() {
                     numberOfMonths={2}
                   />
                 </div>
-              </PopoverContent>
-            </Popover>
+              </Popover>
+            </DialogTrigger>
             <FieldDescription>
               Choose your vacation period. Quick presets available.
             </FieldDescription>
@@ -3315,17 +3260,15 @@ export function FormFieldSetDemo() {
                 <FieldLabel htmlFor="emergency-relationship-9ja">
                   Relationship
                 </FieldLabel>
-                <Select>
-                  <SelectTrigger id="emergency-relationship-9ja">
-                    <SelectValue placeholder="Select relationship" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="spouse">Spouse</SelectItem>
-                    <SelectItem value="parent">Parent</SelectItem>
-                    <SelectItem value="sibling">Sibling</SelectItem>
-                    <SelectItem value="friend">Friend</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
+                <Select
+                  id="emergency-relationship-9ja"
+                  placeholder="Select relationship"
+                >
+                  <SelectItem id="spouse">Spouse</SelectItem>
+                  <SelectItem id="parent">Parent</SelectItem>
+                  <SelectItem id="sibling">Sibling</SelectItem>
+                  <SelectItem id="friend">Friend</SelectItem>
+                  <SelectItem id="other">Other</SelectItem>
                 </Select>
               </Field>
               <Field>
@@ -3767,17 +3710,12 @@ export function SurveyForm() {
             </Field>
             <Field>
               <FieldLabel htmlFor="ageGroup-302">Age Group</FieldLabel>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select age group" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="18-24">18-24</SelectItem>
-                  <SelectItem value="25-34">25-34</SelectItem>
-                  <SelectItem value="35-44">35-44</SelectItem>
-                  <SelectItem value="45-54">45-54</SelectItem>
-                  <SelectItem value="55+">55+</SelectItem>
-                </SelectContent>
+              <Select placeholder="Select age group">
+                <SelectItem id="18-24">18-24</SelectItem>
+                <SelectItem id="25-34">25-34</SelectItem>
+                <SelectItem id="35-44">35-44</SelectItem>
+                <SelectItem id="45-54">45-54</SelectItem>
+                <SelectItem id="55+">55+</SelectItem>
               </Select>
             </Field>
             <Field>
@@ -3895,17 +3833,12 @@ export function SurveyForm() {
               <FieldLabel htmlFor="recommend-aym">
                 Would you recommend our product to others?
               </FieldLabel>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select recommendation level" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="definitely">Definitely</SelectItem>
-                  <SelectItem value="probably">Probably</SelectItem>
-                  <SelectItem value="maybe">Maybe</SelectItem>
-                  <SelectItem value="probably-not">Probably Not</SelectItem>
-                  <SelectItem value="definitely-not">Definitely Not</SelectItem>
-                </SelectContent>
+              <Select placeholder="Select recommendation level">
+                <SelectItem id="definitely">Definitely</SelectItem>
+                <SelectItem id="probably">Probably</SelectItem>
+                <SelectItem id="maybe">Maybe</SelectItem>
+                <SelectItem id="probably-not">Probably Not</SelectItem>
+                <SelectItem id="definitely-not">Definitely Not</SelectItem>
               </Select>
             </Field>
 
@@ -3994,22 +3927,13 @@ export function ComplexFormDemo() {
                   <FieldLabel htmlFor="position-k7f">
                     Position Applying For
                   </FieldLabel>
-                  <Select>
-                    <SelectTrigger id="position-k7f">
-                      <SelectValue placeholder="Select a position" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="frontend">
-                        Frontend Developer
-                      </SelectItem>
-                      <SelectItem value="backend">Backend Developer</SelectItem>
-                      <SelectItem value="fullstack">
-                        Full Stack Developer
-                      </SelectItem>
-                      <SelectItem value="designer">UI/UX Designer</SelectItem>
-                      <SelectItem value="pm">Product Manager</SelectItem>
-                      <SelectItem value="devops">DevOps Engineer</SelectItem>
-                    </SelectContent>
+                  <Select id="position-k7f" placeholder="Select a position">
+                    <SelectItem id="frontend">Frontend Developer</SelectItem>
+                    <SelectItem id="backend">Backend Developer</SelectItem>
+                    <SelectItem id="fullstack">Full Stack Developer</SelectItem>
+                    <SelectItem id="designer">UI/UX Designer</SelectItem>
+                    <SelectItem id="pm">Product Manager</SelectItem>
+                    <SelectItem id="devops">DevOps Engineer</SelectItem>
                   </Select>
                 </Field>
 
@@ -4240,33 +4164,31 @@ export function ComplexFormInvalidDemo() {
                     <FieldLabel htmlFor="birthdate-invalid-49m">
                       Date of Birth
                     </FieldLabel>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          id="birthdate-invalid-49m"
-                          variant="outline"
-                          className={cn(
-                            "w-full justify-start text-left font-normal",
-                            !startDate && "text-muted-foreground"
-                          )}
-                        >
-                          <CalendarIcon />
-                          {startDate ? (
-                            format(startDate, "PPP")
-                          ) : (
-                            <span>Pick a date</span>
-                          )}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
+                    <DialogTrigger>
+                      <Button
+                        id="birthdate-invalid-49m"
+                        variant="outline"
+                        className={cn(
+                          "w-full justify-start text-left font-normal",
+                          !startDate && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon />
+                        {startDate ? (
+                          format(startDate, "PPP")
+                        ) : (
+                          <span>Pick a date</span>
+                        )}
+                      </Button>
+                      <Popover className="w-auto p-0">
                         <Calendar
                           mode="single"
                           selected={startDate}
                           onSelect={setStartDate}
                           aria-invalid
                         />
-                      </PopoverContent>
-                    </Popover>
+                      </Popover>
+                    </DialogTrigger>
                   </Field>
                 </div>
                 <Field data-invalid>
@@ -4308,22 +4230,17 @@ export function ComplexFormInvalidDemo() {
                   <FieldLabel htmlFor="position-invalid-1fv">
                     Position Applying For
                   </FieldLabel>
-                  <Select>
-                    <SelectTrigger id="position-invalid-1fv" aria-invalid>
-                      <SelectValue placeholder="Select a position" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="frontend">
-                        Frontend Developer
-                      </SelectItem>
-                      <SelectItem value="backend">Backend Developer</SelectItem>
-                      <SelectItem value="fullstack">
-                        Full Stack Developer
-                      </SelectItem>
-                      <SelectItem value="designer">UI/UX Designer</SelectItem>
-                      <SelectItem value="pm">Product Manager</SelectItem>
-                      <SelectItem value="devops">DevOps Engineer</SelectItem>
-                    </SelectContent>
+                  <Select
+                    id="position-invalid-1fv"
+                    placeholder="Select a position"
+                    isInvalid
+                  >
+                    <SelectItem id="frontend">Frontend Developer</SelectItem>
+                    <SelectItem id="backend">Backend Developer</SelectItem>
+                    <SelectItem id="fullstack">Full Stack Developer</SelectItem>
+                    <SelectItem id="designer">UI/UX Designer</SelectItem>
+                    <SelectItem id="pm">Product Manager</SelectItem>
+                    <SelectItem id="devops">DevOps Engineer</SelectItem>
                   </Select>
                 </Field>
                 <Field data-invalid>
@@ -4516,15 +4433,10 @@ export function FormOrientationDemo() {
               </Field>
               <Field>
                 <FieldLabel htmlFor="vertical-select">Country</FieldLabel>
-                <Select>
-                  <SelectTrigger id="vertical-select">
-                    <SelectValue placeholder="Select country" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="us">United States</SelectItem>
-                    <SelectItem value="uk">United Kingdom</SelectItem>
-                    <SelectItem value="ca">Canada</SelectItem>
-                  </SelectContent>
+                <Select id="vertical-select" placeholder="Select country">
+                  <SelectItem id="us">United States</SelectItem>
+                  <SelectItem id="uk">United Kingdom</SelectItem>
+                  <SelectItem id="ca">Canada</SelectItem>
                 </Select>
               </Field>
               <Field orientation="horizontal">
@@ -4564,15 +4476,10 @@ export function FormOrientationDemo() {
                     Choose your preferred theme
                   </FieldDescription>
                 </FieldContent>
-                <Select>
-                  <SelectTrigger id="horizontal-theme">
-                    <SelectValue placeholder="Select theme" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="light">Light</SelectItem>
-                    <SelectItem value="dark">Dark</SelectItem>
-                    <SelectItem value="system">System</SelectItem>
-                  </SelectContent>
+                <Select id="horizontal-theme" placeholder="Select theme">
+                  <SelectItem id="light">Light</SelectItem>
+                  <SelectItem id="dark">Dark</SelectItem>
+                  <SelectItem id="system">System</SelectItem>
                 </Select>
               </Field>
               <Field orientation="horizontal">
@@ -4623,16 +4530,11 @@ export function FormOrientationDemo() {
                     Select your preferred language
                   </FieldDescription>
                 </FieldContent>
-                <Select>
-                  <SelectTrigger id="responsive-language">
-                    <SelectValue placeholder="Select language" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="en">English</SelectItem>
-                    <SelectItem value="es">Spanish</SelectItem>
-                    <SelectItem value="fr">French</SelectItem>
-                    <SelectItem value="de">German</SelectItem>
-                  </SelectContent>
+                <Select id="responsive-language" placeholder="Select language">
+                  <SelectItem id="en">English</SelectItem>
+                  <SelectItem id="es">Spanish</SelectItem>
+                  <SelectItem id="fr">French</SelectItem>
+                  <SelectItem id="de">German</SelectItem>
                 </Select>
               </Field>
               <Field orientation="responsive">
@@ -4764,17 +4666,12 @@ function CheckoutForm() {
                     <FieldLabel htmlFor="checkout-7j9-state-psg">
                       State
                     </FieldLabel>
-                    <Select defaultValue="">
-                      <SelectTrigger id="checkout-7j9-state-psg">
-                        <SelectValue placeholder="Select" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="ca">CA</SelectItem>
-                        <SelectItem value="ny">NY</SelectItem>
-                        <SelectItem value="tx">TX</SelectItem>
-                        <SelectItem value="fl">FL</SelectItem>
-                        <SelectItem value="wa">WA</SelectItem>
-                      </SelectContent>
+                    <Select id="checkout-7j9-state-psg" placeholder="Select">
+                      <SelectItem id="ca">CA</SelectItem>
+                      <SelectItem id="ny">NY</SelectItem>
+                      <SelectItem id="tx">TX</SelectItem>
+                      <SelectItem id="fl">FL</SelectItem>
+                      <SelectItem id="wa">WA</SelectItem>
                     </Select>
                   </Field>
                   <Field>
@@ -4787,16 +4684,14 @@ function CheckoutForm() {
                     <FieldLabel htmlFor="checkout-7j9-country-code-fl7">
                       Code
                     </FieldLabel>
-                    <Select defaultValue="us">
-                      <SelectTrigger id="checkout-7j9-country-code-fl7">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="us">+1</SelectItem>
-                        <SelectItem value="uk">+44</SelectItem>
-                        <SelectItem value="ca">+1</SelectItem>
-                        <SelectItem value="au">+61</SelectItem>
-                      </SelectContent>
+                    <Select
+                      id="checkout-7j9-country-code-fl7"
+                      defaultSelectedKey="us"
+                    >
+                      <SelectItem id="us">+1</SelectItem>
+                      <SelectItem id="uk">+44</SelectItem>
+                      <SelectItem id="ca">+1</SelectItem>
+                      <SelectItem id="au">+61</SelectItem>
                     </Select>
                   </Field>
                   <Field className="col-span-3">
@@ -4848,42 +4743,32 @@ function CheckoutForm() {
                     <FieldLabel htmlFor="checkout-7j9-exp-month-ts6">
                       Month
                     </FieldLabel>
-                    <Select defaultValue="">
-                      <SelectTrigger id="checkout-7j9-exp-month-ts6">
-                        <SelectValue placeholder="MM" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="01">01</SelectItem>
-                        <SelectItem value="02">02</SelectItem>
-                        <SelectItem value="03">03</SelectItem>
-                        <SelectItem value="04">04</SelectItem>
-                        <SelectItem value="05">05</SelectItem>
-                        <SelectItem value="06">06</SelectItem>
-                        <SelectItem value="07">07</SelectItem>
-                        <SelectItem value="08">08</SelectItem>
-                        <SelectItem value="09">09</SelectItem>
-                        <SelectItem value="10">10</SelectItem>
-                        <SelectItem value="11">11</SelectItem>
-                        <SelectItem value="12">12</SelectItem>
-                      </SelectContent>
+                    <Select id="checkout-7j9-exp-month-ts6" placeholder="MM">
+                      <SelectItem id="01">01</SelectItem>
+                      <SelectItem id="02">02</SelectItem>
+                      <SelectItem id="03">03</SelectItem>
+                      <SelectItem id="04">04</SelectItem>
+                      <SelectItem id="05">05</SelectItem>
+                      <SelectItem id="06">06</SelectItem>
+                      <SelectItem id="07">07</SelectItem>
+                      <SelectItem id="08">08</SelectItem>
+                      <SelectItem id="09">09</SelectItem>
+                      <SelectItem id="10">10</SelectItem>
+                      <SelectItem id="11">11</SelectItem>
+                      <SelectItem id="12">12</SelectItem>
                     </Select>
                   </Field>
                   <Field>
                     <FieldLabel htmlFor="checkout-7j9-exp-year-f59">
                       Year
                     </FieldLabel>
-                    <Select defaultValue="">
-                      <SelectTrigger id="checkout-7j9-exp-year-f59">
-                        <SelectValue placeholder="YYYY" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="2024">2024</SelectItem>
-                        <SelectItem value="2025">2025</SelectItem>
-                        <SelectItem value="2026">2026</SelectItem>
-                        <SelectItem value="2027">2027</SelectItem>
-                        <SelectItem value="2028">2028</SelectItem>
-                        <SelectItem value="2029">2029</SelectItem>
-                      </SelectContent>
+                    <Select id="checkout-7j9-exp-year-f59" placeholder="YYYY">
+                      <SelectItem id="2024">2024</SelectItem>
+                      <SelectItem id="2025">2025</SelectItem>
+                      <SelectItem id="2026">2026</SelectItem>
+                      <SelectItem id="2027">2027</SelectItem>
+                      <SelectItem id="2028">2028</SelectItem>
+                      <SelectItem id="2029">2029</SelectItem>
                     </Select>
                   </Field>
                   <Field>

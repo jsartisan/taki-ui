@@ -4,10 +4,7 @@ import {
   FieldLabel,
   FieldSet,
 } from "@/registry/new-york-v4/ui/field"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/new-york-v4/ui/radio-group"
+import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
 
 export default function FieldRadio() {
   return (
@@ -19,19 +16,19 @@ export default function FieldRadio() {
         </FieldDescription>
         <RadioGroup defaultValue="monthly">
           <Field orientation="horizontal">
-            <RadioGroupItem value="monthly" id="plan-monthly" />
+            <Radio value="monthly" id="plan-monthly" />
             <FieldLabel htmlFor="plan-monthly" className="font-normal">
               Monthly ($9.99/month)
             </FieldLabel>
           </Field>
           <Field orientation="horizontal">
-            <RadioGroupItem value="yearly" id="plan-yearly" />
+            <Radio value="yearly" id="plan-yearly" />
             <FieldLabel htmlFor="plan-yearly" className="font-normal">
               Yearly ($99.99/year)
             </FieldLabel>
           </Field>
           <Field orientation="horizontal">
-            <RadioGroupItem value="lifetime" id="plan-lifetime" />
+            <Radio value="lifetime" id="plan-lifetime" />
             <FieldLabel htmlFor="plan-lifetime" className="font-normal">
               Lifetime ($299.99)
             </FieldLabel>

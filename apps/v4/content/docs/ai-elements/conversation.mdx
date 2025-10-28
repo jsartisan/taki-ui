@@ -1,0 +1,129 @@
+---
+title: Conversation
+description: Container for chat message threads with auto-scroll behavior.
+component: true
+---
+
+<ComponentPreview name="conversation-demo" description="A conversation container with messages." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add conversation
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install use-stick-to-bottom
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="conversation" title="ai-elements/conversation.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import {
+  Conversation,
+  ConversationContent,
+  ConversationEmptyState,
+  ConversationScrollButton,
+} from "@/ai-elements/conversation"
+```
+
+```tsx
+<Conversation>
+  <ConversationContent>
+    {messages.map((msg) => (
+      <Message key={msg.id} from={msg.role}>
+        <MessageContent>{msg.content}</MessageContent>
+      </Message>
+    ))}
+  </ConversationContent>
+  <ConversationScrollButton />
+</Conversation>
+```
+
+## Examples
+
+### With Empty State
+
+```tsx
+<Conversation>
+  <ConversationContent>
+    {messages.length === 0 ? (
+      <ConversationEmptyState
+        title="No messages yet"
+        description="Start a conversation"
+        icon={<MessageSquareIcon />}
+      />
+    ) : (
+      // Messages here
+    )}
+  </ConversationContent>
+</Conversation>
+```
+
+### With Scroll Button
+
+The scroll button automatically appears when the user scrolls up:
+
+```tsx
+<Conversation>
+  <ConversationContent>
+    {/* Messages */}
+  </ConversationContent>
+  <ConversationScrollButton />
+</Conversation>
+```
+
+## API Reference
+
+### Conversation
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Additional CSS classes |
+
+The Conversation component uses `use-stick-to-bottom` for auto-scroll behavior.
+
+### ConversationContent
+
+Container for conversation messages.
+
+### ConversationEmptyState
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `title` | `string` | `"No messages yet"` | Empty state title |
+| `description` | `string` | `"Start a conversation to see messages here"` | Empty state description |
+| `icon` | `ReactNode` | - | Optional icon |
+
+### ConversationScrollButton
+
+Floating button that appears when not at bottom. Automatically manages its visibility.
+

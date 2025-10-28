@@ -1,0 +1,95 @@
+---
+title: Code Block
+description: Display code with syntax highlighting and copy functionality.
+component: true
+---
+
+<ComponentPreview name="code-block-demo" description="A code block with copy button." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add code-block
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="code-block" title="ai-elements/code-block.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { CodeBlock, CodeBlockCopyButton } from "@/ai-elements/code-block"
+```
+
+```tsx
+const code = `function hello() {
+  console.log("Hello, World!");
+}`
+
+<CodeBlock code={code} language="javascript">
+  <CodeBlockCopyButton />
+</CodeBlock>
+```
+
+## Examples
+
+### With Line Numbers
+
+```tsx
+<CodeBlock code={code} language="typescript" showLineNumbers>
+  <CodeBlockCopyButton />
+</CodeBlock>
+```
+
+### Custom Header
+
+```tsx
+<CodeBlock code={code} language="python">
+  <CodeBlockHeader language="python">
+    <CodeBlockCopyButton />
+  </CodeBlockHeader>
+</CodeBlock>
+```
+
+## API Reference
+
+### CodeBlock
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `code` | `string` | - | The code to display |
+| `language` | `string` | - | Programming language for syntax highlighting |
+| `showLineNumbers` | `boolean` | `false` | Whether to show line numbers |
+| `className` | `string` | - | Additional CSS classes |
+
+### CodeBlockCopyButton
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `onCopy` | `() => void` | - | Callback when code is copied |
+| `onError` | `(error: Error) => void` | - | Callback when copy fails |
+| `timeout` | `number` | `2000` | Duration to show success state (ms) |
+

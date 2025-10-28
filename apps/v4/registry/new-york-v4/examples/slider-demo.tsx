@@ -7,7 +7,8 @@ export default function SliderDemo({ className, ...props }: SliderProps) {
   return (
     <Slider
       defaultValue={[50]}
-      max={100}
+      maxValue={100}
+      minValue={0}
       step={1}
       className={cn("w-[60%]", className)}
       {...props}

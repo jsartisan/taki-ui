@@ -11,12 +11,12 @@ import { Icons } from "@/components/icons"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Dialog,
-  DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/registry/new-york-v4/ui/dialog"
+import { Modal } from "@/registry/new-york-v4/ui/modal"
 import {
   Drawer,
   DrawerContent,
@@ -27,14 +27,7 @@ import {
 } from "@/registry/new-york-v4/ui/drawer"
 import { Label } from "@/registry/new-york-v4/ui/label"
 import { ScrollArea, ScrollBar } from "@/registry/new-york-v4/ui/scroll-area"
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import {
   Tabs,
   TabsContent,
@@ -79,34 +72,18 @@ export function ThemeCustomizer({ className }: React.ComponentProps<"div">) {
         <ScrollBar orientation="horizontal" className="invisible" />
       </ScrollArea>
       <div className="flex items-center gap-2 lg:hidden">
-        <Label htmlFor="theme-selector" className="sr-only">
-          Theme
-        </Label>
         <Select
-          value={activeTheme === "default" ? "neutral" : activeTheme}
-          onValueChange={setActiveTheme}
+          selectedKey={activeTheme === "default" ? "neutral" : activeTheme}
+          onSelectionChange={(key) => setActiveTheme(key as string)}
+          placeholder="Select a theme"
+          size="sm"
+          className="min-w-[180px]"
         >
-          <SelectTrigger
-            id="theme-selector"
-            size="sm"
-            className="justify-start capitalize shadow-none *:data-[slot=select-value]:w-12 *:data-[slot=select-value]:capitalize"
-          >
-            <span className="font-medium">Theme:</span>
-            <SelectValue placeholder="Select a theme" />
-          </SelectTrigger>
-          <SelectContent align="end">
-            <SelectGroup>
-              {THEMES.map((theme) => (
-                <SelectItem
-                  key={theme.name}
-                  value={theme.name}
-                  className="capitalize data-[state=checked]:opacity-50"
-                >
-                  {theme.name}
-                </SelectItem>
-              ))}
-            </SelectGroup>
-          </SelectContent>
+          {THEMES.map((theme) => (
+            <SelectItem key={theme.name} id={theme.name} className="capitalize">
+              {theme.name}
+            </SelectItem>
+          ))}
         </Select>
       </div>
       <CopyCodeButton variant="secondary" size="sm" className="ml-auto" />
@@ -141,24 +118,24 @@ export function CopyCodeButton({
           <CustomizerCode themeName={activeThemeName} />
         </DrawerContent>
       </Drawer>
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button className={cn("hidden sm:flex", className)} {...props}>
-            Copy Code
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="outline-none md:max-w-3xl">
-          <DialogHeader>
-            <DialogTitle className="capitalize">
-              {activeThemeName === "neutral" ? "Default" : activeThemeName}
-            </DialogTitle>
-            <DialogDescription>
-              Copy and paste the following code into your CSS file.
-            </DialogDescription>
-          </DialogHeader>
-          <CustomizerCode themeName={activeThemeName} />
-        </DialogContent>
-      </Dialog>
+      <DialogTrigger>
+        <Button className={cn("hidden sm:flex", className)} {...props}>
+          Copy Code
+        </Button>
+        <Modal>
+          <Dialog className="outline-none md:max-w-3xl">
+            <DialogHeader>
+              <DialogTitle className="capitalize">
+                {activeThemeName === "neutral" ? "Default" : activeThemeName}
+              </DialogTitle>
+              <DialogDescription>
+                Copy and paste the following code into your CSS file.
+              </DialogDescription>
+            </DialogHeader>
+            <CustomizerCode themeName={activeThemeName} />
+          </Dialog>
+        </Modal>
+      </DialogTrigger>
     </>
   )
 }

@@ -3,19 +3,14 @@ import { Copy } from "lucide-react"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { Input } from "@/registry/new-york-v4/ui/input"
 import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 export function PresetShare() {
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="secondary">Share</Button>
-      </PopoverTrigger>
-      <PopoverContent align="end" className="flex w-[520px] flex-col gap-4">
+    <DialogTrigger>
+      <Button variant="secondary">Share</Button>
+      <Popover className="flex w-[520px] flex-col gap-4">
         <div className="flex flex-col gap-1 text-center sm:text-left">
           <h3 className="text-lg font-semibold">Share preset</h3>
           <p className="text-muted-foreground text-sm">
@@ -43,7 +38,7 @@ export function PresetShare() {
             <Copy className="size-3.5" />
           </Button>
         </div>
-      </PopoverContent>
-    </Popover>
+      </Popover>
+    </DialogTrigger>
   )
 }

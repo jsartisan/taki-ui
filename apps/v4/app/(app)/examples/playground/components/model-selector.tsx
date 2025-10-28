@@ -21,11 +21,8 @@ import {
   HoverCardTrigger,
 } from "@/registry/new-york-v4/ui/hover-card"
 import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 import { Model, ModelType } from "../data/models"
 
@@ -54,20 +51,19 @@ export function ModelSelector({ models, types, ...props }: ModelSelectorProps) {
           for natural language tasks, others specialize in code. Learn more.
         </HoverCardContent>
       </HoverCard>
-      <Popover open={open} onOpenChange={setOpen} {...props}>
-        <PopoverTrigger asChild>
-          <Button
-            variant="outline"
-            role="combobox"
-            aria-expanded={open}
-            aria-label="Select a model"
-            className="w-full justify-between"
-          >
-            {selectedModel ? selectedModel.name : "Select a model..."}
-            <ChevronsUpDown className="text-muted-foreground" />
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent align="end" className="w-[250px] p-0">
+      <DialogTrigger>
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          aria-label="Select a model"
+          className="w-full justify-between"
+          onPress={() => setOpen(!open)}
+        >
+          {selectedModel ? selectedModel.name : "Select a model..."}
+          <ChevronsUpDown className="text-muted-foreground" />
+        </Button>
+        <Popover className="w-[250px] p-0">
           <HoverCard>
             <HoverCardContent
               side="left"
@@ -118,8 +114,8 @@ export function ModelSelector({ models, types, ...props }: ModelSelectorProps) {
               </CommandList>
             </Command>
           </HoverCard>
-        </PopoverContent>
-      </Popover>
+        </Popover>
+      </DialogTrigger>
     </div>
   )
 }

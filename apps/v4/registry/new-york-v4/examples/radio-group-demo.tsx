@@ -1,24 +1,19 @@
-import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/new-york-v4/ui/radio-group"
+import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
 
 export default function RadioGroupDemo() {
   return (
-    <RadioGroup defaultValue="comfortable">
-      <div className="flex items-center gap-3">
-        <RadioGroupItem value="default" id="r1" />
-        <Label htmlFor="r1">Default</Label>
-      </div>
-      <div className="flex items-center gap-3">
-        <RadioGroupItem value="comfortable" id="r2" />
-        <Label htmlFor="r2">Comfortable</Label>
-      </div>
-      <div className="flex items-center gap-3">
-        <RadioGroupItem value="compact" id="r3" />
-        <Label htmlFor="r3">Compact</Label>
-      </div>
-    </RadioGroup>
+    <div className="mx-auto w-max">
+      <RadioGroup defaultValue="comfortable" label="Comfort Level">
+        <Radio value="default" id="r1">
+          Default
+        </Radio>
+        <Radio value="comfortable" id="r2">
+          Comfortable
+        </Radio>
+        <Radio value="compact" id="r3">
+          Compact
+        </Radio>
+      </RadioGroup>
+    </div>
   )
 }

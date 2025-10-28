@@ -9,11 +9,7 @@ import {
   InputGroupInput,
 } from "@/registry/new-york-v4/ui/input-group"
 import { Kbd, KbdGroup } from "@/registry/new-york-v4/ui/kbd"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/registry/new-york-v4/ui/tooltip"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
 
 export function KbdDemo() {
   return (
@@ -66,25 +62,21 @@ export function KbdDemo() {
         </InputGroupAddon>
       </InputGroup>
       <ButtonGroup>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>
+        <TooltipTrigger>
+          <Button size="sm" variant="outline">
+            Save
+          </Button>
+          <Tooltip>
             <div className="flex items-center gap-2">
               Save Changes <Kbd>S</Kbd>
             </div>
-          </TooltipContent>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button size="sm" variant="outline">
-              Print
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>
+          </Tooltip>
+        </TooltipTrigger>
+        <TooltipTrigger>
+          <Button size="sm" variant="outline">
+            Print
+          </Button>
+          <Tooltip>
             <div className="flex items-center gap-2">
               Print Document{" "}
               <KbdGroup>
@@ -92,8 +84,8 @@ export function KbdDemo() {
                 <Kbd>P</Kbd>
               </KbdGroup>
             </div>
-          </TooltipContent>
-        </Tooltip>
+          </Tooltip>
+        </TooltipTrigger>
       </ButtonGroup>
       <Kbd>
         <samp>File</samp>

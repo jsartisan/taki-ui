@@ -18,13 +18,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/registry/new-york-v4/ui/chart"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 
 export const description = "An interactive pie chart"
 
@@ -86,40 +80,37 @@ export function ChartPieInteractive() {
           <CardTitle>Pie Chart - Interactive</CardTitle>
           <CardDescription>January - June 2024</CardDescription>
         </div>
-        <Select value={activeMonth} onValueChange={setActiveMonth}>
-          <SelectTrigger
-            className="ml-auto h-7 w-[130px] rounded-lg pl-2.5"
-            aria-label="Select a value"
-          >
-            <SelectValue placeholder="Select month" />
-          </SelectTrigger>
-          <SelectContent align="end" className="rounded-xl">
-            {months.map((key) => {
-              const config = chartConfig[key as keyof typeof chartConfig]
+        <Select
+          selectedKey={activeMonth}
+          onSelectionChange={(key) => setActiveMonth(key as string)}
+          aria-label="Select a value"
+          className="ml-auto h-7 w-[130px] rounded-lg pl-2.5"
+        >
+          {months.map((key) => {
+            const config = chartConfig[key as keyof typeof chartConfig]
 
-              if (!config) {
-                return null
-              }
+            if (!config) {
+              return null
+            }
 
-              return (
-                <SelectItem
-                  key={key}
-                  value={key}
-                  className="rounded-lg [&_span]:flex"
-                >
-                  <div className="flex items-center gap-2 text-xs">
-                    <span
-                      className="flex h-3 w-3 shrink-0 rounded-xs"
-                      style={{
-                        backgroundColor: `var(--color-${key})`,
-                      }}
-                    />
-                    {config?.label}
-                  </div>
-                </SelectItem>
-              )
-            })}
-          </SelectContent>
+            return (
+              <SelectItem
+                key={key}
+                id={key}
+                className="rounded-lg [&_span]:flex"
+              >
+                <div className="flex items-center gap-2 text-xs">
+                  <span
+                    className="flex h-3 w-3 shrink-0 rounded-xs"
+                    style={{
+                      backgroundColor: `var(--color-${key})`,
+                    }}
+                  />
+                  {config?.label}
+                </div>
+              </SelectItem>
+            )
+          })}
         </Select>
       </CardHeader>
       <CardContent className="flex flex-1 justify-center pb-0">

@@ -16,6 +16,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/registry/new-york-v4/ui/command"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
 import {
   Form,
   FormControl,
@@ -25,11 +26,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/registry/new-york-v4/ui/form"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 const languages = [
   { label: "English", value: "en" },
@@ -73,27 +70,24 @@ export default function ComboboxForm() {
           render={({ field }) => (
             <FormItem className="flex flex-col">
               <FormLabel>Language</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant="outline"
-                      role="combobox"
-                      className={cn(
-                        "w-[200px] justify-between",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value
-                        ? languages.find(
-                            (language) => language.value === field.value
-                          )?.label
-                        : "Select language"}
-                      <ChevronsUpDown className="opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0">
+              <DialogTrigger>
+                <FormControl>
+                  <Button
+                    variant="outline"
+                    className={cn(
+                      "w-[200px] justify-between",
+                      !field.value && "text-muted-foreground"
+                    )}
+                  >
+                    {field.value
+                      ? languages.find(
+                          (language) => language.value === field.value
+                        )?.label
+                      : "Select language"}
+                    <ChevronsUpDown className="opacity-50" />
+                  </Button>
+                </FormControl>
+                <Popover className="w-[200px] p-0">
                   <Command>
                     <CommandInput
                       placeholder="Search framework..."
@@ -124,8 +118,8 @@ export default function ComboboxForm() {
                       </CommandGroup>
                     </CommandList>
                   </Command>
-                </PopoverContent>
-              </Popover>
+                </Popover>
+              </DialogTrigger>
               <FormDescription>
                 This is the language that will be used in the dashboard.
               </FormDescription>

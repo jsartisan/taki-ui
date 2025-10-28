@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reasoning-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "reasoning",
+    "collapsible",
+    "response",
+    "shimmer"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/reasoning-demo.tsx",
+      "content": "import {\n  Reasoning,\n  ReasoningContent,\n  ReasoningTrigger,\n} from \"@/registry/new-york-v4/ai-elements/reasoning\"\n\nexport default function ReasoningDemo() {\n  const reasoningText = `To solve this problem, I need to:\n\n1. First, understand the user's question about building a responsive layout\n2. Consider the best practices for responsive design in React\n3. Think about accessibility and performance implications\n4. Provide a clear, actionable solution\n\nBased on this analysis, I recommend using CSS Grid with media queries for a flexible, maintainable layout.`\n\n  return (\n    <div className=\"w-full max-w-2xl\">\n      <Reasoning defaultOpen={false} duration={3} isStreaming={false}>\n        <ReasoningTrigger />\n        <ReasoningContent>{reasoningText}</ReasoningContent>\n      </Reasoning>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

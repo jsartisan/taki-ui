@@ -1,0 +1,184 @@
+---
+title: Artifact
+description: Display generated artifacts like code, designs, or documents with actions.
+component: true
+---
+
+<ComponentPreview name="artifact-demo" description="An artifact with actions" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add artifact
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="artifact" title="ai-elements/artifact.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Artifact,
+  ArtifactHeader,
+  ArtifactTitle,
+  ArtifactDescription,
+  ArtifactActions,
+  ArtifactAction,
+  ArtifactContent,
+  ArtifactClose,
+} from "@/components/ai-elements/artifact"
+```
+
+```tsx showLineNumbers
+<Artifact>
+  <ArtifactHeader>
+    <div>
+      <ArtifactTitle>Component Name</ArtifactTitle>
+      <ArtifactDescription>Description</ArtifactDescription>
+    </div>
+    <ArtifactActions>
+      <ArtifactAction tooltip="Copy"><CopyIcon /></ArtifactAction>
+      <ArtifactClose />
+    </ArtifactActions>
+  </ArtifactHeader>
+  <ArtifactContent>
+    {/* Your content here */}
+  </ArtifactContent>
+</Artifact>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="artifact-demo" description="Artifact with code content" />
+
+```tsx showLineNumbers
+import { CopyIcon, DownloadIcon } from "lucide-react"
+
+export default function Example() {
+  return (
+    <Artifact>
+      <ArtifactHeader>
+        <div className="space-y-1">
+          <ArtifactTitle>React Component</ArtifactTitle>
+          <ArtifactDescription>
+            A simple counter component
+          </ArtifactDescription>
+        </div>
+        <ArtifactActions>
+          <ArtifactAction tooltip="Copy" label="Copy">
+            <CopyIcon className="size-4" />
+          </ArtifactAction>
+          <ArtifactAction tooltip="Download" label="Download">
+            <DownloadIcon className="size-4" />
+          </ArtifactAction>
+          <ArtifactClose />
+        </ArtifactActions>
+      </ArtifactHeader>
+      <ArtifactContent>
+        <pre className="text-xs">
+          {`export default function Counter() {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}`}
+        </pre>
+      </ArtifactContent>
+    </Artifact>
+  )
+}
+```
+
+## API Reference
+
+### Artifact
+
+Main container for the artifact.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### ArtifactHeader
+
+Header section with title and actions.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### ArtifactTitle
+
+Title of the artifact.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### ArtifactDescription
+
+Description text.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### ArtifactActions
+
+Container for action buttons.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### ArtifactAction
+
+Individual action button.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `tooltip` | `string` | - | Tooltip text |
+| `label` | `string` | - | Accessible label |
+| `icon` | `LucideIcon` | - | Icon component |
+| `className` | `string` | - | Custom CSS classes |
+
+### ArtifactContent
+
+Content area.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### ArtifactClose
+
+Close button.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+

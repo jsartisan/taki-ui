@@ -1,4 +1,3 @@
-import { registryItemSchema, type Registry } from "shadcn/schema"
 import { z } from "zod"
 
 import { charts } from "@/registry/registry-charts"
@@ -8,6 +7,11 @@ import { internal } from "@/registry/registry-internal"
 import { lib } from "@/registry/registry-lib"
 import { themes } from "@/registry/registry-themes"
 import { ui } from "@/registry/registry-ui"
+
+import {
+  registryItemSchema,
+  type Registry,
+} from "../node_modules/shadcn/dist/schema/index"
 
 const DEPRECATED_ITEMS = [
   "toast",
@@ -56,10 +60,6 @@ export const registry = {
         // Temporary fix for dashboard-01.
         if (item.name === "dashboard-01") {
           item.dependencies?.push("@tabler/icons-react")
-        }
-
-        if (item.name === "accordion" && "tailwind" in item) {
-          delete item.tailwind
         }
 
         return item

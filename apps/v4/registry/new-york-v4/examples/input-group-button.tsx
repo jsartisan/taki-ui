@@ -9,17 +9,14 @@ import {
 } from "@tabler/icons-react"
 
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
 } from "@/registry/new-york-v4/ui/input-group"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 export default function InputGroupButtonExample() {
   const { copyToClipboard, isCopied } = useCopyToClipboard()
@@ -43,22 +40,17 @@ export default function InputGroupButtonExample() {
         </InputGroupAddon>
       </InputGroup>
       <InputGroup className="[--radius:9999px]">
-        <Popover>
-          <PopoverTrigger asChild>
-            <InputGroupAddon>
-              <InputGroupButton variant="secondary" size="icon-xs">
-                <IconInfoCircle />
-              </InputGroupButton>
-            </InputGroupAddon>
-          </PopoverTrigger>
-          <PopoverContent
-            align="start"
-            className="flex flex-col gap-1 rounded-xl text-sm"
-          >
+        <DialogTrigger>
+          <InputGroupAddon>
+            <InputGroupButton variant="secondary" size="icon-xs">
+              <IconInfoCircle />
+            </InputGroupButton>
+          </InputGroupAddon>
+          <Popover className="flex flex-col gap-1 rounded-xl text-sm">
             <p className="font-medium">Your connection is not secure.</p>
             <p>You should not enter any sensitive information on this site.</p>
-          </PopoverContent>
-        </Popover>
+          </Popover>
+        </DialogTrigger>
         <InputGroupAddon className="text-muted-foreground pl-1.5">
           https://
         </InputGroupAddon>

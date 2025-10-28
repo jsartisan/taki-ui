@@ -1,0 +1,144 @@
+---
+title: Open in Chat
+description: Quick actions to open prompts in various AI chat platforms.
+component: true
+---
+
+<ComponentPreview name="open-in-chat-demo" description="Open in chat buttons" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add open-in-chat
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="open-in-chat" title="ai-elements/open-in-chat.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  OpenInChat,
+  OpenInChatLink,
+  OpenInChatDropdown,
+  OpenInChatTrigger,
+} from "@/components/ai-elements/open-in-chat"
+```
+
+```tsx showLineNumbers
+// Direct link
+<OpenInChat prompt="Your prompt here" provider="chatgpt">
+  <OpenInChatLink />
+</OpenInChat>
+
+// Dropdown menu
+<OpenInChat prompt="Your prompt here">
+  <OpenInChatDropdown>
+    <OpenInChatTrigger />
+  </OpenInChatDropdown>
+</OpenInChat>
+```
+
+## Examples
+
+### Direct Link
+
+<ComponentPreview name="open-in-chat-demo" description="Open in specific platform" />
+
+```tsx showLineNumbers
+export default function Example() {
+  const prompt = "How do I build a responsive layout with CSS Grid?"
+
+  return (
+    <OpenInChat prompt={prompt} provider="chatgpt">
+      <OpenInChatLink />
+    </OpenInChat>
+  )
+}
+```
+
+### Dropdown Menu
+
+```tsx showLineNumbers
+export default function Example() {
+  const prompt = "Explain quantum computing"
+
+  return (
+    <OpenInChat prompt={prompt}>
+      <OpenInChatDropdown>
+        <OpenInChatTrigger />
+      </OpenInChatDropdown>
+    </OpenInChat>
+  )
+}
+```
+
+## Supported Providers
+
+- **ChatGPT**: OpenAI ChatGPT
+- **Claude**: Anthropic Claude
+- **Gemini**: Google Gemini
+- **Perplexity**: Perplexity AI
+- **GitHub Copilot**: GitHub Copilot Chat
+- **Scira**: Scira AI
+
+## API Reference
+
+### OpenInChat
+
+Container for chat links.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `prompt` | `string` | - | Prompt to open in chat |
+| `provider` | `"chatgpt" \| "claude" \| "gemini" \| "perplexity" \| "github" \| "scira"` | - | Specific provider (for direct links) |
+| `children` | `ReactNode` | - | Link or dropdown |
+
+### OpenInChatLink
+
+Direct link button to provider.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### OpenInChatDropdown
+
+Dropdown menu with all providers.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `ReactNode` | - | Trigger button |
+
+### OpenInChatTrigger
+
+Trigger button for dropdown.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+

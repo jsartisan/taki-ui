@@ -2,6 +2,11 @@
 
 import { IconMinus, IconPlus } from "@tabler/icons-react"
 import { CheckIcon } from "lucide-react"
+import {
+  NumberField,
+  Radio as RACRadio,
+  TextField,
+} from "react-aria-components"
 
 import { useThemeConfig } from "@/components/active-theme"
 import { Button } from "@/registry/new-york-v4/ui/button"
@@ -19,10 +24,7 @@ import {
 } from "@/registry/new-york-v4/ui/field"
 import { Input } from "@/registry/new-york-v4/ui/input"
 import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/new-york-v4/ui/radio-group"
+import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 
 const accents = [
@@ -57,40 +59,39 @@ export function AppearanceSettings() {
           <RadioGroup defaultValue="kubernetes">
             <FieldLabel htmlFor="kubernetes-r2h">
               <Field orientation="horizontal">
-                <FieldContent>
-                  <FieldTitle>Kubernetes</FieldTitle>
-                  <FieldDescription>
-                    Run GPU workloads on a K8s configured cluster. This is the
-                    default.
-                  </FieldDescription>
-                </FieldContent>
-                <RadioGroupItem
-                  value="kubernetes"
-                  id="kubernetes-r2h"
-                  aria-label="Kubernetes"
-                />
+                <label
+                  htmlFor="kubernetes-r2h"
+                  className="flex items-start gap-2"
+                >
+                  <FieldContent>
+                    <FieldTitle>Kubernetes</FieldTitle>
+                    <FieldDescription>
+                      Run GPU workloads on a K8s configured cluster. This is the
+                      default.
+                    </FieldDescription>
+                  </FieldContent>
+                  <Radio value="kubernetes" id="kubernetes-r2h" />
+                </label>
               </Field>
             </FieldLabel>
             <FieldLabel htmlFor="vm-z4k">
               <Field orientation="horizontal">
-                <FieldContent>
-                  <FieldTitle>Virtual Machine</FieldTitle>
-                  <FieldDescription>
-                    Access a VM configured cluster to run workloads. (Coming
-                    soon)
-                  </FieldDescription>
-                </FieldContent>
-                <RadioGroupItem
-                  value="vm"
-                  id="vm-z4k"
-                  aria-label="Virtual Machine"
-                />
+                <label htmlFor="vm-z4k" className="flex items-start gap-2">
+                  <FieldContent>
+                    <FieldTitle>Virtual Machine</FieldTitle>
+                    <FieldDescription>
+                      Access a VM configured cluster to run workloads. (Coming
+                      soon)
+                    </FieldDescription>
+                  </FieldContent>
+                  <Radio value="vm" id="vm-z4k" />
+                </label>
               </Field>
             </FieldLabel>
           </RadioGroup>
         </FieldSet>
-        <FieldSeparator />
-        <Field orientation="horizontal">
+        {/* <FieldSeparator /> */}
+        {/* <Field orientation="horizontal">
           <FieldContent>
             <FieldTitle>Accent</FieldTitle>
             <FieldDescription>Select the accent color.</FieldDescription>
@@ -99,58 +100,60 @@ export function AppearanceSettings() {
             <RadioGroup
               className="flex flex-wrap gap-2"
               value={activeTheme}
-              onValueChange={setActiveTheme}
+              onChange={setActiveTheme}
             >
-              {accents.map((accent) => (
-                <Label
-                  htmlFor={accent.value}
-                  key={accent.value}
-                  data-theme={accent.value}
-                  className="flex size-6 items-center justify-center rounded-full data-[theme=amber]:bg-amber-600 data-[theme=blue]:bg-blue-700 data-[theme=green]:bg-green-600 data-[theme=rose]:bg-rose-600"
-                >
-                  <RadioGroupItem
+              <div className="flex flex-wrap gap-2">
+                {accents.map((accent) => (
+                  <RACRadio
+                    key={accent.value}
                     id={accent.value}
                     value={accent.value}
                     aria-label={accent.name}
-                    className="peer sr-only"
-                  />
-                  <CheckIcon className="hidden size-4 stroke-white peer-data-[state=checked]:block" />
-                </Label>
-              ))}
+                    data-theme={accent.value}
+                    className="group flex size-6 items-center justify-center rounded-full data-[theme=amber]:bg-amber-600 data-[theme=blue]:bg-blue-700 data-[theme=green]:bg-green-600 data-[theme=rose]:bg-rose-600"
+                  >
+                    <CheckIcon className="hidden size-4 stroke-white group-data-[selected=true]:block" />
+                  </RACRadio>
+                ))}
+              </div>
             </RadioGroup>
           </FieldSet>
-        </Field>
+        </Field> */}
         <FieldSeparator />
         <Field orientation="horizontal">
           <FieldContent>
             <FieldLabel htmlFor="number-of-gpus-f6l">Number of GPUs</FieldLabel>
             <FieldDescription>You can add more later.</FieldDescription>
           </FieldContent>
-          <ButtonGroup>
-            <Input
-              id="number-of-gpus-f6l"
-              placeholder="8"
-              size={3}
-              className="h-8 !w-14 font-mono"
-              maxLength={3}
-            />
-            <Button
-              variant="outline"
-              size="icon-sm"
-              type="button"
-              aria-label="Decrement"
-            >
-              <IconMinus />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon-sm"
-              type="button"
-              aria-label="Increment"
-            >
-              <IconPlus />
-            </Button>
-          </ButtonGroup>
+          <NumberField>
+            <ButtonGroup>
+              <Input
+                id="number-of-gpus-f6l"
+                placeholder="8"
+                size={3}
+                className="h-8 !w-14 font-mono"
+                maxLength={3}
+              />
+              <Button
+                variant="outline"
+                size="icon-sm"
+                type="button"
+                aria-label="Decrement"
+                slot="decrement"
+              >
+                <IconMinus />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon-sm"
+                type="button"
+                aria-label="Increment"
+                slot="increment"
+              >
+                <IconPlus />
+              </Button>
+            </ButtonGroup>
+          </NumberField>
         </Field>
         <FieldSeparator />
         <Field orientation="horizontal">
@@ -160,7 +163,7 @@ export function AppearanceSettings() {
               Allow the wallpaper to be tinted.
             </FieldDescription>
           </FieldContent>
-          <Switch id="tinting" defaultChecked />
+          <Switch defaultSelected>Wallpaper Tinting</Switch>
         </Field>
       </FieldGroup>
     </FieldSet>

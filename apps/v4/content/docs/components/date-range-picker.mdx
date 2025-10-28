@@ -1,0 +1,283 @@
+---
+title: Date Range Picker
+description: A date range picker combines two date fields with a range calendar to allow users to select a date range.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/DateRangePicker.html
+  api: https://react-spectrum.adobe.com/react-aria/DateRangePicker.html#props
+---
+
+<ComponentPreview name="date-range-picker-demo" description="A date range picker with label and description." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add date-range-picker
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components @internationalized/date
+```
+
+<Step>Add the required components to your project.</Step>
+
+The `DateRangePicker` component depends on several other components. Make sure you have them installed:
+
+- [Button](/docs/components/button)
+- [Date Field](/docs/components/date-field)
+- [Dialog](/docs/components/dialog)
+- [Field](/docs/components/field)
+- [Input Group](/docs/components/input-group)
+- [Popover](/docs/components/popover)
+- [Range Calendar](/docs/components/range-calendar)
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="date-range-picker" title="components/ui/date-range-picker.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { DateRangePicker } from "@/components/ui/date-range-picker"
+```
+
+```tsx showLineNumbers
+<DateRangePicker
+  label="Trip dates"
+  description="Select your trip start and end dates."
+/>
+```
+
+## About
+
+The `DateRangePicker` component is built on top of [React Aria Components](https://react-spectrum.adobe.com/react-aria/DateRangePicker.html) and combines two [Date Field](/docs/components/date-field) components with a [Range Calendar](/docs/components/range-calendar) in a popover. It allows users to select a date range by either typing dates or selecting them from a calendar.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="date-range-picker-demo" description="A basic date range picker with label and description." />
+
+```tsx showLineNumbers
+<DateRangePicker
+  label="Trip dates"
+  description="Select your trip start and end dates."
+/>
+```
+
+### Disabled
+
+<ComponentPreview name="date-range-picker-disabled" description="A disabled date range picker." />
+
+```tsx showLineNumbers
+<DateRangePicker
+  label="Trip dates"
+  description="This field is disabled."
+  isDisabled
+/>
+```
+
+### Validation
+
+<ComponentPreview name="date-range-picker-validation" description="A date range picker with validation." />
+
+```tsx showLineNumbers
+<DateRangePicker
+  label="Vacation dates"
+  description="Select your vacation start and end dates."
+  isRequired
+  errorMessage="Please select a valid date range."
+/>
+```
+
+### Controlled
+
+<ComponentPreview name="date-range-picker-controlled" description="A controlled date range picker." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { parseDate } from "@internationalized/date"
+
+import { DateRangePicker } from "@/components/ui/date-range-picker"
+
+export default function DateRangePickerControlled() {
+  const [value, setValue] = useState({
+    start: parseDate("2024-12-20"),
+    end: parseDate("2024-12-27"),
+  })
+
+  return (
+    <div className="space-y-4">
+      <DateRangePicker
+        label="Hotel reservation"
+        description="Select your check-in and check-out dates."
+        value={value}
+        onChange={setValue}
+      />
+      <p className="text-muted-foreground text-sm">
+        Selected range: {value.start.toString()} to {value.end.toString()}
+      </p>
+    </div>
+  )
+}
+```
+
+### Min and Max Values
+
+<ComponentPreview name="date-range-picker-min-max" description="A date range picker with minimum and maximum values." />
+
+```tsx showLineNumbers
+"use client"
+
+import { getLocalTimeZone, today } from "@internationalized/date"
+
+import { DateRangePicker } from "@/components/ui/date-range-picker"
+
+export default function DateRangePickerMinMax() {
+  const now = today(getLocalTimeZone())
+
+  return (
+    <DateRangePicker
+      label="Rental period"
+      description="Select a date range within the next 90 days."
+      minValue={now}
+      maxValue={now.add({ days: 90 })}
+    />
+  )
+}
+```
+
+### Unavailable Dates
+
+<ComponentPreview name="date-range-picker-unavailable-dates" description="A date range picker with unavailable dates (weekends disabled)." />
+
+```tsx showLineNumbers
+"use client"
+
+import { getLocalTimeZone, isWeekend, today } from "@internationalized/date"
+import { useLocale } from "react-aria-components"
+
+import { DateRangePicker } from "@/components/ui/date-range-picker"
+
+export default function DateRangePickerUnavailableDates() {
+  const now = today(getLocalTimeZone())
+  const { locale } = useLocale()
+
+  return (
+    <DateRangePicker
+      label="Conference dates"
+      description="Weekends are unavailable."
+      minValue={now}
+      isDateUnavailable={(date) => isWeekend(date, locale)}
+    />
+  )
+}
+```
+
+## API Reference
+
+### DateRangePicker
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `label` | `string` | - | Label text for the date range picker |
+| `description` | `string` | - | Help text displayed below the input |
+| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | - | Error message for validation |
+| `value` | `{ start: DateValue, end: DateValue }` | - | The current value (controlled) |
+| `defaultValue` | `{ start: DateValue, end: DateValue }` | - | The default value (uncontrolled) |
+| `onChange` | `(value: { start: DateValue, end: DateValue }) => void` | - | Handler called when the value changes |
+| `minValue` | `DateValue` | - | The minimum allowed date |
+| `maxValue` | `DateValue` | - | The maximum allowed date |
+| `isDateUnavailable` | `(date: DateValue) => boolean` | - | Function to determine if a date is unavailable |
+| `allowsNonContiguousRanges` | `boolean` | `false` | Whether non-contiguous ranges are allowed |
+| `isDisabled` | `boolean` | `false` | Whether the date range picker is disabled |
+| `isReadOnly` | `boolean` | `false` | Whether the date range picker is read-only |
+| `isRequired` | `boolean` | `false` | Whether the date range picker is required |
+| `placeholderValue` | `DateValue` | - | A placeholder date that controls the default values |
+
+See the [React Aria DateRangePicker documentation](https://react-spectrum.adobe.com/react-aria/DateRangePicker.html#props) for more props and detailed information.
+
+## Internationalization
+
+The `DateRangePicker` component automatically formats dates based on the user's locale. The `@internationalized/date` library handles calendar systems and localization.
+
+```tsx showLineNumbers
+import { parseDate } from "@internationalized/date"
+
+// ISO 8601 format
+const range = {
+  start: parseDate("2024-12-20"),
+  end: parseDate("2024-12-27"),
+}
+```
+
+## Calendar Systems
+
+The date range picker supports multiple calendar systems through the `@internationalized/date` library:
+
+- Gregorian
+- Buddhist
+- Hebrew
+- Indian
+- Islamic (Hijri)
+- Japanese
+- Persian
+- Taiwan
+
+See the [@internationalized/date documentation](https://react-spectrum.adobe.com/internationalized/date/) for more information.
+
+## Keyboard Navigation
+
+The date range picker supports full keyboard navigation:
+
+- **Tab**: Move focus between the start field, end field, and calendar button
+- **Arrow Keys**: Navigate between segments in the fields, or dates in the calendar
+- **Enter/Space**: Open/close the calendar popover, or select a date
+- **Escape**: Close the calendar popover
+- **Page Up/Down**: Navigate months in the calendar
+- **Home/End**: Go to the first/last day of the week in the calendar
+
+## Use Cases
+
+The date range picker is ideal for:
+
+- **Hotel Bookings**: Select check-in and check-out dates
+- **Trip Planning**: Choose travel start and end dates
+- **Event Scheduling**: Define event duration
+- **Rental Periods**: Specify rental start and end dates
+- **Report Filters**: Select date ranges for data filtering
+
+## Related Components
+
+- [Date Picker](/docs/components/date-picker) - For selecting a single date
+- [Date Field](/docs/components/date-field) - For keyboard-only date entry
+- [Range Calendar](/docs/components/range-calendar) - For visual date range selection
+- [Calendar](/docs/components/calendar) - For single date selection
+- [Field](/docs/components/field) - For composing accessible form fields
+

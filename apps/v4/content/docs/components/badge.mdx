@@ -52,20 +52,28 @@ import { Badge } from "@/components/ui/badge"
 <Badge variant="default | outline | secondary | destructive">Badge</Badge>
 ```
 
+## Examples
+
 ### Link
 
-You can use the `asChild` prop to make another component look like a badge. Here's an example of a link that looks like a badge.
+You can use the `badgeVariants` helper to apply badge styling to other elements like links.
+
+<ComponentPreview
+  name="badge-link"
+  description="Badge styled links using badgeVariants"
+/>
+
 
 ```tsx showLineNumbers
 import Link from "next/link"
 
-import { Badge } from "@/components/ui/badge"
+import { badgeVariants } from "@/components/ui/badge"
 
 export function LinkAsBadge() {
   return (
-    <Badge asChild>
-      <Link href="/">Badge</Link>
-    </Badge>
+    <Link href="/" className={badgeVariants({ variant: "default" })}>
+      Badge Link
+    </Link>
   )
 }
 ```

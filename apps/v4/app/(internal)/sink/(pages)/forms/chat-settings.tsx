@@ -22,14 +22,7 @@ import {
   InputGroupInput,
 } from "@/registry/new-york-v4/ui/input-group"
 import { Kbd } from "@/registry/new-york-v4/ui/kbd"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 import {
   Tabs,
@@ -38,11 +31,7 @@ import {
   TabsTrigger,
 } from "@/registry/new-york-v4/ui/tabs"
 import { Textarea } from "@/registry/new-york-v4/ui/textarea"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/registry/new-york-v4/ui/tooltip"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
 
 const spokenLanguages = [
   { label: "English", value: "en" },
@@ -159,50 +148,50 @@ export function ChatSettings() {
               <FieldGroup>
                 <Field orientation="horizontal">
                   <FieldLabel htmlFor="theme">Theme</FieldLabel>
-                  <Select value={theme} onValueChange={setTheme}>
-                    <SelectTrigger id="theme">
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent align="end">
-                      <SelectItem value="light">Light</SelectItem>
-                      <SelectItem value="dark">Dark</SelectItem>
-                      <SelectItem value="system">System</SelectItem>
-                    </SelectContent>
+                  <Select
+                    id="theme"
+                    selectedKey={theme}
+                    onSelectionChange={(key) => setTheme(key as string)}
+                    placeholder="Select"
+                  >
+                    <SelectItem id="light">Light</SelectItem>
+                    <SelectItem id="dark">Dark</SelectItem>
+                    <SelectItem id="system">System</SelectItem>
                   </Select>
                 </Field>
                 <FieldSeparator />
                 <Field orientation="horizontal">
                   <FieldLabel htmlFor="accent-color">Accent Color</FieldLabel>
-                  <Select value={accentColor} onValueChange={setAccentColor}>
-                    <SelectTrigger id="accent-color">
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent align="end">
-                      <SelectItem value="default">
-                        <CircleIcon className="fill-neutral-500 stroke-neutral-500 dark:fill-neutral-400 dark:stroke-neutral-400" />
-                        Default
-                      </SelectItem>
-                      <SelectItem value="red">
-                        <CircleIcon className="fill-red-500 stroke-red-500 dark:fill-red-400 dark:stroke-red-400" />
-                        Red
-                      </SelectItem>
-                      <SelectItem value="blue">
-                        <CircleIcon className="fill-blue-500 stroke-blue-500 dark:fill-blue-400 dark:stroke-blue-400" />
-                        Blue
-                      </SelectItem>
-                      <SelectItem value="green">
-                        <CircleIcon className="fill-green-500 stroke-green-500 dark:fill-green-400 dark:stroke-green-400" />
-                        Green
-                      </SelectItem>
-                      <SelectItem value="purple">
-                        <CircleIcon className="fill-purple-500 stroke-purple-500 dark:fill-purple-400 dark:stroke-purple-400" />
-                        Purple
-                      </SelectItem>
-                      <SelectItem value="pink">
-                        <CircleIcon className="fill-pink-500 stroke-pink-500 dark:fill-pink-400 dark:stroke-pink-400" />
-                        Pink
-                      </SelectItem>
-                    </SelectContent>
+                  <Select
+                    id="accent-color"
+                    selectedKey={accentColor}
+                    onSelectionChange={(key) => setAccentColor(key as string)}
+                    placeholder="Select"
+                  >
+                    <SelectItem id="default">
+                      <CircleIcon className="fill-neutral-500 stroke-neutral-500 dark:fill-neutral-400 dark:stroke-neutral-400" />
+                      Default
+                    </SelectItem>
+                    <SelectItem id="red">
+                      <CircleIcon className="fill-red-500 stroke-red-500 dark:fill-red-400 dark:stroke-red-400" />
+                      Red
+                    </SelectItem>
+                    <SelectItem id="blue">
+                      <CircleIcon className="fill-blue-500 stroke-blue-500 dark:fill-blue-400 dark:stroke-blue-400" />
+                      Blue
+                    </SelectItem>
+                    <SelectItem id="green">
+                      <CircleIcon className="fill-green-500 stroke-green-500 dark:fill-green-400 dark:stroke-green-400" />
+                      Green
+                    </SelectItem>
+                    <SelectItem id="purple">
+                      <CircleIcon className="fill-purple-500 stroke-purple-500 dark:fill-purple-400 dark:stroke-purple-400" />
+                      Purple
+                    </SelectItem>
+                    <SelectItem id="pink">
+                      <CircleIcon className="fill-pink-500 stroke-pink-500 dark:fill-pink-400 dark:stroke-pink-400" />
+                      Pink
+                    </SelectItem>
                   </Select>
                 </Field>
                 <FieldSeparator />
@@ -218,37 +207,35 @@ export function ChatSettings() {
                     </FieldDescription>
                   </FieldContent>
                   <Select
-                    value={spokenLanguage}
-                    onValueChange={setSpokenLanguage}
+                    id="spoken-language"
+                    selectedKey={spokenLanguage}
+                    onSelectionChange={(key) =>
+                      setSpokenLanguage(key as string)
+                    }
+                    placeholder="Select"
                   >
-                    <SelectTrigger id="spoken-language">
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent align="end" position="item-aligned">
-                      <SelectItem value="auto">Auto</SelectItem>
-                      <SelectSeparator />
-                      {spokenLanguages.map((language) => (
-                        <SelectItem key={language.value} value={language.value}>
-                          {language.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
+                    <SelectItem id="auto">Auto</SelectItem>
+                    {spokenLanguages.map((language) => (
+                      <SelectItem key={language.value} id={language.value}>
+                        {language.label}
+                      </SelectItem>
+                    ))}
                   </Select>
                 </Field>
                 <FieldSeparator />
                 <Field orientation="horizontal">
                   <FieldLabel htmlFor="voice">Voice</FieldLabel>
-                  <Select value={voice} onValueChange={setVoice}>
-                    <SelectTrigger id="voice">
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent align="end" position="item-aligned">
-                      {voices.map((voice) => (
-                        <SelectItem key={voice.value} value={voice.value}>
-                          {voice.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
+                  <Select
+                    id="voice"
+                    selectedKey={voice}
+                    onSelectionChange={(key) => setVoice(key as string)}
+                    placeholder="Select"
+                  >
+                    {voices.map((voice) => (
+                      <SelectItem key={voice.value} id={voice.value}>
+                        {voice.label}
+                      </SelectItem>
+                    ))}
                   </Select>
                 </Field>
               </FieldGroup>
@@ -306,16 +293,14 @@ export function ChatSettings() {
                     className="@md/field-group:max-w-[200px]"
                   />
                   <InputGroupAddon align="inline-end">
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <InputGroupButton size="icon-xs">
-                          <InfoIcon />
-                        </InputGroupButton>
-                      </TooltipTrigger>
-                      <TooltipContent className="flex items-center gap-2">
+                    <TooltipTrigger>
+                      <InputGroupButton size="icon-xs">
+                        <InfoIcon />
+                      </InputGroupButton>
+                      <Tooltip className="flex items-center gap-2">
                         Used to identify you in the chat. <Kbd>N</Kbd>
-                      </TooltipContent>
-                    </Tooltip>
+                      </Tooltip>
+                    </TooltipTrigger>
                   </InputGroupAddon>
                 </InputGroup>
               </Field>
@@ -361,25 +346,21 @@ export function ChatSettings() {
                     Set the style and tone ChatGPT should use when responding.
                   </FieldDescription>
                 </FieldContent>
-                <Select value={personality} onValueChange={setPersonality}>
-                  <SelectTrigger id="personality">
-                    {personalities.find((p) => p.value === personality)?.label}
-                  </SelectTrigger>
-                  <SelectContent align="end">
-                    {personalities.map((personality) => (
-                      <SelectItem
-                        key={personality.value}
-                        value={personality.value}
-                      >
-                        <FieldContent className="gap-0.5">
-                          <FieldLabel>{personality.label}</FieldLabel>
-                          <FieldDescription className="text-xs">
-                            {personality.description}
-                          </FieldDescription>
-                        </FieldContent>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
+                <Select
+                  id="personality"
+                  selectedKey={personality}
+                  onSelectionChange={(key) => setPersonality(key as string)}
+                >
+                  {personalities.map((personality) => (
+                    <SelectItem key={personality.value} id={personality.value}>
+                      <FieldContent className="gap-0.5">
+                        <FieldLabel>{personality.label}</FieldLabel>
+                        <FieldDescription className="text-xs">
+                          {personality.description}
+                        </FieldDescription>
+                      </FieldContent>
+                    </SelectItem>
+                  ))}
                 </Select>
               </Field>
               <FieldSeparator />

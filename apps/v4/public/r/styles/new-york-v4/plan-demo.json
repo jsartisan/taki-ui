@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "plan-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "plan",
+    "card",
+    "collapsible",
+    "button",
+    "shimmer"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/plan-demo.tsx",
+      "content": "import {\n  Plan,\n  PlanAction,\n  PlanContent,\n  PlanDescription,\n  PlanHeader,\n  PlanTitle,\n  PlanTrigger,\n} from \"@/registry/new-york-v4/ai-elements/plan\"\n\nexport default function PlanDemo() {\n  return (\n    <div className=\"w-full max-w-2xl\">\n      <Plan defaultOpen={false} isStreaming={false}>\n        <PlanHeader>\n          <div className=\"space-y-1\">\n            <PlanTitle>Build a Todo App</PlanTitle>\n            <PlanDescription>\n              Create a full-featured todo application with React and TypeScript\n            </PlanDescription>\n          </div>\n          <PlanAction>\n            <PlanTrigger />\n          </PlanAction>\n        </PlanHeader>\n        <PlanContent>\n          <div className=\"space-y-2 text-sm\">\n            <div className=\"flex items-start gap-2\">\n              <span className=\"text-muted-foreground\">1.</span>\n              <span>Set up project structure with Vite and TypeScript</span>\n            </div>\n            <div className=\"flex items-start gap-2\">\n              <span className=\"text-muted-foreground\">2.</span>\n              <span>\n                Create todo item component with edit and delete actions\n              </span>\n            </div>\n            <div className=\"flex items-start gap-2\">\n              <span className=\"text-muted-foreground\">3.</span>\n              <span>Implement state management using React hooks</span>\n            </div>\n            <div className=\"flex items-start gap-2\">\n              <span className=\"text-muted-foreground\">4.</span>\n              <span>Add local storage persistence</span>\n            </div>\n            <div className=\"flex items-start gap-2\">\n              <span className=\"text-muted-foreground\">5.</span>\n              <span>Style with Tailwind CSS and add animations</span>\n            </div>\n          </div>\n        </PlanContent>\n      </Plan>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

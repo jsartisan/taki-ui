@@ -1,0 +1,143 @@
+---
+title: Branch
+description: Display and navigate between multiple AI response branches.
+component: true
+links:
+  doc: https://sdk.vercel.ai/docs/ai-sdk-ui/overview
+---
+
+<ComponentPreview name="branch-demo" description="Navigate between response branches" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add branch
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ai
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="branch" title="ai-elements/branch.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Branch,
+  BranchMessages,
+  BranchActions,
+} from "@/components/ai-elements/branch"
+```
+
+```tsx showLineNumbers
+<Branch defaultBranch={0} onBranchChange={handleBranchChange}>
+  <BranchMessages>
+    {branches.map((branch) => (
+      <Message key={branch.id} from="assistant">
+        <MessageContent>{branch.content}</MessageContent>
+      </Message>
+    ))}
+  </BranchMessages>
+  <BranchActions />
+</Branch>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="branch-demo" description="Multiple response branches with navigation" />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { Branch, BranchMessages, BranchActions } from "@/components/ai-elements/branch"
+import { Message, MessageContent } from "@/components/ai-elements/message"
+
+const branches = [
+  { id: "1", content: "First response variation..." },
+  { id: "2", content: "Second response variation..." },
+  { id: "3", content: "Third response variation..." },
+]
+
+export default function Example() {
+  const [currentBranch, setCurrentBranch] = useState(0)
+
+  return (
+    <Branch defaultBranch={0} onBranchChange={setCurrentBranch}>
+      <BranchMessages>
+        {branches.map((branch) => (
+          <Message key={branch.id} from="assistant">
+            <MessageContent>{branch.content}</MessageContent>
+          </Message>
+        ))}
+      </BranchMessages>
+      <BranchActions />
+    </Branch>
+  )
+}
+```
+
+## Features
+
+- **Multiple Branches**: Navigate between different AI responses
+- **Navigation Controls**: Previous/next buttons for branch switching
+- **Branch Indicator**: Shows current branch out of total
+- **Keyboard Support**: Arrow keys for navigation
+
+## API Reference
+
+### Branch
+
+Container for managing multiple response branches.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `defaultBranch` | `number` | `0` | Initial branch index |
+| `onBranchChange` | `(index: number) => void` | - | Callback when branch changes |
+| `className` | `string` | - | Custom CSS classes |
+
+### BranchMessages
+
+Container for branch content.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `ReactNode` | - | Messages for each branch |
+
+### BranchActions
+
+Navigation controls for branches.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+

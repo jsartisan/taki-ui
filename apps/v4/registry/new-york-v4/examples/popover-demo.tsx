@@ -1,19 +1,14 @@
 import { Button } from "@/registry/new-york-v4/ui/button"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
 import { Input } from "@/registry/new-york-v4/ui/input"
 import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 export default function PopoverDemo() {
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline">Open popover</Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-80">
+    <DialogTrigger>
+      <Button variant="outline">Open popover</Button>
+      <Popover className="w-80 p-6">
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="leading-none font-medium">Dimensions</h4>
@@ -25,6 +20,7 @@ export default function PopoverDemo() {
             <div className="grid grid-cols-3 items-center gap-4">
               <Label htmlFor="width">Width</Label>
               <Input
+                autoFocus
                 id="width"
                 defaultValue="100%"
                 className="col-span-2 h-8"
@@ -56,7 +52,7 @@ export default function PopoverDemo() {
             </div>
           </div>
         </div>
-      </PopoverContent>
-    </Popover>
+      </Popover>
+    </DialogTrigger>
   )
 }

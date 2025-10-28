@@ -1,63 +1,125 @@
 "use client"
 
-import * as React from "react"
-import * as SliderPrimitive from "@radix-ui/react-slider"
+import React from "react"
+import {
+  Slider as AriaSlider,
+  SliderProps as AriaSliderProps,
+  SliderOutput,
+  SliderThumb,
+  SliderTrack,
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { cn } from "@/lib/utils"
+import { composeTailwindRenderProps, focusRing } from "../lib/utils"
+import { FieldLabel } from "./field"
 
-function Slider({
-  className,
-  defaultValue,
-  value,
-  min = 0,
-  max = 100,
-  ...props
-}: React.ComponentProps<typeof SliderPrimitive.Root>) {
-  const _values = React.useMemo(
-    () =>
-      Array.isArray(value)
-        ? value
-        : Array.isArray(defaultValue)
-          ? defaultValue
-          : [min, max],
-    [value, defaultValue, min, max]
-  )
+const trackStyles = tv({
+  base: "rounded-full bg-muted relative overflow-hidden",
+  variants: {
+    orientation: {
+      horizontal: "w-full h-1.5",
+      vertical: "h-full w-1.5 ml-[50%] -translate-x-[50%]",
+    },
+    isDisabled: {
+      false: "",
+      true: "opacity-50",
+    },
+  },
+})
 
-  return (
-    <SliderPrimitive.Root
-      data-slot="slider"
-      defaultValue={defaultValue}
-      value={value}
-      min={min}
-      max={max}
-      className={cn(
-        "relative flex w-full touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col",
-        className
-      )}
-      {...props}
-    >
-      <SliderPrimitive.Track
-        data-slot="slider-track"
-        className={cn(
-          "bg-muted relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-1.5 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5"
-        )}
-      >
-        <SliderPrimitive.Range
-          data-slot="slider-range"
-          className={cn(
-            "bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"
-          )}
-        />
-      </SliderPrimitive.Track>
-      {Array.from({ length: _values.length }, (_, index) => (
-        <SliderPrimitive.Thumb
-          data-slot="slider-thumb"
-          key={index}
-          className="border-primary ring-ring/50 block size-4 shrink-0 rounded-full border bg-white shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50"
-        />
-      ))}
-    </SliderPrimitive.Root>
-  )
+const rangeStyles = tv({
+  base: "bg-primary absolute",
+  variants: {
+    orientation: {
+      horizontal: "h-full",
+      vertical: "w-full",
+    },
+  },
+})
+
+const thumbStyles = tv({
+  extend: focusRing,
+  base: "size-4 group-orientation-horizontal:mt-4 group-orientation-vertical:ml-3 rounded-full bg-white border border-primary shadow-sm transition-[color,box-shadow] outline-hidden",
+  variants: {
+    isDragging: {
+      true: "ring-4 ring-ring/50",
+    },
+    isFocusVisible: {
+      true: "ring-4 ring-ring/50",
+    },
+    isDisabled: {
+      true: "opacity-50 pointer-events-none",
+    },
+  },
+})
+
+export interface SliderProps<T> extends AriaSliderProps<T> {
+  label?: string
+  thumbLabels?: string[]
 }
 
-export { Slider }
+export function Slider<T extends number | number[]>({
+  label,
+  thumbLabels,
+  ...props
+}: SliderProps<T>) {
+  return (
+    <AriaSlider
+      {...props}
+      className={composeTailwindRenderProps(
+        props.className,
+        "orientation-horizontal:grid orientation-vertical:flex orientation-horizontal:w-64 grid-cols-[1fr_auto] flex-col items-center gap-2"
+      )}
+    >
+      <FieldLabel>{label}</FieldLabel>
+      <SliderOutput className="orientation-vertical:hidden text-muted-foreground text-sm font-medium">
+        {({ state }) =>
+          state.values.map((_, i) => state.getThumbValueLabel(i)).join(" – ")
+        }
+      </SliderOutput>
+      <SliderTrack className="group orientation-horizontal:h-6 orientation-vertical:w-6 orientation-vertical:h-64 col-span-2 flex items-center">
+        {({ state, ...renderProps }) => {
+          const orientation = renderProps.orientation || "horizontal"
+          const isHorizontal = orientation === "horizontal"
+          const minValue = state.getThumbMinValue(0)
+          const maxValue = state.getThumbMaxValue(state.values.length - 1)
+          const range = maxValue - minValue
+
+          const fillStart =
+            state.values.length > 1
+              ? ((state.values[0] - minValue) / range) * 100
+              : 0
+          const fillEnd =
+            state.values.length > 1
+              ? ((state.values[state.values.length - 1] - minValue) / range) *
+                100
+              : ((state.values[0] - minValue) / range) * 100
+          const fillSize = fillEnd - fillStart
+
+          return (
+            <>
+              <div className={trackStyles(renderProps)}>
+                <div
+                  className={rangeStyles({ orientation })}
+                  style={
+                    isHorizontal
+                      ? { left: `${fillStart}%`, width: `${fillSize}%` }
+                      : { bottom: `${fillStart}%`, height: `${fillSize}%` }
+                  }
+                />
+              </div>
+              {state.values.map((_, i) => (
+                <SliderThumb
+                  key={i}
+                  index={i}
+                  aria-label={thumbLabels?.[i]}
+                  className={thumbStyles}
+                />
+              ))}
+            </>
+          )
+        }}
+      </SliderTrack>
+    </AriaSlider>
+  )
+}

@@ -20,10 +20,7 @@ import {
   FieldTitle,
 } from "@/registry/new-york-v4/ui/field"
 import { Input } from "@/registry/new-york-v4/ui/input"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/new-york-v4/ui/radio-group"
+import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
 import { Textarea } from "@/registry/new-york-v4/ui/textarea"
 
 const plans = [
@@ -102,7 +99,7 @@ export function CardsForms() {
                           {plan.description}
                         </FieldDescription>
                       </FieldContent>
-                      <RadioGroupItem value={plan.id} id={plan.name} />
+                      <Radio value={plan.id} id={plan.name} />
                     </Field>
                   </FieldLabel>
                 ))}
@@ -120,7 +117,7 @@ export function CardsForms() {
                 </FieldLabel>
               </Field>
               <Field orientation="horizontal">
-                <Checkbox id="newsletter" defaultChecked />
+                <Checkbox id="newsletter" defaultSelected={true} />
                 <FieldLabel htmlFor="newsletter" className="font-normal">
                   Allow us to send you emails
                 </FieldLabel>

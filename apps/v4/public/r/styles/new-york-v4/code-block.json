@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "code-block",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/ai-elements/code-block.tsx",
+      "content": "\"use client\"\n\nimport type { ComponentProps, HTMLAttributes, ReactNode } from \"react\"\nimport { createContext, useContext, useState } from \"react\"\nimport { CheckIcon, CopyIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/registry/new-york-v4/ui/button\"\n\ntype CodeBlockContextType = {\n  code: string\n}\n\nconst CodeBlockContext = createContext<CodeBlockContextType>({\n  code: \"\",\n})\n\nexport type CodeBlockProps = HTMLAttributes<HTMLDivElement> & {\n  code: string\n  language: string\n  showLineNumbers?: boolean\n  children?: ReactNode\n}\n\nexport const CodeBlock = ({\n  code,\n  language,\n  showLineNumbers = false,\n  className,\n  children,\n  ...props\n}: CodeBlockProps) => (\n  <CodeBlockContext.Provider value={{ code }}>\n    <div\n      className={cn(\n        \"bg-muted/50 relative w-full overflow-hidden rounded-md border\",\n        className\n      )}\n      {...props}\n    >\n      <div className=\"relative\">\n        <pre\n          className={cn(\n            \"overflow-x-auto p-4 text-sm\",\n            showLineNumbers && \"pl-12\"\n          )}\n        >\n          <code className=\"text-foreground font-mono\">{code}</code>\n        </pre>\n        {children && (\n          <div className=\"absolute top-2 right-2 flex items-center gap-2 opacity-0 transition-opacity group-hover:opacity-100\">\n            {children}\n          </div>\n        )}\n      </div>\n    </div>\n  </CodeBlockContext.Provider>\n)\n\nexport type CodeBlockCopyButtonProps = ComponentProps<typeof Button> & {\n  onCopy?: () => void\n  onError?: (error: Error) => void\n  timeout?: number\n}\n\nexport const CodeBlockCopyButton = ({\n  onCopy,\n  onError,\n  timeout = 2000,\n  children,\n  className,\n  ...props\n}: CodeBlockCopyButtonProps) => {\n  const [isCopied, setIsCopied] = useState(false)\n  const { code } = useContext(CodeBlockContext)\n\n  const copyToClipboard = async () => {\n    if (typeof window === \"undefined\" || !navigator.clipboard.writeText) {\n      onError?.(new Error(\"Clipboard API not available\"))\n      return\n    }\n\n    try {\n      await navigator.clipboard.writeText(code)\n      setIsCopied(true)\n      onCopy?.()\n      setTimeout(() => setIsCopied(false), timeout)\n    } catch (error) {\n      onError?.(error as Error)\n    }\n  }\n\n  const Icon = isCopied ? CheckIcon : CopyIcon\n\n  return (\n    <Button\n      className={cn(\"shrink-0\", className)}\n      onPress={copyToClipboard}\n      size=\"icon-sm\"\n      variant=\"ghost\"\n      {...props}\n    >\n      {children ?? <Icon className=\"size-3.5\" />}\n    </Button>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

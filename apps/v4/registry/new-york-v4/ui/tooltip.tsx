@@ -1,61 +1,53 @@
 "use client"
 
 import * as React from "react"
-import * as TooltipPrimitive from "@radix-ui/react-tooltip"
+import {
+  Tooltip as AriaTooltip,
+  TooltipProps as AriaTooltipProps,
+  composeRenderProps,
+  OverlayArrow,
+  TooltipTrigger,
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { cn } from "@/lib/utils"
+export interface TooltipProps extends Omit<AriaTooltipProps, "children"> {
+  children: React.ReactNode
+}
 
-function TooltipProvider({
-  delayDuration = 0,
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
+const tooltipStyles = tv({
+  base: "group z-50 w-fit rounded-md bg-foreground px-3 py-1.5 text-xs text-balance text-background",
+  variants: {
+    isEntering: {
+      true: "animate-in fade-in-0 zoom-in-95 placement-bottom:slide-in-from-top-2 placement-top:slide-in-from-bottom-2 placement-left:slide-in-from-right-2 placement-right:slide-in-from-left-2",
+    },
+    isExiting: {
+      true: "animate-out fade-out-0 zoom-out-95 placement-bottom:slide-out-to-top-2 placement-top:slide-out-to-bottom-2 placement-left:slide-out-to-right-2 placement-right:slide-out-to-left-2",
+    },
+  },
+})
+
+function Tooltip({ children, ...props }: TooltipProps) {
   return (
-    <TooltipPrimitive.Provider
-      data-slot="tooltip-provider"
-      delayDuration={delayDuration}
+    <AriaTooltip
       {...props}
-    />
+      offset={10}
+      className={composeRenderProps(props.className, (className, renderProps) =>
+        tooltipStyles({ ...renderProps, className })
+      )}
+    >
+      <OverlayArrow>
+        <svg
+          width={8}
+          height={8}
+          viewBox="0 0 8 8"
+          className="group-placement-bottom:rotate-180 group-placement-left:-rotate-90 group-placement-right:rotate-90 fill-foreground forced-colors:fill-[Canvas] forced-colors:stroke-[ButtonBorder]"
+        >
+          <path d="M0 0 L4 4 L8 0" />
+        </svg>
+      </OverlayArrow>
+      {children}
+    </AriaTooltip>
   )
 }
 
-function Tooltip({
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Root>) {
-  return (
-    <TooltipProvider>
-      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
-    </TooltipProvider>
-  )
-}
-
-function TooltipTrigger({
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
-  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />
-}
-
-function TooltipContent({
-  className,
-  sideOffset = 0,
-  children,
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
-  return (
-    <TooltipPrimitive.Portal>
-      <TooltipPrimitive.Content
-        data-slot="tooltip-content"
-        sideOffset={sideOffset}
-        className={cn(
-          "bg-foreground text-background animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit origin-(--radix-tooltip-content-transform-origin) rounded-md px-3 py-1.5 text-xs text-balance",
-          className
-        )}
-        {...props}
-      >
-        {children}
-        <TooltipPrimitive.Arrow className="bg-foreground fill-foreground z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px]" />
-      </TooltipPrimitive.Content>
-    </TooltipPrimitive.Portal>
-  )
-}
-
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }
+export { Tooltip, TooltipTrigger }

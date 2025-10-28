@@ -16,11 +16,12 @@ import {
 import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
 import {
   Dialog,
-  DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from "@/registry/new-york-v4/ui/dialog"
+import { Modal } from "@/registry/new-york-v4/ui/modal"
 import {
   Field,
   FieldContent,
@@ -38,13 +39,7 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "@/registry/new-york-v4/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Spinner } from "@/registry/new-york-v4/ui/spinner"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 import { Textarea } from "@/registry/new-york-v4/ui/textarea"
@@ -177,18 +172,15 @@ export function ExampleForm() {
               <Field data-invalid={!!formState.errors?.billingPeriod?.length}>
                 <FieldLabel htmlFor="billingPeriod">Billing Period</FieldLabel>
                 <Select
+                  id="billingPeriod"
                   name="billingPeriod"
-                  defaultValue={formState.values.billingPeriod}
-                  disabled={pending}
-                  aria-invalid={!!formState.errors?.billingPeriod?.length}
+                  defaultSelectedKey={formState.values.billingPeriod}
+                  placeholder="Select billing period"
+                  isDisabled={pending}
+                  isInvalid={!!formState.errors?.billingPeriod?.length}
                 >
-                  <SelectTrigger id="billingPeriod">
-                    <SelectValue placeholder="Select billing period" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="monthly">Monthly</SelectItem>
-                    <SelectItem value="yearly">Yearly</SelectItem>
-                  </SelectContent>
+                  <SelectItem id="monthly">Monthly</SelectItem>
+                  <SelectItem id="yearly">Yearly</SelectItem>
                 </Select>
                 <FieldDescription>
                   Choose how often you want to be billed.
@@ -291,19 +283,16 @@ export function ExampleForm() {
               <Field data-invalid={!!formState.errors?.theme?.length}>
                 <FieldLabel htmlFor="theme">Theme Preference</FieldLabel>
                 <Select
+                  id="theme"
                   name="theme"
-                  defaultValue={formState.values.theme}
-                  disabled={pending}
-                  aria-invalid={!!formState.errors?.theme?.length}
+                  defaultSelectedKey={formState.values.theme}
+                  placeholder="Select theme"
+                  isDisabled={pending}
+                  isInvalid={!!formState.errors?.theme?.length}
                 >
-                  <SelectTrigger id="theme">
-                    <SelectValue placeholder="Select theme" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="light">Light</SelectItem>
-                    <SelectItem value="dark">Dark</SelectItem>
-                    <SelectItem value="system">System</SelectItem>
-                  </SelectContent>
+                  <SelectItem id="light">Light</SelectItem>
+                  <SelectItem id="dark">Dark</SelectItem>
+                  <SelectItem id="system">System</SelectItem>
                 </Select>
                 <FieldDescription>
                   Choose your preferred color theme
@@ -373,19 +362,26 @@ export function ExampleForm() {
           </Field>
         </CardFooter>
       </Card>
-      <Dialog open={showResults} onOpenChange={setShowResults}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Subscription Created!</DialogTitle>
-            <DialogDescription>
-              Here are the details of your subscription.
-            </DialogDescription>
-          </DialogHeader>
-          <pre className="overflow-x-auto rounded-md bg-black p-4 font-mono text-sm text-white">
-            <code>{JSON.stringify(formState.values, null, 2)}</code>
-          </pre>
-        </DialogContent>
-      </Dialog>
+      <DialogTrigger isOpen={showResults} onOpenChange={setShowResults}>
+        <Modal>
+          <Dialog>
+            <DialogHeader>
+              <DialogTitle>Subscription Created!</DialogTitle>
+              <DialogDescription>
+                Here are the details of your subscription.
+              </DialogDescription>
+            </DialogHeader>
+            <pre className="overflow-x-auto rounded-md bg-black p-4 font-mono text-sm text-white">
+              <code>{JSON.stringify(formState.values, null, 2)}</code>
+            </pre>
+            <div className="flex justify-end gap-2">
+              <Button variant="outline" slot="close">
+                Close
+              </Button>
+            </div>
+          </Dialog>
+        </Modal>
+      </DialogTrigger>
     </>
   )
 }

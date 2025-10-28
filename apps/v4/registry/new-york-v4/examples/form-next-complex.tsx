@@ -19,17 +19,8 @@ import {
   FieldSet,
   FieldTitle,
 } from "@/registry/new-york-v4/ui/field"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/new-york-v4/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Spinner } from "@/registry/new-york-v4/ui/spinner"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 
@@ -83,7 +74,7 @@ export default function FormNextComplex() {
                         For individuals and small teams
                       </FieldDescription>
                     </FieldContent>
-                    <RadioGroupItem value="basic" id="basic" />
+                    <Radio value="basic" id="basic" />
                   </Field>
                 </FieldLabel>
                 <FieldLabel htmlFor="pro">
@@ -94,7 +85,7 @@ export default function FormNextComplex() {
                         For businesses with higher demands
                       </FieldDescription>
                     </FieldContent>
-                    <RadioGroupItem value="pro" id="pro" />
+                    <Radio value="pro" id="pro" />
                   </Field>
                 </FieldLabel>
               </RadioGroup>
@@ -103,29 +94,21 @@ export default function FormNextComplex() {
               )}
             </FieldSet>
             <FieldSeparator />
-            <Field data-invalid={!!formState.errors?.billingPeriod?.length}>
-              <FieldLabel htmlFor="billingPeriod">Billing Period</FieldLabel>
-              <Select
-                name="billingPeriod"
-                defaultValue={formState.values.billingPeriod}
-                disabled={pending}
-                aria-invalid={!!formState.errors?.billingPeriod?.length}
-              >
-                <SelectTrigger id="billingPeriod">
-                  <SelectValue placeholder="Select" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="monthly">Monthly</SelectItem>
-                  <SelectItem value="yearly">Yearly</SelectItem>
-                </SelectContent>
-              </Select>
-              <FieldDescription>
-                Choose how often you want to be billed.
-              </FieldDescription>
-              {formState.errors?.billingPeriod && (
-                <FieldError>{formState.errors.billingPeriod[0]}</FieldError>
-              )}
-            </Field>
+            <Select
+              name="billingPeriod"
+              label="Billing Period"
+              description="Choose how often you want to be billed."
+              defaultSelectedKey={formState.values.billingPeriod}
+              isDisabled={pending}
+              errorMessage={
+                formState.errors?.billingPeriod
+                  ? formState.errors.billingPeriod[0]
+                  : undefined
+              }
+            >
+              <SelectItem id="monthly">Monthly</SelectItem>
+              <SelectItem id="yearly">Yearly</SelectItem>
+            </Select>
             <FieldSeparator />
             <FieldSet>
               <FieldLegend>Add-ons</FieldLegend>

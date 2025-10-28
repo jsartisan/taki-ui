@@ -24,11 +24,8 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/registry/new-york-v4/ui/command"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 const frameworks = [
   {
@@ -129,21 +126,20 @@ function FrameworkCombobox({ frameworks }: { frameworks: Framework[] }) {
   const [value, setValue] = React.useState("")
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-full justify-between md:max-w-[200px]"
-        >
-          {value
-            ? frameworks.find((framework) => framework.value === value)?.label
-            : "Select framework..."}
-          <ChevronsUpDown className="text-muted-foreground" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-(--radix-popover-trigger-width) p-0">
+    <DialogTrigger>
+      <Button
+        variant="outline"
+        role="combobox"
+        aria-expanded={open}
+        className="w-full justify-between md:max-w-[200px]"
+        onPress={() => setOpen(!open)}
+      >
+        {value
+          ? frameworks.find((framework) => framework.value === value)?.label
+          : "Select framework..."}
+        <ChevronsUpDown className="text-muted-foreground" />
+      </Button>
+      <Popover className="w-(--trigger-width) p-0">
         <Command>
           <CommandInput placeholder="Search framework..." />
           <CommandList>
@@ -170,8 +166,8 @@ function FrameworkCombobox({ frameworks }: { frameworks: Framework[] }) {
             </CommandGroup>
           </CommandList>
         </Command>
-      </PopoverContent>
-    </Popover>
+      </Popover>
+    </DialogTrigger>
   )
 }
 
@@ -191,31 +187,30 @@ function UserCombobox({
   )
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-full justify-between px-2 md:max-w-[200px]"
-        >
-          {selectedUser ? (
-            <div className="flex items-center gap-2">
-              <Avatar className="size-5">
-                <AvatarImage
-                  src={`https://github.com/${selectedUser.username}.png`}
-                />
-                <AvatarFallback>{selectedUser.username[0]}</AvatarFallback>
-              </Avatar>
-              {selectedUser.username}
-            </div>
-          ) : (
-            "Select user..."
-          )}
-          <ChevronsUpDown className="text-muted-foreground" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-(--radix-popover-trigger-width) p-0">
+    <DialogTrigger>
+      <Button
+        variant="outline"
+        role="combobox"
+        aria-expanded={open}
+        className="w-full justify-between px-2 md:max-w-[200px]"
+        onPress={() => setOpen(!open)}
+      >
+        {selectedUser ? (
+          <div className="flex items-center gap-2">
+            <Avatar className="size-5">
+              <AvatarImage
+                src={`https://github.com/${selectedUser.username}.png`}
+              />
+              <AvatarFallback>{selectedUser.username[0]}</AvatarFallback>
+            </Avatar>
+            {selectedUser.username}
+          </div>
+        ) : (
+          "Select user..."
+        )}
+        <ChevronsUpDown className="text-muted-foreground" />
+      </Button>
+      <Popover className="w-(--trigger-width) p-0">
         <Command>
           <CommandInput placeholder="Search user..." />
           <CommandList>
@@ -255,8 +250,8 @@ function UserCombobox({
             </CommandGroup>
           </CommandList>
         </Command>
-      </PopoverContent>
-    </Popover>
+      </Popover>
+    </DialogTrigger>
   )
 }
 
@@ -284,26 +279,25 @@ function TimezoneCombobox({
   )
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          className="h-12 w-full justify-between px-2.5 md:max-w-[200px]"
-        >
-          {selectedTimezone ? (
-            <div className="flex flex-col items-start gap-0.5">
-              <span className="text-muted-foreground text-xs font-normal">
-                {selectedGroup?.label}
-              </span>
-              <span>{selectedTimezoneLabel}</span>
-            </div>
-          ) : (
-            "Select timezone"
-          )}
-          <ChevronDownIcon className="text-muted-foreground" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="p-0" align="start">
+    <DialogTrigger>
+      <Button
+        variant="outline"
+        className="h-12 w-full justify-between px-2.5 md:max-w-[200px]"
+        onPress={() => setOpen(!open)}
+      >
+        {selectedTimezone ? (
+          <div className="flex flex-col items-start gap-0.5">
+            <span className="text-muted-foreground text-xs font-normal">
+              {selectedGroup?.label}
+            </span>
+            <span>{selectedTimezoneLabel}</span>
+          </div>
+        ) : (
+          "Select timezone"
+        )}
+        <ChevronDownIcon className="text-muted-foreground" />
+      </Button>
+      <Popover className="p-0">
         <Command>
           <CommandInput placeholder="Search timezone..." />
           <CommandList className="scroll-pb-12">
@@ -339,8 +333,8 @@ function TimezoneCombobox({
             </CommandGroup>
           </CommandList>
         </Command>
-      </PopoverContent>
-    </Popover>
+      </Popover>
+    </DialogTrigger>
   )
 }
 
@@ -351,21 +345,20 @@ function ComboboxWithCheckbox({ frameworks }: { frameworks: Framework[] }) {
   >([])
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-fit min-w-[280px] justify-between"
-        >
-          {selectedFrameworks.length > 0
-            ? selectedFrameworks.map((framework) => framework.label).join(", ")
-            : "Select frameworks (multi-select)..."}
-          <ChevronsUpDown className="text-muted-foreground" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0" align="start">
+    <DialogTrigger>
+      <Button
+        variant="outline"
+        role="combobox"
+        aria-expanded={open}
+        className="w-fit min-w-[280px] justify-between"
+        onPress={() => setOpen(!open)}
+      >
+        {selectedFrameworks.length > 0
+          ? selectedFrameworks.map((framework) => framework.label).join(", ")
+          : "Select frameworks (multi-select)..."}
+        <ChevronsUpDown className="text-muted-foreground" />
+      </Button>
+      <Popover className="w-[300px] p-0">
         <Command>
           <CommandInput placeholder="Search framework..." />
           <CommandList>
@@ -399,7 +392,7 @@ function ComboboxWithCheckbox({ frameworks }: { frameworks: Framework[] }) {
             </CommandGroup>
           </CommandList>
         </Command>
-      </PopoverContent>
-    </Popover>
+      </Popover>
+    </DialogTrigger>
   )
 }

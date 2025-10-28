@@ -1,0 +1,90 @@
+---
+title: Shimmer
+description: An animated text shimmer effect for loading states in AI interfaces.
+component: true
+---
+
+<ComponentPreview name="shimmer-demo" description="Text with shimmer animation" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add shimmer
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install motion
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="shimmer" title="ai-elements/shimmer.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { Shimmer } from "@/components/ai-elements/shimmer"
+```
+
+```tsx showLineNumbers
+<Shimmer>Loading content...</Shimmer>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="shimmer-demo" description="Shimmer text animation" />
+
+### Custom Duration
+
+```tsx showLineNumbers
+<Shimmer duration={1}>Fast shimmer</Shimmer>
+<Shimmer duration={3}>Slow shimmer</Shimmer>
+```
+
+### Custom Element
+
+```tsx showLineNumbers
+<Shimmer as="h2">Shimmer heading</Shimmer>
+<Shimmer as="span">Shimmer text</Shimmer>
+```
+
+## API Reference
+
+### Shimmer
+
+Animated text with shimmer effect.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `string` | - | Text content to shimmer |
+| `as` | `ElementType` | `"p"` | HTML element type |
+| `duration` | `number` | `2` | Animation duration in seconds |
+| `spread` | `number` | `2` | Shimmer spread multiplier |
+| `className` | `string` | - | Custom CSS classes |
+

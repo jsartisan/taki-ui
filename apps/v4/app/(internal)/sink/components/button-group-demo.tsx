@@ -56,23 +56,13 @@ import {
   InputGroupInput,
 } from "@/registry/new-york-v4/ui/input-group"
 import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 import { Textarea } from "@/registry/new-york-v4/ui/textarea"
 import {
   Tooltip,
-  TooltipContent,
   TooltipTrigger,
 } from "@/registry/new-york-v4/ui/tooltip"
 
@@ -216,13 +206,14 @@ export function ButtonGroupDemo() {
         <Field>
           <Label htmlFor="amount">Amount</Label>
           <ButtonGroup>
-            <Select value={currency} onValueChange={setCurrency}>
-              <SelectTrigger className="font-mono">{currency}</SelectTrigger>
-              <SelectContent>
-                <SelectItem value="$">$</SelectItem>
-                <SelectItem value="€">€</SelectItem>
-                <SelectItem value="£">£</SelectItem>
-              </SelectContent>
+            <Select
+              selectedKey={currency}
+              onSelectionChange={(key) => setCurrency(key as string)}
+              className="font-mono min-w-[60px]"
+            >
+              <SelectItem id="$">$</SelectItem>
+              <SelectItem id="€">€</SelectItem>
+              <SelectItem id="£">£</SelectItem>
             </Select>
             <Input placeholder="Enter amount to send" />
             <Button variant="outline">
@@ -266,14 +257,12 @@ export function ButtonGroupDemo() {
             <Button variant="outline">
               <IconBrandGithubCopilot />
             </Button>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button variant="outline">
-                  <IconCloudCode />
-                  <IconChevronDown />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent align="end" className="rounded-xl p-0 text-sm">
+            <DialogTrigger>
+              <Button variant="outline">
+                <IconCloudCode />
+                <IconChevronDown />
+              </Button>
+              <Popover className="rounded-xl p-0 text-sm">
                 <div className="px-4 py-3">
                   <div className="text-sm font-medium">Agent Tasks</div>
                 </div>
@@ -289,8 +278,8 @@ export function ButtonGroupDemo() {
                     the background and open a pull request for your review.
                   </p>
                 </div>
-              </PopoverContent>
-            </Popover>
+              </Popover>
+            </DialogTrigger>
           </ButtonGroup>
         </div>
         <FieldGroup className="grid grid-cols-2 gap-4 [--spacing:0.22rem]">
@@ -323,18 +312,11 @@ export function ButtonGroupDemo() {
               <InputGroup>
                 <InputGroupInput id="color" />
                 <InputGroupAddon align="inline-start">
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <InputGroupButton>
-                        <span className="size-4 rounded-xs bg-blue-600" />
-                      </InputGroupButton>
-                    </PopoverTrigger>
-                    <PopoverContent
-                      align="start"
-                      className="max-w-48 rounded-lg p-2"
-                      alignOffset={-8}
-                      sideOffset={8}
-                    >
+                  <DialogTrigger>
+                    <InputGroupButton>
+                      <span className="size-4 rounded-xs bg-blue-600" />
+                    </InputGroupButton>
+                    <Popover className="max-w-48 rounded-lg p-2">
                       <div className="flex flex-wrap gap-1.5">
                         {[
                           "#EA4335", // Red
@@ -357,8 +339,8 @@ export function ButtonGroupDemo() {
                           />
                         ))}
                       </div>
-                    </PopoverContent>
-                  </Popover>
+                    </Popover>
+                  </DialogTrigger>
                 </InputGroupAddon>
                 <InputGroupAddon
                   align="inline-end"
@@ -384,15 +366,14 @@ export function ButtonGroupDemo() {
         </ButtonGroup>
         <ExportButtonGroup />
         <ButtonGroup>
-          <Select defaultValue="hours">
-            <SelectTrigger id="duration">
-              <SelectValue placeholder="Select duration" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="hours">Hours</SelectItem>
-              <SelectItem value="days">Days</SelectItem>
-              <SelectItem value="weeks">Weeks</SelectItem>
-            </SelectContent>
+          <Select
+            id="duration"
+            defaultSelectedKey="hours"
+            placeholder="Select duration"
+          >
+            <SelectItem id="hours">Hours</SelectItem>
+            <SelectItem id="days">Days</SelectItem>
+            <SelectItem id="weeks">Weeks</SelectItem>
           </Select>
           <Input />
         </ButtonGroup>
@@ -405,14 +386,12 @@ export function ButtonGroupDemo() {
           <ButtonGroup>
             <InputGroup>
               <InputGroupInput placeholder="Send a message..." />
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <InputGroupAddon align="inline-end">
-                    <AudioLinesIcon />
-                  </InputGroupAddon>
-                </TooltipTrigger>
-                <TooltipContent>Voice Mode</TooltipContent>
-              </Tooltip>
+              <TooltipTrigger>
+                <InputGroupAddon align="inline-end">
+                  <AudioLinesIcon />
+                </InputGroupAddon>
+                <Tooltip>Voice Mode</Tooltip>
+              </TooltipTrigger>
             </InputGroup>
           </ButtonGroup>
         </ButtonGroup>
@@ -563,18 +542,15 @@ function ExportButtonGroup() {
   return (
     <ButtonGroup>
       <Input />
-      <Select value={exportType} onValueChange={setExportType}>
-        <SelectTrigger>
-          <SelectValue asChild>
-            <span>{exportType}</span>
-          </SelectValue>
-        </SelectTrigger>
-        <SelectContent align="end">
-          <SelectItem value="pdf">pdf</SelectItem>
-          <SelectItem value="xlsx">xlsx</SelectItem>
-          <SelectItem value="csv">csv</SelectItem>
-          <SelectItem value="json">json</SelectItem>
-        </SelectContent>
+      <Select
+        selectedKey={exportType}
+        onSelectionChange={(key) => setExportType(key as string)}
+        className="min-w-[80px]"
+      >
+        <SelectItem id="pdf">pdf</SelectItem>
+        <SelectItem id="xlsx">xlsx</SelectItem>
+        <SelectItem id="csv">csv</SelectItem>
+        <SelectItem id="json">json</SelectItem>
       </Select>
     </ButtonGroup>
   )

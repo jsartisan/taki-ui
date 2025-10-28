@@ -15,13 +15,7 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "@/registry/new-york-v4/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 
 const plans = [
   {
@@ -85,39 +79,29 @@ export function CardsPaymentMethod() {
         <div className="grid grid-cols-3 gap-4">
           <div className="flex flex-col gap-3">
             <Label htmlFor="month">Expires</Label>
-            <Select>
-              <SelectTrigger id="month" aria-label="Month" className="w-full">
-                <SelectValue placeholder="Month" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="1">January</SelectItem>
-                <SelectItem value="2">February</SelectItem>
-                <SelectItem value="3">March</SelectItem>
-                <SelectItem value="4">April</SelectItem>
-                <SelectItem value="5">May</SelectItem>
-                <SelectItem value="6">June</SelectItem>
-                <SelectItem value="7">July</SelectItem>
-                <SelectItem value="8">August</SelectItem>
-                <SelectItem value="9">September</SelectItem>
-                <SelectItem value="10">October</SelectItem>
-                <SelectItem value="11">November</SelectItem>
-                <SelectItem value="12">December</SelectItem>
-              </SelectContent>
+            <Select id="month" placeholder="Month" className="w-full">
+              <SelectItem id="1">January</SelectItem>
+              <SelectItem id="2">February</SelectItem>
+              <SelectItem id="3">March</SelectItem>
+              <SelectItem id="4">April</SelectItem>
+              <SelectItem id="5">May</SelectItem>
+              <SelectItem id="6">June</SelectItem>
+              <SelectItem id="7">July</SelectItem>
+              <SelectItem id="8">August</SelectItem>
+              <SelectItem id="9">September</SelectItem>
+              <SelectItem id="10">October</SelectItem>
+              <SelectItem id="11">November</SelectItem>
+              <SelectItem id="12">December</SelectItem>
             </Select>
           </div>
           <div className="flex flex-col gap-3">
             <Label htmlFor="year">Year</Label>
-            <Select>
-              <SelectTrigger id="year" aria-label="Year" className="w-full">
-                <SelectValue placeholder="Year" />
-              </SelectTrigger>
-              <SelectContent>
-                {Array.from({ length: 10 }, (_, i) => (
-                  <SelectItem key={i} value={`${new Date().getFullYear() + i}`}>
-                    {new Date().getFullYear() + i}
-                  </SelectItem>
-                ))}
-              </SelectContent>
+            <Select id="year" placeholder="Year" className="w-full">
+              {Array.from({ length: 10 }, (_, i) => (
+                <SelectItem key={i} id={`${new Date().getFullYear() + i}`}>
+                  {new Date().getFullYear() + i}
+                </SelectItem>
+              ))}
             </Select>
           </div>
           <div className="flex flex-col gap-3">

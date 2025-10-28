@@ -16,11 +16,7 @@ import {
   InputGroupTextarea,
 } from "@/registry/new-york-v4/ui/input-group"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/registry/new-york-v4/ui/tooltip"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
 
 export function InputGroupDemo() {
   return (
@@ -38,18 +34,16 @@ export function InputGroupDemo() {
           <InputGroupText>https://</InputGroupText>
         </InputGroupAddon>
         <InputGroupAddon align="inline-end">
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <InputGroupButton
-                className="rounded-full"
-                size="icon-xs"
-                aria-label="Info"
-              >
-                <IconInfoCircle />
-              </InputGroupButton>
-            </TooltipTrigger>
-            <TooltipContent>This is content in a tooltip.</TooltipContent>
-          </Tooltip>
+          <TooltipTrigger>
+            <InputGroupButton
+              className="rounded-full"
+              size="icon-xs"
+              aria-label="Info"
+            >
+              <IconInfoCircle />
+            </InputGroupButton>
+            <Tooltip>This is content in a tooltip.</Tooltip>
+          </TooltipTrigger>
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>

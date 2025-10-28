@@ -7,11 +7,7 @@ import {
   InputGroupInput,
 } from "@/registry/new-york-v4/ui/input-group"
 import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/registry/new-york-v4/ui/tooltip"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
 
 export default function InputGroupLabel() {
   return (
@@ -28,21 +24,17 @@ export default function InputGroupLabel() {
           <Label htmlFor="email-2" className="text-foreground">
             Email
           </Label>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <InputGroupButton
-                variant="ghost"
-                aria-label="Help"
-                className="ml-auto rounded-full"
-                size="icon-xs"
-              >
-                <InfoIcon />
-              </InputGroupButton>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>We&apos;ll use this to send you notifications</p>
-            </TooltipContent>
-          </Tooltip>
+          <TooltipTrigger>
+            <InputGroupButton
+              variant="ghost"
+              aria-label="Help"
+              className="ml-auto rounded-full"
+              size="icon-xs"
+            >
+              <InfoIcon />
+            </InputGroupButton>
+            <Tooltip>We&apos;ll use this to send you notifications</Tooltip>
+          </TooltipTrigger>
         </InputGroupAddon>
       </InputGroup>
     </div>

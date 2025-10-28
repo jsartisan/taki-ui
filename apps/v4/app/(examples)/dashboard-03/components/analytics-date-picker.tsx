@@ -8,11 +8,8 @@ import { DateRange } from "react-day-picker"
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { Calendar } from "@/registry/new-york-v4/ui/calendar"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 export function AnalyticsDatePicker() {
   const [date, setDate] = React.useState<DateRange | undefined>({
@@ -21,32 +18,30 @@ export function AnalyticsDatePicker() {
   })
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          id="date"
-          variant="outline"
-          className={cn(
-            "w-fit justify-start px-2 font-normal",
-            !date && "text-muted-foreground"
-          )}
-        >
-          <CalendarIcon className="text-muted-foreground" />
-          {date?.from ? (
-            date.to ? (
-              <>
-                {format(date.from, "LLL dd, y")} -{" "}
-                {format(date.to, "LLL dd, y")}
-              </>
-            ) : (
-              format(date.from, "LLL dd, y")
-            )
+    <DialogTrigger>
+      <Button
+        id="date"
+        variant="outline"
+        className={cn(
+          "w-fit justify-start px-2 font-normal",
+          !date && "text-muted-foreground"
+        )}
+      >
+        <CalendarIcon className="text-muted-foreground" />
+        {date?.from ? (
+          date.to ? (
+            <>
+              {format(date.from, "LLL dd, y")} -{" "}
+              {format(date.to, "LLL dd, y")}
+            </>
           ) : (
-            <span>Pick a date</span>
-          )}
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-auto p-0" align="end">
+            format(date.from, "LLL dd, y")
+          )
+        ) : (
+          <span>Pick a date</span>
+        )}
+      </Button>
+      <Popover className="w-auto p-0">
         <Calendar
           initialFocus
           mode="range"
@@ -55,7 +50,7 @@ export function AnalyticsDatePicker() {
           onSelect={setDate}
           numberOfMonths={2}
         />
-      </PopoverContent>
-    </Popover>
+      </Popover>
+    </DialogTrigger>
   )
 }

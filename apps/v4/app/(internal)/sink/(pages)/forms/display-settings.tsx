@@ -12,13 +12,7 @@ import {
   FieldSet,
   FieldTitle,
 } from "@/registry/new-york-v4/ui/field"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Slider } from "@/registry/new-york-v4/ui/slider"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 
@@ -35,16 +29,11 @@ export function DisplaySettings() {
             <FieldLabel htmlFor="resolution">Resolution</FieldLabel>
             <FieldDescription>Select the display resolution.</FieldDescription>
           </FieldContent>
-          <Select>
-            <SelectTrigger id="resolution" className="ml-auto">
-              <SelectValue placeholder="Select" />
-            </SelectTrigger>
-            <SelectContent align="end">
-              <SelectItem value="1920x1080">1920 x 1080</SelectItem>
-              <SelectItem value="2560x1440">2560 x 1440</SelectItem>
-              <SelectItem value="3840x2160">3840 x 2160</SelectItem>
-              <SelectItem value="auto">Auto</SelectItem>
-            </SelectContent>
+          <Select id="resolution" placeholder="Select" className="ml-auto">
+            <SelectItem id="1920x1080">1920 x 1080</SelectItem>
+            <SelectItem id="2560x1440">2560 x 1440</SelectItem>
+            <SelectItem id="3840x2160">3840 x 2160</SelectItem>
+            <SelectItem id="auto">Auto</SelectItem>
           </Select>
         </Field>
         <FieldSeparator />
@@ -97,16 +86,15 @@ export function DisplaySettings() {
               Select the display refresh rate.
             </FieldDescription>
           </FieldContent>
-          <Select>
-            <SelectTrigger id="refresh-rate" className="ml-auto min-w-[200px]">
-              <SelectValue placeholder="Select" />
-            </SelectTrigger>
-            <SelectContent align="end">
-              <SelectItem value="60hz">60 Hz</SelectItem>
-              <SelectItem value="120hz">120 Hz</SelectItem>
-              <SelectItem value="144hz">144 Hz</SelectItem>
-              <SelectItem value="240hz">240 Hz</SelectItem>
-            </SelectContent>
+          <Select
+            id="refresh-rate"
+            placeholder="Select"
+            className="ml-auto min-w-[200px]"
+          >
+            <SelectItem id="60hz">60 Hz</SelectItem>
+            <SelectItem id="120hz">120 Hz</SelectItem>
+            <SelectItem id="144hz">144 Hz</SelectItem>
+            <SelectItem id="240hz">240 Hz</SelectItem>
           </Select>
         </Field>
         <FieldSeparator />
@@ -119,16 +107,11 @@ export function DisplaySettings() {
               Choose display behavior when connected to a TV.
             </FieldDescription>
           </FieldContent>
-          <Select>
-            <SelectTrigger id="tv-connection" className="ml-auto">
-              <SelectValue placeholder="Select" />
-            </SelectTrigger>
-            <SelectContent align="end">
-              <SelectItem value="mirror">Mirror Display</SelectItem>
-              <SelectItem value="extend">Extend Display</SelectItem>
-              <SelectItem value="tv-only">TV Only</SelectItem>
-              <SelectItem value="auto">Auto</SelectItem>
-            </SelectContent>
+          <Select id="tv-connection" placeholder="Select" className="ml-auto">
+            <SelectItem id="mirror">Mirror Display</SelectItem>
+            <SelectItem id="extend">Extend Display</SelectItem>
+            <SelectItem id="tv-only">TV Only</SelectItem>
+            <SelectItem id="auto">Auto</SelectItem>
           </Select>
         </Field>
       </FieldGroup>

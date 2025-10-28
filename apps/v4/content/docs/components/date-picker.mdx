@@ -1,96 +1,285 @@
 ---
 title: Date Picker
-description: A date picker component with range and presets.
+description: A date picker combines a date field with a calendar popover to allow users to enter or select a date value.
 component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/DatePicker.html
+  api: https://react-spectrum.adobe.com/react-aria/DatePicker.html#props
 ---
 
-<ComponentPreview
-  name="calendar-22"
-  title="Date of Birth Picker"
-  description="A calendar with date of birth picker."
-/>
+<ComponentPreview name="date-picker-demo" description="A date picker with label and description." />
 
 ## Installation
 
-The Date Picker is built using a composition of the `<Popover />` and the `<Calendar />` components.
+<CodeTabs>
 
-See installation instructions for the [Popover](/docs/components/popover#installation) and the [Calendar](/docs/components/calendar#installation) components.
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add date-picker
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components @internationalized/date
+```
+
+<Step>Add the required components to your project.</Step>
+
+The `DatePicker` component depends on several other components. Make sure you have them installed:
+
+- [Button](/docs/components/button)
+- [Calendar](/docs/components/calendar)
+- [Date Field](/docs/components/date-field)
+- [Dialog](/docs/components/dialog)
+- [Field](/docs/components/field)
+- [Popover](/docs/components/popover)
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="date-picker" title="components/ui/date-picker.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
 
 ## Usage
 
-```tsx showLineNumbers title="components/example-date-picker.tsx"
+```tsx showLineNumbers
+import { DatePicker } from "@/components/ui/date-picker"
+```
+
+```tsx showLineNumbers
+<DatePicker
+  label="Event date"
+  description="Select a date for your event."
+/>
+```
+
+## About
+
+The `DatePicker` component is built on top of [React Aria Components](https://react-spectrum.adobe.com/react-aria/DatePicker.html) and combines a [Date Field](/docs/components/date-field) with a [Calendar](/docs/components/calendar) in a popover. It allows users to either type a date or select it from a calendar.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="date-picker-demo" description="A basic date picker with label and description." />
+
+```tsx showLineNumbers
+<DatePicker
+  label="Event date"
+  description="Select a date for your event."
+/>
+```
+
+### Disabled
+
+<ComponentPreview name="date-picker-disabled" description="A disabled date picker." />
+
+```tsx showLineNumbers
+<DatePicker
+  label="Event date"
+  description="This field is disabled."
+  isDisabled
+/>
+```
+
+### Validation
+
+<ComponentPreview name="date-picker-validation" description="A date picker with validation." />
+
+```tsx showLineNumbers
+<DatePicker
+  label="Appointment date"
+  description="Please select a date for your appointment."
+  isRequired
+  errorMessage="Please select a valid date."
+/>
+```
+
+### Controlled
+
+<ComponentPreview name="date-picker-controlled" description="A controlled date picker." />
+
+```tsx showLineNumbers
 "use client"
 
-import * as React from "react"
-import { format } from "date-fns"
-import { Calendar as CalendarIcon } from "lucide-react"
+import { useState } from "react"
+import { parseDate } from "@internationalized/date"
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "@/components/ui/calendar"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
+import { DatePicker } from "@/components/ui/date-picker"
 
-export function DatePickerDemo() {
-  const [date, setDate] = React.useState<Date>()
+export default function DatePickerControlled() {
+  const [value, setValue] = useState(parseDate("2024-12-25"))
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          data-empty={!date}
-          className="data-[empty=true]:text-muted-foreground w-[280px] justify-start text-left font-normal"
-        >
-          <CalendarIcon />
-          {date ? format(date, "PPP") : <span>Pick a date</span>}
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-auto p-0">
-        <Calendar mode="single" selected={date} onSelect={setDate} />
-      </PopoverContent>
-    </Popover>
+    <div className="space-y-4">
+      <DatePicker
+        label="Travel date"
+        description="Select your travel date."
+        value={value}
+        onChange={setValue}
+      />
+      <p className="text-muted-foreground text-sm">
+        Selected date: {value ? value.toString() : "None"}
+      </p>
+    </div>
   )
 }
 ```
 
-See the [React DayPicker](https://react-day-picker.js.org) documentation for more information.
+### Min and Max Values
 
-## Examples
+<ComponentPreview name="date-picker-min-max" description="A date picker with minimum and maximum values." />
 
-### Date of Birth Picker
+```tsx showLineNumbers
+"use client"
 
-<ComponentPreview
-  name="calendar-22"
-  title="Date of Birth Picker"
-  description="A calendar with date of birth picker."
-/>
+import { getLocalTimeZone, today } from "@internationalized/date"
 
-### Picker with Input
+import { DatePicker } from "@/components/ui/date-picker"
 
-<ComponentPreview
-  name="calendar-28"
-  title="Picker with Input"
-  description="A calendar with input and picker."
-/>
+export default function DatePickerMinMax() {
+  const now = today(getLocalTimeZone())
 
-### Date and Time Picker
+  return (
+    <DatePicker
+      label="Booking date"
+      description="Select a date within the next 30 days."
+      minValue={now}
+      maxValue={now.add({ days: 30 })}
+    />
+  )
+}
+```
 
-<ComponentPreview
-  name="calendar-24"
-  title="Date and Time Picker"
-  description="A calendar with date and time picker."
-/>
+### Granularity
 
-### Natural Language Picker
+<ComponentPreview name="date-picker-granularity" description="Date pickers with different granularities." />
 
-This component uses the `chrono-node` library to parse natural language dates.
+```tsx showLineNumbers
+<div className="space-y-4">
+  <DatePicker
+    label="Date only"
+    description="Year, month, and day."
+    granularity="day"
+  />
+  <DatePicker
+    label="Month and year"
+    description="Month and year only."
+    granularity="month"
+  />
+</div>
+```
 
-<ComponentPreview
-  name="calendar-29"
-  title="Natural Language Picker"
-  description="A calendar with natural language picker."
-/>
+### Unavailable Dates
+
+<ComponentPreview name="date-picker-unavailable-dates" description="A date picker with unavailable dates (weekends disabled)." />
+
+```tsx showLineNumbers
+"use client"
+
+import { DateValue, getLocalTimeZone, today } from "@internationalized/date"
+
+import { DatePicker } from "@/components/ui/date-picker"
+
+export default function DatePickerUnavailableDates() {
+  const now = today(getLocalTimeZone())
+
+  const isDateUnavailable = (date: DateValue) => {
+    const day = date.toDate(getLocalTimeZone()).getDay()
+    return day === 0 || day === 6 // Disable weekends
+  }
+
+  return (
+    <DatePicker
+      label="Meeting date"
+      description="Weekends are unavailable."
+      minValue={now}
+      isDateUnavailable={isDateUnavailable}
+    />
+  )
+}
+```
+
+## API Reference
+
+### DatePicker
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `label` | `string` | - | Label text for the date picker |
+| `description` | `string` | - | Help text displayed below the input |
+| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | - | Error message for validation |
+| `value` | `DateValue` | - | The current value (controlled) |
+| `defaultValue` | `DateValue` | - | The default value (uncontrolled) |
+| `onChange` | `(value: DateValue) => void` | - | Handler called when the value changes |
+| `minValue` | `DateValue` | - | The minimum allowed date |
+| `maxValue` | `DateValue` | - | The maximum allowed date |
+| `isDateUnavailable` | `(date: DateValue) => boolean` | - | Function to determine if a date is unavailable |
+| `granularity` | `"day" \| "hour" \| "minute" \| "second"` | `"day"` | Determines the smallest unit editable |
+| `isDisabled` | `boolean` | `false` | Whether the date picker is disabled |
+| `isReadOnly` | `boolean` | `false` | Whether the date picker is read-only |
+| `isRequired` | `boolean` | `false` | Whether the date picker is required |
+| `placeholderValue` | `DateValue` | - | A placeholder date that controls the default values |
+
+See the [React Aria DatePicker documentation](https://react-spectrum.adobe.com/react-aria/DatePicker.html#props) for more props and detailed information.
+
+## Internationalization
+
+The `DatePicker` component automatically formats dates based on the user's locale. The `@internationalized/date` library handles calendar systems and localization.
+
+```tsx showLineNumbers
+import { parseDate } from "@internationalized/date"
+
+// ISO 8601 format
+const date = parseDate("2024-12-25")
+```
+
+## Calendar Systems
+
+The date picker supports multiple calendar systems through the `@internationalized/date` library:
+
+- Gregorian
+- Buddhist
+- Hebrew
+- Indian
+- Islamic (Hijri)
+- Japanese
+- Persian
+- Taiwan
+
+See the [@internationalized/date documentation](https://react-spectrum.adobe.com/internationalized/date/) for more information.
+
+## Keyboard Navigation
+
+The date picker supports full keyboard navigation:
+
+- **Tab**: Move focus between the field segments and the calendar button
+- **Arrow Keys**: Navigate between segments in the field, or dates in the calendar
+- **Enter/Space**: Open/close the calendar popover, or select a date
+- **Escape**: Close the calendar popover
+- **Page Up/Down**: Navigate months in the calendar
+- **Home/End**: Go to the first/last day of the week in the calendar
+
+## Related Components
+
+- [Date Field](/docs/components/date-field) - For keyboard-only date entry
+- [Calendar](/docs/components/calendar) - For visual date selection
+- [Field](/docs/components/field) - For composing accessible form fields

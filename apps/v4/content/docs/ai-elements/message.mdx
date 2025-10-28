@@ -1,0 +1,109 @@
+---
+title: Message
+description: Display chat messages with role-based styling and avatars.
+component: true
+---
+
+<ComponentPreview name="message-demo" description="A message component with user and assistant messages." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add message
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install class-variance-authority
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="message" title="ai-elements/message.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Message, MessageAvatar, MessageContent } from "@/ai-elements/message"
+```
+
+```tsx
+<Message from="assistant">
+  <MessageAvatar src="/avatar.jpg" name="AI" />
+  <MessageContent>Hello! How can I help you today?</MessageContent>
+</Message>
+```
+
+## Examples
+
+### User Message
+
+```tsx
+<Message from="user">
+  <MessageAvatar src="https://github.com/shadcn.png" name="User" />
+  <MessageContent>
+    Can you explain how quantum computing works?
+  </MessageContent>
+</Message>
+```
+
+### Flat Variant
+
+<ComponentPreview name="message-flat" description="A message with flat variant styling." />
+
+```tsx
+<Message from="assistant">
+  <MessageAvatar src="/avatar.jpg" name="AI" />
+  <MessageContent variant="flat">
+    The flat variant provides a different visual style.
+  </MessageContent>
+</Message>
+```
+
+## API Reference
+
+### Message
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `from` | `"user" \| "assistant" \| "system"` | - | The role of the message sender |
+| `className` | `string` | - | Additional CSS classes |
+
+### MessageContent
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `variant` | `"contained" \| "flat"` | `"contained"` | The visual style of the message |
+| `className` | `string` | - | Additional CSS classes |
+
+### MessageAvatar
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `src` | `string` | - | Avatar image source |
+| `name` | `string` | - | Name for fallback text |
+| `className` | `string` | - | Additional CSS classes |
+

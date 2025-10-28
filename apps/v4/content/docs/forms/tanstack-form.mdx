@@ -223,7 +223,7 @@ const form = useForm({
 Display errors next to the field using `<FieldError />`. For styling and accessibility:
 
 - Add the `data-invalid` prop to the `<Field />` component.
-- Add the `aria-invalid` prop to the form control such as `<Input />`, `<SelectTrigger />`, `<Checkbox />`, etc.
+- Add the `aria-invalid` or `isInvalid` prop to the form control such as `<Input />`, `<Select />`, `<Checkbox />`, etc.
 
 ```tsx showLineNumbers title="form.tsx" {4,18}
 <form.Field
@@ -336,8 +336,8 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
 
 ### Select
 
-- For select components, use `field.state.value` and `field.handleChange` on the `<Select />` component.
-- To show errors, add the `aria-invalid` prop to the `<SelectTrigger />` component and the `data-invalid` prop to the `<Field />` component.
+- For select components, use `field.state.value` with `selectedKey` and `field.handleChange` with `onSelectionChange` on the `<Select />` component.
+- To show errors, add the `isInvalid` prop to the `<Select />` component and the `data-invalid` prop to the `<Field />` component.
 
 <ComponentPreview
   name="form-tanstack-select"
@@ -345,7 +345,7 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
   chromeLessOnMobile
 />
 
-```tsx showLineNumbers title="form.tsx" {6,18-19,23}
+```tsx showLineNumbers title="form.tsx" {6,17-18}
 <form.Field
   name="language"
   children={(field) => {
@@ -362,21 +362,15 @@ Display errors next to the field using `<FieldError />`. For styling and accessi
           {isInvalid && <FieldError errors={field.state.meta.errors} />}
         </FieldContent>
         <Select
-          name={field.name}
-          value={field.state.value}
-          onValueChange={field.handleChange}
+          id="form-tanstack-select-language"
+          selectedKey={field.state.value}
+          onSelectionChange={(key) => field.handleChange(key as string)}
+          placeholder="Select"
+          isInvalid={isInvalid}
+          className="min-w-[120px]"
         >
-          <SelectTrigger
-            id="form-tanstack-select-language"
-            aria-invalid={isInvalid}
-            className="min-w-[120px]"
-          >
-            <SelectValue placeholder="Select" />
-          </SelectTrigger>
-          <SelectContent position="item-aligned">
-            <SelectItem value="auto">Auto</SelectItem>
-            <SelectItem value="en">English</SelectItem>
-          </SelectContent>
+          <SelectItem id="auto">Auto</SelectItem>
+          <SelectItem id="en">English</SelectItem>
         </Select>
       </Field>
     )

@@ -1,0 +1,188 @@
+---
+title: Queue
+description: Display a queue of tasks or messages with organized sections.
+component: true
+---
+
+<ComponentPreview name="queue-demo" description="Task queue with sections" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add queue
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="queue" title="ai-elements/queue.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Queue,
+  QueueSection,
+  QueueSectionTrigger,
+  QueueSectionLabel,
+  QueueSectionContent,
+  QueueList,
+  QueueItem,
+  QueueItemIndicator,
+  QueueItemContent,
+} from "@/components/ai-elements/queue"
+```
+
+```tsx showLineNumbers
+<Queue>
+  <QueueSection>
+    <QueueSectionTrigger>
+      <QueueSectionLabel count={2} label="Completed" icon={<CheckIcon />} />
+    </QueueSectionTrigger>
+    <QueueSectionContent>
+      <QueueList>
+        <QueueItem>
+          <QueueItemIndicator completed />
+          <QueueItemContent completed>Task 1</QueueItemContent>
+        </QueueItem>
+      </QueueList>
+    </QueueSectionContent>
+  </QueueSection>
+</Queue>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="queue-demo" description="Queue with completed and pending sections" />
+
+```tsx showLineNumbers
+import { CheckIcon, ClockIcon } from "lucide-react"
+
+export default function Example() {
+  return (
+    <Queue>
+      <QueueSection>
+        <QueueSectionTrigger>
+          <QueueSectionLabel
+            count={2}
+            label="Completed"
+            icon={<CheckIcon className="size-4" />}
+          />
+        </QueueSectionTrigger>
+        <QueueSectionContent>
+          <QueueList>
+            <QueueItem>
+              <div className="flex items-start gap-2">
+                <QueueItemIndicator completed />
+                <QueueItemContent completed>
+                  Analyze user requirements
+                </QueueItemContent>
+              </div>
+            </QueueItem>
+          </QueueList>
+        </QueueSectionContent>
+      </QueueSection>
+
+      <QueueSection>
+        <QueueSectionTrigger>
+          <QueueSectionLabel
+            count={3}
+            label="Pending"
+            icon={<ClockIcon className="size-4" />}
+          />
+        </QueueSectionTrigger>
+        <QueueSectionContent>
+          <QueueList>
+            <QueueItem>
+              <div className="flex items-start gap-2">
+                <QueueItemIndicator />
+                <QueueItemContent>Implement authentication</QueueItemContent>
+              </div>
+            </QueueItem>
+          </QueueList>
+        </QueueSectionContent>
+      </QueueSection>
+    </Queue>
+  )
+}
+```
+
+## API Reference
+
+### Queue
+
+Main queue container.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### QueueSection
+
+Collapsible section within the queue.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `defaultOpen` | `boolean` | `true` | Initial open state |
+| `className` | `string` | - | Custom CSS classes |
+
+### QueueSectionLabel
+
+Section header label with count.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `count` | `number` | - | Number of items |
+| `label` | `string` | - | Section label |
+| `icon` | `ReactNode` | - | Icon element |
+| `className` | `string` | - | Custom CSS classes |
+
+### QueueItem
+
+Individual queue item.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### QueueItemIndicator
+
+Status indicator dot.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `completed` | `boolean` | `false` | Whether item is completed |
+| `className` | `string` | - | Custom CSS classes |
+
+### QueueItemContent
+
+Item content text.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `completed` | `boolean` | `false` | Whether item is completed |
+| `className` | `string` | - | Custom CSS classes |
+

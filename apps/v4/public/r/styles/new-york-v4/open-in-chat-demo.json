@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "open-in-chat-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "open-in-chat",
+    "button",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/open-in-chat-demo.tsx",
+      "content": "import {\n  OpenInChat,\n  OpenInChatDropdown,\n  OpenInChatLink,\n  OpenInChatTrigger,\n} from \"@/registry/new-york-v4/ai-elements/open-in-chat\"\n\nexport default function OpenInChatDemo() {\n  const prompt = \"How do I build a responsive layout with CSS Grid?\"\n\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <div className=\"flex items-center gap-2\">\n        <OpenInChat prompt={prompt} provider=\"chatgpt\">\n          <OpenInChatLink />\n        </OpenInChat>\n      </div>\n\n      <div className=\"flex items-center gap-2\">\n        <OpenInChat prompt={prompt}>\n          <OpenInChatDropdown>\n            <OpenInChatTrigger />\n          </OpenInChatDropdown>\n        </OpenInChat>\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -24,20 +24,12 @@ const TOP_LEVEL_SECTIONS = [
     href: "/docs/components",
   },
   {
-    name: "Registry",
-    href: "/docs/registry",
-  },
-  {
-    name: "MCP Server",
-    href: "/docs/mcp",
+    name: "AI Elements",
+    href: "/docs/ai-elements",
   },
   {
     name: "Forms",
     href: "/docs/forms",
-  },
-  {
-    name: "Changelog",
-    href: "/docs/changelog",
   },
 ]
 const EXCLUDED_SECTIONS = ["installation", "dark-mode"]
@@ -51,7 +43,7 @@ export function DocsSidebar({
 
   return (
     <Sidebar
-      className="sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--footer-height)+2rem)] bg-transparent lg:flex"
+      className="sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--footer-height)+2rem)] border-r bg-transparent lg:flex"
       collapsible="none"
       {...props}
     >

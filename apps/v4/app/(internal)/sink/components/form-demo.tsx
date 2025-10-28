@@ -21,22 +21,12 @@ import {
   FormMessage,
 } from "@/registry/new-york-v4/ui/form"
 import { Input } from "@/registry/new-york-v4/ui/input"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 import {
   RadioGroup,
   RadioGroupItem,
 } from "@/registry/new-york-v4/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 import { Textarea } from "@/registry/new-york-v4/ui/textarea"
 
@@ -145,18 +135,17 @@ export function FormDemo() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a verified email to display" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="m@example.com">m@example.com</SelectItem>
-                  <SelectItem value="m@google.com">m@google.com</SelectItem>
-                  <SelectItem value="m@support.com">m@support.com</SelectItem>
-                </SelectContent>
-              </Select>
+              <FormControl>
+                <Select
+                  onSelectionChange={(key) => field.onChange(key as string)}
+                  selectedKey={field.value}
+                  placeholder="Select a verified email to display"
+                >
+                  <SelectItem id="m@example.com">m@example.com</SelectItem>
+                  <SelectItem id="m@google.com">m@google.com</SelectItem>
+                  <SelectItem id="m@support.com">m@support.com</SelectItem>
+                </Select>
+              </FormControl>
               <FormDescription>
                 You can manage email addresses in your email settings.
               </FormDescription>
@@ -303,26 +292,24 @@ export function FormDemo() {
           render={({ field }) => (
             <FormItem className="flex flex-col">
               <FormLabel>Date of birth</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value ? (
-                        format(field.value, "PPP")
-                      ) : (
-                        <span>Pick a date</span>
-                      )}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
+              <DialogTrigger>
+                <FormControl>
+                  <Button
+                    variant={"outline"}
+                    className={cn(
+                      "w-[240px] pl-3 text-left font-normal",
+                      !field.value && "text-muted-foreground"
+                    )}
+                  >
+                    {field.value ? (
+                      format(field.value, "PPP")
+                    ) : (
+                      <span>Pick a date</span>
+                    )}
+                    <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                  </Button>
+                </FormControl>
+                <Popover className="w-auto p-0">
                   <Calendar
                     mode="single"
                     selected={field.value}
@@ -332,8 +319,8 @@ export function FormDemo() {
                     }
                     initialFocus
                   />
-                </PopoverContent>
-              </Popover>
+                </Popover>
+              </DialogTrigger>
               <FormDescription>
                 Your date of birth is used to calculate your age.
               </FormDescription>

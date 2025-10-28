@@ -28,17 +28,8 @@ import {
   FieldSet,
   FieldTitle,
 } from "@/registry/new-york-v4/ui/field"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/new-york-v4/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 
 const addons = [
@@ -150,10 +141,7 @@ export default function FormRhfComplex() {
                               For individuals and small teams
                             </FieldDescription>
                           </FieldContent>
-                          <RadioGroupItem
-                            value="basic"
-                            id="form-rhf-complex-basic"
-                          />
+                          <Radio value="basic" id="form-rhf-complex-basic" />
                         </Field>
                       </FieldLabel>
                       <FieldLabel htmlFor="form-rhf-complex-pro">
@@ -164,10 +152,7 @@ export default function FormRhfComplex() {
                               For businesses with higher demands
                             </FieldDescription>
                           </FieldContent>
-                          <RadioGroupItem
-                            value="pro"
-                            id="form-rhf-complex-pro"
-                          />
+                          <Radio value="pro" id="form-rhf-complex-pro" />
                         </Field>
                       </FieldLabel>
                     </RadioGroup>
@@ -187,19 +172,11 @@ export default function FormRhfComplex() {
                   </FieldLabel>
                   <Select
                     name={field.name}
-                    value={field.value}
-                    onValueChange={field.onChange}
+                    selectedKey={field.value}
+                    onSelectionChange={(key) => field.onChange(key as string)}
                   >
-                    <SelectTrigger
-                      id="form-rhf-complex-billingPeriod"
-                      aria-invalid={fieldState.invalid}
-                    >
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="monthly">Monthly</SelectItem>
-                      <SelectItem value="yearly">Yearly</SelectItem>
-                    </SelectContent>
+                    <SelectItem id="monthly">Monthly</SelectItem>
+                    <SelectItem id="yearly">Yearly</SelectItem>
                   </Select>
                   <FieldDescription>
                     Choose how often you want to be billed.

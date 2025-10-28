@@ -26,24 +26,19 @@ import {
 } from "@/registry/new-york-v4/ui/command"
 import {
   Dialog,
-  DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from "@/registry/new-york-v4/ui/dialog"
+import { Modal } from "@/registry/new-york-v4/ui/modal"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
 } from "@/registry/new-york-v4/ui/input-group"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/registry/new-york-v4/ui/tooltip"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
 
 const users = [
   {
@@ -114,22 +109,18 @@ export function CardsChat() {
               <p className="text-muted-foreground text-xs">m@example.com</p>
             </div>
           </div>
-          <TooltipProvider delayDuration={0}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  size="icon"
-                  variant="secondary"
-                  className="ml-auto size-8 rounded-full"
-                  onClick={() => setOpen(true)}
-                >
-                  <PlusIcon />
-                  <span className="sr-only">New message</span>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent sideOffset={10}>New message</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <TooltipTrigger delay={0}>
+            <Button
+              size="icon"
+              variant="secondary"
+              className="ml-auto size-8 rounded-full"
+              onClick={() => setOpen(true)}
+            >
+              <PlusIcon />
+              <span className="sr-only">New message</span>
+            </Button>
+            <Tooltip offset={10}>New message</Tooltip>
+          </TooltipTrigger>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-4">
@@ -186,88 +177,88 @@ export function CardsChat() {
           </form>
         </CardFooter>
       </Card>
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="gap-0 p-0 outline-none">
-          <DialogHeader className="px-4 pt-5 pb-4">
-            <DialogTitle>New message</DialogTitle>
-            <DialogDescription>
-              Invite a user to this thread. This will create a new group
-              message.
-            </DialogDescription>
-          </DialogHeader>
-          <Command className="overflow-hidden rounded-t-none border-t bg-transparent">
-            <CommandInput placeholder="Search user..." />
-            <CommandList>
-              <CommandEmpty>No users found.</CommandEmpty>
-              <CommandGroup>
-                {users.map((user) => (
-                  <CommandItem
-                    key={user.email}
-                    data-active={selectedUsers.includes(user)}
-                    className="data-[active=true]:opacity-50"
-                    onSelect={() => {
-                      if (selectedUsers.includes(user)) {
+      <DialogTrigger isOpen={open} onOpenChange={setOpen}>
+        <Modal>
+          <Dialog className="gap-0 p-0 outline-none">
+            <DialogHeader className="px-4 pt-5 pb-4">
+              <DialogTitle>New message</DialogTitle>
+              <DialogDescription>
+                Invite a user to this thread. This will create a new group
+                message.
+              </DialogDescription>
+            </DialogHeader>
+            <Command className="overflow-hidden rounded-t-none border-t bg-transparent">
+              <CommandInput placeholder="Search user..." />
+              <CommandList>
+                <CommandEmpty>No users found.</CommandEmpty>
+                <CommandGroup>
+                  {users.map((user) => (
+                    <CommandItem
+                      key={user.email}
+                      data-active={selectedUsers.includes(user)}
+                      className="data-[active=true]:opacity-50"
+                      onSelect={() => {
+                        if (selectedUsers.includes(user)) {
+                          return setSelectedUsers(
+                            selectedUsers.filter(
+                              (selectedUser) => selectedUser !== user
+                            )
+                          )
+                        }
+
                         return setSelectedUsers(
-                          selectedUsers.filter(
-                            (selectedUser) => selectedUser !== user
+                          [...users].filter((u) =>
+                            [...selectedUsers, user].includes(u)
                           )
                         )
-                      }
-
-                      return setSelectedUsers(
-                        [...users].filter((u) =>
-                          [...selectedUsers, user].includes(u)
-                        )
-                      )
-                    }}
-                  >
-                    <Avatar className="border">
-                      <AvatarImage src={user.avatar} alt="Image" />
+                      }}
+                    >
+                      <Avatar className="border">
+                        <AvatarImage src={user.avatar} alt="Image" />
+                        <AvatarFallback>{user.name[0]}</AvatarFallback>
+                      </Avatar>
+                      <div className="ml-2">
+                        <p className="text-sm leading-none font-medium">
+                          {user.name}
+                        </p>
+                        <p className="text-muted-foreground text-sm">
+                          {user.email}
+                        </p>
+                      </div>
+                      {selectedUsers.includes(user) ? (
+                        <CheckIcon className="text-primary ml-auto flex size-4" />
+                      ) : null}
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </CommandList>
+            </Command>
+            <div className="flex items-center border-t p-4 sm:justify-between">
+              {selectedUsers.length > 0 ? (
+                <div className="flex -space-x-2 overflow-hidden">
+                  {selectedUsers.map((user) => (
+                    <Avatar key={user.email} className="inline-block border">
+                      <AvatarImage src={user.avatar} />
                       <AvatarFallback>{user.name[0]}</AvatarFallback>
                     </Avatar>
-                    <div className="ml-2">
-                      <p className="text-sm leading-none font-medium">
-                        {user.name}
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        {user.email}
-                      </p>
-                    </div>
-                    {selectedUsers.includes(user) ? (
-                      <CheckIcon className="text-primary ml-auto flex size-4" />
-                    ) : null}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </CommandList>
-          </Command>
-          <DialogFooter className="flex items-center border-t p-4 sm:justify-between">
-            {selectedUsers.length > 0 ? (
-              <div className="flex -space-x-2 overflow-hidden">
-                {selectedUsers.map((user) => (
-                  <Avatar key={user.email} className="inline-block border">
-                    <AvatarImage src={user.avatar} />
-                    <AvatarFallback>{user.name[0]}</AvatarFallback>
-                  </Avatar>
-                ))}
-              </div>
-            ) : (
-              <p className="text-muted-foreground text-sm">
-                Select users to add to this thread.
-              </p>
-            )}
-            <Button
-              disabled={selectedUsers.length < 2}
-              size="sm"
-              onClick={() => {
-                setOpen(false)
-              }}
-            >
-              Continue
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-muted-foreground text-sm">
+                  Select users to add to this thread.
+                </p>
+              )}
+              <Button
+                disabled={selectedUsers.length < 2}
+                size="sm"
+                slot="close"
+              >
+                Continue
+              </Button>
+            </div>
+          </Dialog>
+        </Modal>
+      </DialogTrigger>
     </>
   )
 }

@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { Dialog } from "@radix-ui/react-dialog"
 import { MoreHorizontal } from "lucide-react"
 import { toast } from "sonner"
 
@@ -16,12 +15,11 @@ import {
 } from "@/registry/new-york-v4/ui/alert-dialog"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
-  DialogClose,
-  DialogContent,
+  Dialog,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from "@/registry/new-york-v4/ui/dialog"
 import {
   DropdownMenu,
@@ -31,6 +29,7 @@ import {
   DropdownMenuTrigger,
 } from "@/registry/new-york-v4/ui/dropdown-menu"
 import { Label } from "@/registry/new-york-v4/ui/label"
+import { Modal } from "@/registry/new-york-v4/ui/modal"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 
 export function PresetActions() {
@@ -59,40 +58,42 @@ export function PresetActions() {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <Dialog open={open} onOpenChange={setIsOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Content filter preferences</DialogTitle>
-            <DialogDescription>
-              The content filter flags text that may violate our content policy.
-              It&apos;s powered by our moderation endpoint which is free to use
-              to moderate your OpenAI API traffic. Learn more.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="py-6">
-            <h4 className="text-muted-foreground text-sm">
-              Playground Warnings
-            </h4>
-            <div className="flex items-start justify-between gap-4 pt-3">
-              <Switch name="show" id="show" defaultChecked={true} />
-              <Label className="grid gap-1 font-normal" htmlFor="show">
-                <span className="font-semibold">
-                  Show a warning when content is flagged
-                </span>
-                <span className="text-muted-foreground text-sm">
-                  A warning will be shown when sexual, hateful, violent or
-                  self-harm content is detected.
-                </span>
-              </Label>
+      <DialogTrigger isOpen={open} onOpenChange={setIsOpen}>
+        <Modal>
+          <Dialog>
+            <DialogHeader>
+              <DialogTitle>Content filter preferences</DialogTitle>
+              <DialogDescription>
+                The content filter flags text that may violate our content policy.
+                It&apos;s powered by our moderation endpoint which is free to use
+                to moderate your OpenAI API traffic. Learn more.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="py-6">
+              <h4 className="text-muted-foreground text-sm">
+                Playground Warnings
+              </h4>
+              <div className="flex items-start justify-between gap-4 pt-3">
+                <Switch name="show" id="show" defaultChecked={true} />
+                <Label className="grid gap-1 font-normal" htmlFor="show">
+                  <span className="font-semibold">
+                    Show a warning when content is flagged
+                  </span>
+                  <span className="text-muted-foreground text-sm">
+                    A warning will be shown when sexual, hateful, violent or
+                    self-harm content is detected.
+                  </span>
+                </Label>
+              </div>
             </div>
-          </div>
-          <DialogFooter>
-            <DialogClose asChild>
-              <Button variant="secondary">Close</Button>
-            </DialogClose>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+            <div className="flex justify-end gap-2">
+              <Button variant="secondary" slot="close">
+                Close
+              </Button>
+            </div>
+          </Dialog>
+        </Modal>
+      </DialogTrigger>
       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>

@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { notFound } from "next/navigation"
 import { mdxComponents } from "@/mdx-components"
 import {
@@ -13,8 +12,8 @@ import { absoluteUrl } from "@/lib/utils"
 import { DocsCopyPage } from "@/components/docs-copy-page"
 import { DocsTableOfContents } from "@/components/docs-toc"
 import { OpenInV0Cta } from "@/components/open-in-v0-cta"
-import { Badge } from "@/registry/new-york-v4/ui/badge"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { badgeVariants } from "@/registry/new-york-v4/ui/badge"
+import { LinkButton } from "@/registry/new-york-v4/ui/link-button"
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -92,7 +91,7 @@ export default async function Page(props: {
   return (
     <div
       data-slot="docs"
-      className="flex items-stretch text-[1.05rem] sm:text-[15px] xl:w-full"
+      className="flex items-stretch pb-6 text-[1.05rem] sm:text-[15px] xl:w-full"
     >
       <div className="flex min-w-0 flex-1 flex-col">
         <div className="h-(--top-spacing) shrink-0" />
@@ -110,30 +109,26 @@ export default async function Page(props: {
                     url={absoluteUrl(page.url)}
                   />
                   {neighbours.previous && (
-                    <Button
+                    <LinkButton
                       variant="secondary"
                       size="icon"
                       className="extend-touch-target ml-auto size-8 shadow-none md:size-7"
-                      asChild
+                      href={neighbours.previous.url}
                     >
-                      <Link href={neighbours.previous.url}>
-                        <IconArrowLeft />
-                        <span className="sr-only">Previous</span>
-                      </Link>
-                    </Button>
+                      <IconArrowLeft />
+                      <span className="sr-only">Previous</span>
+                    </LinkButton>
                   )}
                   {neighbours.next && (
-                    <Button
+                    <LinkButton
                       variant="secondary"
                       size="icon"
                       className="extend-touch-target size-8 shadow-none md:size-7"
-                      asChild
+                      href={neighbours.next.url}
                     >
-                      <Link href={neighbours.next.url}>
-                        <span className="sr-only">Next</span>
-                        <IconArrowRight />
-                      </Link>
-                    </Button>
+                      <span className="sr-only">Next</span>
+                      <IconArrowRight />
+                    </LinkButton>
                   )}
                 </div>
               </div>
@@ -146,18 +141,24 @@ export default async function Page(props: {
             {links ? (
               <div className="flex items-center gap-2 pt-4">
                 {links?.doc && (
-                  <Badge asChild variant="secondary" className="rounded-full">
-                    <a href={links.doc} target="_blank" rel="noreferrer">
-                      Docs <IconArrowUpRight />
-                    </a>
-                  </Badge>
+                  <a
+                    href={links.doc}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={badgeVariants({ variant: "secondary" })}
+                  >
+                    Docs <IconArrowUpRight />
+                  </a>
                 )}
                 {links?.api && (
-                  <Badge asChild variant="secondary" className="rounded-full">
-                    <a href={links.api} target="_blank" rel="noreferrer">
-                      API Reference <IconArrowUpRight />
-                    </a>
-                  </Badge>
+                  <a
+                    href={links.api}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={badgeVariants({ variant: "secondary" })}
+                  >
+                    API Reference <IconArrowUpRight />
+                  </a>
                 )}
               </div>
             ) : null}
@@ -168,28 +169,24 @@ export default async function Page(props: {
         </div>
         <div className="mx-auto hidden h-16 w-full max-w-2xl items-center gap-2 px-4 sm:flex md:px-0">
           {neighbours.previous && (
-            <Button
+            <LinkButton
               variant="secondary"
               size="sm"
-              asChild
+              href={neighbours.previous.url}
               className="shadow-none"
             >
-              <Link href={neighbours.previous.url}>
-                <IconArrowLeft /> {neighbours.previous.name}
-              </Link>
-            </Button>
+              <IconArrowLeft /> {neighbours.previous.name}
+            </LinkButton>
           )}
           {neighbours.next && (
-            <Button
+            <LinkButton
               variant="secondary"
               size="sm"
               className="ml-auto shadow-none"
-              asChild
+              href={neighbours.next.url}
             >
-              <Link href={neighbours.next.url}>
-                {neighbours.next.name} <IconArrowRight />
-              </Link>
-            </Button>
+              {neighbours.next.name} <IconArrowRight />
+            </LinkButton>
           )}
         </div>
       </div>

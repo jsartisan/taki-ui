@@ -2,11 +2,8 @@ import { BotIcon, ChevronDownIcon } from "lucide-react"
 
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { ButtonGroup } from "@/registry/new-york-v4/ui/button-group"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 import { Textarea } from "@/registry/new-york-v4/ui/textarea"
 
@@ -16,13 +13,11 @@ export function ButtonGroupPopover() {
       <Button variant="outline" size="sm">
         <BotIcon /> Copilot
       </Button>
-      <Popover>
-        <PopoverTrigger asChild>
-          <Button variant="outline" size="icon-sm" aria-label="Open Popover">
-            <ChevronDownIcon />
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent align="end" className="rounded-xl p-0 text-sm">
+      <DialogTrigger>
+        <Button variant="outline" size="icon-sm" aria-label="Open Popover">
+          <ChevronDownIcon />
+        </Button>
+        <Popover>
           <div className="px-4 py-3">
             <div className="text-sm font-medium">Agent Tasks</div>
           </div>
@@ -38,8 +33,8 @@ export function ButtonGroupPopover() {
               background and open a pull request for your review.
             </p>
           </div>
-        </PopoverContent>
-      </Popover>
+        </Popover>
+      </DialogTrigger>
     </ButtonGroup>
   )
 }

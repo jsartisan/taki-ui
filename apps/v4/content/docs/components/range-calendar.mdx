@@ -1,0 +1,296 @@
+---
+title: Range Calendar
+description: A calendar component that allows users to select a date range.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/RangeCalendar.html
+  api: https://react-spectrum.adobe.com/react-aria/RangeCalendar.html#props
+---
+
+<ComponentPreview name="range-calendar-demo" description="A range calendar for selecting date ranges." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add range-calendar
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components @internationalized/date
+```
+
+<Step>Add the required components to your project.</Step>
+
+The `RangeCalendar` component depends on the [Calendar](/docs/components/calendar) and [Button](/docs/components/button) components. Make sure you have them installed.
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="range-calendar" title="components/ui/range-calendar.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { RangeCalendar } from "@/components/ui/range-calendar"
+```
+
+```tsx showLineNumbers
+<RangeCalendar aria-label="Select a date range" />
+```
+
+## About
+
+The `RangeCalendar` component is built on top of [React Aria Components](https://react-spectrum.adobe.com/react-aria/RangeCalendar.html) and allows users to select a continuous or non-contiguous range of dates. It uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) library for date manipulation.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="range-calendar-demo" description="A basic range calendar." />
+
+```tsx showLineNumbers
+<RangeCalendar aria-label="Select a date range" />
+```
+
+### Controlled
+
+<ComponentPreview name="range-calendar-controlled" description="A controlled range calendar with state." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { parseDate } from "@internationalized/date"
+
+import { RangeCalendar } from "@/components/ui/range-calendar"
+
+export default function RangeCalendarControlled() {
+  const [value, setValue] = useState({
+    start: parseDate("2024-12-15"),
+    end: parseDate("2024-12-22"),
+  })
+
+  return (
+    <div className="space-y-4">
+      <RangeCalendar
+        aria-label="Select a date range"
+        value={value}
+        onChange={setValue}
+      />
+      <p className="text-muted-foreground text-sm">
+        Selected range: {value.start.toString()} to {value.end.toString()}
+      </p>
+    </div>
+  )
+}
+```
+
+### Disabled
+
+<ComponentPreview name="range-calendar-disabled" description="A disabled range calendar." />
+
+```tsx showLineNumbers
+<RangeCalendar aria-label="Select a date range" isDisabled />
+```
+
+### Min and Max Values
+
+<ComponentPreview name="range-calendar-min-max" description="A range calendar with minimum and maximum values." />
+
+```tsx showLineNumbers
+"use client"
+
+import { getLocalTimeZone, today } from "@internationalized/date"
+
+import { RangeCalendar } from "@/components/ui/range-calendar"
+
+export default function RangeCalendarMinMax() {
+  const now = today(getLocalTimeZone())
+
+  return (
+    <RangeCalendar
+      aria-label="Select a date range"
+      minValue={now}
+      maxValue={now.add({ weeks: 4 })}
+    />
+  )
+}
+```
+
+### Unavailable Dates
+
+<ComponentPreview name="range-calendar-unavailable-dates" description="A range calendar with unavailable dates (weekends disabled)." />
+
+```tsx showLineNumbers
+"use client"
+
+import { getLocalTimeZone, isWeekend, today } from "@internationalized/date"
+import { useLocale } from "react-aria-components"
+
+import { RangeCalendar } from "@/components/ui/range-calendar"
+
+export default function RangeCalendarUnavailableDates() {
+  const now = today(getLocalTimeZone())
+  const { locale } = useLocale()
+
+  return (
+    <RangeCalendar
+      aria-label="Select a date range"
+      minValue={now}
+      isDateUnavailable={(date) => isWeekend(date, locale)}
+    />
+  )
+}
+```
+
+### Non-Contiguous Ranges
+
+<ComponentPreview name="range-calendar-non-contiguous" description="A range calendar that allows non-contiguous ranges." />
+
+```tsx showLineNumbers
+<RangeCalendar
+  aria-label="Select a date range"
+  allowsNonContiguousRanges
+/>
+```
+
+## API Reference
+
+### RangeCalendar
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `value` | `{ start: DateValue, end: DateValue }` | - | The current value (controlled) |
+| `defaultValue` | `{ start: DateValue, end: DateValue }` | - | The default value (uncontrolled) |
+| `onChange` | `(value: { start: DateValue, end: DateValue }) => void` | - | Handler called when the value changes |
+| `minValue` | `DateValue` | - | The minimum allowed date |
+| `maxValue` | `DateValue` | - | The maximum allowed date |
+| `isDateUnavailable` | `(date: DateValue) => boolean` | - | Function to determine if a date is unavailable |
+| `allowsNonContiguousRanges` | `boolean` | `false` | Whether non-contiguous ranges are allowed |
+| `isDisabled` | `boolean` | `false` | Whether the calendar is disabled |
+| `isReadOnly` | `boolean` | `false` | Whether the calendar is read-only |
+| `autoFocus` | `boolean` | `false` | Whether the calendar should auto focus |
+| `focusedValue` | `DateValue` | - | Controls which date is focused |
+| `errorMessage` | `string` | - | Error message to display |
+| `className` | `string` | - | Additional CSS classes |
+
+See the [React Aria RangeCalendar documentation](https://react-spectrum.adobe.com/react-aria/RangeCalendar.html#props) for more props and detailed information.
+
+## Visual Design
+
+The range calendar uses a continuous visual style for selected date ranges:
+
+- **Start Date**: Rounded on the left side with primary background
+- **End Date**: Rounded on the right side with primary background
+- **Middle Dates**: Flat edges with primary background, connected visually using pseudo-elements
+- **Gap Filling**: Uses `::before` and `::after` pseudo-elements to fill gaps between date cells
+
+This creates a seamless, continuous selection appearance that makes it clear which dates are included in the range.
+
+## Internationalization
+
+The `RangeCalendar` component automatically formats dates based on the user's locale. The `@internationalized/date` library handles calendar systems and localization.
+
+```tsx showLineNumbers
+import { parseDate } from "@internationalized/date"
+
+// ISO 8601 format
+const range = {
+  start: parseDate("2024-12-15"),
+  end: parseDate("2024-12-22"),
+}
+```
+
+## Calendar Systems
+
+The range calendar supports multiple calendar systems through the `@internationalized/date` library:
+
+- Gregorian
+- Buddhist
+- Hebrew
+- Indian
+- Islamic (Hijri)
+- Japanese
+- Persian
+- Taiwan
+
+See the [@internationalized/date documentation](https://react-spectrum.adobe.com/internationalized/date/) for more information.
+
+## Keyboard Navigation
+
+The range calendar supports full keyboard navigation:
+
+- **Arrow Keys**: Navigate between dates
+- **Enter/Space**: Select the start or end date of the range
+- **Page Up/Down**: Navigate to the previous/next month
+- **Home/End**: Navigate to the first/last day of the week
+- **Shift + Page Up/Down**: Navigate to the previous/next year
+
+## Non-Contiguous Ranges
+
+By default, the range calendar only allows contiguous date ranges. When `allowsNonContiguousRanges` is enabled, users can select multiple separate date ranges:
+
+```tsx showLineNumbers
+<RangeCalendar
+  aria-label="Select date ranges"
+  allowsNonContiguousRanges
+/>
+```
+
+This is useful for scenarios like:
+- Selecting multiple non-consecutive vacation periods
+- Choosing available dates across different weeks
+- Booking multiple separate time slots
+
+## Use Cases
+
+The range calendar is ideal for:
+
+- **Date Range Selection**: When users need to pick a continuous date range
+- **Booking Systems**: Hotel reservations, car rentals, etc.
+- **Scheduling**: Event planning and duration selection
+- **Filtering**: Date range filters for reports and data
+- **Availability**: Showing and selecting available date periods
+
+## Accessibility
+
+The range calendar is built with accessibility in mind:
+
+- Proper ARIA labels and roles
+- Full keyboard navigation support
+- Focus management
+- Screen reader announcements
+- High contrast mode support
+
+Always provide an `aria-label` or `aria-labelledby` prop to describe the calendar's purpose.
+
+## Related Components
+
+- [Calendar](/docs/components/calendar) - For selecting a single date
+- [Date Range Picker](/docs/components/date-range-picker) - Combines range calendar with date fields
+- [Date Picker](/docs/components/date-picker) - For selecting a single date with a popover
+- [Date Field](/docs/components/date-field) - For keyboard-only date entry
+

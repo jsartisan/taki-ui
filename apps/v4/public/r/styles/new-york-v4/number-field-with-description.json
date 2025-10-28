@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-with-description",
+  "type": "registry:example",
+  "registryDependencies": [
+    "number-field"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/number-field-with-description.tsx",
+      "content": "import { NumberField } from \"@/registry/new-york-v4/ui/number-field\"\n\nexport default function NumberFieldWithDescription() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <NumberField\n        label=\"Price\"\n        description=\"Enter the product price in dollars.\"\n        defaultValue={29.99}\n        minValue={0}\n        formatOptions={{\n          style: \"currency\",\n          currency: \"USD\",\n        }}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

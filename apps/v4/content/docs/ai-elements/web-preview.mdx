@@ -1,0 +1,272 @@
+---
+title: Web Preview
+description: A flexible component to preview web content with integrated console for debugging.
+component: true
+---
+
+<ComponentPreview name="web-preview-demo" description="Web preview with navigation and console" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add web-preview
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="web-preview" title="ai-elements/web-preview.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  WebPreview,
+  WebPreviewNavigation,
+  WebPreviewNavigationButton,
+  WebPreviewUrl,
+  WebPreviewBody,
+  WebPreviewConsole,
+} from "@/components/ai-elements/web-preview"
+```
+
+```tsx showLineNumbers
+const [url, setUrl] = useState("https://example.com")
+
+<WebPreview defaultUrl={url} onUrlChange={setUrl}>
+  <WebPreviewNavigation>
+    <WebPreviewNavigationButton tooltip="Back">
+      <ChevronLeftIcon />
+    </WebPreviewNavigationButton>
+    <WebPreviewNavigationButton tooltip="Forward">
+      <ChevronRightIcon />
+    </WebPreviewNavigationButton>
+    <WebPreviewNavigationButton tooltip="Refresh">
+      <RotateCwIcon />
+    </WebPreviewNavigationButton>
+    <WebPreviewUrl placeholder="Enter URL..." />
+  </WebPreviewNavigation>
+
+  <WebPreviewBody src={url} />
+
+  <WebPreviewConsole logs={[]} />
+</WebPreview>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="web-preview-demo" description="Full web preview with navigation controls and console" />
+
+## Anatomy
+
+The `WebPreview` component is composed of several sub-components:
+
+```tsx showLineNumbers
+<WebPreview>
+  <WebPreviewNavigation>
+    <WebPreviewNavigationButton />
+    <WebPreviewUrl />
+  </WebPreviewNavigation>
+  <WebPreviewBody />
+  <WebPreviewConsole />
+</WebPreview>
+```
+
+## Features
+
+- **Live Preview**: Display web content in an iframe with sandbox protection
+- **URL Navigation**: Input field for entering URLs with Enter key support
+- **Navigation Controls**: Back, forward, and refresh buttons with tooltip support
+- **Integrated Console**: Collapsible console panel for logging and debugging
+- **Context Management**: Shared state between components via React Context
+- **Responsive Design**: Adapts to different screen sizes and layouts
+- **Keyboard Support**: Press Enter in URL input to navigate
+- **Sandbox Security**: iframe includes security restrictions for safe preview
+
+## API Reference
+
+### WebPreview
+
+Main container that provides context for all child components.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `defaultUrl` | `string` | `""` | Initial URL to load |
+| `onUrlChange` | `(url: string) => void` | - | Callback when URL changes |
+| `className` | `string` | - | Custom CSS classes |
+
+### WebPreviewNavigation
+
+Navigation bar that contains controls and URL input.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+| `children` | `ReactNode` | - | Navigation controls |
+
+### WebPreviewNavigationButton
+
+Button for navigation actions (back, forward, refresh, etc.).
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `tooltip` | `string` | - | Tooltip text on hover |
+| `disabled` | `boolean` | `false` | Disable the button |
+| `onClick` | `() => void` | - | Click handler |
+| `children` | `ReactNode` | - | Button content (usually an icon) |
+
+### WebPreviewUrl
+
+URL input field with automatic syncing to preview context.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `placeholder` | `string` | `"Enter URL..."` | Placeholder text |
+| `value` | `string` | - | Controlled value (optional) |
+| `onChange` | `(e: ChangeEvent) => void` | - | Change handler (optional) |
+| `onKeyDown` | `(e: KeyboardEvent) => void` | - | Key down handler (optional) |
+
+The URL input automatically syncs with the preview context. Press Enter to navigate to the entered URL.
+
+### WebPreviewBody
+
+iframe container for displaying web content.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `src` | `string` | - | URL to display (overrides context URL) |
+| `loading` | `ReactNode` | - | Loading indicator overlay |
+| `className` | `string` | - | Custom CSS classes |
+
+The iframe includes sandbox restrictions: `allow-scripts allow-same-origin allow-forms allow-popups allow-presentation`
+
+### WebPreviewConsole
+
+Collapsible console panel for displaying logs.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `logs` | `Array<ConsoleLog>` | `[]` | Array of console log entries |
+| `className` | `string` | - | Custom CSS classes |
+| `children` | `ReactNode` | - | Additional console content |
+
+**ConsoleLog Type:**
+
+```typescript
+{
+  level: "log" | "warn" | "error"
+  message: string
+  timestamp: Date
+}
+```
+
+The console displays with color coding:
+- `log`: Default foreground color
+- `warn`: Yellow
+- `error`: Destructive color
+
+## Advanced Usage
+
+### With Loading State
+
+```tsx showLineNumbers
+<WebPreview defaultUrl={url}>
+  <WebPreviewNavigation>
+    <WebPreviewUrl />
+  </WebPreviewNavigation>
+  <WebPreviewBody
+    src={url}
+    loading={
+      isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-background/80">
+          <Loader />
+        </div>
+      )
+    }
+  />
+</WebPreview>
+```
+
+### With Console Logging
+
+```tsx showLineNumbers
+const [logs, setLogs] = useState<Array<ConsoleLog>>([])
+
+// Add logs from your app
+const addLog = (level: "log" | "warn" | "error", message: string) => {
+  setLogs(prev => [...prev, { level, message, timestamp: new Date() }])
+}
+
+<WebPreview defaultUrl={url}>
+  <WebPreviewNavigation>
+    <WebPreviewUrl />
+  </WebPreviewNavigation>
+  <WebPreviewBody src={url} />
+  <WebPreviewConsole logs={logs} />
+</WebPreview>
+```
+
+### Custom Navigation Controls
+
+```tsx showLineNumbers
+<WebPreview defaultUrl={url}>
+  <WebPreviewNavigation>
+    <WebPreviewNavigationButton
+      onClick={() => console.log('Back')}
+      tooltip="Go back"
+    >
+      <ChevronLeftIcon className="size-4" />
+    </WebPreviewNavigationButton>
+    <WebPreviewNavigationButton
+      onClick={() => console.log('Forward')}
+      tooltip="Go forward"
+    >
+      <ChevronRightIcon className="size-4" />
+    </WebPreviewNavigationButton>
+    <WebPreviewNavigationButton
+      onClick={() => window.location.reload()}
+      tooltip="Refresh"
+    >
+      <RotateCwIcon className="size-4" />
+    </WebPreviewNavigationButton>
+    <WebPreviewUrl />
+  </WebPreviewNavigation>
+  <WebPreviewBody src={url} />
+</WebPreview>
+```
+
+## Hooks
+
+### useWebPreview
+
+Access the preview context from within child components (not exported by default).
+
+```tsx showLineNumbers
+const { url, setUrl, consoleOpen, setConsoleOpen } = useWebPreview()
+```
+
+This hook is used internally by the sub-components and is not typically needed in user code.
+

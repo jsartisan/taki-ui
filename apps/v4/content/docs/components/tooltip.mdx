@@ -3,8 +3,8 @@ title: Tooltip
 description: A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
 component: true
 links:
-  doc: https://www.radix-ui.com/docs/primitives/components/tooltip
-  api: https://www.radix-ui.com/docs/primitives/components/tooltip#api-reference
+  doc: https://react-spectrum.adobe.com/react-aria/Tooltip.html
+  api: https://react-spectrum.adobe.com/react-aria/Tooltip.html#props
 ---
 
 <ComponentPreview name="tooltip-demo" description="A tooltip component." />
@@ -32,7 +32,7 @@ npx shadcn@latest add tooltip
 <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @radix-ui/react-tooltip
+npm install react-aria-components tailwind-variants
 ```
 
 <Step>Copy and paste the following code into your project.</Step>
@@ -50,14 +50,132 @@ npm install @radix-ui/react-tooltip
 ## Usage
 
 ```tsx showLineNumbers
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipTrigger } from "@/components/ui/tooltip"
 ```
 
 ```tsx showLineNumbers
+<TooltipTrigger>
+  <Button>Hover</Button>
+  <Tooltip>Add to library</Tooltip>
+</TooltipTrigger>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="tooltip-demo" description="A basic tooltip." />
+
+```tsx showLineNumbers
+<TooltipTrigger>
+  <Button variant="outline">Hover</Button>
+  <Tooltip>Add to library</Tooltip>
+</TooltipTrigger>
+```
+
+### With Icon Button
+
+<ComponentPreview name="tooltip-icon" description="A tooltip with an icon button." />
+
+```tsx showLineNumbers
+import { InfoIcon } from "lucide-react"
+
+<TooltipTrigger>
+  <Button size="icon" variant="outline" aria-label="Information">
+    <InfoIcon className="size-4" />
+  </Button>
+  <Tooltip>Get more information</Tooltip>
+</TooltipTrigger>
+```
+
+### Placement
+
+<ComponentPreview name="tooltip-placement" description="Tooltips can be positioned in different directions." />
+
+You can control the placement of the tooltip using the `placement` prop.
+
+```tsx showLineNumbers
+<TooltipTrigger>
+  <Button variant="outline">Top</Button>
+  <Tooltip placement="top">Tooltip on top</Tooltip>
+</TooltipTrigger>
+
+<TooltipTrigger>
+  <Button variant="outline">Bottom</Button>
+  <Tooltip placement="bottom">Tooltip on bottom</Tooltip>
+</TooltipTrigger>
+
+<TooltipTrigger>
+  <Button variant="outline">Left</Button>
+  <Tooltip placement="left">Tooltip on left</Tooltip>
+</TooltipTrigger>
+
+<TooltipTrigger>
+  <Button variant="outline">Right</Button>
+  <Tooltip placement="right">Tooltip on right</Tooltip>
+</TooltipTrigger>
+```
+
+### Custom Delay
+
+<ComponentPreview name="tooltip-delay" description="Control when the tooltip appears using delay." />
+
+Control when the tooltip appears using the `delay` and `closeDelay` props.
+
+```tsx showLineNumbers
+<TooltipTrigger delay={0}>
+  <Button variant="outline">No delay</Button>
+  <Tooltip>Appears immediately</Tooltip>
+</TooltipTrigger>
+
+<TooltipTrigger delay={500}>
+  <Button variant="outline">500ms delay</Button>
+  <Tooltip>Appears after 500ms</Tooltip>
+</TooltipTrigger>
+
+<TooltipTrigger delay={1000}>
+  <Button variant="outline">1000ms delay</Button>
+  <Tooltip>Appears after 1 second</Tooltip>
+</TooltipTrigger>
+```
+
+## API Reference
+
+### TooltipTrigger
+
+`TooltipTrigger` wraps the element that triggers the tooltip and the tooltip itself.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `delay` | `number` | `500` | The delay time for the tooltip to show up in milliseconds |
+| `closeDelay` | `number` | `0` | The delay time for the tooltip to close in milliseconds |
+| `isDisabled` | `boolean` | `false` | Whether the tooltip is disabled |
+| `trigger` | `'focus'` | `null` | By default, opens for both focus and hover. Can be set to "focus" to only open on focus |
+
+### Tooltip
+
+`Tooltip` is the content component that displays the tooltip message.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `placement` | `Placement` | `'top'` | The placement of the tooltip relative to the trigger |
+| `offset` | `number` | `10` | The offset of the tooltip from the trigger |
+| `containerPadding` | `number` | `12` | The padding between the tooltip and the edge of the viewport |
+
+---
+
+## Changelog
+
+### 2025-10-26 Migrate to React Aria Components
+
+We've migrated the tooltip component from Radix UI to React Aria Components for better accessibility and animation support.
+
+**Breaking Changes:**
+
+1. **Component Structure**: The component structure has changed:
+
+**Old (Radix UI):**
+```tsx
 <Tooltip>
   <TooltipTrigger>Hover</TooltipTrigger>
   <TooltipContent>
@@ -66,12 +184,19 @@ import {
 </Tooltip>
 ```
 
----
+**New (React Aria):**
+```tsx
+<TooltipTrigger>
+  <Button>Hover</Button>
+  <Tooltip>Add to library</Tooltip>
+</TooltipTrigger>
+```
 
-## Changelog
+2. **Props**: Some prop names have changed:
+   - `sideOffset` → `offset`
+   - `side` → `placement`
+   - No need for `asChild` prop anymore
 
-### 2025-09-22 Update tooltip colors
-
-We've updated the tooltip colors to use the foreground color for the background and the background color for the foreground.
-
-Replace `bg-primary text-primary-foreground` with `bg-foreground text-background` for both `<TooltipContent />` and `<TooltipArrow />`.
+3. **Dependencies**: Update your dependencies:
+   - Remove: `@radix-ui/react-tooltip`
+   - Add: `react-aria-components` and `tailwind-variants`

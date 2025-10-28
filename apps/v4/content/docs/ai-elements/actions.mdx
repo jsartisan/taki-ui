@@ -1,0 +1,101 @@
+---
+title: Actions
+description: Action buttons for AI responses with tooltips.
+component: true
+---
+
+<ComponentPreview name="actions-demo" description="Action buttons with icons and tooltips." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add actions
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="actions" title="ai-elements/actions.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Actions, Action } from "@/ai-elements/actions"
+```
+
+```tsx
+<Actions>
+  <Action tooltip="Copy">
+    <CopyIcon className="size-4" />
+  </Action>
+  <Action tooltip="Like">
+    <ThumbsUpIcon className="size-4" />
+  </Action>
+</Actions>
+```
+
+## Examples
+
+### With Handlers
+
+```tsx
+<Actions>
+  <Action tooltip="Copy" onPress={() => copyToClipboard()}>
+    <CopyIcon className="size-4" />
+  </Action>
+  <Action tooltip="Regenerate" onPress={() => regenerate()}>
+    <RefreshCwIcon className="size-4" />
+  </Action>
+</Actions>
+```
+
+### Without Tooltips
+
+```tsx
+<Actions>
+  <Action label="Copy">
+    <CopyIcon className="size-4" />
+  </Action>
+</Actions>
+```
+
+## API Reference
+
+### Actions
+
+Container for action buttons.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Additional CSS classes |
+
+### Action
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `tooltip` | `string` | - | Tooltip text (shows on hover) |
+| `label` | `string` | - | Accessibility label |
+| `variant` | `"ghost" \| "outline" \| ...` | `"ghost"` | Button variant |
+| `size` | `"sm" \| "default" \| ...` | `"sm"` | Button size |
+

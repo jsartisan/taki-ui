@@ -1,68 +1,77 @@
 "use client"
 
 import * as React from "react"
-import { IconInfoCircle, IconStar } from "@tabler/icons-react"
+import {
+  IconCheck,
+  IconCopy,
+  IconInfoCircle,
+  IconStar,
+} from "@tabler/icons-react"
 
+import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
 } from "@/registry/new-york-v4/ui/input-group"
-import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 export function InputGroupButtonExample() {
+  const { copyToClipboard, isCopied } = useCopyToClipboard()
   const [isFavorite, setIsFavorite] = React.useState(false)
 
   return (
     <div className="grid w-full max-w-sm gap-6">
-      <Label htmlFor="input-secure-19" className="sr-only">
-        Input Secure
-      </Label>
-      <InputGroup className="[--radius:9999px]">
-        <InputGroupInput id="input-secure-19" className="!pl-0.5" />
-        <Popover>
-          <PopoverTrigger asChild>
-            <InputGroupAddon>
-              <InputGroupButton
-                variant="secondary"
-                size="icon-xs"
-                aria-label="Info"
-              >
-                <IconInfoCircle />
-              </InputGroupButton>
-            </InputGroupAddon>
-          </PopoverTrigger>
-          <PopoverContent
-            align="start"
-            alignOffset={10}
-            className="flex flex-col gap-1 rounded-xl text-sm"
+      <InputGroup>
+        <InputGroupInput placeholder="https://x.com/shadcn" readOnly />
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton
+            aria-label="Copy"
+            size="icon-xs"
+            onClick={() => {
+              copyToClipboard("https://x.com/shadcn")
+            }}
           >
+            {isCopied ? <IconCheck /> : <IconCopy />}
+          </InputGroupButton>
+        </InputGroupAddon>
+      </InputGroup>
+      <InputGroup className="[--radius:9999px]">
+        <DialogTrigger>
+          <InputGroupAddon>
+            <InputGroupButton variant="secondary" size="icon-xs">
+              <IconInfoCircle />
+            </InputGroupButton>
+          </InputGroupAddon>
+          <Popover className="flex flex-col gap-1 rounded-xl text-sm">
             <p className="font-medium">Your connection is not secure.</p>
             <p>You should not enter any sensitive information on this site.</p>
-          </PopoverContent>
-        </Popover>
-        <InputGroupAddon className="text-muted-foreground !pl-1">
+          </Popover>
+        </DialogTrigger>
+        <InputGroupAddon className="text-muted-foreground pl-1.5">
           https://
         </InputGroupAddon>
+        <InputGroupInput id="input-secure-19" />
         <InputGroupAddon align="inline-end">
           <InputGroupButton
             onClick={() => setIsFavorite(!isFavorite)}
             size="icon-xs"
-            aria-label="Favorite"
           >
             <IconStar
               data-favorite={isFavorite}
-              className="data-[favorite=true]:fill-primary data-[favorite=true]:stroke-primary"
+              className="data-[favorite=true]:fill-blue-600 data-[favorite=true]:stroke-blue-600"
             />
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
+      {/* <InputGroup>
+        <InputGroupInput placeholder="Type to search..." />
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton variant="secondary">Search</InputGroupButton>
+        </InputGroupAddon>
+      </InputGroup> */}
     </div>
   )
 }

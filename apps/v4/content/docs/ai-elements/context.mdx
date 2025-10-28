@@ -1,0 +1,169 @@
+---
+title: Context
+description: Display model context usage and cost estimation.
+component: true
+---
+
+<ComponentPreview name="context-demo" description="Context usage indicator" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add context
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ai tokenlens
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="context" title="ai-elements/context.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Context,
+  ContextTrigger,
+  ContextContent,
+  ContextContentHeader,
+  ContextContentTokens,
+  ContextContentCost,
+} from "@/components/ai-elements/context"
+```
+
+```tsx showLineNumbers
+<Context
+  usedTokens={3500}
+  maxTokens={128000}
+  modelId="gpt-4o-mini"
+  usage={{ promptTokens: 2500, completionTokens: 1000, totalTokens: 3500 }}
+>
+  <ContextTrigger />
+  <ContextContent>
+    <ContextContentHeader />
+    <ContextContentTokens />
+    <ContextContentCost />
+  </ContextContent>
+</Context>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="context-demo" description="Token usage with cost estimation" />
+
+```tsx showLineNumbers
+"use client"
+
+export default function Example() {
+  const usage = {
+    promptTokens: 2500,
+    completionTokens: 1000,
+    totalTokens: 3500,
+  }
+
+  return (
+    <Context
+      maxTokens={128000}
+      modelId="gpt-4o-mini"
+      usage={usage}
+      usedTokens={usage.totalTokens}
+    >
+      <ContextTrigger />
+      <ContextContent>
+        <ContextContentHeader />
+        <ContextContentTokens />
+        <ContextContentCost />
+      </ContextContent>
+    </Context>
+  )
+}
+```
+
+## Features
+
+- **Token Tracking**: Displays current token usage
+- **Progress Indicator**: Visual representation of context usage
+- **Cost Estimation**: Calculates estimated cost using tokenlens
+- **Model Info**: Shows current model information
+
+## API Reference
+
+### Context
+
+Main context container.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `usedTokens` | `number` | - | Current token usage |
+| `maxTokens` | `number` | - | Maximum context window |
+| `usage` | `LanguageModelUsage` | - | Detailed token usage |
+| `modelId` | `ModelId` | - | Model identifier for cost calculation |
+
+### ContextTrigger
+
+Trigger button with usage percentage.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `ReactNode` | - | Custom trigger content |
+
+### ContextContent
+
+Hover card content.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### ContextContentHeader
+
+Header with usage summary.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### ContextContentTokens
+
+Token usage breakdown.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### ContextContentCost
+
+Cost estimation display.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+

@@ -2,27 +2,18 @@
 
 import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
 
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/registry/new-york-v4/ui/form"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from "@/registry/new-york-v4/ui/field"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 
 const FormSchema = z.object({
   email: z
@@ -48,36 +39,30 @@ export default function SelectForm() {
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a verified email to display" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="m@example.com">m@example.com</SelectItem>
-                  <SelectItem value="m@google.com">m@google.com</SelectItem>
-                  <SelectItem value="m@support.com">m@support.com</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormDescription>
-                You can manage email addresses in your{" "}
-                <Link href="/examples/forms">email settings</Link>.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+    <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+      <Controller
+        control={form.control}
+        name="email"
+        render={({ field, fieldState }) => (
+          <Field data-invalid={fieldState.invalid}>
+            <FieldLabel>Email</FieldLabel>
+            <Select
+              selectedKey={field.value}
+              onSelectionChange={(key) => field.onChange(key as string)}
+            >
+              <SelectItem id="m@example.com">m@example.com</SelectItem>
+              <SelectItem id="m@google.com">m@google.com</SelectItem>
+              <SelectItem id="m@support.com">m@support.com</SelectItem>
+            </Select>
+            <FieldDescription>
+              You can manage email addresses in your{" "}
+              <Link href="/examples/forms">email settings</Link>.
+            </FieldDescription>
+            {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+          </Field>
+        )}
+      />
+      <Button type="submit">Submit</Button>
+    </form>
   )
 }

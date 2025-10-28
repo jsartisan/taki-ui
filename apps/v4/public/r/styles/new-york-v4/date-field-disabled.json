@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-field-disabled",
+  "type": "registry:example",
+  "dependencies": [
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "date-field"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/date-field-disabled.tsx",
+      "content": "import { DateField } from \"@/registry/new-york-v4/ui/date-field\"\n\nexport default function DateFieldDisabled() {\n  return (\n    <DateField\n      label=\"Event date\"\n      description=\"This field is disabled.\"\n      isDisabled\n    />\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -27,6 +27,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/registry/new-york-v4/ui/command"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -47,15 +48,10 @@ import {
   InputGroupButton,
   InputGroupTextarea,
 } from "@/registry/new-york-v4/ui/input-group"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 import {
   Tooltip,
-  TooltipContent,
   TooltipTrigger,
 } from "@/registry/new-york-v4/ui/tooltip"
 
@@ -201,28 +197,21 @@ export function NotionPromptForm() {
             placeholder="Ask, search, or make anything..."
           />
           <InputGroupAddon align="block-start">
-            <Popover
-              open={mentionPopoverOpen}
+            <DialogTrigger
+              isOpen={mentionPopoverOpen}
               onOpenChange={setMentionPopoverOpen}
             >
-              <Tooltip>
-                <TooltipTrigger
-                  asChild
-                  onFocusCapture={(e) => e.stopPropagation()}
+              <TooltipTrigger onFocusCapture={(e) => e.stopPropagation()}>
+                <InputGroupButton
+                  variant="outline"
+                  size={!hasMentions ? "sm" : "icon-sm"}
+                  className="rounded-full transition-transform"
                 >
-                  <PopoverTrigger asChild>
-                    <InputGroupButton
-                      variant="outline"
-                      size={!hasMentions ? "sm" : "icon-sm"}
-                      className="rounded-full transition-transform"
-                    >
-                      <IconAt /> {!hasMentions && "Add context"}
-                    </InputGroupButton>
-                  </PopoverTrigger>
-                </TooltipTrigger>
-                <TooltipContent>Mention a person, page, or date</TooltipContent>
-              </Tooltip>
-              <PopoverContent className="p-0 [--radius:1.2rem]" align="start">
+                  <IconAt /> {!hasMentions && "Add context"}
+                </InputGroupButton>
+                <Tooltip>Mention a person, page, or date</Tooltip>
+              </TooltipTrigger>
+              <Popover className="p-0 [--radius:1.2rem]">
                 <Command>
                   <CommandInput placeholder="Search pages..." />
                   <CommandList>
@@ -249,8 +238,8 @@ export function NotionPromptForm() {
                     ))}
                   </CommandList>
                 </Command>
-              </PopoverContent>
-            </Popover>
+              </Popover>
+            </DialogTrigger>
             <div className="no-scrollbar -m-1.5 flex gap-1 overflow-y-auto p-1.5">
               {mentions.map((mention) => {
                 const item = SAMPLE_DATA.mentionable.find(
@@ -280,32 +269,28 @@ export function NotionPromptForm() {
             </div>
           </InputGroupAddon>
           <InputGroupAddon align="block-end" className="gap-1">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <InputGroupButton
-                  size="icon-sm"
-                  className="rounded-full"
-                  aria-label="Attach file"
-                >
-                  <IconPaperclip />
-                </InputGroupButton>
-              </TooltipTrigger>
-              <TooltipContent>Attach file</TooltipContent>
-            </Tooltip>
+            <TooltipTrigger>
+              <InputGroupButton
+                size="icon-sm"
+                className="rounded-full"
+                aria-label="Attach file"
+              >
+                <IconPaperclip />
+              </InputGroupButton>
+              <Tooltip>Attach file</Tooltip>
+            </TooltipTrigger>
             <DropdownMenu
               open={modelPopoverOpen}
               onOpenChange={setModelPopoverOpen}
             >
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <DropdownMenuTrigger asChild>
-                    <InputGroupButton size="sm" className="rounded-full">
-                      {selectedModel.name}
-                    </InputGroupButton>
-                  </DropdownMenuTrigger>
-                </TooltipTrigger>
-                <TooltipContent>Select AI model</TooltipContent>
-              </Tooltip>
+              <TooltipTrigger>
+                <DropdownMenuTrigger asChild>
+                  <InputGroupButton size="sm" className="rounded-full">
+                    {selectedModel.name}
+                  </InputGroupButton>
+                </DropdownMenuTrigger>
+                <Tooltip>Select AI model</Tooltip>
+              </TooltipTrigger>
               <DropdownMenuContent
                 side="top"
                 align="start"
@@ -361,7 +346,7 @@ export function NotionPromptForm() {
                       <Switch
                         id="web-search"
                         className="ml-auto"
-                        defaultChecked
+                        defaultSelected
                       />
                     </label>
                   </DropdownMenuItem>
@@ -374,7 +359,7 @@ export function NotionPromptForm() {
                   >
                     <label htmlFor="apps">
                       <IconApps /> Apps and Integrations
-                      <Switch id="apps" className="ml-auto" defaultChecked />
+                      <Switch id="apps" className="ml-auto" defaultSelected />
                     </label>
                   </DropdownMenuItem>
                   <DropdownMenuItem>

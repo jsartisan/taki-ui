@@ -14,15 +14,7 @@ import {
 import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
 import { Input } from "@/registry/new-york-v4/ui/input"
 import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 import {
   Table,
@@ -178,22 +170,14 @@ export default function SettingsPage() {
                   <Field>
                     <Label htmlFor="timezone">Timezone</Label>
                     <FieldControl>
-                      <Select>
-                        <SelectTrigger id="timezone">
-                          <SelectValue placeholder="Select a timezone" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {timezones.map((timezone) => (
-                            <SelectGroup key={timezone.label}>
-                              <SelectLabel>{timezone.label}</SelectLabel>
-                              {timezone.timezones.map((time) => (
-                                <SelectItem key={time.value} value={time.value}>
-                                  {time.label}
-                                </SelectItem>
-                              ))}
-                            </SelectGroup>
-                          ))}
-                        </SelectContent>
+                      <Select id="timezone" placeholder="Select a timezone">
+                        {timezones.flatMap((timezone) =>
+                          timezone.timezones.map((time) => (
+                            <SelectItem key={time.value} id={time.value}>
+                              {time.label}
+                            </SelectItem>
+                          ))
+                        )}
                       </Select>
                     </FieldControl>
                   </Field>

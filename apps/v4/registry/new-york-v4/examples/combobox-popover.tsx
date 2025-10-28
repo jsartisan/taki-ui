@@ -11,11 +11,8 @@ import {
   CommandItem,
   CommandList,
 } from "@/registry/new-york-v4/ui/command"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 type Status = {
   value: string
@@ -46,7 +43,6 @@ const statuses: Status[] = [
 ]
 
 export default function ComboboxPopover() {
-  const [open, setOpen] = React.useState(false)
   const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(
     null
   )
@@ -54,13 +50,11 @@ export default function ComboboxPopover() {
   return (
     <div className="flex items-center space-x-4">
       <p className="text-muted-foreground text-sm">Status</p>
-      <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <Button variant="outline" className="w-[150px] justify-start">
-            {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set status</>}
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent className="p-0" side="right" align="start">
+      <DialogTrigger>
+        <Button variant="outline" className="w-[150px] justify-start">
+          {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set status</>}
+        </Button>
+        <Popover className="p-0">
           <Command>
             <CommandInput placeholder="Change status..." />
             <CommandList>
@@ -75,7 +69,6 @@ export default function ComboboxPopover() {
                         statuses.find((priority) => priority.value === value) ||
                           null
                       )
-                      setOpen(false)
                     }}
                   >
                     {status.label}
@@ -84,8 +77,8 @@ export default function ComboboxPopover() {
               </CommandGroup>
             </CommandList>
           </Command>
-        </PopoverContent>
-      </Popover>
+        </Popover>
+      </DialogTrigger>
     </div>
   )
 }

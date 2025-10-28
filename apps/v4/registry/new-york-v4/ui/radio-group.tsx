@@ -1,45 +1,90 @@
 "use client"
 
-import * as React from "react"
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
-import { CircleIcon } from "lucide-react"
+import React, { ReactNode } from "react"
+import {
+  Radio as RACRadio,
+  RadioGroup as RACRadioGroup,
+  RadioGroupProps as RACRadioGroupProps,
+  RadioProps,
+  ValidationResult,
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { cn } from "@/lib/utils"
+import { cn, composeTailwindRenderProps } from "../lib/utils"
+import {
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+  fieldVariants,
+} from "./field"
 
-function RadioGroup({
-  className,
-  ...props
-}: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {
-  return (
-    <RadioGroupPrimitive.Root
-      data-slot="radio-group"
-      className={cn("grid gap-3", className)}
-      {...props}
-    />
-  )
+export interface RadioGroupProps extends Omit<RACRadioGroupProps, "children"> {
+  label?: string
+  children?: ReactNode
+  description?: string
+  errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-function RadioGroupItem({
-  className,
-  ...props
-}: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {
+export function RadioGroup(props: RadioGroupProps) {
+  const { orientation = "vertical", ...rest } = props
+
   return (
-    <RadioGroupPrimitive.Item
-      data-slot="radio-group-item"
-      className={cn(
-        "border-input text-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
-        className
-      )}
-      {...props}
+    <RACRadioGroup
+      {...rest}
+      className={cn(fieldVariants({ orientation }), props.className)}
     >
-      <RadioGroupPrimitive.Indicator
-        data-slot="radio-group-indicator"
-        className="relative flex items-center justify-center"
-      >
-        <CircleIcon className="fill-primary absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2" />
-      </RadioGroupPrimitive.Indicator>
-    </RadioGroupPrimitive.Item>
+      <FieldLabel>{props.label}</FieldLabel>
+      <div className="grid gap-3">{props.children}</div>
+      {props.description && (
+        <FieldDescription>{props.description}</FieldDescription>
+      )}
+      <FieldError>{props.errorMessage}</FieldError>
+    </RACRadioGroup>
   )
 }
 
-export { RadioGroup, RadioGroupItem }
+const radioVariants = tv({
+  base: "border-input text-primary aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow] outline-none relative flex items-center justify-center",
+  variants: {
+    isFocusVisible: {
+      true: "border-ring ring-ring/50 ring-[3px]",
+    },
+    isInvalid: {
+      true: "border-destructive ring-destructive/20",
+    },
+    isDisabled: {
+      true: "cursor-not-allowed opacity-50",
+    },
+  },
+})
+
+const radioIndicatorVariants = tv({
+  base: "bg-primary size-2 rounded-full",
+  variants: {
+    isSelected: {
+      true: "scale-100",
+      false: "scale-0",
+    },
+  },
+})
+
+export function Radio(props: RadioProps) {
+  return (
+    <RACRadio
+      {...props}
+      className={composeTailwindRenderProps(
+        props.className,
+        "group relative flex items-center gap-2 text-sm transition"
+      )}
+    >
+      {(renderProps) => (
+        <>
+          <div className={radioVariants(renderProps)}>
+            <div className={radioIndicatorVariants(renderProps)} />
+          </div>
+          {props.children}
+        </>
+      )}
+    </RACRadio>
+  )
+}

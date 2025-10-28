@@ -23,14 +23,8 @@ import {
   FieldGroup,
   FieldLabel,
 } from "@/registry/new-york-v4/ui/field"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
+import { Separator } from "@/registry/new-york-v4/ui/separator"
 
 const spokenLanguages = [
   { label: "English", value: "en" },
@@ -109,25 +103,17 @@ export default function FormRhfSelect() {
                   </FieldContent>
                   <Select
                     name={field.name}
-                    value={field.value}
-                    onValueChange={field.onChange}
+                    selectedKey={field.value}
+                    onSelectionChange={(key) => field.onChange(key as string)}
+                    className="min-w-[120px]"
                   >
-                    <SelectTrigger
-                      id="form-rhf-select-language"
-                      aria-invalid={fieldState.invalid}
-                      className="min-w-[120px]"
-                    >
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent position="item-aligned">
-                      <SelectItem value="auto">Auto</SelectItem>
-                      <SelectSeparator />
-                      {spokenLanguages.map((language) => (
-                        <SelectItem key={language.value} value={language.value}>
-                          {language.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
+                    <SelectItem id="auto">Auto</SelectItem>
+                    <Separator />
+                    {spokenLanguages.map((language) => (
+                      <SelectItem key={language.value} id={language.value}>
+                        {language.label}
+                      </SelectItem>
+                    ))}
                   </Select>
                 </Field>
               )}

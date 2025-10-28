@@ -21,17 +21,8 @@ import {
   FieldSet,
   FieldTitle,
 } from "@/registry/new-york-v4/ui/field"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/new-york-v4/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 
 const addons = [
@@ -146,7 +137,7 @@ export default function FormTanstackComplex() {
                               For individuals and small teams
                             </FieldDescription>
                           </FieldContent>
-                          <RadioGroupItem
+                          <Radio
                             value="basic"
                             id="basic"
                             aria-invalid={isInvalid}
@@ -164,7 +155,7 @@ export default function FormTanstackComplex() {
                               For businesses with higher demands
                             </FieldDescription>
                           </FieldContent>
-                          <RadioGroupItem
+                          <Radio
                             value="pro"
                             id="pro"
                             aria-invalid={isInvalid}
@@ -190,17 +181,13 @@ export default function FormTanstackComplex() {
                     <FieldLabel htmlFor={field.name}>Billing Period</FieldLabel>
                     <Select
                       name={field.name}
-                      value={field.state.value}
-                      onValueChange={field.handleChange}
-                      aria-invalid={isInvalid}
+                      selectedKey={field.state.value}
+                      onSelectionChange={(key) =>
+                        field.handleChange(key as string)
+                      }
                     >
-                      <SelectTrigger id={field.name}>
-                        <SelectValue placeholder="Select" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="monthly">Monthly</SelectItem>
-                        <SelectItem value="yearly">Yearly</SelectItem>
-                      </SelectContent>
+                      <SelectItem id="monthly">Monthly</SelectItem>
+                      <SelectItem id="yearly">Yearly</SelectItem>
                     </Select>
                     <FieldDescription>
                       Choose how often you want to be billed.

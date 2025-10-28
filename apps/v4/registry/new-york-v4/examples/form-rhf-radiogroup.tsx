@@ -26,10 +26,7 @@ import {
   FieldSet,
   FieldTitle,
 } from "@/registry/new-york-v4/ui/field"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/new-york-v4/ui/radio-group"
+import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
 
 const plans = [
   {
@@ -119,7 +116,7 @@ export default function FormRhfRadioGroup() {
                               {plan.description}
                             </FieldDescription>
                           </FieldContent>
-                          <RadioGroupItem
+                          <Radio
                             value={plan.id}
                             id={`form-rhf-radiogroup-${plan.id}`}
                             aria-invalid={fieldState.invalid}

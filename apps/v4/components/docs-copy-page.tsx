@@ -1,21 +1,11 @@
 "use client"
 
+import { cloneElement } from "react"
 import { IconCheck, IconChevronDown, IconCopy } from "@tabler/icons-react"
 
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 import { Button } from "@/registry/new-york-v4/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
-import {
-  Popover,
-  PopoverAnchor,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 
 function getPromptUrl(baseURL: string, url: string) {
@@ -103,54 +93,35 @@ export function DocsCopyPage({ page, url }: { page: string; url: string }) {
   )
 
   return (
-    <Popover>
-      <div className="bg-secondary group/buttons relative flex rounded-lg *:[[data-slot=button]]:focus-visible:relative *:[[data-slot=button]]:focus-visible:z-10">
-        <PopoverAnchor />
-        <Button
-          variant="secondary"
-          size="sm"
-          className="h-8 shadow-none md:h-7 md:text-[0.8rem]"
-          onClick={() => copyToClipboard(page)}
-        >
-          {isCopied ? <IconCheck /> : <IconCopy />}
-          Copy Page
-        </Button>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild className="hidden sm:flex">
-            {trigger}
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="shadow-none">
-            {Object.entries(menuItems).map(([key, value]) => (
-              <DropdownMenuItem key={key} asChild>
-                {value(url)}
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-        <Separator
-          orientation="vertical"
-          className="!bg-foreground/10 absolute top-0 right-8 z-0 !h-8 peer-focus-visible:opacity-0 sm:right-7 sm:!h-7"
-        />
-        <PopoverTrigger asChild className="flex sm:hidden">
-          {trigger}
-        </PopoverTrigger>
-        <PopoverContent
-          className="bg-background/70 dark:bg-background/60 w-52 !origin-center rounded-lg p-1 shadow-sm backdrop-blur-sm"
-          align="start"
+    <div className="bg-secondary group/buttons relative flex rounded-lg *:[[data-slot=button]]:focus-visible:relative *:[[data-slot=button]]:focus-visible:z-10">
+      <Button
+        variant="secondary"
+        size="sm"
+        className="h-8 shadow-none md:h-7 md:text-[0.8rem]"
+        onClick={() => copyToClipboard(page)}
+      >
+        {isCopied ? <IconCheck /> : <IconCopy />}
+        Copy Page
+      </Button>
+      <Separator
+        orientation="vertical"
+        className="!bg-foreground/10 absolute top-0 right-8 z-0 !h-8 peer-focus-visible:opacity-0 sm:right-7 sm:!h-7"
+      />
+      <MenuTrigger>
+        {trigger}
+        <Menu
+          className="bg-background/70 dark:bg-background/60 w-52 backdrop-blur-sm"
+          placement="bottom"
         >
           {Object.entries(menuItems).map(([key, value]) => (
-            <Button
-              variant="ghost"
-              size="lg"
-              asChild
-              key={key}
-              className="*:[svg]:text-muted-foreground w-full justify-start text-base font-normal"
-            >
-              {value(url)}
-            </Button>
+            <MenuItem key={key} className="text-base">
+              {cloneElement(value(url), {
+                className: "flex items-center gap-2",
+              })}
+            </MenuItem>
           ))}
-        </PopoverContent>
-      </div>
-    </Popover>
+        </Menu>
+      </MenuTrigger>
+    </div>
   )
 }

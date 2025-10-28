@@ -30,11 +30,8 @@ import {
   ItemDescription,
   ItemTitle,
 } from "@/registry/new-york-v4/ui/item"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 const teamMembers = [
   {
@@ -97,17 +94,15 @@ export function CardsTeamMembers() {
               <ItemDescription>{member.email}</ItemDescription>
             </ItemContent>
             <ItemActions>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="ml-auto shadow-none"
-                  >
-                    {member.role} <ChevronDown />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="p-0" align="end">
+              <DialogTrigger>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="ml-auto shadow-none"
+                >
+                  {member.role} <ChevronDown />
+                </Button>
+                <Popover className="p-0">
                   <Command>
                     <CommandInput placeholder="Select role..." />
                     <CommandList>
@@ -126,8 +121,8 @@ export function CardsTeamMembers() {
                       </CommandGroup>
                     </CommandList>
                   </Command>
-                </PopoverContent>
-              </Popover>
+                </Popover>
+              </DialogTrigger>
             </ItemActions>
           </Item>
         ))}

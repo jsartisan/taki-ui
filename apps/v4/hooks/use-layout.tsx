@@ -43,7 +43,7 @@ const useLayout = () => {
 const Layout = ({
   forcedLayout,
   storageKey = "layout",
-  defaultLayout = "full",
+  defaultLayout = "fixed",
   attribute = "class",
   value,
   children,

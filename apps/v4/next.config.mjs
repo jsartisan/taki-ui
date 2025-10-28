@@ -48,6 +48,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/docs/components/accordion",
+        destination: "/docs/components/disclosure-group",
+        permanent: true,
+      },
+      {
         source: "/react-19",
         destination: "/docs/react-19",
         permanent: true,

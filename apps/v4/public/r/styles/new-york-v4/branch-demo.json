@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "branch-demo",
+  "type": "registry:example",
+  "dependencies": [
+    "ai"
+  ],
+  "registryDependencies": [
+    "branch",
+    "message",
+    "avatar",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/branch-demo.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport {\n  Branch,\n  BranchMessages,\n} from \"@/registry/new-york-v4/ai-elements/branch\"\nimport {\n  Message,\n  MessageAvatar,\n  MessageContent,\n} from \"@/registry/new-york-v4/ai-elements/message\"\n\nexport default function BranchDemo() {\n  const [currentBranch, setCurrentBranch] = useState(0)\n\n  const branches = [\n    {\n      id: \"1\",\n      content:\n        \"I can help you build a todo app! Let's start with setting up the project structure.\",\n    },\n    {\n      id: \"2\",\n      content:\n        \"Sure! For a todo app, I recommend using React with TypeScript and a state management solution like Zustand.\",\n    },\n    {\n      id: \"3\",\n      content:\n        \"Of course! We'll create a modern todo app with features like filtering, sorting, and local storage persistence.\",\n    },\n  ]\n\n  return (\n    <div className=\"w-full max-w-2xl space-y-4\">\n      <Message from=\"user\">\n        <MessageAvatar name=\"User\" src=\"https://github.com/shadcn.png\" />\n        <MessageContent>Can you help me build a todo app?</MessageContent>\n      </Message>\n\n      <Branch defaultBranch={0} onBranchChange={setCurrentBranch}>\n        <BranchMessages>\n          {branches.map((branch) => (\n            <Message key={branch.id} from=\"assistant\">\n              <MessageAvatar name=\"AI\" src=\"/avatars/shadcn.jpg\" />\n              <MessageContent>{branch.content}</MessageContent>\n            </Message>\n          ))}\n        </BranchMessages>\n      </Branch>\n\n      <p className=\"text-muted-foreground text-center text-sm\">\n        Currently viewing branch {currentBranch + 1} of {branches.length}\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

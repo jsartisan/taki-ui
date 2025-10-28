@@ -199,7 +199,7 @@ const form = useForm<z.infer<typeof formSchema>>({
 Display errors next to the field using `<FieldError />`. For styling and accessibility:
 
 - Add the `data-invalid` prop to the `<Field />` component.
-- Add the `aria-invalid` prop to the form control such as `<Input />`, `<SelectTrigger />`, `<Checkbox />`, etc.
+- Add the `aria-invalid` or `isInvalid` prop to the form control such as `<Input />`, `<Select />`, `<Checkbox />`, etc.
 
 ```tsx showLineNumbers title="form.tsx" {5,11,13}
 <Controller
@@ -288,8 +288,8 @@ For textarea fields, spread the `field` object onto the textarea.
 
 ### Select
 
-- For select components, use `field.value` and `field.onChange` on the `<Select />` component.
-- To show errors, add the `aria-invalid` prop to the `<SelectTrigger />` component and the `data-invalid` prop to the `<Field />` component.
+- For select components, use `field.value` with `selectedKey` and `field.onChange` with `onSelectionChange` on the `<Select />` component.
+- To show errors, add the `isInvalid` prop to the `<Select />` component and the `data-invalid` prop to the `<Field />` component.
 
 <ComponentPreview
   name="form-rhf-select"
@@ -297,7 +297,7 @@ For textarea fields, spread the `field` object onto the textarea.
   chromeLessOnMobile
 />
 
-```tsx showLineNumbers title="form.tsx" {5,13,22}
+```tsx showLineNumbers title="form.tsx" {5,13,17-18}
 <Controller
   name="language"
   control={form.control}
@@ -313,21 +313,15 @@ For textarea fields, spread the `field` object onto the textarea.
         {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
       </FieldContent>
       <Select
-        name={field.name}
-        value={field.value}
-        onValueChange={field.onChange}
+        id="form-rhf-select-language"
+        selectedKey={field.value}
+        onSelectionChange={(key) => field.onChange(key as string)}
+        placeholder="Select"
+        isInvalid={fieldState.invalid}
+        className="min-w-[120px]"
       >
-        <SelectTrigger
-          id="form-rhf-select-language"
-          aria-invalid={fieldState.invalid}
-          className="min-w-[120px]"
-        >
-          <SelectValue placeholder="Select" />
-        </SelectTrigger>
-        <SelectContent position="item-aligned">
-          <SelectItem value="auto">Auto</SelectItem>
-          <SelectItem value="en">English</SelectItem>
-        </SelectContent>
+        <SelectItem id="auto">Auto</SelectItem>
+        <SelectItem id="en">English</SelectItem>
       </Select>
     </Field>
   )}

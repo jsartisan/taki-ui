@@ -17,11 +17,8 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/registry/new-york-v4/ui/drawer"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 export function DatePickerDemo() {
   return (
@@ -37,23 +34,21 @@ function DatePickerSimple() {
   const [date, setDate] = React.useState<Date>()
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          variant={"outline"}
-          className={cn(
-            "min-w-[200px] justify-start px-2 font-normal",
-            !date && "text-muted-foreground"
-          )}
-        >
-          <CalendarIcon className="text-muted-foreground" />
-          {date ? format(date, "PPP") : <span>Pick a date</span>}
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-auto p-0" align="start">
+    <DialogTrigger>
+      <Button
+        variant={"outline"}
+        className={cn(
+          "min-w-[200px] justify-start px-2 font-normal",
+          !date && "text-muted-foreground"
+        )}
+      >
+        <CalendarIcon className="text-muted-foreground" />
+        {date ? format(date, "PPP") : <span>Pick a date</span>}
+      </Button>
+      <Popover className="w-auto p-0">
         <Calendar mode="single" selected={date} onSelect={setDate} />
-      </PopoverContent>
-    </Popover>
+      </Popover>
+    </DialogTrigger>
   )
 }
 
@@ -64,32 +59,30 @@ function DatePickerWithRange() {
   })
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          id="date"
-          variant={"outline"}
-          className={cn(
-            "w-fit justify-start px-2 font-normal",
-            !date && "text-muted-foreground"
-          )}
-        >
-          <CalendarIcon className="text-muted-foreground" />
-          {date?.from ? (
-            date.to ? (
-              <>
-                {format(date.from, "LLL dd, y")} -{" "}
-                {format(date.to, "LLL dd, y")}
-              </>
-            ) : (
-              format(date.from, "LLL dd, y")
-            )
+    <DialogTrigger>
+      <Button
+        id="date"
+        variant={"outline"}
+        className={cn(
+          "w-fit justify-start px-2 font-normal",
+          !date && "text-muted-foreground"
+        )}
+      >
+        <CalendarIcon className="text-muted-foreground" />
+        {date?.from ? (
+          date.to ? (
+            <>
+              {format(date.from, "LLL dd, y")} -{" "}
+              {format(date.to, "LLL dd, y")}
+            </>
           ) : (
-            <span>Pick a date</span>
-          )}
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-auto p-0" align="start">
+            format(date.from, "LLL dd, y")
+          )
+        ) : (
+          <span>Pick a date</span>
+        )}
+      </Button>
+      <Popover className="w-auto p-0">
         <Calendar
           mode="range"
           defaultMonth={date?.from}
@@ -97,8 +90,8 @@ function DatePickerWithRange() {
           onSelect={setDate}
           numberOfMonths={2}
         />
-      </PopoverContent>
-    </Popover>
+      </Popover>
+    </DialogTrigger>
   )
 }
 
@@ -143,20 +136,19 @@ function DataPickerWithDropdowns() {
   }
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          className={cn(
-            "min-w-[200px] justify-start px-2 font-normal",
-            !date && "text-muted-foreground"
-          )}
-        >
-          {date ? format(date, "PPP") : <span>Pick a date</span>}
-          <CalendarIcon className="text-muted-foreground ml-auto" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-auto p-0" align="start">
+    <DialogTrigger>
+      <Button
+        variant="outline"
+        className={cn(
+          "min-w-[200px] justify-start px-2 font-normal",
+          !date && "text-muted-foreground"
+        )}
+        onPress={() => setOpen(!open)}
+      >
+        {date ? format(date, "PPP") : <span>Pick a date</span>}
+        <CalendarIcon className="text-muted-foreground ml-auto" />
+      </Button>
+      <Popover className="w-auto p-0">
         <Calendar
           mode="single"
           selected={date}
@@ -168,12 +160,12 @@ function DataPickerWithDropdowns() {
             variant="outline"
             size="sm"
             className="w-full"
-            onClick={() => setOpen(false)}
+            onPress={() => setOpen(false)}
           >
             Done
           </Button>
         </div>
-      </PopoverContent>
-    </Popover>
+      </Popover>
+    </DialogTrigger>
   )
 }

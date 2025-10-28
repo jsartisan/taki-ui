@@ -2,39 +2,6 @@ import { type Registry } from "shadcn/schema"
 
 export const ui: Registry["items"] = [
   {
-    name: "accordion",
-    type: "registry:ui",
-    dependencies: ["@radix-ui/react-accordion"],
-    files: [
-      {
-        path: "ui/accordion.tsx",
-        type: "registry:ui",
-      },
-    ],
-    tailwind: {
-      config: {
-        theme: {
-          extend: {
-            keyframes: {
-              "accordion-down": {
-                from: { height: "0" },
-                to: { height: "var(--radix-accordion-content-height)" },
-              },
-              "accordion-up": {
-                from: { height: "var(--radix-accordion-content-height)" },
-                to: { height: "0" },
-              },
-            },
-            animation: {
-              "accordion-down": "accordion-down 0.2s ease-out",
-              "accordion-up": "accordion-up 0.2s ease-out",
-            },
-          },
-        },
-      },
-    },
-  },
-  {
     name: "alert",
     type: "registry:ui",
     files: [
@@ -52,17 +19,6 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/alert-dialog.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
-    name: "aspect-ratio",
-    type: "registry:ui",
-    dependencies: ["@radix-ui/react-aspect-ratio"],
-    files: [
-      {
-        path: "ui/aspect-ratio.tsx",
         type: "registry:ui",
       },
     ],
@@ -214,12 +170,79 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "date-field",
+    type: "registry:ui",
+    dependencies: ["react-aria-components", "@internationalized/date"],
+    registryDependencies: ["field", "input"],
+    files: [
+      {
+        path: "ui/date-field.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "date-picker",
+    type: "registry:ui",
+    dependencies: ["react-aria-components", "@internationalized/date"],
+    registryDependencies: [
+      "button",
+      "calendar",
+      "date-field",
+      "dialog",
+      "field",
+      "input-group",
+      "popover",
+    ],
+    files: [
+      {
+        path: "ui/date-picker.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "date-range-picker",
+    type: "registry:ui",
+    dependencies: ["react-aria-components", "@internationalized/date"],
+    registryDependencies: [
+      "button",
+      "date-field",
+      "dialog",
+      "field",
+      "input-group",
+      "popover",
+      "range-calendar",
+    ],
+    files: [
+      {
+        path: "ui/date-range-picker.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "dialog",
     type: "registry:ui",
     dependencies: ["@radix-ui/react-dialog"],
     files: [
       {
         path: "ui/dialog.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "disclosure",
+    type: "registry:ui",
+    dependencies: [
+      "react-aria-components",
+      "lucide-react",
+      "tailwind-variants",
+    ],
+    files: [
+      {
+        path: "ui/disclosure.tsx",
         type: "registry:ui",
       },
     ],
@@ -373,6 +396,18 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "number-field",
+    type: "registry:ui",
+    dependencies: ["react-aria-components"],
+    registryDependencies: ["field", "input", "input-group"],
+    files: [
+      {
+        path: "ui/number-field.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "pagination",
     type: "registry:ui",
     registryDependencies: ["button"],
@@ -417,6 +452,18 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "range-calendar",
+    type: "registry:ui",
+    dependencies: ["react-aria-components", "@internationalized/date"],
+    registryDependencies: ["button", "calendar"],
+    files: [
+      {
+        path: "ui/range-calendar.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "resizable",
     type: "registry:ui",
     dependencies: ["react-resizable-panels"],
@@ -434,6 +481,18 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/scroll-area.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "search-field",
+    type: "registry:ui",
+    dependencies: ["react-aria-components", "lucide-react"],
+    registryDependencies: ["field", "input"],
+    files: [
+      {
+        path: "ui/search-field.tsx",
         type: "registry:ui",
       },
     ],
@@ -623,6 +682,30 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "text-field",
+    type: "registry:ui",
+    dependencies: ["react-aria-components"],
+    registryDependencies: ["field", "input"],
+    files: [
+      {
+        path: "ui/text-field.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "time-field",
+    type: "registry:ui",
+    dependencies: ["react-aria-components", "@internationalized/date"],
+    registryDependencies: ["date-field", "field", "input"],
+    files: [
+      {
+        path: "ui/time-field.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "toast",
     type: "registry:ui",
     dependencies: ["@radix-ui/react-toast"],
@@ -667,7 +750,7 @@ export const ui: Registry["items"] = [
   {
     name: "tooltip",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-tooltip"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
     files: [
       {
         path: "ui/tooltip.tsx",
@@ -681,6 +764,355 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/kbd.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  // AI Elements
+  {
+    name: "actions",
+    type: "registry:ui",
+    registryDependencies: ["button", "tooltip"],
+    files: [
+      {
+        path: "ai-elements/actions.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "artifact",
+    type: "registry:ui",
+    registryDependencies: ["button", "tooltip"],
+    files: [
+      {
+        path: "ai-elements/artifact.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "branch",
+    type: "registry:ui",
+    registryDependencies: ["button"],
+    dependencies: ["ai"],
+    files: [
+      {
+        path: "ai-elements/branch.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "canvas",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ai-elements/canvas.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "chain-of-thought",
+    type: "registry:ui",
+    registryDependencies: ["collapsible", "response", "shimmer"],
+    files: [
+      {
+        path: "ai-elements/chain-of-thought.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "code-block",
+    type: "registry:ui",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "ai-elements/code-block.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "connection",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ai-elements/connection.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "context",
+    type: "registry:ui",
+    registryDependencies: ["button", "badge", "collapsible", "tooltip"],
+    dependencies: ["ai"],
+    files: [
+      {
+        path: "ai-elements/context.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "controls",
+    type: "registry:ui",
+    dependencies: ["@xyflow/react"],
+    files: [
+      {
+        path: "ai-elements/controls.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "conversation",
+    type: "registry:ui",
+    registryDependencies: ["button"],
+    dependencies: ["use-stick-to-bottom"],
+    files: [
+      {
+        path: "ai-elements/conversation.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "edge",
+    type: "registry:ui",
+    dependencies: ["@xyflow/react"],
+    files: [
+      {
+        path: "ai-elements/edge.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "image",
+    type: "registry:ui",
+    dependencies: ["ai"],
+    files: [
+      {
+        path: "ai-elements/image.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "inline-citation",
+    type: "registry:ui",
+    registryDependencies: ["hover-card", "badge"],
+    dependencies: ["ai"],
+    files: [
+      {
+        path: "ai-elements/inline-citation.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "loader",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ai-elements/loader.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "message",
+    type: "registry:ui",
+    registryDependencies: ["avatar"],
+    files: [
+      {
+        path: "ai-elements/message.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "node",
+    type: "registry:ui",
+    dependencies: ["@xyflow/react"],
+    files: [
+      {
+        path: "ai-elements/node.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "open-in-chat",
+    type: "registry:ui",
+    registryDependencies: ["button", "tooltip"],
+    files: [
+      {
+        path: "ai-elements/open-in-chat.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "panel",
+    type: "registry:ui",
+    dependencies: ["@xyflow/react"],
+    files: [
+      {
+        path: "ai-elements/panel.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "plan",
+    type: "registry:ui",
+    registryDependencies: ["card", "collapsible", "button", "shimmer"],
+    files: [
+      {
+        path: "ai-elements/plan.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "prompt-input",
+    type: "registry:ui",
+    registryDependencies: [
+      "button",
+      "command",
+      "dropdown-menu",
+      "hover-card",
+      "input-group",
+      "select",
+      "tooltip",
+    ],
+    dependencies: ["ai", "nanoid"],
+    files: [
+      {
+        path: "ai-elements/prompt-input.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "queue",
+    type: "registry:ui",
+    registryDependencies: ["button", "collapsible", "scroll-area"],
+    files: [
+      {
+        path: "ai-elements/queue.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "reasoning",
+    type: "registry:ui",
+    registryDependencies: ["collapsible", "response", "shimmer"],
+    files: [
+      {
+        path: "ai-elements/reasoning.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "response",
+    type: "registry:ui",
+    dependencies: ["streamdown"],
+    files: [
+      {
+        path: "ai-elements/response.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "shimmer",
+    type: "registry:ui",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "ai-elements/shimmer.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "sources",
+    type: "registry:ui",
+    registryDependencies: ["collapsible"],
+    files: [
+      {
+        path: "ai-elements/sources.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "suggestion",
+    type: "registry:ui",
+    registryDependencies: ["button", "scroll-area"],
+    files: [
+      {
+        path: "ai-elements/suggestion.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "task",
+    type: "registry:ui",
+    registryDependencies: ["collapsible"],
+    files: [
+      {
+        path: "ai-elements/task.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "toolbar",
+    type: "registry:ui",
+    dependencies: ["@xyflow/react"],
+    files: [
+      {
+        path: "ai-elements/toolbar.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "tool",
+    type: "registry:ui",
+    registryDependencies: ["collapsible", "badge", "code-block"],
+    dependencies: ["ai"],
+    files: [
+      {
+        path: "ai-elements/tool.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "web-preview",
+    type: "registry:ui",
+    registryDependencies: [
+      "button",
+      "collapsible",
+      "input",
+      "tooltip",
+      "badge",
+      "scroll-area",
+    ],
+    files: [
+      {
+        path: "ai-elements/web-preview.tsx",
         type: "registry:ui",
       },
     ],

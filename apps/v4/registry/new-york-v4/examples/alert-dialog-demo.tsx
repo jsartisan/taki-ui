@@ -7,16 +7,13 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@/registry/new-york-v4/ui/alert-dialog"
 import { Button } from "@/registry/new-york-v4/ui/button"
 
 export default function AlertDialogDemo() {
   return (
     <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button variant="outline">Show Dialog</Button>
-      </AlertDialogTrigger>
+      <Button variant="outline">Show Dialog</Button>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>

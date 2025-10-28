@@ -2,8 +2,8 @@
 
 import React from "react"
 import {
+  Button as AriaButton,
   composeRenderProps,
-  Button as RACButton,
   ButtonProps as RACButtonProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
@@ -61,7 +61,7 @@ export const buttonVariants = tv({
 
 export function Button(props: ButtonProps) {
   return (
-    <RACButton
+    <AriaButton
       {...props}
       className={composeRenderProps(props.className, (className, renderProps) =>
         buttonVariants({
@@ -110,6 +110,6 @@ export function Button(props: ButtonProps) {
           )}
         </>
       ))}
-    </RACButton>
+    </AriaButton>
   )
 }

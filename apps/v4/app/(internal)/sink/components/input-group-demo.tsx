@@ -54,16 +54,12 @@ import {
   InputGroupTextarea,
 } from "@/registry/new-york-v4/ui/input-group"
 import { Kbd, KbdGroup } from "@/registry/new-york-v4/ui/kbd"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 import { Spinner } from "@/registry/new-york-v4/ui/spinner"
 import { Textarea } from "@/registry/new-york-v4/ui/textarea"
 import {
   Tooltip,
-  TooltipContent,
   TooltipTrigger,
 } from "@/registry/new-york-v4/ui/tooltip"
 
@@ -204,14 +200,12 @@ export function InputGroupDemo() {
           <InputGroup>
             <InputGroupInput id="input-tooltip-20" />
             <InputGroupAddon align="inline-end">
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <InputGroupButton className="rounded-full" size="icon-xs">
-                    <IconInfoCircle />
-                  </InputGroupButton>
-                </TooltipTrigger>
-                <TooltipContent>This is content in a tooltip.</TooltipContent>
-              </Tooltip>
+              <TooltipTrigger>
+                <InputGroupButton className="rounded-full" size="icon-xs">
+                  <IconInfoCircle />
+                </InputGroupButton>
+                <Tooltip>This is content in a tooltip.</Tooltip>
+              </TooltipTrigger>
             </InputGroupAddon>
           </InputGroup>
         </Field>
@@ -315,24 +309,19 @@ export function InputGroupDemo() {
             </InputGroupAddon>
           </InputGroup>
           <InputGroup className="[--radius:9999px]">
-            <Popover>
-              <PopoverTrigger asChild>
-                <InputGroupAddon>
-                  <InputGroupButton variant="secondary" size="icon-xs">
-                    <IconInfoCircle />
-                  </InputGroupButton>
-                </InputGroupAddon>
-              </PopoverTrigger>
-              <PopoverContent
-                align="start"
-                className="flex flex-col gap-1 rounded-xl text-sm"
-              >
+            <DialogTrigger>
+              <InputGroupAddon>
+                <InputGroupButton variant="secondary" size="icon-xs">
+                  <IconInfoCircle />
+                </InputGroupButton>
+              </InputGroupAddon>
+              <Popover className="flex flex-col gap-1 rounded-xl text-sm">
                 <p className="font-medium">Your connection is not secure.</p>
                 <p>
                   You should not enter any sensitive information on this site.
                 </p>
-              </PopoverContent>
-            </Popover>
+              </Popover>
+            </DialogTrigger>
             <InputGroupAddon className="text-muted-foreground">
               https://
             </InputGroupAddon>

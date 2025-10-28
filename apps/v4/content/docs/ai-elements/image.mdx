@@ -1,0 +1,109 @@
+---
+title: Image
+description: Display AI-generated images from base64 data.
+component: true
+links:
+  doc: https://sdk.vercel.ai/docs/ai-sdk-ui/generating-images
+---
+
+<ComponentPreview name="image-demo" description="AI-generated image display" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add image
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ai
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="image" title="ai-elements/image.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { Image } from "@/components/ai-elements/image"
+```
+
+```tsx showLineNumbers
+<Image
+  base64={imageData}
+  mediaType="image/png"
+  alt="AI Generated Image"
+/>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="image-demo" description="Display generated image" />
+
+```tsx showLineNumbers
+// From AI SDK
+const { image } = await generateImage({
+  model: openai.image("dall-e-3"),
+  prompt: "A serene mountain landscape",
+})
+
+// Display the image
+<Image
+  base64={image.base64}
+  mediaType={image.mediaType}
+  alt="Generated mountain landscape"
+/>
+```
+
+### With Custom Styling
+
+```tsx showLineNumbers
+<Image
+  base64={imageData}
+  mediaType="image/png"
+  alt="AI Generated Image"
+  className="w-full rounded-xl shadow-lg"
+/>
+```
+
+## API Reference
+
+### Image
+
+Display AI-generated images.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `base64` | `string` | - | Base64 encoded image data |
+| `mediaType` | `string` | - | Image MIME type (e.g., "image/png") |
+| `alt` | `string` | - | Alt text for accessibility |
+| `className` | `string` | - | Custom CSS classes |
+
+Extends all props from the HTML `img` element.
+

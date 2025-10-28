@@ -11,11 +11,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/registry/new-york-v4/ui/input-group"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/registry/new-york-v4/ui/tooltip"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
 
 export default function ButtonGroupInputGroup() {
   const [voiceEnabled, setVoiceEnabled] = React.useState(false)
@@ -36,20 +32,18 @@ export default function ButtonGroupInputGroup() {
             disabled={voiceEnabled}
           />
           <InputGroupAddon align="inline-end">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <InputGroupButton
-                  onClick={() => setVoiceEnabled(!voiceEnabled)}
-                  size="icon-xs"
-                  data-active={voiceEnabled}
-                  className="data-[active=true]:bg-orange-100 data-[active=true]:text-orange-700 dark:data-[active=true]:bg-orange-800 dark:data-[active=true]:text-orange-100"
-                  aria-pressed={voiceEnabled}
-                >
-                  <AudioLinesIcon />
-                </InputGroupButton>
-              </TooltipTrigger>
-              <TooltipContent>Voice Mode</TooltipContent>
-            </Tooltip>
+            <TooltipTrigger>
+              <InputGroupButton
+                onClick={() => setVoiceEnabled(!voiceEnabled)}
+                size="icon-xs"
+                data-active={voiceEnabled}
+                className="data-[active=true]:bg-orange-100 data-[active=true]:text-orange-700 dark:data-[active=true]:bg-orange-800 dark:data-[active=true]:text-orange-100"
+                aria-pressed={voiceEnabled}
+              >
+                <AudioLinesIcon />
+              </InputGroupButton>
+              <Tooltip>Voice Mode</Tooltip>
+            </TooltipTrigger>
           </InputGroupAddon>
         </InputGroup>
       </ButtonGroup>

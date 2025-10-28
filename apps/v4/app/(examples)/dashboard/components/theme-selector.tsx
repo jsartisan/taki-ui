@@ -2,16 +2,7 @@
 
 import { useThemeConfig } from "@/components/active-theme"
 import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 
 const DEFAULT_THEMES = [
   {
@@ -55,48 +46,18 @@ export function ThemeSelector() {
 
   return (
     <div className="flex items-center gap-2">
-      <Label htmlFor="theme-selector" className="sr-only">
-        Theme
-      </Label>
-      <Select value={activeTheme} onValueChange={setActiveTheme}>
-        <SelectTrigger
-          id="theme-selector"
-          size="sm"
-          className="justify-start *:data-[slot=select-value]:w-12"
-        >
-          <span className="text-muted-foreground hidden sm:block">
-            Select a theme:
-          </span>
-          <span className="text-muted-foreground block sm:hidden">Theme</span>
-          <SelectValue placeholder="Select a theme" />
-        </SelectTrigger>
-        <SelectContent align="end">
-          <SelectGroup>
-            <SelectLabel>Default</SelectLabel>
-            {DEFAULT_THEMES.map((theme) => (
-              <SelectItem key={theme.name} value={theme.value}>
-                {theme.name}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-          <SelectSeparator />
-          <SelectGroup>
-            <SelectLabel>Scaled</SelectLabel>
-            {SCALED_THEMES.map((theme) => (
-              <SelectItem key={theme.name} value={theme.value}>
-                {theme.name}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-          <SelectGroup>
-            <SelectLabel>Monospaced</SelectLabel>
-            {MONO_THEMES.map((theme) => (
-              <SelectItem key={theme.name} value={theme.value}>
-                {theme.name}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-        </SelectContent>
+      <Select
+        selectedKey={activeTheme}
+        onSelectionChange={(key) => setActiveTheme(key as string)}
+        placeholder="Select a theme"
+        size="sm"
+        className="min-w-[180px]"
+      >
+        {[...DEFAULT_THEMES, ...SCALED_THEMES, ...MONO_THEMES].map((theme) => (
+          <SelectItem key={theme.value} id={theme.value}>
+            {theme.name}
+          </SelectItem>
+        ))}
       </Select>
     </div>
   )

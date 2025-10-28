@@ -12,13 +12,7 @@ import {
 } from "@/registry/new-york-v4/ui/card"
 import { Field, FieldGroup, FieldLabel } from "@/registry/new-york-v4/ui/field"
 import { Input } from "@/registry/new-york-v4/ui/input"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Textarea } from "@/registry/new-york-v4/ui/textarea"
 
 export function CardsReportIssue() {
@@ -37,41 +31,33 @@ export function CardsReportIssue() {
           <FieldGroup className="grid gap-4 sm:grid-cols-2">
             <Field>
               <FieldLabel htmlFor={`area-${id}`}>Area</FieldLabel>
-              <Select defaultValue="billing">
-                <SelectTrigger
-                  id={`area-${id}`}
-                  aria-label="Area"
-                  className="w-full"
-                >
-                  <SelectValue placeholder="Select" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="team">Team</SelectItem>
-                  <SelectItem value="billing">Billing</SelectItem>
-                  <SelectItem value="account">Account</SelectItem>
-                  <SelectItem value="deployments">Deployments</SelectItem>
-                  <SelectItem value="support">Support</SelectItem>
-                </SelectContent>
+              <Select
+                id={`area-${id}`}
+                defaultSelectedKey="billing"
+                placeholder="Select"
+                className="w-full"
+              >
+                <SelectItem id="team">Team</SelectItem>
+                <SelectItem id="billing">Billing</SelectItem>
+                <SelectItem id="account">Account</SelectItem>
+                <SelectItem id="deployments">Deployments</SelectItem>
+                <SelectItem id="support">Support</SelectItem>
               </Select>
             </Field>
             <Field>
               <FieldLabel htmlFor={`security-level-${id}`}>
                 Security Level
               </FieldLabel>
-              <Select defaultValue="2">
-                <SelectTrigger
-                  id={`security-level-${id}`}
-                  className="w-full [&_span]:!block [&_span]:truncate"
-                  aria-label="Security Level"
-                >
-                  <SelectValue placeholder="Select level" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1">Severity 1 (Highest)</SelectItem>
-                  <SelectItem value="2">Severity 2</SelectItem>
-                  <SelectItem value="3">Severity 3</SelectItem>
-                  <SelectItem value="4">Severity 4 (Lowest)</SelectItem>
-                </SelectContent>
+              <Select
+                id={`security-level-${id}`}
+                defaultSelectedKey="2"
+                placeholder="Select level"
+                className="w-full"
+              >
+                <SelectItem id="1">Severity 1 (Highest)</SelectItem>
+                <SelectItem id="2">Severity 2</SelectItem>
+                <SelectItem id="3">Severity 3</SelectItem>
+                <SelectItem id="4">Severity 4 (Lowest)</SelectItem>
               </Select>
             </Field>
           </FieldGroup>

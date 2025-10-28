@@ -3,10 +3,8 @@ import FormsPage from "@/app/(internal)/sink/(pages)/forms/page"
 import NextFormPage from "./(pages)/next-form/page"
 import ReactHookFormPage from "./(pages)/react-hook-form/page"
 import TanstackFormPage from "./(pages)/tanstack-form/page"
-import { AccordionDemo } from "./components/accordion-demo"
 import { AlertDemo } from "./components/alert-demo"
 import { AlertDialogDemo } from "./components/alert-dialog-demo"
-import { AspectRatioDemo } from "./components/aspect-ratio-demo"
 import { AvatarDemo } from "./components/avatar-demo"
 import { BadgeDemo } from "./components/badge-demo"
 import { BreadcrumbDemo } from "./components/breadcrumb-demo"
@@ -68,12 +66,6 @@ type ComponentConfig = {
 }
 
 export const componentRegistry: Record<string, ComponentConfig> = {
-  accordion: {
-    name: "Accordion",
-    component: AccordionDemo,
-    type: "registry:ui",
-    href: "/sink/accordion",
-  },
   alert: {
     name: "Alert",
     component: AlertDemo,
@@ -85,12 +77,6 @@ export const componentRegistry: Record<string, ComponentConfig> = {
     component: AlertDialogDemo,
     type: "registry:ui",
     href: "/sink/alert-dialog",
-  },
-  "aspect-ratio": {
-    name: "Aspect Ratio",
-    component: AspectRatioDemo,
-    type: "registry:ui",
-    href: "/sink/aspect-ratio",
   },
   avatar: {
     name: "Avatar",

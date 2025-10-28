@@ -31,10 +31,10 @@ import {
 } from "@/registry/new-york-v4/ui/pagination"
 import {
   Select,
-  SelectContent,
+  
   SelectItem,
-  SelectTrigger,
-  SelectValue,
+  
+  
 } from "@/registry/new-york-v4/ui/select"
 import {
   Table,
@@ -74,41 +74,35 @@ export function ProductsTable({
           </TabsList>
         </Tabs>
         <div className="hidden items-center gap-2 **:data-[slot=button]:size-8 **:data-[slot=select-trigger]:h-8 @3xl/page:flex">
-          <Select defaultValue="all">
-            <SelectTrigger>
-              <span className="text-muted-foreground text-sm">Category:</span>
-              <SelectValue placeholder="Select a product" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All</SelectItem>
-              <SelectItem value="in-stock">In Stock</SelectItem>
-              <SelectItem value="low-stock">Low Stock</SelectItem>
-              <SelectItem value="archived">Archived</SelectItem>
-            </SelectContent>
+          <Select
+            defaultSelectedKey="all"
+            placeholder="Select a product"
+            className="h-8"
+          >
+            <SelectItem id="all">All</SelectItem>
+            <SelectItem id="in-stock">In Stock</SelectItem>
+            <SelectItem id="low-stock">Low Stock</SelectItem>
+            <SelectItem id="archived">Archived</SelectItem>
           </Select>
-          <Select defaultValue="all">
-            <SelectTrigger>
-              <span className="text-muted-foreground text-sm">Price:</span>
-              <SelectValue placeholder="Select a product" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">$100-$200</SelectItem>
-              <SelectItem value="in-stock">$200-$300</SelectItem>
-              <SelectItem value="low-stock">$300-$400</SelectItem>
-              <SelectItem value="archived">$400-$500</SelectItem>
-            </SelectContent>
+          <Select
+            defaultSelectedKey="all"
+            placeholder="Select a product"
+            className="h-8"
+          >
+            <SelectItem id="all">$100-$200</SelectItem>
+            <SelectItem id="in-stock">$200-$300</SelectItem>
+            <SelectItem id="low-stock">$300-$400</SelectItem>
+            <SelectItem id="archived">$400-$500</SelectItem>
           </Select>
-          <Select defaultValue="all">
-            <SelectTrigger>
-              <span className="text-muted-foreground text-sm">Status:</span>
-              <SelectValue placeholder="Select a product" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">In Stock</SelectItem>
-              <SelectItem value="in-stock">Low Stock</SelectItem>
-              <SelectItem value="low-stock">Archived</SelectItem>
-              <SelectItem value="archived">Archived</SelectItem>
-            </SelectContent>
+          <Select
+            defaultSelectedKey="all"
+            placeholder="Select a product"
+            className="h-8"
+          >
+            <SelectItem id="all">In Stock</SelectItem>
+            <SelectItem id="in-stock">Low Stock</SelectItem>
+            <SelectItem id="low-stock">Archived</SelectItem>
+            <SelectItem id="archived">Archived</SelectItem>
           </Select>
           <Button variant="outline" size="icon">
             <ListFilterIcon />

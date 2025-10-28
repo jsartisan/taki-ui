@@ -1,74 +1,103 @@
-'use client';
-import { Check, Minus } from 'lucide-react';
-import React, { ReactNode } from 'react';
-import { Checkbox as AriaCheckbox, CheckboxGroup as AriaCheckboxGroup, CheckboxGroupProps as AriaCheckboxGroupProps, CheckboxProps, ValidationResult, composeRenderProps } from 'react-aria-components';
-import { tv } from 'tailwind-variants';
-import { FieldDescription, FieldError, FieldLabel } from './field';
-import { composeTailwindRenderProps, focusRing } from '../lib/utils';
+"use client"
 
-export interface CheckboxGroupProps extends Omit<AriaCheckboxGroupProps, 'children'> {
-  label?: string,
-  children?: ReactNode,
-  description?: string;
-  errorMessage?: string | ((validation: ValidationResult) => string);
+import React, { ReactNode } from "react"
+import { Check, Minus } from "lucide-react"
+import {
+  CheckboxProps,
+  composeRenderProps,
+  Checkbox as RACCheckbox,
+  CheckboxGroup as RACCheckboxGroup,
+  CheckboxGroupProps as RACCheckboxGroupProps,
+  ValidationResult,
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
+
+import { composeTailwindRenderProps, focusRing } from "../lib/utils"
+import { FieldDescription, FieldError, FieldLabel } from "./field"
+
+export interface CheckboxGroupProps
+  extends Omit<RACCheckboxGroupProps, "children"> {
+  label?: string
+  children?: ReactNode
+  description?: string
+  errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
 export function CheckboxGroup(props: CheckboxGroupProps) {
   return (
-    <AriaCheckboxGroup {...props} className={composeTailwindRenderProps(props.className, 'flex flex-col gap-2')}>
+    <RACCheckboxGroup
+      {...props}
+      className={composeTailwindRenderProps(
+        props.className,
+        "flex flex-col gap-3"
+      )}
+    >
       <FieldLabel>{props.label}</FieldLabel>
       {props.children}
-      {props.description && <FieldDescription>{props.description}</FieldDescription>}
-      <FieldError errors={props.errorMessage ? [props.errorMessage] : undefined}>{props.errorMessage}</FieldError>
-    </AriaCheckboxGroup>
-  );
+      {props.description && (
+        <FieldDescription>{props.description}</FieldDescription>
+      )}
+      <FieldError>{props.errorMessage}</FieldError>
+    </RACCheckboxGroup>
+  )
 }
 
 const checkboxStyles = tv({
-  base: 'flex gap-2 items-center group text-sm transition relative',
+  base: "group flex items-center gap-3 text-sm transition leading-none font-medium",
   variants: {
     isDisabled: {
-      false: 'text-gray-800 dark:text-zinc-200',
-      true: 'text-gray-300 dark:text-zinc-600 forced-colors:text-[GrayText]'
-    }
-  }
-});
+      false: "text-foreground",
+      true: "cursor-not-allowed opacity-50",
+    },
+  },
+})
 
 const boxStyles = tv({
   extend: focusRing,
-  base: 'w-5 h-5 box-border shrink-0 rounded-sm flex items-center justify-center border-2 transition',
+  base: "peer grid size-4 shrink-0 place-content-center rounded-[4px] border shadow-xs transition-shadow outline-none",
   variants: {
     isSelected: {
-      false: 'bg-white dark:bg-zinc-900 border-(--color) [--color:var(--color-gray-400)] dark:[--color:var(--color-zinc-400)] group-pressed:[--color:var(--color-gray-500)] dark:group-pressed:[--color:var(--color-zinc-300)]',
-      true: 'bg-(--color) border-(--color) [--color:var(--color-gray-700)] group-pressed:[--color:var(--color-gray-800)] dark:[--color:var(--color-slate-300)] dark:group-pressed:[--color:var(--color-slate-200)] forced-colors:[--color:Highlight]!'
+      false: "border-input bg-background dark:bg-input/30",
+      true: "border-primary bg-primary text-primary-foreground dark:bg-primary",
     },
     isInvalid: {
-      true: '[--color:var(--color-red-700)] dark:[--color:var(--color-red-600)] forced-colors:[--color:Mark]! group-pressed:[--color:var(--color-red-800)] dark:group-pressed:[--color:var(--color-red-700)]'
+      true: "border-destructive ring-destructive/20 ring-[3px] dark:ring-destructive/40",
     },
     isDisabled: {
-      true: '[--color:var(--color-gray-200)] dark:[--color:var(--color-zinc-700)] forced-colors:[--color:GrayText]!'
-    }
-  }
-});
+      true: "cursor-not-allowed opacity-50",
+    },
+  },
+})
 
-const iconStyles = 'w-4 h-4 text-white group-disabled:text-gray-400 dark:text-slate-900 dark:group-disabled:text-slate-600 forced-colors:text-[HighlightText]';
+const iconStyles = "size-3.5 text-current transition-none"
 
 export function Checkbox(props: CheckboxProps) {
   return (
-    <AriaCheckbox {...props} className={composeRenderProps(props.className, (className, renderProps) => checkboxStyles({...renderProps, className}))}>
-      {({isSelected, isIndeterminate, ...renderProps}) => (
+    <RACCheckbox
+      {...props}
+      data-slot="checkbox"
+      className={composeRenderProps(props.className, (className, renderProps) =>
+        checkboxStyles({ ...renderProps, className })
+      )}
+    >
+      {({ isSelected, isIndeterminate, ...renderProps }) => (
         <>
-          <div className={boxStyles({isSelected: isSelected || isIndeterminate, ...renderProps})}>
-            {isIndeterminate
-              ? <Minus aria-hidden className={iconStyles} />
-              : isSelected
-                ? <Check aria-hidden className={iconStyles} />
-                : null
-            }
+          <div
+            data-slot="checkbox-indicator"
+            className={boxStyles({
+              isSelected: isSelected || isIndeterminate,
+              ...renderProps,
+            })}
+          >
+            {isIndeterminate ? (
+              <Minus aria-hidden className={iconStyles} />
+            ) : isSelected ? (
+              <Check aria-hidden className={iconStyles} />
+            ) : null}
           </div>
           {props.children}
         </>
       )}
-    </AriaCheckbox>
-  );
+    </RACCheckbox>
+  )
 }

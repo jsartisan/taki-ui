@@ -7,7 +7,6 @@ import { useMediaQuery } from "@/hooks/use-media-query"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Dialog,
-  DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
@@ -36,7 +35,7 @@ export default function DrawerDialogDemo() {
         <DialogTrigger asChild>
           <Button variant="outline">Edit Profile</Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
+        <Dialog className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Edit profile</DialogTitle>
             <DialogDescription>
@@ -45,7 +44,7 @@ export default function DrawerDialogDemo() {
             </DialogDescription>
           </DialogHeader>
           <ProfileForm />
-        </DialogContent>
+        </Dialog>
       </Dialog>
     )
   }

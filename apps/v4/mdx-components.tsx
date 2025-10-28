@@ -13,18 +13,17 @@ import { ComponentsList } from "@/components/components-list"
 import { CopyButton } from "@/components/copy-button"
 import { getIconForLanguageExtension } from "@/components/icons"
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/registry/new-york-v4/ui/accordion"
-import {
   Alert,
   AlertDescription,
   AlertTitle,
 } from "@/registry/new-york-v4/ui/alert"
-import { AspectRatio } from "@/registry/new-york-v4/ui/aspect-ratio"
 import { Button } from "@/registry/new-york-v4/ui/button"
+import {
+  Disclosure,
+  DisclosureGroup,
+  DisclosureHeader,
+  DisclosurePanel,
+} from "@/registry/new-york-v4/ui/disclosure"
 import { Kbd } from "@/registry/new-york-v4/ui/kbd"
 import {
   Tabs,
@@ -331,19 +330,18 @@ export const mdxComponents = {
   ),
   Button,
   Callout,
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
   Alert,
   AlertTitle,
   AlertDescription,
-  AspectRatio,
   CodeTabs,
   ComponentPreview,
   ComponentSource,
   CodeCollapsibleWrapper,
   ComponentsList,
+  Disclosure,
+  DisclosureGroup,
+  DisclosureHeader,
+  DisclosurePanel,
   Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn("font-medium underline underline-offset-4", className)}

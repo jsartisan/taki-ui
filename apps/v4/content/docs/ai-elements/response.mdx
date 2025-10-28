@@ -1,0 +1,121 @@
+---
+title: Response
+description: Render markdown responses with streaming support for AI assistants.
+component: true
+---
+
+<ComponentPreview name="response-demo" description="Markdown response rendering" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add response
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install streamdown
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="response" title="ai-elements/response.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { Response } from "@/components/ai-elements/response"
+```
+
+```tsx showLineNumbers
+const markdown = `# Heading
+
+This is **bold** and this is *italic*.
+
+\`\`\`typescript
+const hello = "world"
+\`\`\`
+`
+
+<Response>{markdown}</Response>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="response-demo" description="Markdown content rendering" />
+
+### With Streaming
+
+```tsx showLineNumbers
+"use client"
+
+import { useState, useEffect } from "react"
+import { Response } from "@/components/ai-elements/response"
+
+export default function Example() {
+  const [content, setContent] = useState("")
+  
+  useEffect(() => {
+    // Simulate streaming
+    const fullText = "# Hello\n\nThis is streaming content..."
+    let index = 0
+    
+    const interval = setInterval(() => {
+      if (index < fullText.length) {
+        setContent(fullText.slice(0, index + 1))
+        index++
+      } else {
+        clearInterval(interval)
+      }
+    }, 50)
+    
+    return () => clearInterval(interval)
+  }, [])
+  
+  return <Response>{content}</Response>
+}
+```
+
+## Features
+
+- **Markdown Support**: Full markdown syntax support
+- **Streaming**: Optimized for progressive rendering
+- **Performance**: Memoized to prevent unnecessary re-renders
+- **Styling**: Pre-styled for AI chat interfaces
+
+## API Reference
+
+### Response
+
+Markdown renderer with streaming support.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `string` | - | Markdown content to render |
+| `className` | `string` | - | Custom CSS classes |
+

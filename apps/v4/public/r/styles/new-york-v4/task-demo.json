@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "task-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "task",
+    "collapsible"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/task-demo.tsx",
+      "content": "import {\n  Task,\n  TaskContent,\n  TaskItem,\n  TaskItemFile,\n  TaskTrigger,\n} from \"@/registry/new-york-v4/ai-elements/task\"\n\nexport default function TaskDemo() {\n  return (\n    <div className=\"w-full max-w-2xl space-y-4\">\n      <Task>\n        <TaskTrigger title=\"Searching codebase for Button component\" />\n        <TaskContent>\n          <TaskItem>\n            Found in <TaskItemFile>components/ui/button.tsx</TaskItemFile>\n          </TaskItem>\n          <TaskItem>\n            Used in <TaskItemFile>pages/home.tsx</TaskItemFile>\n          </TaskItem>\n          <TaskItem>\n            Referenced in <TaskItemFile>components/header.tsx</TaskItemFile>\n          </TaskItem>\n        </TaskContent>\n      </Task>\n\n      <Task>\n        <TaskTrigger title=\"Analyzing dependencies\" />\n        <TaskContent>\n          <TaskItem>\n            Found 3 direct dependencies in{\" \"}\n            <TaskItemFile>package.json</TaskItemFile>\n          </TaskItem>\n          <TaskItem>All dependencies are up to date</TaskItem>\n        </TaskContent>\n      </Task>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

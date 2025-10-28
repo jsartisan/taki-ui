@@ -6,11 +6,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/registry/new-york-v4/ui/input-group"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/registry/new-york-v4/ui/tooltip"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
 
 export default function InputGroupTooltip() {
   return (
@@ -18,59 +14,35 @@ export default function InputGroupTooltip() {
       <InputGroup>
         <InputGroupInput placeholder="Enter password" type="password" />
         <InputGroupAddon align="inline-end">
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <InputGroupButton
-                variant="ghost"
-                aria-label="Info"
-                size="icon-xs"
-              >
-                <InfoIcon />
-              </InputGroupButton>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Password must be at least 8 characters</p>
-            </TooltipContent>
-          </Tooltip>
+          <TooltipTrigger>
+            <InputGroupButton variant="ghost" aria-label="Info" size="icon-xs">
+              <InfoIcon />
+            </InputGroupButton>
+            <Tooltip>Password must be at least 8 characters</Tooltip>
+          </TooltipTrigger>
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
         <InputGroupInput placeholder="Your email address" />
         <InputGroupAddon align="inline-end">
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <InputGroupButton
-                variant="ghost"
-                aria-label="Help"
-                size="icon-xs"
-              >
-                <HelpCircle />
-              </InputGroupButton>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>We&apos;ll use this to send you notifications</p>
-            </TooltipContent>
-          </Tooltip>
+          <TooltipTrigger>
+            <InputGroupButton variant="ghost" aria-label="Help" size="icon-xs">
+              <HelpCircle />
+            </InputGroupButton>
+            <Tooltip>We&apos;ll use this to send you notifications</Tooltip>
+          </TooltipTrigger>
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
         <InputGroupInput placeholder="Enter API key" />
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <InputGroupAddon>
-              <InputGroupButton
-                variant="ghost"
-                aria-label="Help"
-                size="icon-xs"
-              >
-                <HelpCircle />
-              </InputGroupButton>
-            </InputGroupAddon>
-          </TooltipTrigger>
-          <TooltipContent side="left">
-            <p>Click for help with API keys</p>
-          </TooltipContent>
-        </Tooltip>
+        <TooltipTrigger>
+          <InputGroupAddon>
+            <InputGroupButton variant="ghost" aria-label="Help" size="icon-xs">
+              <HelpCircle />
+            </InputGroupButton>
+          </InputGroupAddon>
+          <Tooltip placement="left">Click for help with API keys</Tooltip>
+        </TooltipTrigger>
       </InputGroup>
     </div>
   )

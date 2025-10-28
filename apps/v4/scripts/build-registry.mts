@@ -1,10 +1,13 @@
 import { exec } from "child_process"
 import { existsSync, promises as fs } from "fs"
 import path from "path"
+import { promisify } from "util"
 import { rimraf } from "rimraf"
 
 import { getAllBlocks } from "@/lib/blocks"
 import { registry } from "@/registry/index"
+
+const execAsync = promisify(exec)
 
 async function buildRegistryIndex() {
   let index = `/* eslint-disable @typescript-eslint/ban-ts-comment */
@@ -95,37 +98,23 @@ async function buildRegistryJsonFile() {
   )
 
   // 3. Format the registry.json file.
-  await exec(`prettier --write registry.json`)
-
-  // 3. Copy the registry.json to the www/public/r/styles/new-york-v4 directory.
-  await fs.cp(
-    path.join(process.cwd(), "registry.json"),
-    path.join(
-      process.cwd(),
-      "../www/public/r/styles/new-york-v4/registry.json"
-    ),
-    { recursive: true }
-  )
+  await execAsync(`prettier --write registry.json`)
 }
 
 async function buildRegistry() {
   return new Promise((resolve, reject) => {
-    // Use local shadcn copy.
-    const process = exec(
-      `node ../../packages/shadcn/dist/index.js build registry.json --output ../www/public/r/styles/new-york-v4`
-    )
-
-    // exec(
-    //   `pnpm dlx shadcn build registry.json --output ../www/public/r/styles/new-york-v4`
-    // )
-
-    process.on("exit", (code) => {
-      if (code === 0) {
-        resolve(undefined)
-      } else {
-        reject(new Error(`Process exited with code ${code}`))
+    exec(
+      `pnpm dlx shadcn build registry.json --output ../www/public/r/styles/new-york-v4`,
+      (error, stdout, stderr) => {
+        if (error) {
+          console.error(stderr)
+          reject(error)
+        } else {
+          console.log(stdout)
+          resolve(undefined)
+        }
       }
-    })
+    )
   })
 }
 
@@ -172,7 +161,7 @@ async function syncRegistry() {
   }
 }
 
-async function buildBlocksIndex() {
+export async function buildBlocksIndex() {
   const blocks = await getAllBlocks(["registry:block"])
 
   const payload = blocks.map((block) => ({
@@ -187,7 +176,7 @@ async function buildBlocksIndex() {
     JSON.stringify(payload, null, 2)
   )
 
-  await exec(`prettier --write registry/__blocks__.json`)
+  await execAsync(`prettier --write registry/__blocks__.json`)
 }
 
 try {

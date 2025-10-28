@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chain-of-thought-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "chain-of-thought",
+    "collapsible",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/chain-of-thought-demo.tsx",
+      "content": "import {\n  ChainOfThought,\n  ChainOfThoughtContent,\n  ChainOfThoughtHeader,\n  ChainOfThoughtStep,\n} from \"@/registry/new-york-v4/ai-elements/chain-of-thought\"\n\nexport default function ChainOfThoughtDemo() {\n  const steps = [\n    {\n      id: \"1\",\n      title: \"Understand the problem\",\n      content:\n        \"The user wants to build a responsive layout for their website using modern CSS techniques.\",\n    },\n    {\n      id: \"2\",\n      title: \"Consider solutions\",\n      content:\n        \"Options include CSS Grid, Flexbox, or a combination. Grid is best for 2D layouts.\",\n    },\n    {\n      id: \"3\",\n      title: \"Plan implementation\",\n      content:\n        \"Use CSS Grid with media queries for breakpoints. Start mobile-first.\",\n    },\n    {\n      id: \"4\",\n      title: \"Provide solution\",\n      content:\n        \"Create a grid template with auto-fit columns and minmax for responsive behavior.\",\n    },\n  ]\n\n  return (\n    <div className=\"w-full max-w-2xl\">\n      <ChainOfThought>\n        <ChainOfThoughtHeader>Reasoning Process</ChainOfThoughtHeader>\n        <ChainOfThoughtContent>\n          {steps.map((step, index) => (\n            <ChainOfThoughtStep\n              key={step.id}\n              isActive={index === steps.length - 1}\n              isCompleted={index < steps.length - 1}\n              number={index + 1}\n              title={step.title}\n            >\n              {step.content}\n            </ChainOfThoughtStep>\n          ))}\n        </ChainOfThoughtContent>\n      </ChainOfThought>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/new-york-v4/examples/radio-group-demo.tsx",
-      "content": "import { Label } from \"@/registry/new-york-v4/ui/label\"\nimport {\n  RadioGroup,\n  RadioGroupItem,\n} from \"@/registry/new-york-v4/ui/radio-group\"\n\nexport default function RadioGroupDemo() {\n  return (\n    <RadioGroup defaultValue=\"comfortable\">\n      <div className=\"flex items-center gap-3\">\n        <RadioGroupItem value=\"default\" id=\"r1\" />\n        <Label htmlFor=\"r1\">Default</Label>\n      </div>\n      <div className=\"flex items-center gap-3\">\n        <RadioGroupItem value=\"comfortable\" id=\"r2\" />\n        <Label htmlFor=\"r2\">Comfortable</Label>\n      </div>\n      <div className=\"flex items-center gap-3\">\n        <RadioGroupItem value=\"compact\" id=\"r3\" />\n        <Label htmlFor=\"r3\">Compact</Label>\n      </div>\n    </RadioGroup>\n  )\n}\n",
+      "content": "import { Radio, RadioGroup } from \"@/registry/new-york-v4/ui/radio-group\"\n\nexport default function RadioGroupDemo() {\n  return (\n    <div className=\"mx-auto w-max\">\n      <RadioGroup defaultValue=\"comfortable\" label=\"Comfort Level\">\n        <Radio value=\"default\" id=\"r1\">\n          Default\n        </Radio>\n        <Radio value=\"comfortable\" id=\"r2\">\n          Comfortable\n        </Radio>\n        <Radio value=\"compact\" id=\"r3\">\n          Compact\n        </Radio>\n      </RadioGroup>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

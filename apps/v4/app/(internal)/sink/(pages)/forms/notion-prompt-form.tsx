@@ -6,9 +6,6 @@ import {
   IconArrowUp,
   IconAt,
   IconBook,
-  IconBrandAbstract,
-  IconBrandOpenai,
-  IconBrandZeit,
   IconCircleDashedPlus,
   IconPaperclip,
   IconPlus,
@@ -30,6 +27,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/registry/new-york-v4/ui/command"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -50,15 +48,10 @@ import {
   InputGroupButton,
   InputGroupTextarea,
 } from "@/registry/new-york-v4/ui/input-group"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 import {
   Tooltip,
-  TooltipContent,
   TooltipTrigger,
 } from "@/registry/new-york-v4/ui/tooltip"
 
@@ -124,29 +117,25 @@ const SAMPLE_DATA = {
       type: "user",
       title: "maxleiter",
       image: "https://github.com/maxleiter.png",
-      workspace: "Cursor",
+      workspace: "Workspace",
     },
     {
       type: "user",
       title: "evilrabbit",
       image: "https://github.com/evilrabbit.png",
-      workspace: "Vercel",
+      workspace: "Workspace",
     },
   ],
   models: [
     {
       name: "Auto",
-      icon: IconBrandZeit,
     },
     {
-      name: "Claude Sonnet 4",
-      icon: IconBrandAbstract,
+      name: "Agent Mode",
       badge: "Beta",
     },
     {
-      name: "GPT-5",
-      icon: IconBrandOpenai,
-      badge: "Beta",
+      name: "Plan Mode",
     },
   ],
 }
@@ -202,31 +191,27 @@ export function NotionPromptForm() {
         <FieldLabel htmlFor="notion-prompt" className="sr-only">
           Prompt
         </FieldLabel>
-        <InputGroup className="bg-background dark:bg-background shadow-none">
+        <InputGroup>
           <InputGroupTextarea
             id="notion-prompt"
             placeholder="Ask, search, or make anything..."
           />
           <InputGroupAddon align="block-start">
-            <Popover
-              open={mentionPopoverOpen}
+            <DialogTrigger
+              isOpen={mentionPopoverOpen}
               onOpenChange={setMentionPopoverOpen}
             >
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <PopoverTrigger asChild>
-                    <InputGroupButton
-                      variant="outline"
-                      size={!hasMentions ? "sm" : "icon-sm"}
-                      className="rounded-full transition-transform"
-                    >
-                      <IconAt /> {!hasMentions && "Add context"}
-                    </InputGroupButton>
-                  </PopoverTrigger>
-                </TooltipTrigger>
-                <TooltipContent>Mention a person, page, or date</TooltipContent>
-              </Tooltip>
-              <PopoverContent className="p-0 [--radius:1.2rem]" align="start">
+              <TooltipTrigger onFocusCapture={(e) => e.stopPropagation()}>
+                <InputGroupButton
+                  variant="outline"
+                  size={!hasMentions ? "sm" : "icon-sm"}
+                  className="rounded-full transition-transform"
+                >
+                  <IconAt /> {!hasMentions && "Add context"}
+                </InputGroupButton>
+                <Tooltip>Mention a person, page, or date</Tooltip>
+              </TooltipTrigger>
+              <Popover className="p-0 [--radius:1.2rem]">
                 <Command>
                   <CommandInput placeholder="Search pages..." />
                   <CommandList>
@@ -253,8 +238,8 @@ export function NotionPromptForm() {
                     ))}
                   </CommandList>
                 </Command>
-              </PopoverContent>
-            </Popover>
+              </Popover>
+            </DialogTrigger>
             <div className="no-scrollbar -m-1.5 flex gap-1 overflow-y-auto p-1.5">
               {mentions.map((mention) => {
                 const item = SAMPLE_DATA.mentionable.find(
@@ -284,43 +269,36 @@ export function NotionPromptForm() {
             </div>
           </InputGroupAddon>
           <InputGroupAddon align="block-end" className="gap-1">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <InputGroupButton
-                  size="icon-sm"
-                  className="rounded-full"
-                  aria-label="Attach file"
-                >
-                  <IconPaperclip />
-                </InputGroupButton>
-              </TooltipTrigger>
-              <TooltipContent>Attach file</TooltipContent>
-            </Tooltip>
+            <TooltipTrigger>
+              <InputGroupButton
+                size="icon-sm"
+                className="rounded-full"
+                aria-label="Attach file"
+              >
+                <IconPaperclip />
+              </InputGroupButton>
+              <Tooltip>Attach file</Tooltip>
+            </TooltipTrigger>
             <DropdownMenu
               open={modelPopoverOpen}
               onOpenChange={setModelPopoverOpen}
             >
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <DropdownMenuTrigger asChild>
-                    <InputGroupButton size="sm" className="rounded-full">
-                      {selectedModel.icon && selectedModel.name !== "Auto" && (
-                        <selectedModel.icon />
-                      )}
-                      {selectedModel.name}
-                    </InputGroupButton>
-                  </DropdownMenuTrigger>
-                </TooltipTrigger>
-                <TooltipContent>Select AI model</TooltipContent>
-              </Tooltip>
+              <TooltipTrigger>
+                <DropdownMenuTrigger asChild>
+                  <InputGroupButton size="sm" className="rounded-full">
+                    {selectedModel.name}
+                  </InputGroupButton>
+                </DropdownMenuTrigger>
+                <Tooltip>Select AI model</Tooltip>
+              </TooltipTrigger>
               <DropdownMenuContent
                 side="top"
                 align="start"
-                className="[--radius:1.2rem]"
+                className="[--radius:1rem]"
               >
-                <DropdownMenuGroup className="w-72">
+                <DropdownMenuGroup className="w-42">
                   <DropdownMenuLabel className="text-muted-foreground text-xs">
-                    Get answers about your workspace
+                    Select Agent Mode
                   </DropdownMenuLabel>
                   {SAMPLE_DATA.models.map((model) => (
                     <DropdownMenuCheckboxItem
@@ -333,7 +311,6 @@ export function NotionPromptForm() {
                       }}
                       className="pl-2 *:[span:first-child]:right-2 *:[span:first-child]:left-auto"
                     >
-                      {model.icon && <model.icon />}
                       {model.name}
                       {model.badge && (
                         <Badge
@@ -356,8 +333,8 @@ export function NotionPromptForm() {
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 side="top"
-                align="start"
-                className="[--radius:1.2rem]"
+                align="end"
+                className="[--radius:1rem]"
               >
                 <DropdownMenuGroup>
                   <DropdownMenuItem
@@ -369,7 +346,7 @@ export function NotionPromptForm() {
                       <Switch
                         id="web-search"
                         className="ml-auto"
-                        defaultChecked
+                        defaultSelected
                       />
                     </label>
                   </DropdownMenuItem>
@@ -382,7 +359,7 @@ export function NotionPromptForm() {
                   >
                     <label htmlFor="apps">
                       <IconApps /> Apps and Integrations
-                      <Switch id="apps" className="ml-auto" defaultChecked />
+                      <Switch id="apps" className="ml-auto" defaultSelected />
                     </label>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
@@ -396,7 +373,7 @@ export function NotionPromptForm() {
                       </Avatar>
                       shadcn
                     </DropdownMenuSubTrigger>
-                    <DropdownMenuSubContent className="w-72 p-0 [--radius:1.2rem]">
+                    <DropdownMenuSubContent className="w-72 p-0 [--radius:1rem]">
                       <Command>
                         <CommandInput
                           placeholder="Find or use knowledge in..."

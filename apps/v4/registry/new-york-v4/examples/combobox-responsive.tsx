@@ -12,16 +12,13 @@ import {
   CommandItem,
   CommandList,
 } from "@/registry/new-york-v4/ui/command"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
 import {
   Drawer,
   DrawerContent,
   DrawerTrigger,
 } from "@/registry/new-york-v4/ui/drawer"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 type Status = {
   value: string
@@ -60,16 +57,14 @@ export default function ComboBoxResponsive() {
 
   if (isDesktop) {
     return (
-      <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <Button variant="outline" className="w-[150px] justify-start">
-            {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set status</>}
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-[200px] p-0" align="start">
-          <StatusList setOpen={setOpen} setSelectedStatus={setSelectedStatus} />
-        </PopoverContent>
-      </Popover>
+      <DialogTrigger>
+        <Button variant="outline" className="w-[150px] justify-start">
+          {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set status</>}
+        </Button>
+        <Popover className="w-[200px] p-0">
+          <StatusList setSelectedStatus={setSelectedStatus} />
+        </Popover>
+      </DialogTrigger>
     )
   }
 
@@ -82,7 +77,7 @@ export default function ComboBoxResponsive() {
       </DrawerTrigger>
       <DrawerContent>
         <div className="mt-4 border-t">
-          <StatusList setOpen={setOpen} setSelectedStatus={setSelectedStatus} />
+          <StatusList setSelectedStatus={setSelectedStatus} />
         </div>
       </DrawerContent>
     </Drawer>
@@ -90,10 +85,8 @@ export default function ComboBoxResponsive() {
 }
 
 function StatusList({
-  setOpen,
   setSelectedStatus,
 }: {
-  setOpen: (open: boolean) => void
   setSelectedStatus: (status: Status | null) => void
 }) {
   return (
@@ -110,7 +103,6 @@ function StatusList({
                 setSelectedStatus(
                   statuses.find((priority) => priority.value === value) || null
                 )
-                setOpen(false)
               }}
             >
               {status.label}

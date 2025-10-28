@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "controls",
+  "type": "registry:ui",
+  "dependencies": [
+    "@xyflow/react"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/ai-elements/controls.tsx",
+      "content": "\"use client\"\n\nimport type { ComponentProps } from \"react\"\nimport { Controls as ControlsPrimitive } from \"@xyflow/react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type ControlsProps = ComponentProps<typeof ControlsPrimitive>\n\nexport const Controls = ({ className, ...props }: ControlsProps) => (\n  <ControlsPrimitive\n    className={cn(\n      \"bg-card gap-px overflow-hidden rounded-md border p-1 shadow-none!\",\n      \"[&>button]:hover:bg-secondary! [&>button]:rounded-md [&>button]:border-none! [&>button]:bg-transparent!\",\n      className\n    )}\n    {...props}\n  />\n)\n",
+      "type": "registry:ui"
+    }
+  ]
+}

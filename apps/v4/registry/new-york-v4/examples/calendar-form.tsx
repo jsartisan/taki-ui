@@ -10,6 +10,7 @@ import { z } from "zod"
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { Calendar } from "@/registry/new-york-v4/ui/calendar"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
 import {
   Form,
   FormControl,
@@ -19,11 +20,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/registry/new-york-v4/ui/form"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 const FormSchema = z.object({
   dob: z.date({
@@ -55,26 +52,24 @@ export default function CalendarForm() {
           render={({ field }) => (
             <FormItem className="flex flex-col">
               <FormLabel>Date of birth</FormLabel>
-              <Popover>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant={"outline"}
-                      className={cn(
-                        "w-[240px] pl-3 text-left font-normal",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value ? (
-                        format(field.value, "PPP")
-                      ) : (
-                        <span>Pick a date</span>
-                      )}
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
+              <DialogTrigger>
+                <FormControl>
+                  <Button
+                    variant={"outline"}
+                    className={cn(
+                      "w-[240px] pl-3 text-left font-normal",
+                      !field.value && "text-muted-foreground"
+                    )}
+                  >
+                    {field.value ? (
+                      format(field.value, "PPP")
+                    ) : (
+                      <span>Pick a date</span>
+                    )}
+                    <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                  </Button>
+                </FormControl>
+                <Popover className="w-auto p-0">
                   <Calendar
                     mode="single"
                     selected={field.value}
@@ -84,8 +79,8 @@ export default function CalendarForm() {
                     }
                     captionLayout="dropdown"
                   />
-                </PopoverContent>
-              </Popover>
+                </Popover>
+              </DialogTrigger>
               <FormDescription>
                 Your date of birth is used to calculate your age.
               </FormDescription>

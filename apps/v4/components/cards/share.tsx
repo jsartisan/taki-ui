@@ -23,13 +23,7 @@ import {
   ItemTitle,
 } from "@/registry/new-york-v4/ui/item"
 import { Label } from "@/registry/new-york-v4/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 
 const people = [
@@ -93,18 +87,14 @@ export function CardsShare() {
                   <ItemDescription>{person.email}</ItemDescription>
                 </ItemContent>
                 <ItemActions>
-                  <Select defaultValue="edit">
-                    <SelectTrigger
-                      className="ml-auto pr-2"
-                      aria-label="Edit"
-                      size="sm"
-                    >
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent align="end">
-                      <SelectItem value="edit">Can edit</SelectItem>
-                      <SelectItem value="view">Can view</SelectItem>
-                    </SelectContent>
+                  <Select
+                    defaultSelectedKey="edit"
+                    placeholder="Select"
+                    size="sm"
+                    className="ml-auto min-w-[120px]"
+                  >
+                    <SelectItem id="edit">Can edit</SelectItem>
+                    <SelectItem id="view">Can view</SelectItem>
                   </Select>
                 </ItemActions>
               </Item>

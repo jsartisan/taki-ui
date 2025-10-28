@@ -2,17 +2,13 @@
 title: Button
 description: Displays a button or a component that looks like a button.
 featured: true
-component: true
+component: truea
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/Button.html
+  api: https://react-spectrum.adobe.com/react-aria/Button.html#props
 ---
 
 import { InfoIcon } from "lucide-react"
-
-<Callout variant="info" icon={<InfoIcon />}>
-**Updated:** We have updated the button component to add new sizes: `icon-sm` and `icon-lg`. See the
-[changelog](/docs/components/button#changelog) for more details. Follow the
-instructions to update your project.
-
-</Callout>
 
 <ComponentPreview name="button-demo" description="A button" className="mb-4" />
 
@@ -174,11 +170,7 @@ If you want to keep the `cursor: pointer` behavior, add the following code to yo
 
 ### Link
 
-<ComponentPreview
-  name="button-link"
-  description="A button using the link variant."
-  className="mb-4"
-/>
+<ComponentPreview name="button-link" className="mb-4" />
 
 ```tsx
 <Button variant="link">Link</Button>
@@ -273,22 +265,12 @@ To create a button group, use the `ButtonGroup` component. See the [Button Group
 </ButtonGroup>
 ```
 
-### Link
+### Link Button
 
-You can use the `asChild` prop to make another component look like a button. Here's an example of a link that looks like a button.
+`react-aria-components` don't support `asChild` for the `Button` component. You can use the `LinkButton` component instead for.
 
-```tsx showLineNumbers
-import Link from "next/link"
-
-import { Button } from "@/components/ui/button"
-
-export function LinkAsButton() {
-  return (
-    <Button asChild>
-      <Link href="/login">Login</Link>
-    </Button>
-  )
-}
+```tsx
+<LinkButton href="/login">Login</LinkButton>
 ```
 
 ## API Reference
@@ -301,23 +283,5 @@ The `Button` component is a wrapper around the `button` element that adds a vari
 | --------- | ----------------------------------------------------------------------------- | ----------- |
 | `variant` | `"default" \| "outline" \| "ghost" \| "destructive" \| "secondary" \| "link"` | `"default"` |
 | `size`    | `"default" \| "sm" \| "lg" \| "icon" \| "icon-sm" \| "icon-lg"`               | `"default"` |
-| `asChild` | `boolean`                                                                     | `false`     |
 
-## Changelog
-
-### 2025-09-24 New sizes
-
-We have added two new sizes to the button component: `icon-sm` and `icon-lg`. These sizes are used to create icon buttons. To add them, edit `button.tsx` and add the following code under `size` in `buttonVariants`:
-
-```tsx showLineNumbers title="components/ui/button.tsx"
-const buttonVariants = cva("...", {
-  variants: {
-    size: {
-      // ...
-      "icon-sm": "size-8",
-      "icon-lg": "size-10",
-      // ...
-    },
-  },
-})
-```
+Apart from the props above, the `Button` component also supports the props from the `react-aria-components` `Button` component. Check the [react-aria-components](https://react-spectrum.adobe.com/react-aria/Button.html#props) documentation for more details.

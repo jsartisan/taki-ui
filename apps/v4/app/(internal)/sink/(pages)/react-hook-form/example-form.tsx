@@ -19,10 +19,10 @@ import {
 import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
 import {
   Dialog,
-  DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogTrigger as PopoverTrigger,
 } from "@/registry/new-york-v4/ui/dialog"
 import {
   Field,
@@ -37,22 +37,13 @@ import {
   FieldTitle,
 } from "@/registry/new-york-v4/ui/field"
 import { Input } from "@/registry/new-york-v4/ui/input"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york-v4/ui/popover"
+import { Modal } from "@/registry/new-york-v4/ui/modal"
+import { Popover } from "@/registry/new-york-v4/ui/popover"
 import {
   RadioGroup,
   RadioGroupItem,
 } from "@/registry/new-york-v4/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Slider } from "@/registry/new-york-v4/ui/slider"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 import { Textarea } from "@/registry/new-york-v4/ui/textarea"
@@ -209,18 +200,16 @@ export function ExampleForm() {
                         Billing Period
                       </FieldLabel>
                       <Select
-                        name={field.name}
-                        value={field.value}
-                        onValueChange={field.onChange}
-                        aria-invalid={isInvalid}
+                        id={field.name}
+                        selectedKey={field.value}
+                        onSelectionChange={(key) =>
+                          field.onChange(key as string)
+                        }
+                        placeholder="Select billing period"
+                        isInvalid={isInvalid}
                       >
-                        <SelectTrigger id={field.name}>
-                          <SelectValue placeholder="Select billing period" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="monthly">Monthly</SelectItem>
-                          <SelectItem value="yearly">Yearly</SelectItem>
-                        </SelectContent>
+                        <SelectItem id="monthly">Monthly</SelectItem>
+                        <SelectItem id="yearly">Yearly</SelectItem>
                       </Select>
                       <FieldDescription>
                         Choose how often you want to be billed.
@@ -340,30 +329,28 @@ export function ExampleForm() {
                   return (
                     <Field data-invalid={isInvalid}>
                       <FieldLabel htmlFor={field.name}>Start Date</FieldLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <Button
-                            id={field.name}
-                            variant="outline"
-                            className="justify-start"
-                            aria-invalid={isInvalid}
-                          >
-                            {field.value ? (
-                              format(field.value, "PPP")
-                            ) : (
-                              <span>Pick a date</span>
-                            )}
-                          </Button>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0" align="start">
+                      <PopoverTrigger>
+                        <Button
+                          id={field.name}
+                          variant="outline"
+                          className="justify-start"
+                          aria-invalid={isInvalid}
+                        >
+                          {field.value ? (
+                            format(field.value, "PPP")
+                          ) : (
+                            <span>Pick a date</span>
+                          )}
+                        </Button>
+                        <Popover className="w-auto p-0">
                           <Calendar
                             required
                             mode="single"
                             selected={field.value}
                             onSelect={field.onChange}
                           />
-                        </PopoverContent>
-                      </Popover>
+                        </Popover>
+                      </PopoverTrigger>
                       <FieldDescription>
                         Choose when your subscription should start
                       </FieldDescription>
@@ -472,19 +459,26 @@ export function ExampleForm() {
           </Field>
         </CardFooter>
       </Card>
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Submitted Values</DialogTitle>
-            <DialogDescription>
-              Here are the values you submitted.
-            </DialogDescription>
-          </DialogHeader>
-          <pre className="overflow-x-auto rounded-md bg-black p-4 font-mono text-sm text-white">
-            <code>{JSON.stringify(values, null, 2)}</code>
-          </pre>
-        </DialogContent>
-      </Dialog>
+      <PopoverTrigger isOpen={open} onOpenChange={setOpen}>
+        <Modal>
+          <Dialog>
+            <DialogHeader>
+              <DialogTitle>Submitted Values</DialogTitle>
+              <DialogDescription>
+                Here are the values you submitted.
+              </DialogDescription>
+            </DialogHeader>
+            <pre className="overflow-x-auto rounded-md bg-black p-4 font-mono text-sm text-white">
+              <code>{JSON.stringify(values, null, 2)}</code>
+            </pre>
+            <div className="flex justify-end gap-2">
+              <Button variant="outline" slot="close">
+                Close
+              </Button>
+            </div>
+          </Dialog>
+        </Modal>
+      </PopoverTrigger>
     </>
   )
 }

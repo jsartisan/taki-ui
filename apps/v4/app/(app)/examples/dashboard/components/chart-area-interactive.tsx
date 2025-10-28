@@ -18,13 +18,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/registry/new-york-v4/ui/chart"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import {
   ToggleGroup,
   ToggleGroupItem,
@@ -180,25 +174,16 @@ export function ChartAreaInteractive() {
             <ToggleGroupItem value="30d">Last 30 days</ToggleGroupItem>
             <ToggleGroupItem value="7d">Last 7 days</ToggleGroupItem>
           </ToggleGroup>
-          <Select value={timeRange} onValueChange={setTimeRange}>
-            <SelectTrigger
-              className="flex w-40 **:data-[slot=select-value]:block **:data-[slot=select-value]:truncate @[767px]/card:hidden"
-              size="sm"
-              aria-label="Select a value"
-            >
-              <SelectValue placeholder="Last 3 months" />
-            </SelectTrigger>
-            <SelectContent className="rounded-xl">
-              <SelectItem value="90d" className="rounded-lg">
-                Last 3 months
-              </SelectItem>
-              <SelectItem value="30d" className="rounded-lg">
-                Last 30 days
-              </SelectItem>
-              <SelectItem value="7d" className="rounded-lg">
-                Last 7 days
-              </SelectItem>
-            </SelectContent>
+          <Select
+            selectedKey={timeRange}
+            onSelectionChange={(key) => setTimeRange(key as string)}
+            placeholder="Last 3 months"
+            size="sm"
+            className="flex w-40 @[767px]/card:hidden"
+          >
+            <SelectItem id="90d">Last 3 months</SelectItem>
+            <SelectItem id="30d">Last 30 days</SelectItem>
+            <SelectItem id="7d">Last 7 days</SelectItem>
           </Select>
         </CardAction>
       </CardHeader>

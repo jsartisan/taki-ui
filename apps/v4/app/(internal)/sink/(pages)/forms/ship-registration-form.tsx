@@ -21,13 +21,7 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "@/registry/new-york-v4/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Textarea } from "@/registry/new-york-v4/ui/textarea"
 
 export function ShipRegistrationForm() {
@@ -116,15 +110,10 @@ export function ShipRegistrationForm() {
               </Field>
               <Field>
                 <FieldLabel htmlFor="country">Country</FieldLabel>
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a country" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="us">United States</SelectItem>
-                    <SelectItem value="uk">United Kingdom</SelectItem>
-                    <SelectItem value="ca">Canada</SelectItem>
-                  </SelectContent>
+                <Select placeholder="Select a country">
+                  <SelectItem id="us">United States</SelectItem>
+                  <SelectItem id="uk">United Kingdom</SelectItem>
+                  <SelectItem id="ca">Canada</SelectItem>
                 </Select>
               </Field>
               <Field className="col-span-2">

@@ -17,13 +17,7 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "@/registry/new-york-v4/ui/radio-group"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/new-york-v4/ui/select"
+import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 
 const modes = [
@@ -141,15 +135,10 @@ export function AppearanceSettings() {
               Select the size of the sidebar icons.
             </FieldDescription>
           </FieldContent>
-          <Select>
-            <SelectTrigger id="icon-size" className="ml-auto">
-              <SelectValue placeholder="Select" />
-            </SelectTrigger>
-            <SelectContent align="end">
-              <SelectItem value="small">Small</SelectItem>
-              <SelectItem value="medium">Medium</SelectItem>
-              <SelectItem value="large">Large</SelectItem>
-            </SelectContent>
+          <Select id="icon-size" placeholder="Select" className="ml-auto">
+            <SelectItem id="small">Small</SelectItem>
+            <SelectItem id="medium">Medium</SelectItem>
+            <SelectItem id="large">Large</SelectItem>
           </Select>
         </Field>
         <FieldSeparator />
