@@ -14,6 +14,8 @@ import { PageNav } from "@/components/page-nav"
 import { ThemeSelector } from "@/components/theme-selector"
 import { LinkButton } from "@/registry/new-york-v4/ui/link-button"
 
+import { AICodingPlatform } from "../examples/ai/components/ai-coding-platform"
+import { ChatInterface } from "../examples/chat/components/chat-interface"
 import { RootComponents } from "./components"
 
 const title = "AI-Ready. Accessible. Composable."
@@ -68,8 +70,7 @@ export default function IndexPage() {
         <ThemeSelector className="mr-4 hidden md:flex" />
       </PageNav>
       <div className="container-wrapper section-soft flex-1">
-        <div className="container overflow-hidden pb-12">
-          {/* <section className="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">
+        {/* <section className="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">
             <Image
               src="/r/styles/new-york-v4/dashboard-01-light.png"
               width={1400}
@@ -87,10 +88,9 @@ export default function IndexPage() {
               priority
             />
           </section> */}
-          <section className="theme-container hidden md:block">
-            <RootComponents />
-          </section>
-        </div>
+        <section className="theme-container hidden overflow-hidden rounded-xl border md:block">
+          <AICodingPlatform />
+        </section>
       </div>
     </div>
   )

@@ -17,7 +17,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { composeTailwindRenderProps } from "../lib/utils"
+import { cn, composeTailwindRenderProps } from "../lib/utils"
 
 const disclosure = tv({
   base: "group",
@@ -91,12 +91,11 @@ export function DisclosurePanel({ children, ...props }: DisclosurePanelProps) {
   return (
     <AriaDisclosurePanel
       {...props}
-      className={composeTailwindRenderProps(
-        props.className,
+      className={
         "h-(--disclosure-panel-height) overflow-hidden text-sm motion-safe:transition-[height]"
-      )}
+      }
     >
-      <div className="pt-0 pb-4">{children}</div>
+      <div className={cn("pt-0 pb-4", props.className)}>{children}</div>
     </AriaDisclosurePanel>
   )
 }

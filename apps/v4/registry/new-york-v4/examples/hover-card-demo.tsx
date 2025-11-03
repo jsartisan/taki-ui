@@ -9,15 +9,12 @@ import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   HoverCard,
   HoverCardContent,
-  HoverCardTrigger,
 } from "@/registry/new-york-v4/ui/hover-card"
 
 export default function HoverCardDemo() {
   return (
     <HoverCard>
-      <HoverCardTrigger asChild>
-        <Button variant="link">@nextjs</Button>
-      </HoverCardTrigger>
+      <Button variant="link">@nextjs</Button>
       <HoverCardContent className="w-80">
         <div className="flex justify-between gap-4">
           <Avatar>

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog-close-button",
+  "type": "registry:example",
+  "registryDependencies": [
+    "dialog",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/dialog-close-button.tsx",
+      "content": "import { Button } from \"@/registry/new-york-v4/ui/button\"\nimport {\n  Dialog,\n  DialogDescription,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from \"@/registry/new-york-v4/ui/dialog\"\nimport { Input } from \"@/registry/new-york-v4/ui/input\"\nimport { Label } from \"@/registry/new-york-v4/ui/label\"\nimport { Modal } from \"@/registry/new-york-v4/ui/modal\"\n\nexport default function DialogCloseButton() {\n  return (\n    <DialogTrigger>\n      <Button variant=\"outline\">Share</Button>\n      <Modal>\n        <Dialog className=\"sm:max-w-md\">\n          <DialogHeader>\n            <DialogTitle>Share link</DialogTitle>\n            <DialogDescription>\n              Anyone who has this link will be able to view this.\n            </DialogDescription>\n          </DialogHeader>\n          <div className=\"flex items-center gap-2\">\n            <div className=\"grid flex-1 gap-2\">\n              <Label htmlFor=\"link\" className=\"sr-only\">\n                Link\n              </Label>\n              <Input\n                id=\"link\"\n                defaultValue=\"https://ui.shadcn.com/docs/installation\"\n                readOnly\n              />\n            </div>\n          </div>\n          <div className=\"flex justify-start pt-4\">\n            <Button type=\"button\" variant=\"secondary\" slot=\"close\">\n              Close\n            </Button>\n          </div>\n        </Dialog>\n      </Modal>\n    </DialogTrigger>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "disclosure-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "disclosure"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/disclosure-demo.tsx",
+      "content": "import { Disclosure, DisclosureHeader, DisclosurePanel } from \"../ui/disclosure\"\n\nexport default function DisclosureDemo() {\n  return (\n    <Disclosure className=\"min-w-66\">\n      <DisclosureHeader>System Requirements</DisclosureHeader>\n      <DisclosurePanel>Details about system requirements here.</DisclosurePanel>\n    </Disclosure>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

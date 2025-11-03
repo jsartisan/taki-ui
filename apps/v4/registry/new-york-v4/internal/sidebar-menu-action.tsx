@@ -9,12 +9,7 @@ import {
   SendIcon,
 } from "lucide-react"
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
 import {
   Sidebar,
   SidebarContent,
@@ -69,29 +64,27 @@ export default function AppSidebar() {
                   <SidebarMenuItem key={project.name}>
                     <SidebarMenuButton
                       asChild
-                      className="group-has-[[data-state=open]]/menu-item:bg-sidebar-accent"
+                      className="group-has-[[data-pressed]]/menu-item:bg-sidebar-accent"
                     >
                       <a href={project.url}>
                         <project.icon />
                         <span>{project.name}</span>
                       </a>
                     </SidebarMenuButton>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <SidebarMenuAction>
-                          <MoreHorizontalIcon />
-                          <span className="sr-only">More</span>
-                        </SidebarMenuAction>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent side="right" align="start">
-                        <DropdownMenuItem>
+                    <MenuTrigger>
+                      <SidebarMenuAction>
+                        <MoreHorizontalIcon />
+                        <span className="sr-only">More</span>
+                      </SidebarMenuAction>
+                      <Menu placement="right start">
+                        <MenuItem>
                           <span>Edit Project</span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
+                        </MenuItem>
+                        <MenuItem>
                           <span>Delete Project</span>
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                        </MenuItem>
+                      </Menu>
+                    </MenuTrigger>
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>

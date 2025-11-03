@@ -12,18 +12,6 @@ export const ui: Registry["items"] = [
     ],
   },
   {
-    name: "alert-dialog",
-    type: "registry:ui",
-    dependencies: ["@radix-ui/react-alert-dialog"],
-    registryDependencies: ["button"],
-    files: [
-      {
-        path: "ui/alert-dialog.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
     name: "avatar",
     type: "registry:ui",
     dependencies: ["@radix-ui/react-avatar"],
@@ -48,7 +36,7 @@ export const ui: Registry["items"] = [
   {
     name: "breadcrumb",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-slot"],
+    dependencies: ["react-aria-components"],
     files: [
       {
         path: "ui/breadcrumb.tsx",
@@ -136,12 +124,13 @@ export const ui: Registry["items"] = [
     ],
   },
   {
-    name: "collapsible",
+    name: "combobox",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-collapsible"],
+    dependencies: ["react-aria-components"],
+    registryDependencies: ["field", "list-box", "popover"],
     files: [
       {
-        path: "ui/collapsible.tsx",
+        path: "ui/combobox.tsx",
         type: "registry:ui",
       },
     ],
@@ -154,17 +143,6 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/command.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
-    name: "context-menu",
-    type: "registry:ui",
-    dependencies: ["@radix-ui/react-context-menu"],
-    files: [
-      {
-        path: "ui/context-menu.tsx",
         type: "registry:ui",
       },
     ],
@@ -224,10 +202,21 @@ export const ui: Registry["items"] = [
   {
     name: "dialog",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-dialog"],
+    dependencies: ["react-aria-components"],
     files: [
       {
         path: "ui/dialog.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "modal",
+    type: "registry:ui",
+    dependencies: ["react-aria-components"],
+    files: [
+      {
+        path: "ui/modal.tsx",
         type: "registry:ui",
       },
     ],
@@ -259,17 +248,6 @@ export const ui: Registry["items"] = [
     ],
   },
   {
-    name: "dropdown-menu",
-    type: "registry:ui",
-    dependencies: ["@radix-ui/react-dropdown-menu"],
-    files: [
-      {
-        path: "ui/dropdown-menu.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
     name: "empty",
     type: "registry:ui",
     files: [
@@ -291,6 +269,17 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "file-trigger",
+    type: "registry:ui",
+    dependencies: ["react-aria-components"],
+    files: [
+      {
+        path: "ui/file-trigger.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "form",
     type: "registry:ui",
     dependencies: [
@@ -304,6 +293,17 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/form.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "grid-list",
+    type: "registry:ui",
+    dependencies: ["react-aria-components", "tailwind-variants"],
+    files: [
+      {
+        path: "ui/grid-list.tsx",
         type: "registry:ui",
       },
     ],
@@ -374,6 +374,21 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "list-box",
+    type: "registry:ui",
+    dependencies: [
+      "react-aria-components",
+      "tailwind-variants",
+      "lucide-react",
+    ],
+    files: [
+      {
+        path: "ui/list-box.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "menubar",
     type: "registry:ui",
     dependencies: ["@radix-ui/react-menubar"],
@@ -436,6 +451,18 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/progress.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "progress-bar",
+    type: "registry:ui",
+    dependencies: ["react-aria-components"],
+    registryDependencies: ["field"],
+    files: [
+      {
+        path: "ui/progress-bar.tsx",
         type: "registry:ui",
       },
     ],
@@ -661,9 +688,21 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "tag-group",
+    type: "registry:ui",
+    dependencies: ["react-aria-components", "tailwind-variants"],
+    files: [
+      {
+        path: "ui/tag-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "tabs",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-tabs"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
+    registryDependencies: ["utils"],
     files: [
       {
         path: "ui/tabs.tsx",
@@ -725,24 +764,24 @@ export const ui: Registry["items"] = [
     ],
   },
   {
-    name: "toggle",
+    name: "toggle-button",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-toggle"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
     files: [
       {
-        path: "ui/toggle.tsx",
+        path: "ui/toggle-button.tsx",
         type: "registry:ui",
       },
     ],
   },
   {
-    name: "toggle-group",
+    name: "toggle-button-group",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-toggle-group"],
-    registryDependencies: ["toggle"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
+    registryDependencies: ["toggle-button"],
     files: [
       {
-        path: "ui/toggle-group.tsx",
+        path: "ui/toggle-button-group.tsx",
         type: "registry:ui",
       },
     ],
@@ -754,6 +793,18 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/tooltip.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "tree",
+    type: "registry:ui",
+    dependencies: ["react-aria-components", "tailwind-variants"],
+    registryDependencies: ["checkbox"],
+    files: [
+      {
+        path: "ui/tree.tsx",
         type: "registry:ui",
       },
     ],
@@ -816,7 +867,7 @@ export const ui: Registry["items"] = [
   {
     name: "chain-of-thought",
     type: "registry:ui",
-    registryDependencies: ["collapsible", "response", "shimmer"],
+    registryDependencies: ["disclosure", "response", "shimmer"],
     files: [
       {
         path: "ai-elements/chain-of-thought.tsx",
@@ -848,7 +899,7 @@ export const ui: Registry["items"] = [
   {
     name: "context",
     type: "registry:ui",
-    registryDependencies: ["button", "badge", "collapsible", "tooltip"],
+    registryDependencies: ["button", "badge", "disclosure", "tooltip"],
     dependencies: ["ai"],
     files: [
       {
@@ -971,7 +1022,7 @@ export const ui: Registry["items"] = [
   {
     name: "plan",
     type: "registry:ui",
-    registryDependencies: ["card", "collapsible", "button", "shimmer"],
+    registryDependencies: ["card", "disclosure", "button", "shimmer"],
     files: [
       {
         path: "ai-elements/plan.tsx",
@@ -985,7 +1036,7 @@ export const ui: Registry["items"] = [
     registryDependencies: [
       "button",
       "command",
-      "dropdown-menu",
+      "menu",
       "hover-card",
       "input-group",
       "select",
@@ -1002,7 +1053,7 @@ export const ui: Registry["items"] = [
   {
     name: "queue",
     type: "registry:ui",
-    registryDependencies: ["button", "collapsible", "scroll-area"],
+    registryDependencies: ["button", "disclosure", "scroll-area"],
     files: [
       {
         path: "ai-elements/queue.tsx",
@@ -1013,7 +1064,7 @@ export const ui: Registry["items"] = [
   {
     name: "reasoning",
     type: "registry:ui",
-    registryDependencies: ["collapsible", "response", "shimmer"],
+    registryDependencies: ["disclosure", "response", "shimmer"],
     files: [
       {
         path: "ai-elements/reasoning.tsx",
@@ -1046,7 +1097,7 @@ export const ui: Registry["items"] = [
   {
     name: "sources",
     type: "registry:ui",
-    registryDependencies: ["collapsible"],
+    registryDependencies: ["disclosure"],
     files: [
       {
         path: "ai-elements/sources.tsx",
@@ -1068,7 +1119,7 @@ export const ui: Registry["items"] = [
   {
     name: "task",
     type: "registry:ui",
-    registryDependencies: ["collapsible"],
+    registryDependencies: ["disclosure"],
     files: [
       {
         path: "ai-elements/task.tsx",
@@ -1090,7 +1141,7 @@ export const ui: Registry["items"] = [
   {
     name: "tool",
     type: "registry:ui",
-    registryDependencies: ["collapsible", "badge", "code-block"],
+    registryDependencies: ["disclosure", "badge", "code-block"],
     dependencies: ["ai"],
     files: [
       {
@@ -1104,7 +1155,7 @@ export const ui: Registry["items"] = [
     type: "registry:ui",
     registryDependencies: [
       "button",
-      "collapsible",
+      "disclosure",
       "input",
       "tooltip",
       "badge",

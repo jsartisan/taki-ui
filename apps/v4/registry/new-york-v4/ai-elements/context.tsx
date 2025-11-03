@@ -9,7 +9,6 @@ import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   HoverCard,
   HoverCardContent,
-  HoverCardTrigger,
 } from "@/registry/new-york-v4/ui/hover-card"
 import { Progress } from "@/registry/new-york-v4/ui/progress"
 
@@ -111,16 +110,14 @@ export const ContextTrigger = ({ children, ...props }: ContextTriggerProps) => {
   }).format(usedPercent)
 
   return (
-    <HoverCardTrigger asChild>
-      {children ?? (
-        <Button type="button" variant="ghost" {...props}>
-          <span className="text-muted-foreground font-medium">
-            {renderedPercent}
-          </span>
-          <ContextIcon />
-        </Button>
-      )}
-    </HoverCardTrigger>
+    children ?? (
+      <Button type="button" variant="ghost" {...props}>
+        <span className="text-muted-foreground font-medium">
+          {renderedPercent}
+        </span>
+        <ContextIcon />
+      </Button>
+    )
   )
 }
 
@@ -128,9 +125,11 @@ export type ContextContentProps = ComponentProps<typeof HoverCardContent>
 
 export const ContextContent = ({
   className,
+  offset = 6,
   ...props
 }: ContextContentProps) => (
   <HoverCardContent
+    offset={offset}
     className={cn("min-w-[240px] divide-y overflow-hidden p-0", className)}
     {...props}
   />

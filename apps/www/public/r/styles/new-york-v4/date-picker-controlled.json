@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-picker-controlled",
+  "type": "registry:example",
+  "dependencies": [
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "date-picker"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/date-picker-controlled.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { parseDate } from \"@internationalized/date\"\n\nimport { DatePicker } from \"@/registry/new-york-v4/ui/date-picker\"\n\nexport default function DatePickerControlled() {\n  const [value, setValue] = useState(parseDate(\"2024-12-25\"))\n\n  return (\n    <div className=\"space-y-4\">\n      <DatePicker\n        label=\"Travel date\"\n        description=\"Select your travel date.\"\n        value={value}\n        onChange={setValue}\n      />\n      <p className=\"text-muted-foreground text-sm\">\n        Selected date: {value ? value.toString() : \"None\"}\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

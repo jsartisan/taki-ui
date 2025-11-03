@@ -1,53 +1,47 @@
-import Link from "next/link"
+"use client"
+
 import { ChevronDownIcon, SlashIcon } from "lucide-react"
 
 import {
   Breadcrumb,
-  BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
+  Breadcrumbs,
   BreadcrumbSeparator,
 } from "@/registry/new-york-v4/ui/breadcrumb"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
+import { Button } from "@/registry/new-york-v4/ui/button"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
 
 export default function BreadcrumbWithDropdown() {
   return (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href="/">Home</Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
+    <Breadcrumbs>
+      <Breadcrumb>
+        <BreadcrumbLink href="/">Home</BreadcrumbLink>
         <BreadcrumbSeparator>
           <SlashIcon />
         </BreadcrumbSeparator>
-        <BreadcrumbItem>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5">
-              Components
-              <ChevronDownIcon />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              <DropdownMenuItem>Documentation</DropdownMenuItem>
-              <DropdownMenuItem>Themes</DropdownMenuItem>
-              <DropdownMenuItem>GitHub</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </BreadcrumbItem>
+      </Breadcrumb>
+      <Breadcrumb>
+        <MenuTrigger>
+          <Button
+            variant="ghost"
+            className="flex h-auto items-center gap-1 p-0 hover:bg-transparent [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5"
+          >
+            Components
+            <ChevronDownIcon />
+          </Button>
+          <Menu placement="bottom start">
+            <MenuItem>Documentation</MenuItem>
+            <MenuItem>Themes</MenuItem>
+            <MenuItem>GitHub</MenuItem>
+          </Menu>
+        </MenuTrigger>
         <BreadcrumbSeparator>
           <SlashIcon />
         </BreadcrumbSeparator>
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
+      </Breadcrumb>
+      <Breadcrumb>
+        <BreadcrumbLink>Breadcrumb</BreadcrumbLink>
+      </Breadcrumb>
+    </Breadcrumbs>
   )
 }

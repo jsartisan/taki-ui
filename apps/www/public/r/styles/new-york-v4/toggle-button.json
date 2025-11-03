@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-button",
+  "type": "registry:ui",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/ui/toggle-button.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\nimport {\n  ToggleButton as AriaToggleButton,\n  ToggleButtonProps as AriaToggleButtonProps,\n  composeRenderProps,\n} from \"react-aria-components\"\nimport { tv } from \"tailwind-variants\"\n\nimport { focusRing } from \"../lib/utils\"\n\nexport interface ToggleButtonProps extends AriaToggleButtonProps {\n  /** @default 'default' */\n  variant?: \"default\" | \"outline\"\n  /** @default 'default' */\n  size?: \"default\" | \"sm\" | \"lg\"\n}\n\nexport const toggleButtonVariants = tv({\n  extend: focusRing,\n  base: \"inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-colors cursor-default outline-none border border-transparent [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0\",\n  variants: {\n    variant: {\n      default:\n        \"bg-transparent hover:bg-muted hover:text-muted-foreground data-[selected]:bg-accent data-[selected]:text-accent-foreground\",\n      outline:\n        \"border-input bg-transparent shadow-xs hover:bg-accent hover:text-accent-foreground data-[selected]:bg-accent data-[selected]:text-accent-foreground\",\n    },\n    size: {\n      default: \"h-9 px-2 min-w-9\",\n      sm: \"h-8 px-1.5 min-w-8\",\n      lg: \"h-10 px-2.5 min-w-10\",\n    },\n    isDisabled: {\n      true: \"pointer-events-none opacity-50\",\n    },\n  },\n  defaultVariants: {\n    variant: \"default\",\n    size: \"default\",\n  },\n})\n\nexport function ToggleButton(props: ToggleButtonProps) {\n  return (\n    <AriaToggleButton\n      {...props}\n      className={composeRenderProps(props.className, (className, renderProps) =>\n        toggleButtonVariants({\n          ...renderProps,\n          variant: props.variant,\n          size: props.size,\n          className,\n        })\n      )}\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

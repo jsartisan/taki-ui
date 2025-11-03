@@ -38,15 +38,17 @@ export function ListBox<T extends object>({
 
 export const itemStyles = tv({
   extend: focusRing,
-  base: "group relative flex items-center gap-8 cursor-default select-none py-1.5 px-2.5 rounded-md will-change-transform text-sm forced-color-adjust-none",
+  base: "group relative flex cursor-default select-none items-center gap-3 rounded-md px-3 py-2 text-sm outline-none transition-colors",
   variants: {
     isSelected: {
-      false:
-        "text-slate-700 dark:text-zinc-300 hover:bg-slate-200 dark:hover:bg-zinc-700 -outline-offset-2",
-      true: "bg-blue-600 text-white forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] [&:has(+[data-selected])]:rounded-b-none [&+[data-selected]]:rounded-t-none -outline-offset-4 outline-white dark:outline-white forced-colors:outline-[HighlightText]",
+      false: "hover:bg-accent hover:text-accent-foreground",
+      true: "bg-accent text-accent-foreground",
     },
     isDisabled: {
-      true: "text-slate-300 dark:text-zinc-600 forced-colors:text-[GrayText]",
+      true: "pointer-events-none opacity-50",
+    },
+    isFocusVisible: {
+      true: "ring-2 ring-ring ring-offset-1",
     },
   },
 })

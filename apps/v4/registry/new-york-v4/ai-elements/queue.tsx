@@ -6,10 +6,9 @@ import { ChevronDownIcon, PaperclipIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/registry/new-york-v4/ui/collapsible"
+  Disclosure,
+  DisclosurePanel,
+} from "@/registry/new-york-v4/ui/disclosure"
 import { ScrollArea } from "@/registry/new-york-v4/ui/scroll-area"
 
 export type QueueMessagePart = {
@@ -195,36 +194,39 @@ export const QueueList = ({
 )
 
 // QueueSection - collapsible section container
-export type QueueSectionProps = ComponentProps<typeof Collapsible>
+export type QueueSectionProps = ComponentProps<typeof Disclosure>
 
 export const QueueSection = ({
   className,
-  defaultOpen = true,
+  defaultExpanded = true,
   ...props
 }: QueueSectionProps) => (
-  <Collapsible className={cn(className)} defaultOpen={defaultOpen} {...props} />
+  <Disclosure
+    className={cn(className)}
+    defaultExpanded={defaultExpanded}
+    {...props}
+  />
 )
 
 // QueueSectionTrigger - section header/trigger
-export type QueueSectionTriggerProps = ComponentProps<"button">
+export type QueueSectionTriggerProps = ComponentProps<typeof Button>
 
 export const QueueSectionTrigger = ({
   children,
   className,
   ...props
 }: QueueSectionTriggerProps) => (
-  <CollapsibleTrigger asChild>
-    <button
-      className={cn(
-        "group bg-muted/40 text-muted-foreground hover:bg-muted flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm font-medium transition-colors",
-        className
-      )}
-      type="button"
-      {...props}
-    >
-      {children}
-    </button>
-  </CollapsibleTrigger>
+  <Button
+    slot="trigger"
+    className={cn(
+      "group bg-muted/40 text-muted-foreground hover:bg-muted flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm font-medium transition-colors",
+      className
+    )}
+    type="button"
+    {...props}
+  >
+    {children}
+  </Button>
 )
 
 // QueueSectionLabel - label content with icon and count
@@ -241,23 +243,23 @@ export const QueueSectionLabel = ({
   className,
   ...props
 }: QueueSectionLabelProps) => (
-  <span className={cn("flex items-center gap-2", className)} {...props}>
+  <span className={cn("flex w-full items-center gap-2", className)} {...props}>
     <ChevronDownIcon className="size-4 transition-transform group-data-[state=closed]:-rotate-90" />
-    {icon}
     <span>
       {count} {label}
     </span>
+    <span className="ms-auto inline-block">{icon}</span>
   </span>
 )
 
 // QueueSectionContent - collapsible content area
-export type QueueSectionContentProps = ComponentProps<typeof CollapsibleContent>
+export type QueueSectionContentProps = ComponentProps<typeof DisclosurePanel>
 
 export const QueueSectionContent = ({
   className,
   ...props
 }: QueueSectionContentProps) => (
-  <CollapsibleContent className={cn(className)} {...props} />
+  <DisclosurePanel className={cn(className)} {...props} />
 )
 
 export type QueueProps = ComponentProps<"div">

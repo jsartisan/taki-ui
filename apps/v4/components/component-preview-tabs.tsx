@@ -29,21 +29,21 @@ export function ComponentPreviewTabs({
     >
       <Tabs
         className="relative mr-auto w-full"
-        value={tab}
-        onValueChange={setTab}
+        selectedKey={tab}
+        onSelectionChange={setTab}
       >
         <div className="flex items-center justify-between">
           {!hideCode && (
-            <TabsList className="justify-start gap-4 rounded-none bg-transparent px-2 md:px-0">
+            <TabsList className="bg-transparent">
               <TabsTrigger
-                value="preview"
-                className="text-muted-foreground data-[state=active]:text-foreground px-0 text-base data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"
+                id="preview"
+                className="data-[selected=true]:bg-secondary shadow-none"
               >
                 Preview
               </TabsTrigger>
               <TabsTrigger
-                value="code"
-                className="text-muted-foreground data-[state=active]:text-foreground px-0 text-base data-[state=active]:shadow-none dark:data-[state=active]:border-transparent dark:data-[state=active]:bg-transparent"
+                id="code"
+                className="data-[selected=true]:bg-secondary shadow-none"
               >
                 Code
               </TabsTrigger>
@@ -64,7 +64,7 @@ export function ComponentPreviewTabs({
           <div
             data-align={align}
             className={cn(
-              "preview mx-auto flex w-full justify-center data-[align=center]:items-center data-[align=end]:items-end data-[align=start]:items-start",
+              "preview mx-auto grid w-full place-items-center overflow-auto data-[align=center]:items-center data-[align=end]:items-end data-[align=start]:items-start",
               chromeLessOnMobile ? "sm:p-10" : "h-[450px] p-10"
             )}
           >
@@ -74,7 +74,7 @@ export function ComponentPreviewTabs({
         <div
           data-slot="code"
           data-active={tab === "code"}
-          className="absolute inset-0 hidden overflow-hidden data-[active=true]:block **:[figure]:!m-0 **:[pre]:h-[450px]"
+          className="code absolute inset-0 hidden overflow-hidden data-[active=true]:block **:[figure]:!m-0 **:[pre]:h-[450px]"
         >
           {source}
         </div>

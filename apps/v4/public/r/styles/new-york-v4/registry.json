@@ -31,18 +31,6 @@
       ]
     },
     {
-      "name": "alert-dialog",
-      "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-alert-dialog"],
-      "registryDependencies": ["button"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/ui/alert-dialog.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "avatar",
       "type": "registry:ui",
       "dependencies": ["@radix-ui/react-avatar"],
@@ -67,7 +55,7 @@
     {
       "name": "breadcrumb",
       "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-slot"],
+      "dependencies": ["react-aria-components"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/breadcrumb.tsx",
@@ -155,12 +143,13 @@
       ]
     },
     {
-      "name": "collapsible",
+      "name": "combobox",
       "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-collapsible"],
+      "dependencies": ["react-aria-components"],
+      "registryDependencies": ["field", "list-box", "popover"],
       "files": [
         {
-          "path": "registry/new-york-v4/ui/collapsible.tsx",
+          "path": "registry/new-york-v4/ui/combobox.tsx",
           "type": "registry:ui"
         }
       ]
@@ -173,17 +162,6 @@
       "files": [
         {
           "path": "registry/new-york-v4/ui/command.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "context-menu",
-      "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-context-menu"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/ui/context-menu.tsx",
           "type": "registry:ui"
         }
       ]
@@ -243,10 +221,21 @@
     {
       "name": "dialog",
       "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-dialog"],
+      "dependencies": ["react-aria-components"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "modal",
+      "type": "registry:ui",
+      "dependencies": ["react-aria-components"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/modal.tsx",
           "type": "registry:ui"
         }
       ]
@@ -278,17 +267,6 @@
       ]
     },
     {
-      "name": "dropdown-menu",
-      "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-dropdown-menu"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/ui/dropdown-menu.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "empty",
       "type": "registry:ui",
       "files": [
@@ -310,6 +288,17 @@
       ]
     },
     {
+      "name": "file-trigger",
+      "type": "registry:ui",
+      "dependencies": ["react-aria-components"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/file-trigger.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "form",
       "type": "registry:ui",
       "dependencies": [
@@ -323,6 +312,17 @@
       "files": [
         {
           "path": "registry/new-york-v4/ui/form.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "grid-list",
+      "type": "registry:ui",
+      "dependencies": ["react-aria-components", "tailwind-variants"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/grid-list.tsx",
           "type": "registry:ui"
         }
       ]
@@ -393,6 +393,21 @@
       ]
     },
     {
+      "name": "list-box",
+      "type": "registry:ui",
+      "dependencies": [
+        "react-aria-components",
+        "tailwind-variants",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/list-box.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "menubar",
       "type": "registry:ui",
       "dependencies": ["@radix-ui/react-menubar"],
@@ -455,6 +470,18 @@
       "files": [
         {
           "path": "registry/new-york-v4/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress-bar",
+      "type": "registry:ui",
+      "dependencies": ["react-aria-components"],
+      "registryDependencies": ["field"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/progress-bar.tsx",
           "type": "registry:ui"
         }
       ]
@@ -680,9 +707,21 @@
       ]
     },
     {
+      "name": "tag-group",
+      "type": "registry:ui",
+      "dependencies": ["react-aria-components", "tailwind-variants"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/tag-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "tabs",
       "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-tabs"],
+      "dependencies": ["react-aria-components", "tailwind-variants"],
+      "registryDependencies": ["utils"],
       "files": [
         {
           "path": "registry/new-york-v4/ui/tabs.tsx",
@@ -725,24 +764,24 @@
       ]
     },
     {
-      "name": "toggle",
+      "name": "toggle-button",
       "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-toggle"],
+      "dependencies": ["react-aria-components", "tailwind-variants"],
       "files": [
         {
-          "path": "registry/new-york-v4/ui/toggle.tsx",
+          "path": "registry/new-york-v4/ui/toggle-button.tsx",
           "type": "registry:ui"
         }
       ]
     },
     {
-      "name": "toggle-group",
+      "name": "toggle-button-group",
       "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-toggle-group"],
-      "registryDependencies": ["toggle"],
+      "dependencies": ["react-aria-components", "tailwind-variants"],
+      "registryDependencies": ["toggle-button"],
       "files": [
         {
-          "path": "registry/new-york-v4/ui/toggle-group.tsx",
+          "path": "registry/new-york-v4/ui/toggle-button-group.tsx",
           "type": "registry:ui"
         }
       ]
@@ -754,6 +793,18 @@
       "files": [
         {
           "path": "registry/new-york-v4/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tree",
+      "type": "registry:ui",
+      "dependencies": ["react-aria-components", "tailwind-variants"],
+      "registryDependencies": ["checkbox"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/ui/tree.tsx",
           "type": "registry:ui"
         }
       ]
@@ -815,7 +866,7 @@
     {
       "name": "chain-of-thought",
       "type": "registry:ui",
-      "registryDependencies": ["collapsible", "response", "shimmer"],
+      "registryDependencies": ["disclosure", "response", "shimmer"],
       "files": [
         {
           "path": "registry/new-york-v4/ai-elements/chain-of-thought.tsx",
@@ -848,7 +899,7 @@
       "name": "context",
       "type": "registry:ui",
       "dependencies": ["ai"],
-      "registryDependencies": ["button", "badge", "collapsible", "tooltip"],
+      "registryDependencies": ["button", "badge", "disclosure", "tooltip"],
       "files": [
         {
           "path": "registry/new-york-v4/ai-elements/context.tsx",
@@ -970,7 +1021,7 @@
     {
       "name": "plan",
       "type": "registry:ui",
-      "registryDependencies": ["card", "collapsible", "button", "shimmer"],
+      "registryDependencies": ["card", "disclosure", "button", "shimmer"],
       "files": [
         {
           "path": "registry/new-york-v4/ai-elements/plan.tsx",
@@ -985,7 +1036,7 @@
       "registryDependencies": [
         "button",
         "command",
-        "dropdown-menu",
+        "menu",
         "hover-card",
         "input-group",
         "select",
@@ -1001,7 +1052,7 @@
     {
       "name": "queue",
       "type": "registry:ui",
-      "registryDependencies": ["button", "collapsible", "scroll-area"],
+      "registryDependencies": ["button", "disclosure", "scroll-area"],
       "files": [
         {
           "path": "registry/new-york-v4/ai-elements/queue.tsx",
@@ -1012,7 +1063,7 @@
     {
       "name": "reasoning",
       "type": "registry:ui",
-      "registryDependencies": ["collapsible", "response", "shimmer"],
+      "registryDependencies": ["disclosure", "response", "shimmer"],
       "files": [
         {
           "path": "registry/new-york-v4/ai-elements/reasoning.tsx",
@@ -1045,7 +1096,7 @@
     {
       "name": "sources",
       "type": "registry:ui",
-      "registryDependencies": ["collapsible"],
+      "registryDependencies": ["disclosure"],
       "files": [
         {
           "path": "registry/new-york-v4/ai-elements/sources.tsx",
@@ -1067,7 +1118,7 @@
     {
       "name": "task",
       "type": "registry:ui",
-      "registryDependencies": ["collapsible"],
+      "registryDependencies": ["disclosure"],
       "files": [
         {
           "path": "registry/new-york-v4/ai-elements/task.tsx",
@@ -1090,7 +1141,7 @@
       "name": "tool",
       "type": "registry:ui",
       "dependencies": ["ai"],
-      "registryDependencies": ["collapsible", "badge", "code-block"],
+      "registryDependencies": ["disclosure", "badge", "code-block"],
       "files": [
         {
           "path": "registry/new-york-v4/ai-elements/tool.tsx",
@@ -1103,7 +1154,7 @@
       "type": "registry:ui",
       "registryDependencies": [
         "button",
-        "collapsible",
+        "disclosure",
         "input",
         "tooltip",
         "badge",
@@ -2365,17 +2416,6 @@
       ]
     },
     {
-      "name": "alert-dialog-demo",
-      "type": "registry:example",
-      "registryDependencies": ["alert-dialog", "button"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/alert-dialog-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
       "name": "actions-demo",
       "type": "registry:example",
       "registryDependencies": ["actions", "button", "tooltip"],
@@ -2412,7 +2452,7 @@
     {
       "name": "chain-of-thought-demo",
       "type": "registry:example",
-      "registryDependencies": ["chain-of-thought", "collapsible", "badge"],
+      "registryDependencies": ["chain-of-thought", "disclosure", "badge"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/chain-of-thought-demo.tsx",
@@ -2489,7 +2529,7 @@
     {
       "name": "breadcrumb-demo",
       "type": "registry:example",
-      "registryDependencies": ["breadcrumb"],
+      "registryDependencies": ["breadcrumb", "menu", "button"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/breadcrumb-demo.tsx",
@@ -2511,7 +2551,7 @@
     {
       "name": "breadcrumb-dropdown",
       "type": "registry:example",
-      "registryDependencies": ["breadcrumb"],
+      "registryDependencies": ["breadcrumb", "menu", "button"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/breadcrumb-dropdown.tsx",
@@ -2544,7 +2584,7 @@
     {
       "name": "breadcrumb-responsive",
       "type": "registry:example",
-      "registryDependencies": ["breadcrumb"],
+      "registryDependencies": ["breadcrumb", "menu", "button", "drawer"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/breadcrumb-responsive.tsx",
@@ -2993,23 +3033,111 @@
       ]
     },
     {
-      "name": "collapsible-demo",
-      "type": "registry:example",
-      "registryDependencies": ["collapsible"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/collapsible-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
       "name": "code-block-demo",
       "type": "registry:example",
       "registryDependencies": ["code-block", "button"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/code-block-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "code-block-custom-theme",
+      "type": "registry:example",
+      "registryDependencies": ["code-block", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/code-block-custom-theme.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "code-block-diff",
+      "type": "registry:example",
+      "registryDependencies": ["code-block", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/code-block-diff.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "code-block-focus",
+      "type": "registry:example",
+      "registryDependencies": ["code-block", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/code-block-focus.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "code-block-highlight",
+      "type": "registry:example",
+      "registryDependencies": ["code-block", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/code-block-highlight.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "code-block-highlight-word",
+      "type": "registry:example",
+      "registryDependencies": ["code-block", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/code-block-highlight-word.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "code-block-multiple-files",
+      "type": "registry:example",
+      "registryDependencies": ["code-block", "button", "select"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/code-block-multiple-files.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "code-block-no-header",
+      "type": "registry:example",
+      "registryDependencies": ["code-block"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/code-block-no-header.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "code-block-no-line-numbers",
+      "type": "registry:example",
+      "registryDependencies": ["code-block", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/code-block-no-line-numbers.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "code-block-no-syntax",
+      "type": "registry:example",
+      "registryDependencies": ["code-block", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/code-block-no-syntax.tsx",
           "type": "registry:example"
         }
       ]
@@ -3029,10 +3157,65 @@
     {
       "name": "combobox-demo",
       "type": "registry:example",
-      "registryDependencies": ["command"],
+      "registryDependencies": ["combobox"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/combobox-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "combobox-sections",
+      "type": "registry:example",
+      "registryDependencies": ["combobox"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/combobox-sections.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "combobox-controlled",
+      "type": "registry:example",
+      "registryDependencies": ["combobox"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/combobox-controlled.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "combobox-disabled",
+      "type": "registry:example",
+      "registryDependencies": ["combobox"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/combobox-disabled.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "combobox-description",
+      "type": "registry:example",
+      "registryDependencies": ["combobox"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/combobox-description.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "combobox-validation",
+      "type": "registry:example",
+      "registryDependencies": ["combobox"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/combobox-validation.tsx",
           "type": "registry:example"
         }
       ]
@@ -3080,7 +3263,7 @@
     {
       "name": "combobox-dropdown-menu",
       "type": "registry:example",
-      "registryDependencies": ["command", "dropdown-menu", "button"],
+      "registryDependencies": ["command", "menu", "button"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/combobox-dropdown-menu.tsx",
@@ -3139,17 +3322,6 @@
       "files": [
         {
           "path": "registry/new-york-v4/examples/command-dialog.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "context-menu-demo",
-      "type": "registry:example",
-      "registryDependencies": ["context-menu"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/context-menu-demo.tsx",
           "type": "registry:example"
         }
       ]
@@ -3416,6 +3588,17 @@
       ]
     },
     {
+      "name": "dialog-alert",
+      "type": "registry:example",
+      "registryDependencies": ["dialog", "modal", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/dialog-alert.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
       "name": "drawer-demo",
       "type": "registry:example",
       "registryDependencies": ["drawer"],
@@ -3631,6 +3814,61 @@
       "files": [
         {
           "path": "registry/new-york-v4/examples/field-responsive.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "file-trigger-demo",
+      "type": "registry:example",
+      "registryDependencies": ["file-trigger", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/file-trigger-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "file-trigger-multiple",
+      "type": "registry:example",
+      "registryDependencies": ["file-trigger", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/file-trigger-multiple.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "file-trigger-image",
+      "type": "registry:example",
+      "registryDependencies": ["file-trigger", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/file-trigger-image.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "file-trigger-directory",
+      "type": "registry:example",
+      "registryDependencies": ["file-trigger", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/file-trigger-directory.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "file-trigger-camera",
+      "type": "registry:example",
+      "registryDependencies": ["file-trigger", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/file-trigger-camera.tsx",
           "type": "registry:example"
         }
       ]
@@ -3921,51 +4159,67 @@
       ]
     },
     {
-      "name": "dropdown-menu-demo",
+      "name": "grid-list-demo",
       "type": "registry:example",
-      "registryDependencies": ["dropdown-menu"],
+      "registryDependencies": ["grid-list"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/dropdown-menu-demo.tsx",
+          "path": "registry/new-york-v4/examples/grid-list-demo.tsx",
           "type": "registry:example"
         }
       ]
     },
     {
-      "name": "dropdown-menu-checkboxes",
+      "name": "grid-list-selection",
       "type": "registry:example",
-      "registryDependencies": ["dropdown-menu", "checkbox"],
+      "registryDependencies": ["grid-list", "checkbox"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/dropdown-menu-checkboxes.tsx",
+          "path": "registry/new-york-v4/examples/grid-list-selection.tsx",
           "type": "registry:example"
         }
       ]
     },
     {
-      "name": "dropdown-menu-radio-group",
+      "name": "grid-list-actions",
       "type": "registry:example",
-      "registryDependencies": ["dropdown-menu", "radio-group"],
+      "registryDependencies": ["grid-list", "button"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/dropdown-menu-radio-group.tsx",
+          "path": "registry/new-york-v4/examples/grid-list-actions.tsx",
           "type": "registry:example"
         }
       ]
     },
     {
-      "name": "dropdown-menu-dialog",
+      "name": "grid-list-links",
       "type": "registry:example",
-      "registryDependencies": [
-        "dropdown-menu",
-        "dialog",
-        "button",
-        "input",
-        "label"
-      ],
+      "registryDependencies": ["grid-list"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/dropdown-menu-dialog.tsx",
+          "path": "registry/new-york-v4/examples/grid-list-links.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "grid-list-disabled",
+      "type": "registry:example",
+      "registryDependencies": ["grid-list"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/grid-list-disabled.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "grid-list-empty",
+      "type": "registry:example",
+      "registryDependencies": ["grid-list"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/grid-list-empty.tsx",
           "type": "registry:example"
         }
       ]
@@ -4127,7 +4381,7 @@
     {
       "name": "input-group-dropdown",
       "type": "registry:example",
-      "registryDependencies": ["input-group", "dropdown-menu", "button"],
+      "registryDependencies": ["input-group", "menu", "button"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/input-group-dropdown.tsx",
@@ -4175,7 +4429,7 @@
         "input-group",
         "badge",
         "progress",
-        "dropdown-menu",
+        "menu",
         "tooltip"
       ],
       "files": [
@@ -4373,6 +4627,83 @@
       ]
     },
     {
+      "name": "list-box-demo",
+      "type": "registry:example",
+      "registryDependencies": ["list-box"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/list-box-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "list-box-multiple",
+      "type": "registry:example",
+      "registryDependencies": ["list-box"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/list-box-multiple.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "list-box-sections",
+      "type": "registry:example",
+      "registryDependencies": ["list-box"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/list-box-sections.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "list-box-disabled",
+      "type": "registry:example",
+      "registryDependencies": ["list-box"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/list-box-disabled.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "list-box-empty",
+      "type": "registry:example",
+      "registryDependencies": ["list-box"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/list-box-empty.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "list-box-links",
+      "type": "registry:example",
+      "registryDependencies": ["list-box"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/list-box-links.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "list-box-dynamic",
+      "type": "registry:example",
+      "registryDependencies": ["list-box"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/list-box-dynamic.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
       "name": "kbd-input-group",
       "type": "registry:example",
       "registryDependencies": ["kbd", "input", "button", "label"],
@@ -4430,7 +4761,7 @@
     {
       "name": "open-in-chat-demo",
       "type": "registry:example",
-      "registryDependencies": ["open-in-chat", "button", "dropdown-menu"],
+      "registryDependencies": ["open-in-chat", "button", "menu"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/open-in-chat-demo.tsx",
@@ -4444,7 +4775,7 @@
       "registryDependencies": [
         "plan",
         "card",
-        "collapsible",
+        "disclosure",
         "button",
         "shimmer"
       ],
@@ -4470,7 +4801,7 @@
     {
       "name": "queue-demo",
       "type": "registry:example",
-      "registryDependencies": ["queue", "button", "collapsible", "scroll-area"],
+      "registryDependencies": ["queue", "button", "disclosure", "scroll-area"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/queue-demo.tsx",
@@ -4483,7 +4814,7 @@
       "type": "registry:example",
       "registryDependencies": [
         "reasoning",
-        "collapsible",
+        "disclosure",
         "response",
         "shimmer"
       ],
@@ -4509,7 +4840,7 @@
     {
       "name": "sources-demo",
       "type": "registry:example",
-      "registryDependencies": ["sources", "collapsible"],
+      "registryDependencies": ["sources", "disclosure"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/sources-demo.tsx",
@@ -4520,7 +4851,7 @@
     {
       "name": "task-demo",
       "type": "registry:example",
-      "registryDependencies": ["task", "collapsible"],
+      "registryDependencies": ["task", "disclosure"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/task-demo.tsx",
@@ -4532,7 +4863,7 @@
       "name": "tool-demo",
       "type": "registry:example",
       "dependencies": ["ai"],
-      "registryDependencies": ["tool", "collapsible", "badge", "code-block"],
+      "registryDependencies": ["tool", "disclosure", "badge", "code-block"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/tool-demo.tsx",
@@ -4546,7 +4877,7 @@
       "registryDependencies": [
         "web-preview",
         "button",
-        "collapsible",
+        "disclosure",
         "input",
         "tooltip",
         "badge",
@@ -4698,6 +5029,50 @@
       "files": [
         {
           "path": "registry/new-york-v4/examples/progress-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "progress-bar-demo",
+      "type": "registry:example",
+      "registryDependencies": ["progress-bar"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/progress-bar-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "progress-bar-indeterminate",
+      "type": "registry:example",
+      "registryDependencies": ["progress-bar"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/progress-bar-indeterminate.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "progress-bar-label",
+      "type": "registry:example",
+      "registryDependencies": ["progress-bar"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/progress-bar-label.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "progress-bar-value-scale",
+      "type": "registry:example",
+      "registryDependencies": ["progress-bar"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/progress-bar-value-scale.tsx",
           "type": "registry:example"
         }
       ]
@@ -5204,12 +5579,133 @@
       ]
     },
     {
+      "name": "tag-group-demo",
+      "type": "registry:example",
+      "registryDependencies": ["tag-group"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tag-group-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tag-group-variants",
+      "type": "registry:example",
+      "registryDependencies": ["tag-group"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tag-group-variants.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tag-group-removable",
+      "type": "registry:example",
+      "registryDependencies": ["tag-group"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tag-group-removable.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tag-group-selection",
+      "type": "registry:example",
+      "registryDependencies": ["tag-group"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tag-group-selection.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tag-group-disabled",
+      "type": "registry:example",
+      "registryDependencies": ["tag-group"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tag-group-disabled.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tag-group-links",
+      "type": "registry:example",
+      "registryDependencies": ["tag-group"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tag-group-links.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tag-group-empty",
+      "type": "registry:example",
+      "registryDependencies": ["tag-group"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tag-group-empty.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
       "name": "tabs-demo",
+      "type": "registry:example",
+      "registryDependencies": ["tabs", "card", "input", "label", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tabs-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tabs-disabled",
       "type": "registry:example",
       "registryDependencies": ["tabs"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/tabs-demo.tsx",
+          "path": "registry/new-york-v4/examples/tabs-disabled.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tabs-orientation",
+      "type": "registry:example",
+      "registryDependencies": ["tabs"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tabs-orientation.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tabs-icons",
+      "type": "registry:example",
+      "registryDependencies": ["tabs"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tabs-icons.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tabs-controlled",
+      "type": "registry:example",
+      "registryDependencies": ["tabs", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tabs-controlled.tsx",
           "type": "registry:example"
         }
       ]
@@ -5431,133 +5927,100 @@
       ]
     },
     {
-      "name": "toggle-group-demo",
+      "name": "toggle-button-demo",
       "type": "registry:example",
-      "registryDependencies": ["toggle-group"],
+      "registryDependencies": ["toggle-button"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/toggle-group-demo.tsx",
+          "path": "registry/new-york-v4/examples/toggle-button-demo.tsx",
           "type": "registry:example"
         }
       ]
     },
     {
-      "name": "toggle-group-disabled",
+      "name": "toggle-button-default",
       "type": "registry:example",
-      "registryDependencies": ["toggle-group"],
+      "registryDependencies": ["toggle-button"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/toggle-group-disabled.tsx",
+          "path": "registry/new-york-v4/examples/toggle-button-default.tsx",
           "type": "registry:example"
         }
       ]
     },
     {
-      "name": "toggle-group-lg",
+      "name": "toggle-button-outline",
       "type": "registry:example",
-      "registryDependencies": ["toggle-group"],
+      "registryDependencies": ["toggle-button"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/toggle-group-lg.tsx",
+          "path": "registry/new-york-v4/examples/toggle-button-outline.tsx",
           "type": "registry:example"
         }
       ]
     },
     {
-      "name": "toggle-group-outline",
+      "name": "toggle-button-disabled",
       "type": "registry:example",
-      "registryDependencies": ["toggle-group"],
+      "registryDependencies": ["toggle-button"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/toggle-group-outline.tsx",
+          "path": "registry/new-york-v4/examples/toggle-button-disabled.tsx",
           "type": "registry:example"
         }
       ]
     },
     {
-      "name": "toggle-group-sm",
+      "name": "toggle-button-size",
       "type": "registry:example",
-      "registryDependencies": ["toggle-group"],
+      "registryDependencies": ["toggle-button"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/toggle-group-sm.tsx",
+          "path": "registry/new-york-v4/examples/toggle-button-size.tsx",
           "type": "registry:example"
         }
       ]
     },
     {
-      "name": "toggle-group-single",
+      "name": "toggle-button-controlled",
       "type": "registry:example",
-      "registryDependencies": ["toggle-group"],
+      "registryDependencies": ["toggle-button"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/toggle-group-single.tsx",
+          "path": "registry/new-york-v4/examples/toggle-button-controlled.tsx",
           "type": "registry:example"
         }
       ]
     },
     {
-      "name": "toggle-demo",
+      "name": "toggle-button-group-demo",
       "type": "registry:example",
-      "registryDependencies": ["toggle"],
+      "registryDependencies": ["toggle-button-group"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/toggle-demo.tsx",
+          "path": "registry/new-york-v4/examples/toggle-button-group-demo.tsx",
           "type": "registry:example"
         }
       ]
     },
     {
-      "name": "toggle-disabled",
+      "name": "toggle-button-group-default",
       "type": "registry:example",
-      "registryDependencies": ["toggle"],
+      "registryDependencies": ["toggle-button-group"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/toggle-disabled.tsx",
+          "path": "registry/new-york-v4/examples/toggle-button-group-default.tsx",
           "type": "registry:example"
         }
       ]
     },
     {
-      "name": "toggle-lg",
+      "name": "toggle-button-group-size",
       "type": "registry:example",
-      "registryDependencies": ["toggle"],
+      "registryDependencies": ["toggle-button-group"],
       "files": [
         {
-          "path": "registry/new-york-v4/examples/toggle-lg.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "toggle-outline",
-      "type": "registry:example",
-      "registryDependencies": ["toggle"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/toggle-outline.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "toggle-sm",
-      "type": "registry:example",
-      "registryDependencies": ["toggle"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/toggle-sm.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "toggle-with-text",
-      "type": "registry:example",
-      "registryDependencies": ["toggle"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/toggle-with-text.tsx",
+          "path": "registry/new-york-v4/examples/toggle-button-group-size.tsx",
           "type": "registry:example"
         }
       ]
@@ -5602,6 +6065,83 @@
       "files": [
         {
           "path": "registry/new-york-v4/examples/tooltip-delay.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tree-demo",
+      "type": "registry:example",
+      "registryDependencies": ["tree"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tree-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tree-selection",
+      "type": "registry:example",
+      "registryDependencies": ["tree"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tree-selection.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tree-single-selection",
+      "type": "registry:example",
+      "registryDependencies": ["tree"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tree-single-selection.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tree-disabled",
+      "type": "registry:example",
+      "registryDependencies": ["tree"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tree-disabled.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tree-actions",
+      "type": "registry:example",
+      "registryDependencies": ["tree"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tree-actions.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tree-links",
+      "type": "registry:example",
+      "registryDependencies": ["tree"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tree-links.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "tree-dynamic",
+      "type": "registry:example",
+      "registryDependencies": ["tree", "button"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/tree-dynamic.tsx",
           "type": "registry:example"
         }
       ]
@@ -5907,6 +6447,28 @@
       "files": [
         {
           "path": "registry/new-york-v4/examples/menu-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "menu-submenu",
+      "type": "registry:example",
+      "registryDependencies": ["menu"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/menu-submenu.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "menu-command",
+      "type": "registry:example",
+      "registryDependencies": ["menu", "command", "avatar"],
+      "files": [
+        {
+          "path": "registry/new-york-v4/examples/menu-command.tsx",
           "type": "registry:example"
         }
       ]

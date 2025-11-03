@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "list-box-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "list-box"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/list-box-demo.tsx",
+      "content": "import { ListBox, ListBoxItem } from \"@/registry/new-york-v4/ui/list-box\"\n\nexport default function ListBoxDemo() {\n  return (\n    <ListBox\n      aria-label=\"Favorite animal\"\n      selectionMode=\"single\"\n      className=\"w-64\"\n    >\n      <ListBoxItem>Aardvark</ListBoxItem>\n      <ListBoxItem>Cat</ListBoxItem>\n      <ListBoxItem>Dog</ListBoxItem>\n      <ListBoxItem>Kangaroo</ListBoxItem>\n      <ListBoxItem>Panda</ListBoxItem>\n      <ListBoxItem>Snake</ListBoxItem>\n    </ListBox>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

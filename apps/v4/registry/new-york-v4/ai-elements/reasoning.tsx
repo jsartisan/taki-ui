@@ -3,13 +3,13 @@
 import type { ComponentProps } from "react"
 import { createContext, memo, useContext, useEffect, useState } from "react"
 import { BrainIcon, ChevronDownIcon } from "lucide-react"
+import { Button } from "react-aria-components"
 
 import { cn } from "@/lib/utils"
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/registry/new-york-v4/ui/collapsible"
+  Disclosure,
+  DisclosurePanel,
+} from "@/registry/new-york-v4/ui/disclosure"
 
 import { useControllableState } from "../hooks/use-controllable-state"
 import { Response } from "./response"
@@ -32,7 +32,7 @@ const useReasoning = () => {
   return context
 }
 
-export type ReasoningProps = ComponentProps<typeof Collapsible> & {
+export type ReasoningProps = ComponentProps<typeof Disclosure> & {
   isStreaming?: boolean
   open?: boolean
   defaultOpen?: boolean
@@ -98,27 +98,28 @@ export const Reasoning = memo(
 
     return (
       <ReasoningContext.Provider
-        value={{ isStreaming, isOpen, setIsOpen, duration }}
+        value={{ isStreaming, isOpen: isOpen ?? false, setIsOpen, duration }}
       >
-        <Collapsible
+        <Disclosure
           className={cn("not-prose mb-4", className)}
-          onOpenChange={handleOpenChange}
-          open={isOpen}
+          onExpandedChange={handleOpenChange}
+          isExpanded={isOpen}
           {...props}
         >
           {children}
-        </Collapsible>
+        </Disclosure>
       </ReasoningContext.Provider>
     )
   }
 )
 
-export type ReasoningTriggerProps = ComponentProps<typeof CollapsibleTrigger>
+export type ReasoningTriggerProps = ComponentProps<typeof Button>
 
 const getThinkingMessage = (isStreaming: boolean, duration?: number) => {
   if (isStreaming || duration === 0) {
     return <Shimmer duration={1}>Thinking...</Shimmer>
   }
+
   if (duration === undefined) {
     return <p>Thought for a few seconds</p>
   }
@@ -130,7 +131,8 @@ export const ReasoningTrigger = memo(
     const { isStreaming, isOpen, duration } = useReasoning()
 
     return (
-      <CollapsibleTrigger
+      <Button
+        slot="trigger"
         className={cn(
           "text-muted-foreground hover:text-foreground flex w-full items-center gap-2 text-sm transition-colors",
           className
@@ -149,20 +151,18 @@ export const ReasoningTrigger = memo(
             />
           </>
         )}
-      </CollapsibleTrigger>
+      </Button>
     )
   }
 )
 
-export type ReasoningContentProps = ComponentProps<
-  typeof CollapsibleContent
-> & {
+export type ReasoningContentProps = ComponentProps<typeof DisclosurePanel> & {
   children: string
 }
 
 export const ReasoningContent = memo(
   ({ className, children, ...props }: ReasoningContentProps) => (
-    <CollapsibleContent
+    <DisclosurePanel
       className={cn(
         "mt-4 text-sm",
         "data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2 data-[state=open]:slide-in-from-top-2 text-muted-foreground data-[state=closed]:animate-out data-[state=open]:animate-in outline-none",
@@ -171,7 +171,7 @@ export const ReasoningContent = memo(
       {...props}
     >
       <Response className="grid gap-2">{children}</Response>
-    </CollapsibleContent>
+    </DisclosurePanel>
   )
 )
 

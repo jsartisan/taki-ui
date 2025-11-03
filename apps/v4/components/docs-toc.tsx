@@ -6,11 +6,10 @@ import { IconMenu3 } from "@tabler/icons-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
+  Menu,
+  MenuItem,
+  MenuTrigger,
+} from "@/registry/new-york-v4/ui/menu"
 
 function useActiveItem(itemIds: string[]) {
   const [activeId, setActiveId] = React.useState<string | null>(null)
@@ -73,35 +72,35 @@ export function DocsTableOfContents({
 
   if (variant === "dropdown") {
     return (
-      <DropdownMenu open={open} onOpenChange={setOpen}>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant="outline"
-            size="sm"
-            className={cn("h-8 md:h-7", className)}
-          >
-            <IconMenu3 /> On This Page
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent
-          align="start"
+      <MenuTrigger isOpen={open} onOpenChange={setOpen}>
+        <Button
+          variant="outline"
+          size="sm"
+          className={cn("h-8 md:h-7", className)}
+        >
+          <IconMenu3 /> On This Page
+        </Button>
+        <Menu
+          placement="bottom start"
           className="no-scrollbar max-h-[70svh]"
+          onAction={(key) => {
+            const url = key.toString()
+            window.location.hash = url.replace("#", "")
+            setOpen(false)
+          }}
         >
           {toc.map((item) => (
-            <DropdownMenuItem
+            <MenuItem
               key={item.url}
-              asChild
-              onClick={() => {
-                setOpen(false)
-              }}
+              id={item.url}
               data-depth={item.depth}
               className="data-[depth=3]:pl-6 data-[depth=4]:pl-8"
             >
-              <a href={item.url}>{item.title}</a>
-            </DropdownMenuItem>
+              {item.title}
+            </MenuItem>
           ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
+        </Menu>
+      </MenuTrigger>
     )
   }
 

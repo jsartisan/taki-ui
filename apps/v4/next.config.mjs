@@ -53,6 +53,26 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/docs/components/alert-dialog",
+        destination: "/docs/components/dialog#alert-dialog",
+        permanent: true,
+      },
+      {
+        source: "/docs/components/collapsible",
+        destination: "/docs/components/disclosure",
+        permanent: true,
+      },
+      {
+        source: "/docs/components/context-menu",
+        destination: "/docs/components/menu",
+        permanent: true,
+      },
+      {
+        source: "/docs/components/dropdown-menu",
+        destination: "/docs/components/menu",
+        permanent: true,
+      },
+      {
         source: "/react-19",
         destination: "/docs/react-19",
         permanent: true,

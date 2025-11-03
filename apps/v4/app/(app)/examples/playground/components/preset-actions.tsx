@@ -21,14 +21,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/registry/new-york-v4/ui/dialog"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
 import { Label } from "@/registry/new-york-v4/ui/label"
+import {
+  Menu,
+  MenuItem,
+  MenuSeparator,
+  MenuTrigger,
+} from "@/registry/new-york-v4/ui/menu"
 import { Modal } from "@/registry/new-york-v4/ui/modal"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 
@@ -38,26 +37,24 @@ export function PresetActions() {
 
   return (
     <>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="secondary" size="icon">
-            <span className="sr-only">Actions</span>
-            <MoreHorizontal />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuItem onSelect={() => setIsOpen(true)}>
+      <MenuTrigger>
+        <Button variant="secondary" size="icon">
+          <span className="sr-only">Actions</span>
+          <MoreHorizontal />
+        </Button>
+        <Menu placement="bottom end">
+          <MenuItem onAction={() => setIsOpen(true)}>
             Content filter preferences
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem
-            onSelect={() => setShowDeleteDialog(true)}
-            className="text-red-600"
+          </MenuItem>
+          <MenuSeparator />
+          <MenuItem
+            onAction={() => setShowDeleteDialog(true)}
+            className="text-destructive focus:bg-destructive focus:text-destructive-foreground"
           >
             Delete preset
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+          </MenuItem>
+        </Menu>
+      </MenuTrigger>
       <DialogTrigger isOpen={open} onOpenChange={setIsOpen}>
         <Modal>
           <Dialog>

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "file-trigger-multiple",
+  "type": "registry:example",
+  "registryDependencies": [
+    "file-trigger",
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/file-trigger-multiple.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { Button } from \"@/registry/new-york-v4/ui/button\"\nimport { FileTrigger } from \"@/registry/new-york-v4/ui/file-trigger\"\n\nexport default function FileTriggerMultiple() {\n  const [files, setFiles] = useState<string[]>([])\n\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <FileTrigger\n        allowsMultiple\n        onSelect={(e) => {\n          const fileList = e ? Array.from(e) : []\n          const filenames = fileList.map((file) => file.name)\n          setFiles(filenames)\n        }}\n      >\n        <Button variant=\"outline\">Select multiple files</Button>\n      </FileTrigger>\n      {files.length > 0 && (\n        <div className=\"text-muted-foreground text-sm\">\n          <p className=\"font-medium\">Selected files ({files.length}):</p>\n          <ul className=\"mt-2 space-y-1\">\n            {files.map((file, index) => (\n              <li key={index} className=\"truncate\">\n                {file}\n              </li>\n            ))}\n          </ul>\n        </div>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

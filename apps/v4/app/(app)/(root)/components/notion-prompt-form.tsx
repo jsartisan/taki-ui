@@ -12,6 +12,7 @@ import {
   IconWorld,
   IconX,
 } from "@tabler/icons-react"
+import { SubmenuTrigger } from "react-aria-components"
 
 import {
   Avatar,
@@ -28,19 +29,6 @@ import {
   CommandList,
 } from "@/registry/new-york-v4/ui/command"
 import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
 import { Field, FieldLabel } from "@/registry/new-york-v4/ui/field"
 import {
   InputGroup,
@@ -48,12 +36,16 @@ import {
   InputGroupButton,
   InputGroupTextarea,
 } from "@/registry/new-york-v4/ui/input-group"
+import {
+  Menu,
+  MenuItem,
+  MenuSection,
+  MenuSeparator,
+  MenuTrigger,
+} from "@/registry/new-york-v4/ui/menu"
 import { Popover } from "@/registry/new-york-v4/ui/popover"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
-import {
-  Tooltip,
-  TooltipTrigger,
-} from "@/registry/new-york-v4/ui/tooltip"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
 
 const SAMPLE_DATA = {
   mentionable: [
@@ -201,7 +193,7 @@ export function NotionPromptForm() {
               isOpen={mentionPopoverOpen}
               onOpenChange={setMentionPopoverOpen}
             >
-              <TooltipTrigger onFocusCapture={(e) => e.stopPropagation()}>
+              <TooltipTrigger>
                 <InputGroupButton
                   variant="outline"
                   size={!hasMentions ? "sm" : "icon-sm"}
@@ -213,9 +205,13 @@ export function NotionPromptForm() {
               </TooltipTrigger>
               <Popover className="p-0 [--radius:1.2rem]">
                 <Command>
-                  <CommandInput placeholder="Search pages..." />
-                  <CommandList>
-                    <CommandEmpty>No pages found</CommandEmpty>
+                  <CommandInput placeholder="Search pages..." autoFocus />
+
+                  <CommandList
+                    renderEmptyState={() => (
+                      <CommandEmpty>No pages found</CommandEmpty>
+                    )}
+                  >
                     {Object.entries(grouped).map(([type, items]) => (
                       <CommandGroup
                         key={type}
@@ -224,9 +220,9 @@ export function NotionPromptForm() {
                         {items.map((item) => (
                           <CommandItem
                             key={item.title}
-                            value={item.title}
-                            onSelect={(currentValue) => {
-                              setMentions((prev) => [...prev, currentValue])
+                            id={item.title}
+                            onAction={() => {
+                              setMentions((prev) => [...prev, item.title])
                               setMentionPopoverOpen(false)
                             }}
                           >
@@ -256,7 +252,7 @@ export function NotionPromptForm() {
                     size="sm"
                     variant="secondary"
                     className="rounded-full !pl-2"
-                    onClick={() => {
+                    onPress={() => {
                       setMentions((prev) => prev.filter((m) => m !== mention))
                     }}
                   >
@@ -279,38 +275,32 @@ export function NotionPromptForm() {
               </InputGroupButton>
               <Tooltip>Attach file</Tooltip>
             </TooltipTrigger>
-            <DropdownMenu
-              open={modelPopoverOpen}
+            <MenuTrigger
+              isOpen={modelPopoverOpen}
               onOpenChange={setModelPopoverOpen}
             >
               <TooltipTrigger>
-                <DropdownMenuTrigger asChild>
-                  <InputGroupButton size="sm" className="rounded-full">
-                    {selectedModel.name}
-                  </InputGroupButton>
-                </DropdownMenuTrigger>
+                <InputGroupButton size="sm" className="rounded-full">
+                  {selectedModel.name}
+                </InputGroupButton>
                 <Tooltip>Select AI model</Tooltip>
               </TooltipTrigger>
-              <DropdownMenuContent
-                side="top"
-                align="start"
+              <Menu
+                placement="top start"
                 className="[--radius:1rem]"
+                selectionMode="single"
+                selectedKeys={[selectedModel.name]}
+                onSelectionChange={(keys) => {
+                  const key = Array.from(keys)[0]
+                  const model = SAMPLE_DATA.models.find((m) => m.name === key)
+                  if (model) {
+                    setSelectedModel(model)
+                  }
+                }}
               >
-                <DropdownMenuGroup className="w-42">
-                  <DropdownMenuLabel className="text-muted-foreground text-xs">
-                    Select Agent Mode
-                  </DropdownMenuLabel>
+                <MenuSection title="Select Agent Mode">
                   {SAMPLE_DATA.models.map((model) => (
-                    <DropdownMenuCheckboxItem
-                      key={model.name}
-                      checked={model.name === selectedModel.name}
-                      onCheckedChange={(checked) => {
-                        if (checked) {
-                          setSelectedModel(model)
-                        }
-                      }}
-                      className="pl-2 *:[span:first-child]:right-2 *:[span:first-child]:left-auto"
-                    >
+                    <MenuItem key={model.name} id={model.name} className="pl-2">
                       {model.name}
                       {model.badge && (
                         <Badge
@@ -320,111 +310,98 @@ export function NotionPromptForm() {
                           {model.badge}
                         </Badge>
                       )}
-                    </DropdownMenuCheckboxItem>
+                    </MenuItem>
                   ))}
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <DropdownMenu open={scopeMenuOpen} onOpenChange={setScopeMenuOpen}>
-              <DropdownMenuTrigger asChild>
-                <InputGroupButton size="sm" className="rounded-full">
-                  <IconWorld /> All Sources
-                </InputGroupButton>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                side="top"
-                align="end"
-                className="[--radius:1rem]"
-              >
-                <DropdownMenuGroup>
-                  <DropdownMenuItem
-                    asChild
-                    onSelect={(e) => e.preventDefault()}
+                </MenuSection>
+              </Menu>
+            </MenuTrigger>
+            <MenuTrigger isOpen={scopeMenuOpen} onOpenChange={setScopeMenuOpen}>
+              <InputGroupButton size="sm" className="rounded-full">
+                <IconWorld /> All Sources
+              </InputGroupButton>
+              <Menu placement="top end" className="[--radius:1rem]">
+                <MenuItem className="cursor-default">
+                  <label
+                    htmlFor="web-search"
+                    className="flex w-full items-center"
                   >
-                    <label htmlFor="web-search">
-                      <IconWorld /> Web Search{" "}
-                      <Switch
-                        id="web-search"
-                        className="ml-auto"
-                        defaultSelected
+                    <IconWorld /> Web Search{" "}
+                    <Switch id="web-search" className="ml-auto" defaultSelected>
+                      <span className="sr-only">Toggle web search</span>
+                    </Switch>
+                  </label>
+                </MenuItem>
+                <MenuSeparator />
+                <MenuItem className="cursor-default">
+                  <label htmlFor="apps" className="flex w-full items-center">
+                    <IconApps /> Apps and Integrations
+                    <Switch id="apps" className="ml-auto" defaultSelected>
+                      <span className="sr-only">Toggle apps integration</span>
+                    </Switch>
+                  </label>
+                </MenuItem>
+                <MenuItem>
+                  <IconCircleDashedPlus /> All Sources I can access
+                </MenuItem>
+                <SubmenuTrigger>
+                  <MenuItem>
+                    <Avatar className="size-4">
+                      <AvatarImage src="https://github.com/shadcn.png" />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    shadcn
+                  </MenuItem>
+                  <Menu className="w-72 p-0 [--radius:1rem]">
+                    <Command>
+                      <CommandInput
+                        placeholder="Find or use knowledge in..."
+                        autoFocus
                       />
-                    </label>
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup>
-                  <DropdownMenuItem
-                    asChild
-                    onSelect={(e) => e.preventDefault()}
-                  >
-                    <label htmlFor="apps">
-                      <IconApps /> Apps and Integrations
-                      <Switch id="apps" className="ml-auto" defaultSelected />
-                    </label>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <IconCircleDashedPlus /> All Sources I can access
-                  </DropdownMenuItem>
-                  <DropdownMenuSub>
-                    <DropdownMenuSubTrigger>
-                      <Avatar className="size-4">
-                        <AvatarImage src="https://github.com/shadcn.png" />
-                        <AvatarFallback>CN</AvatarFallback>
-                      </Avatar>
-                      shadcn
-                    </DropdownMenuSubTrigger>
-                    <DropdownMenuSubContent className="w-72 p-0 [--radius:1rem]">
-                      <Command>
-                        <CommandInput
-                          placeholder="Find or use knowledge in..."
-                          autoFocus
-                        />
-                        <CommandList>
-                          <CommandEmpty>No knowledge found</CommandEmpty>
-                          <CommandGroup>
-                            {SAMPLE_DATA.mentionable
-                              .filter((item) => item.type === "user")
-                              .map((user) => (
-                                <CommandItem
-                                  key={user.title}
-                                  value={user.title}
-                                  onSelect={() => {
-                                    // Handle user selection here
-                                    console.log("Selected user:", user.title)
-                                  }}
-                                >
-                                  <Avatar className="size-4">
-                                    <AvatarImage src={user.image} />
-                                    <AvatarFallback>
-                                      {user.title[0]}
-                                    </AvatarFallback>
-                                  </Avatar>
-                                  {user.title}{" "}
-                                  <span className="text-muted-foreground">
-                                    - {user.workspace}
-                                  </span>
-                                </CommandItem>
-                              ))}
-                          </CommandGroup>
-                        </CommandList>
-                      </Command>
-                    </DropdownMenuSubContent>
-                  </DropdownMenuSub>
-                  <DropdownMenuItem>
-                    <IconBook /> Help Center
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup>
-                  <DropdownMenuItem>
-                    <IconPlus /> Connect Apps
-                  </DropdownMenuItem>
-                  <DropdownMenuLabel className="text-muted-foreground text-xs">
-                    We&apos;ll only search in the sources selected here.
-                  </DropdownMenuLabel>
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                      <CommandList>
+                        <CommandEmpty>No knowledge found</CommandEmpty>
+                        <CommandGroup>
+                          {SAMPLE_DATA.mentionable
+                            .filter((item) => item.type === "user")
+                            .map((user) => (
+                              <CommandItem
+                                key={user.title}
+                                value={user.title}
+                                onSelect={() => {
+                                  console.log("Selected user:", user.title)
+                                }}
+                              >
+                                <Avatar className="size-4">
+                                  <AvatarImage src={user.image} />
+                                  <AvatarFallback>
+                                    {user.title[0]}
+                                  </AvatarFallback>
+                                </Avatar>
+                                {user.title}{" "}
+                                <span className="text-muted-foreground">
+                                  - {user.workspace}
+                                </span>
+                              </CommandItem>
+                            ))}
+                        </CommandGroup>
+                      </CommandList>
+                    </Command>
+                  </Menu>
+                </SubmenuTrigger>
+                <MenuItem>
+                  <IconBook /> Help Center
+                </MenuItem>
+                <MenuSeparator />
+                <MenuItem>
+                  <IconPlus /> Connect Apps
+                </MenuItem>
+                <MenuItem
+                  textValue="Info"
+                  className="text-muted-foreground cursor-default text-xs font-medium hover:bg-transparent focus:bg-transparent"
+                >
+                  We&apos;ll only search in the sources selected here.
+                </MenuItem>
+              </Menu>
+            </MenuTrigger>
             <InputGroupButton
               aria-label="Send"
               className="ml-auto rounded-full"

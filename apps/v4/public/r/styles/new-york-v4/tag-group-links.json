@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag-group-links",
+  "type": "registry:example",
+  "registryDependencies": [
+    "tag-group"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/tag-group-links.tsx",
+      "content": "import Link from \"next/link\"\n\nimport { Tag, TagGroup } from \"@/registry/new-york-v4/ui/tag-group\"\n\nexport default function TagGroupLinksDemo() {\n  return (\n    <TagGroup label=\"Quick Links\" description=\"Select your quick links\">\n      <Tag id=\"docs\">\n        <Link href=\"/docs\">Documentation</Link>\n      </Tag>\n      <Tag id=\"components\">\n        <Link href=\"/components\">Components</Link>\n      </Tag>\n      <Tag id=\"examples\">\n        <Link href=\"/examples\">Examples</Link>\n      </Tag>\n      <Tag id=\"blocks\">\n        <Link href=\"/blocks\">Blocks</Link>\n      </Tag>\n    </TagGroup>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

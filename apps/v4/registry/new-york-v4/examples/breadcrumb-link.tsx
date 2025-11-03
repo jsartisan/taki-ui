@@ -1,34 +1,24 @@
-import Link from "next/link"
-
 import {
   Breadcrumb,
-  BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
+  Breadcrumbs,
   BreadcrumbSeparator,
 } from "@/registry/new-york-v4/ui/breadcrumb"
 
-export default function BreadcrumbWithCustomSeparator() {
+export default function BreadcrumbWithLink() {
   return (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href="/">Home</Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
+    <Breadcrumbs>
+      <Breadcrumb>
+        <BreadcrumbLink href="/">Home</BreadcrumbLink>
         <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href="/components">Components</Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
+      </Breadcrumb>
+      <Breadcrumb>
+        <BreadcrumbLink href="/components">Components</BreadcrumbLink>
         <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
+      </Breadcrumb>
+      <Breadcrumb>
+        <BreadcrumbLink>Breadcrumb</BreadcrumbLink>
+      </Breadcrumb>
+    </Breadcrumbs>
   )
 }

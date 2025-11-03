@@ -9,18 +9,13 @@ import {
 } from "@/registry/new-york-v4/ui/avatar"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
-import {
   Item,
   ItemContent,
   ItemDescription,
   ItemMedia,
   ItemTitle,
 } from "@/registry/new-york-v4/ui/item"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
 
 const people = [
   {
@@ -43,15 +38,13 @@ const people = [
 export default function ItemDropdown() {
   return (
     <div className="flex min-h-64 w-full max-w-md flex-col items-center gap-6">
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="sm" className="w-fit">
-            Select <ChevronDownIcon />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-72 [--radius:0.65rem]" align="end">
+      <MenuTrigger>
+        <Button variant="outline" size="sm" className="w-fit">
+          Select <ChevronDownIcon />
+        </Button>
+        <Menu placement="bottom end" className="w-72 [--radius:0.65rem]">
           {people.map((person) => (
-            <DropdownMenuItem key={person.username} className="p-0">
+            <MenuItem key={person.username} className="p-0">
               <Item size="sm" className="w-full p-2">
                 <ItemMedia>
                   <Avatar className="size-8">
@@ -64,10 +57,10 @@ export default function ItemDropdown() {
                   <ItemDescription>{person.email}</ItemDescription>
                 </ItemContent>
               </Item>
-            </DropdownMenuItem>
+            </MenuItem>
           ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
+        </Menu>
+      </MenuTrigger>
     </div>
   )
 }

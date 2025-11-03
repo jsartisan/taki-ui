@@ -18,6 +18,10 @@ export const siteConfig = {
       label: "Components",
     },
     {
+      href: "/docs/ai-elements",
+      label: "AI Elements",
+    },
+    {
       href: "/charts/area",
       label: "Charts",
     },

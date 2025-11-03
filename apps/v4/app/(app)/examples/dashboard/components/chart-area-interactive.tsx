@@ -20,9 +20,9 @@ import {
 } from "@/registry/new-york-v4/ui/chart"
 import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@/registry/new-york-v4/ui/toggle-group"
+  ToggleButtonGroup,
+  ToggleButtonGroupItem,
+} from "@/registry/new-york-v4/ui/toggle-button-group"
 
 export const description = "An interactive area chart"
 
@@ -163,17 +163,29 @@ export function ChartAreaInteractive() {
           <span className="@[540px]/card:hidden">Last 3 months</span>
         </CardDescription>
         <CardAction>
-          <ToggleGroup
-            type="single"
-            value={timeRange}
-            onValueChange={setTimeRange}
+          <ToggleButtonGroup
             variant="outline"
-            className="hidden *:data-[slot=toggle-group-item]:!px-4 @[767px]/card:flex"
+            className="hidden *:data-[slot=toggle-button-group-item]:!px-4 @[767px]/card:flex"
           >
-            <ToggleGroupItem value="90d">Last 3 months</ToggleGroupItem>
-            <ToggleGroupItem value="30d">Last 30 days</ToggleGroupItem>
-            <ToggleGroupItem value="7d">Last 7 days</ToggleGroupItem>
-          </ToggleGroup>
+            <ToggleButtonGroupItem
+              isSelected={timeRange === "90d"}
+              onChange={() => setTimeRange("90d")}
+            >
+              Last 3 months
+            </ToggleButtonGroupItem>
+            <ToggleButtonGroupItem
+              isSelected={timeRange === "30d"}
+              onChange={() => setTimeRange("30d")}
+            >
+              Last 30 days
+            </ToggleButtonGroupItem>
+            <ToggleButtonGroupItem
+              isSelected={timeRange === "7d"}
+              onChange={() => setTimeRange("7d")}
+            >
+              Last 7 days
+            </ToggleButtonGroupItem>
+          </ToggleButtonGroup>
           <Select
             selectedKey={timeRange}
             onSelectionChange={(key) => setTimeRange(key as string)}

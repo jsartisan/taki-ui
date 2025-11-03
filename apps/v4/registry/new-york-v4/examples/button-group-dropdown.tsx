@@ -14,60 +14,52 @@ import {
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { ButtonGroup } from "@/registry/new-york-v4/ui/button-group"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
+  Menu,
+  MenuItem,
+  MenuSeparator,
+  MenuTrigger,
+} from "@/registry/new-york-v4/ui/menu"
 
 export default function ButtonGroupDropdown() {
   return (
     <ButtonGroup>
       <Button variant="outline">Follow</Button>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="!pl-2">
-            <ChevronDownIcon />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="[--radius:1rem]">
-          <DropdownMenuGroup>
-            <DropdownMenuItem>
-              <VolumeOffIcon />
-              Mute Conversation
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <CheckIcon />
-              Mark as Read
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <AlertTriangleIcon />
-              Report Conversation
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <UserRoundXIcon />
-              Block User
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <ShareIcon />
-              Share Conversation
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <CopyIcon />
-              Copy Conversation
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup>
-            <DropdownMenuItem variant="destructive">
-              <TrashIcon />
-              Delete Conversation
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <MenuTrigger>
+        <Button variant="outline" className="!pl-2">
+          <ChevronDownIcon />
+        </Button>
+        <Menu placement="bottom end" className="[--radius:1rem]">
+          <MenuItem>
+            <VolumeOffIcon />
+            Mute Conversation
+          </MenuItem>
+          <MenuItem>
+            <CheckIcon />
+            Mark as Read
+          </MenuItem>
+          <MenuItem>
+            <AlertTriangleIcon />
+            Report Conversation
+          </MenuItem>
+          <MenuItem>
+            <UserRoundXIcon />
+            Block User
+          </MenuItem>
+          <MenuItem>
+            <ShareIcon />
+            Share Conversation
+          </MenuItem>
+          <MenuItem>
+            <CopyIcon />
+            Copy Conversation
+          </MenuItem>
+          <MenuSeparator />
+          <MenuItem className="text-destructive focus:bg-destructive/10 dark:focus:bg-destructive/20 focus:text-destructive">
+            <TrashIcon />
+            Delete Conversation
+          </MenuItem>
+        </Menu>
+      </MenuTrigger>
     </ButtonGroup>
   )
 }

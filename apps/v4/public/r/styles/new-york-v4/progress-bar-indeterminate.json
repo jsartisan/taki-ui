@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-bar-indeterminate",
+  "type": "registry:example",
+  "registryDependencies": [
+    "progress-bar"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/progress-bar-indeterminate.tsx",
+      "content": "import { ProgressBar } from \"@/registry/new-york-v4/ui/progress-bar\"\n\nexport default function ProgressBarIndeterminate() {\n  return <ProgressBar label=\"Loading…\" isIndeterminate />\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

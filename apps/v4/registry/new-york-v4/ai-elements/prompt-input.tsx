@@ -48,15 +48,8 @@ import {
   CommandSeparator,
 } from "@/registry/new-york-v4/ui/command"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
-import {
   HoverCard,
   HoverCardContent,
-  HoverCardTrigger,
 } from "@/registry/new-york-v4/ui/hover-card"
 import {
   InputGroup,
@@ -64,6 +57,7 @@ import {
   InputGroupButton,
   InputGroupTextarea,
 } from "@/registry/new-york-v4/ui/input-group"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
 import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
 
@@ -388,7 +382,7 @@ export function PromptInputAttachments({
 }
 
 export type PromptInputActionAddAttachmentsProps = ComponentProps<
-  typeof DropdownMenuItem
+  typeof MenuItem
 > & {
   label?: string
 }
@@ -400,15 +394,14 @@ export const PromptInputActionAddAttachments = ({
   const attachments = usePromptInputAttachments()
 
   return (
-    <DropdownMenuItem
+    <MenuItem
       {...props}
-      onSelect={(e) => {
-        e.preventDefault()
+      onAction={() => {
         attachments.openFileDialog()
       }}
     >
       <ImageIcon className="mr-2 size-4" /> {label}
-    </DropdownMenuItem>
+    </MenuItem>
   )
 }
 
@@ -929,9 +922,9 @@ export const PromptInputButton = ({
   )
 }
 
-export type PromptInputActionMenuProps = ComponentProps<typeof DropdownMenu>
+export type PromptInputActionMenuProps = ComponentProps<typeof MenuTrigger>
 export const PromptInputActionMenu = (props: PromptInputActionMenuProps) => (
-  <DropdownMenu {...props} />
+  <MenuTrigger {...props} />
 )
 
 export type PromptInputActionMenuTriggerProps = PromptInputButtonProps
@@ -941,31 +934,25 @@ export const PromptInputActionMenuTrigger = ({
   children,
   ...props
 }: PromptInputActionMenuTriggerProps) => (
-  <DropdownMenuTrigger asChild>
-    <PromptInputButton className={className} {...props}>
-      {children ?? <PlusIcon className="size-4" />}
-    </PromptInputButton>
-  </DropdownMenuTrigger>
+  <PromptInputButton className={className} {...props}>
+    {children ?? <PlusIcon className="size-4" />}
+  </PromptInputButton>
 )
 
-export type PromptInputActionMenuContentProps = ComponentProps<
-  typeof DropdownMenuContent
->
+export type PromptInputActionMenuContentProps = ComponentProps<typeof Menu>
 export const PromptInputActionMenuContent = ({
   className,
   ...props
 }: PromptInputActionMenuContentProps) => (
-  <DropdownMenuContent align="start" className={cn(className)} {...props} />
+  <Menu placement="bottom start" className={cn(className)} {...props} />
 )
 
-export type PromptInputActionMenuItemProps = ComponentProps<
-  typeof DropdownMenuItem
->
+export type PromptInputActionMenuItemProps = ComponentProps<typeof MenuItem>
 export const PromptInputActionMenuItem = ({
   className,
   ...props
 }: PromptInputActionMenuItemProps) => (
-  <DropdownMenuItem className={cn(className)} {...props} />
+  <MenuItem className={cn(className)} {...props} />
 )
 
 // Note: Actions that perform side-effects (like opening a file dialog)
@@ -1196,30 +1183,22 @@ export const PromptInputModelSelectItem = ({
 export type PromptInputHoverCardProps = ComponentProps<typeof HoverCard>
 
 export const PromptInputHoverCard = ({
-  openDelay = 0,
+  delay = 0,
   closeDelay = 0,
   ...props
 }: PromptInputHoverCardProps) => (
-  <HoverCard closeDelay={closeDelay} openDelay={openDelay} {...props} />
+  <HoverCard closeDelay={closeDelay} delay={delay} {...props} />
 )
-
-export type PromptInputHoverCardTriggerProps = ComponentProps<
-  typeof HoverCardTrigger
->
-
-export const PromptInputHoverCardTrigger = (
-  props: PromptInputHoverCardTriggerProps
-) => <HoverCardTrigger {...props} />
 
 export type PromptInputHoverCardContentProps = ComponentProps<
   typeof HoverCardContent
 >
 
 export const PromptInputHoverCardContent = ({
-  align = "start",
+  placement = "start",
   ...props
 }: PromptInputHoverCardContentProps) => (
-  <HoverCardContent align={align} {...props} />
+  <HoverCardContent placement={placement} {...props} />
 )
 
 export type PromptInputTabsListProps = HTMLAttributes<HTMLDivElement>

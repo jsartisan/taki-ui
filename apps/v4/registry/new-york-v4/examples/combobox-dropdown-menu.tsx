@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { MoreHorizontal } from "lucide-react"
+import { SubmenuTrigger } from "react-aria-components"
 
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
@@ -13,18 +14,11 @@ import {
   CommandList,
 } from "@/registry/new-york-v4/ui/command"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
+  Menu,
+  MenuItem,
+  MenuSeparator,
+  MenuTrigger,
+} from "@/registry/new-york-v4/ui/menu"
 
 const labels = [
   "feature",
@@ -48,55 +42,49 @@ export default function ComboboxDropdownMenu() {
         </span>
         <span className="text-muted-foreground">Create a new project</span>
       </p>
-      <DropdownMenu open={open} onOpenChange={setOpen}>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="sm">
-            <MoreHorizontal />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-[200px]">
-          <DropdownMenuLabel>Actions</DropdownMenuLabel>
-          <DropdownMenuGroup>
-            <DropdownMenuItem>Assign to...</DropdownMenuItem>
-            <DropdownMenuItem>Set due date...</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Apply label</DropdownMenuSubTrigger>
-              <DropdownMenuSubContent className="p-0">
-                <Command>
-                  <CommandInput
-                    placeholder="Filter label..."
-                    autoFocus={true}
-                    className="h-9"
-                  />
-                  <CommandList>
-                    <CommandEmpty>No label found.</CommandEmpty>
-                    <CommandGroup>
-                      {labels.map((label) => (
-                        <CommandItem
-                          key={label}
-                          value={label}
-                          onSelect={(value) => {
-                            setLabel(value)
-                            setOpen(false)
-                          }}
-                        >
-                          {label}
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </CommandList>
-                </Command>
-              </DropdownMenuSubContent>
-            </DropdownMenuSub>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-red-600">
-              Delete
-              <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <MenuTrigger isOpen={open} onOpenChange={setOpen}>
+        <Button variant="ghost" size="sm">
+          <MoreHorizontal />
+        </Button>
+        <Menu placement="bottom end" className="w-[200px]">
+          <MenuItem>Assign to...</MenuItem>
+          <MenuItem>Set due date...</MenuItem>
+          <MenuSeparator />
+          <SubmenuTrigger>
+            <MenuItem>Apply label</MenuItem>
+            <Menu className="p-0">
+              <Command>
+                <CommandInput
+                  placeholder="Filter label..."
+                  autoFocus={true}
+                  className="h-9"
+                />
+                <CommandList>
+                  <CommandEmpty>No label found.</CommandEmpty>
+                  <CommandGroup>
+                    {labels.map((labelItem) => (
+                      <CommandItem
+                        key={labelItem}
+                        value={labelItem}
+                        onSelect={(value) => {
+                          setLabel(value)
+                          setOpen(false)
+                        }}
+                      >
+                        {labelItem}
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </Menu>
+          </SubmenuTrigger>
+          <MenuSeparator />
+          <MenuItem className="text-destructive focus:bg-destructive/10 dark:focus:bg-destructive/20 focus:text-destructive">
+            Delete
+          </MenuItem>
+        </Menu>
+      </MenuTrigger>
     </div>
   )
 }

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "diff-viewer-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "diff-viewer",
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/diff-viewer-demo.tsx",
+      "content": "\"use client\"\n\nimport { DiffViewer } from \"@/registry/new-york-v4/ai-elements/diff-viewer\"\n\nexport default function DiffViewerDemo() {\n  const oldContent = `function greet(name) {\n  console.log(\"Hello \" + name);\n}`\n\n  const newContent = `function greet(name: string) {\n  console.log(\\`Hello, \\${name}!\\`);\n  return \\`Hello, \\${name}!\\`;\n}`\n\n  return <DiffViewer oldContent={oldContent} newContent={newContent} />\n}\n\n",
+      "type": "registry:example"
+    }
+  ]
+}

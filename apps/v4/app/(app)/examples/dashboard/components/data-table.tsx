@@ -73,16 +73,14 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/registry/new-york-v4/ui/drawer"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
 import { Input } from "@/registry/new-york-v4/ui/input"
 import { Label } from "@/registry/new-york-v4/ui/label"
+import {
+  Menu,
+  MenuItem,
+  MenuSeparator,
+  MenuTrigger,
+} from "@/registry/new-york-v4/ui/menu"
 import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 import {
@@ -276,25 +274,30 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
   {
     id: "actions",
     cell: () => (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant="ghost"
-            className="data-[state=open]:bg-muted text-muted-foreground flex size-8"
-            size="icon"
+      <MenuTrigger>
+        <Button
+          variant="ghost"
+          className="data-[state=open]:bg-muted text-muted-foreground flex size-8"
+          size="icon"
+        >
+          <IconDotsVertical />
+          <span className="sr-only">Open menu</span>
+        </Button>
+        <Menu placement="bottom end" className="w-32">
+          <MenuItem onAction={() => console.log("Edit")}>Edit</MenuItem>
+          <MenuItem onAction={() => console.log("Make a copy")}>
+            Make a copy
+          </MenuItem>
+          <MenuItem onAction={() => console.log("Favorite")}>Favorite</MenuItem>
+          <MenuSeparator />
+          <MenuItem
+            className="text-destructive focus:bg-destructive focus:text-destructive-foreground"
+            onAction={() => console.log("Delete")}
           >
-            <IconDotsVertical />
-            <span className="sr-only">Open menu</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-32">
-          <DropdownMenuItem>Edit</DropdownMenuItem>
-          <DropdownMenuItem>Make a copy</DropdownMenuItem>
-          <DropdownMenuItem>Favorite</DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+            Delete
+          </MenuItem>
+        </Menu>
+      </MenuTrigger>
     ),
   },
 ]
@@ -421,16 +424,32 @@ export function DataTable({
           <TabsTrigger value="focus-documents">Focus Documents</TabsTrigger>
         </TabsList>
         <div className="flex items-center gap-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm">
-                <IconLayoutColumns />
-                <span className="hidden lg:inline">Customize Columns</span>
-                <span className="lg:hidden">Columns</span>
-                <IconChevronDown />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56">
+          <MenuTrigger>
+            <Button variant="outline" size="sm">
+              <IconLayoutColumns />
+              <span className="hidden lg:inline">Customize Columns</span>
+              <span className="lg:hidden">Columns</span>
+              <IconChevronDown />
+            </Button>
+            <Menu
+              placement="bottom end"
+              selectionMode="multiple"
+              selectedKeys={Object.keys(columnVisibility).filter(
+                (key) => columnVisibility[key]
+              )}
+              onSelectionChange={(keys) => {
+                const newVisibility: VisibilityState = {}
+                table
+                  .getAllColumns()
+                  .filter((column) => column.getCanHide())
+                  .forEach((column) => {
+                    newVisibility[column.id] = Array.from(keys).includes(
+                      column.id
+                    )
+                  })
+                setColumnVisibility(newVisibility)
+              }}
+            >
               {table
                 .getAllColumns()
                 .filter(
@@ -440,20 +459,17 @@ export function DataTable({
                 )
                 .map((column) => {
                   return (
-                    <DropdownMenuCheckboxItem
+                    <MenuItem
                       key={column.id}
+                      id={column.id}
                       className="capitalize"
-                      checked={column.getIsVisible()}
-                      onCheckedChange={(value) =>
-                        column.toggleVisibility(!!value)
-                      }
                     >
                       {column.id}
-                    </DropdownMenuCheckboxItem>
+                    </MenuItem>
                   )
                 })}
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </Menu>
+          </MenuTrigger>
           <Button variant="outline" size="sm">
             <IconPlus />
             <span className="hidden lg:inline">Add Section</span>
@@ -717,9 +733,15 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
                   placeholder="Select a type"
                   className="w-full"
                 >
-                  <SelectItem id="Table of Contents">Table of Contents</SelectItem>
-                  <SelectItem id="Executive Summary">Executive Summary</SelectItem>
-                  <SelectItem id="Technical Approach">Technical Approach</SelectItem>
+                  <SelectItem id="Table of Contents">
+                    Table of Contents
+                  </SelectItem>
+                  <SelectItem id="Executive Summary">
+                    Executive Summary
+                  </SelectItem>
+                  <SelectItem id="Technical Approach">
+                    Technical Approach
+                  </SelectItem>
                   <SelectItem id="Design">Design</SelectItem>
                   <SelectItem id="Capabilities">Capabilities</SelectItem>
                   <SelectItem id="Focus Documents">Focus Documents</SelectItem>
@@ -760,7 +782,9 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
                 className="w-full"
               >
                 <SelectItem id="Eddie Lake">Eddie Lake</SelectItem>
-                <SelectItem id="Jamik Tashpulatov">Jamik Tashpulatov</SelectItem>
+                <SelectItem id="Jamik Tashpulatov">
+                  Jamik Tashpulatov
+                </SelectItem>
                 <SelectItem id="Emily Whalen">Emily Whalen</SelectItem>
               </Select>
             </div>

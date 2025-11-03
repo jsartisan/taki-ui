@@ -5,17 +5,23 @@ import { createContext, memo, useContext, useMemo } from "react"
 import {
   BrainIcon,
   ChevronDownIcon,
+  ChevronRightIcon,
   DotIcon,
   type LucideIcon,
 } from "lucide-react"
+import {
+  Button,
+  composeRenderProps,
+  DisclosureStateContext,
+} from "react-aria-components"
 
 import { cn } from "@/lib/utils"
 import { Badge } from "@/registry/new-york-v4/ui/badge"
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/registry/new-york-v4/ui/collapsible"
+  Disclosure,
+  DisclosureHeader,
+  DisclosurePanel,
+} from "@/registry/new-york-v4/ui/disclosure"
 
 import { useControllableState } from "../hooks/use-controllable-state"
 
@@ -66,46 +72,57 @@ export const ChainOfThought = memo(
 
     return (
       <ChainOfThoughtContext.Provider value={chainOfThoughtContext}>
-        <div
-          className={cn("not-prose max-w-prose space-y-4", className)}
+        <Disclosure
+          className={cn("not-prose max-w-prose", className)}
+          onExpandedChange={setIsOpen}
+          expanded={isOpen}
           {...props}
         >
           {children}
-        </div>
+        </Disclosure>
       </ChainOfThoughtContext.Provider>
     )
   }
 )
 
-export type ChainOfThoughtHeaderProps = ComponentProps<
-  typeof CollapsibleTrigger
->
+export type ChainOfThoughtHeaderProps = ComponentProps<typeof Button>
 
 export const ChainOfThoughtHeader = memo(
   ({ className, children, ...props }: ChainOfThoughtHeaderProps) => {
-    const { isOpen, setIsOpen } = useChainOfThought()
+    const state = useContext(DisclosureStateContext)
 
     return (
-      <Collapsible onOpenChange={setIsOpen} open={isOpen}>
-        <CollapsibleTrigger
-          className={cn(
-            "text-muted-foreground hover:text-foreground flex w-full items-center gap-2 text-sm transition-colors",
-            className
-          )}
-          {...props}
-        >
-          <BrainIcon className="size-4" />
-          <span className="flex-1 text-left">
-            {children ?? "Chain of Thought"}
-          </span>
-          <ChevronDownIcon
-            className={cn(
-              "size-4 transition-transform",
-              isOpen ? "rotate-180" : "rotate-0"
-            )}
-          />
-        </CollapsibleTrigger>
-      </Collapsible>
+      <Button
+        slot="trigger"
+        className={cn(
+          "text-muted-foreground group hover:text-foreground flex w-full items-center gap-2 text-sm transition-colors",
+          className
+        )}
+        {...props}
+      >
+        {composeRenderProps(children, (children) => (
+          <>
+            <div className="relative">
+              <ChevronRightIcon
+                aria-hidden
+                className={cn(
+                  "absolute top-0 left-0 size-4 transition-opacity group-hover:opacity-100",
+                  state?.isExpanded ? "rotate-90" : "opacity-0"
+                )}
+              />
+              <BrainIcon
+                className={cn(
+                  "size-4 transition-transform group-hover:scale-0",
+                  state?.isExpanded ? "scale-0" : ""
+                )}
+              />
+            </div>
+            <span className="flex-1 text-left">
+              {children ?? "Chain of Thought"}
+            </span>
+          </>
+        ))}
+      </Button>
     )
   }
 )
@@ -181,27 +198,14 @@ export const ChainOfThoughtSearchResult = memo(
   )
 )
 
-export type ChainOfThoughtContentProps = ComponentProps<
-  typeof CollapsibleContent
->
+export type ChainOfThoughtContentProps = ComponentProps<typeof DisclosurePanel>
 
 export const ChainOfThoughtContent = memo(
   ({ className, children, ...props }: ChainOfThoughtContentProps) => {
-    const { isOpen } = useChainOfThought()
-
     return (
-      <Collapsible open={isOpen}>
-        <CollapsibleContent
-          className={cn(
-            "mt-2 space-y-3",
-            "data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2 data-[state=open]:slide-in-from-top-2 text-popover-foreground data-[state=closed]:animate-out data-[state=open]:animate-in outline-none",
-            className
-          )}
-          {...props}
-        >
-          {children}
-        </CollapsibleContent>
-      </Collapsible>
+      <DisclosurePanel className={cn("mt-2 space-y-3", className)} {...props}>
+        {children}
+      </DisclosurePanel>
     )
   }
 )

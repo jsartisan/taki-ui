@@ -1,10 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { nanoid } from "nanoid"
 
 import {
   Branch,
   BranchMessages,
+  BranchNext,
+  BranchPage,
+  BranchPrevious,
+  BranchSelector,
 } from "@/registry/new-york-v4/ai-elements/branch"
 import {
   Message,
@@ -12,48 +16,80 @@ import {
   MessageContent,
 } from "@/registry/new-york-v4/ai-elements/message"
 
-export default function BranchDemo() {
-  const [currentBranch, setCurrentBranch] = useState(0)
+const userMessages = [
+  {
+    id: nanoid(),
+    content: "What are the key strategies for optimizing React performance?",
+  },
+  {
+    id: nanoid(),
+    content: "How can I improve the performance of my React application?",
+  },
+  {
+    id: nanoid(),
+    content: "What performance optimization techniques should I use in React?",
+  },
+]
 
-  const branches = [
-    {
-      id: "1",
-      content:
-        "I can help you build a todo app! Let's start with setting up the project structure.",
-    },
-    {
-      id: "2",
-      content:
-        "Sure! For a todo app, I recommend using React with TypeScript and a state management solution like Zustand.",
-    },
-    {
-      id: "3",
-      content:
-        "Of course! We'll create a modern todo app with features like filtering, sorting, and local storage persistence.",
-    },
-  ]
+const assistantMessages = [
+  {
+    id: nanoid(),
+    content:
+      "Here's the first response to your question. This approach focuses on performance optimization.",
+  },
+  {
+    id: nanoid(),
+    content:
+      "Here's an alternative response. This approach emphasizes code readability and maintainability over pure performance.",
+  },
+  {
+    id: nanoid(),
+    content:
+      "And here's a third option. This balanced approach considers both performance and maintainability, making it suitable for most use cases.",
+  },
+]
+
+export default function BranchDemo() {
+  const handleBranchChange = (branchIndex: number) => {
+    console.log("Branch changed to:", branchIndex)
+  }
 
   return (
-    <div className="w-full max-w-2xl space-y-4">
-      <Message from="user">
-        <MessageAvatar name="User" src="https://github.com/shadcn.png" />
-        <MessageContent>Can you help me build a todo app?</MessageContent>
-      </Message>
-
-      <Branch defaultBranch={0} onBranchChange={setCurrentBranch}>
+    <div style={{ height: "300px" }}>
+      <Branch defaultBranch={0} onBranchChange={handleBranchChange}>
         <BranchMessages>
-          {branches.map((branch) => (
-            <Message key={branch.id} from="assistant">
-              <MessageAvatar name="AI" src="/avatars/shadcn.jpg" />
-              <MessageContent>{branch.content}</MessageContent>
+          {userMessages.map((message) => (
+            <Message from="user" key={message.id}>
+              <MessageContent>{message.content}</MessageContent>
+              <MessageAvatar
+                name="Hayden Bleasel"
+                src="https://github.com/haydenbleasel.png"
+              />
             </Message>
           ))}
         </BranchMessages>
+        <BranchSelector from="user">
+          <BranchPrevious />
+          <BranchPage />
+          <BranchNext />
+        </BranchSelector>
       </Branch>
 
-      <p className="text-muted-foreground text-center text-sm">
-        Currently viewing branch {currentBranch + 1} of {branches.length}
-      </p>
+      <Branch defaultBranch={0} onBranchChange={handleBranchChange}>
+        <BranchMessages>
+          {assistantMessages.map((message) => (
+            <Message from="assistant" key={message.id}>
+              <MessageContent>{message.content}</MessageContent>
+              <MessageAvatar name="AI" src="https://github.com/openai.png" />
+            </Message>
+          ))}
+        </BranchMessages>
+        <BranchSelector from="assistant">
+          <BranchPrevious />
+          <BranchPage />
+          <BranchNext />
+        </BranchSelector>
+      </Branch>
     </div>
   )
 }

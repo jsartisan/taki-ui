@@ -24,17 +24,6 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "alert-dialog-demo",
-    type: "registry:example",
-    registryDependencies: ["alert-dialog", "button"],
-    files: [
-      {
-        path: "examples/alert-dialog-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "actions-demo",
     type: "registry:example",
     registryDependencies: ["actions", "button", "tooltip"],
@@ -71,7 +60,7 @@ export const examples: Registry["items"] = [
   {
     name: "chain-of-thought-demo",
     type: "registry:example",
-    registryDependencies: ["chain-of-thought", "collapsible", "badge"],
+    registryDependencies: ["chain-of-thought", "disclosure", "badge"],
     files: [
       {
         path: "examples/chain-of-thought-demo.tsx",
@@ -148,7 +137,7 @@ export const examples: Registry["items"] = [
   {
     name: "breadcrumb-demo",
     type: "registry:example",
-    registryDependencies: ["breadcrumb"],
+    registryDependencies: ["breadcrumb", "menu", "button"],
     files: [
       {
         path: "examples/breadcrumb-demo.tsx",
@@ -170,7 +159,7 @@ export const examples: Registry["items"] = [
   {
     name: "breadcrumb-dropdown",
     type: "registry:example",
-    registryDependencies: ["breadcrumb"],
+    registryDependencies: ["breadcrumb", "menu", "button"],
     files: [
       {
         path: "examples/breadcrumb-dropdown.tsx",
@@ -203,7 +192,7 @@ export const examples: Registry["items"] = [
   {
     name: "breadcrumb-responsive",
     type: "registry:example",
-    registryDependencies: ["breadcrumb"],
+    registryDependencies: ["breadcrumb", "menu", "button", "drawer"],
     files: [
       {
         path: "examples/breadcrumb-responsive.tsx",
@@ -652,23 +641,111 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "collapsible-demo",
-    type: "registry:example",
-    registryDependencies: ["collapsible"],
-    files: [
-      {
-        path: "examples/collapsible-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "code-block-demo",
     type: "registry:example",
     registryDependencies: ["code-block", "button"],
     files: [
       {
         path: "examples/code-block-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "code-block-custom-theme",
+    type: "registry:example",
+    registryDependencies: ["code-block", "button"],
+    files: [
+      {
+        path: "examples/code-block-custom-theme.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "code-block-diff",
+    type: "registry:example",
+    registryDependencies: ["code-block", "button"],
+    files: [
+      {
+        path: "examples/code-block-diff.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "code-block-focus",
+    type: "registry:example",
+    registryDependencies: ["code-block", "button"],
+    files: [
+      {
+        path: "examples/code-block-focus.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "code-block-highlight",
+    type: "registry:example",
+    registryDependencies: ["code-block", "button"],
+    files: [
+      {
+        path: "examples/code-block-highlight.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "code-block-highlight-word",
+    type: "registry:example",
+    registryDependencies: ["code-block", "button"],
+    files: [
+      {
+        path: "examples/code-block-highlight-word.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "code-block-multiple-files",
+    type: "registry:example",
+    registryDependencies: ["code-block", "button", "select"],
+    files: [
+      {
+        path: "examples/code-block-multiple-files.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "code-block-no-header",
+    type: "registry:example",
+    registryDependencies: ["code-block"],
+    files: [
+      {
+        path: "examples/code-block-no-header.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "code-block-no-line-numbers",
+    type: "registry:example",
+    registryDependencies: ["code-block", "button"],
+    files: [
+      {
+        path: "examples/code-block-no-line-numbers.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "code-block-no-syntax",
+    type: "registry:example",
+    registryDependencies: ["code-block", "button"],
+    files: [
+      {
+        path: "examples/code-block-no-syntax.tsx",
         type: "registry:example",
       },
     ],
@@ -688,10 +765,65 @@ export const examples: Registry["items"] = [
   {
     name: "combobox-demo",
     type: "registry:example",
-    registryDependencies: ["command"],
+    registryDependencies: ["combobox"],
     files: [
       {
         path: "examples/combobox-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-sections",
+    type: "registry:example",
+    registryDependencies: ["combobox"],
+    files: [
+      {
+        path: "examples/combobox-sections.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-controlled",
+    type: "registry:example",
+    registryDependencies: ["combobox"],
+    files: [
+      {
+        path: "examples/combobox-controlled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-disabled",
+    type: "registry:example",
+    registryDependencies: ["combobox"],
+    files: [
+      {
+        path: "examples/combobox-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-description",
+    type: "registry:example",
+    registryDependencies: ["combobox"],
+    files: [
+      {
+        path: "examples/combobox-description.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "combobox-validation",
+    type: "registry:example",
+    registryDependencies: ["combobox"],
+    files: [
+      {
+        path: "examples/combobox-validation.tsx",
         type: "registry:example",
       },
     ],
@@ -739,7 +871,7 @@ export const examples: Registry["items"] = [
   {
     name: "combobox-dropdown-menu",
     type: "registry:example",
-    registryDependencies: ["command", "dropdown-menu", "button"],
+    registryDependencies: ["command", "menu", "button"],
     files: [
       {
         path: "examples/combobox-dropdown-menu.tsx",
@@ -798,17 +930,6 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/command-dialog.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "context-menu-demo",
-    type: "registry:example",
-    registryDependencies: ["context-menu"],
-    files: [
-      {
-        path: "examples/context-menu-demo.tsx",
         type: "registry:example",
       },
     ],
@@ -1075,6 +1196,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "dialog-alert",
+    type: "registry:example",
+    registryDependencies: ["dialog", "modal", "button"],
+    files: [
+      {
+        path: "examples/dialog-alert.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "drawer-demo",
     type: "registry:example",
     registryDependencies: ["drawer"],
@@ -1290,6 +1422,61 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/field-responsive.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "file-trigger-demo",
+    type: "registry:example",
+    registryDependencies: ["file-trigger", "button"],
+    files: [
+      {
+        path: "examples/file-trigger-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "file-trigger-multiple",
+    type: "registry:example",
+    registryDependencies: ["file-trigger", "button"],
+    files: [
+      {
+        path: "examples/file-trigger-multiple.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "file-trigger-image",
+    type: "registry:example",
+    registryDependencies: ["file-trigger", "button"],
+    files: [
+      {
+        path: "examples/file-trigger-image.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "file-trigger-directory",
+    type: "registry:example",
+    registryDependencies: ["file-trigger", "button"],
+    files: [
+      {
+        path: "examples/file-trigger-directory.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "file-trigger-camera",
+    type: "registry:example",
+    registryDependencies: ["file-trigger", "button"],
+    files: [
+      {
+        path: "examples/file-trigger-camera.tsx",
         type: "registry:example",
       },
     ],
@@ -1556,51 +1743,67 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "dropdown-menu-demo",
+    name: "grid-list-demo",
     type: "registry:example",
-    registryDependencies: ["dropdown-menu"],
+    registryDependencies: ["grid-list"],
     files: [
       {
-        path: "examples/dropdown-menu-demo.tsx",
+        path: "examples/grid-list-demo.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "dropdown-menu-checkboxes",
+    name: "grid-list-selection",
     type: "registry:example",
-    registryDependencies: ["dropdown-menu", "checkbox"],
+    registryDependencies: ["grid-list", "checkbox"],
     files: [
       {
-        path: "examples/dropdown-menu-checkboxes.tsx",
+        path: "examples/grid-list-selection.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "dropdown-menu-radio-group",
+    name: "grid-list-actions",
     type: "registry:example",
-    registryDependencies: ["dropdown-menu", "radio-group"],
+    registryDependencies: ["grid-list", "button"],
     files: [
       {
-        path: "examples/dropdown-menu-radio-group.tsx",
+        path: "examples/grid-list-actions.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "dropdown-menu-dialog",
+    name: "grid-list-links",
     type: "registry:example",
-    registryDependencies: [
-      "dropdown-menu",
-      "dialog",
-      "button",
-      "input",
-      "label",
-    ],
+    registryDependencies: ["grid-list"],
     files: [
       {
-        path: "examples/dropdown-menu-dialog.tsx",
+        path: "examples/grid-list-links.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "grid-list-disabled",
+    type: "registry:example",
+    registryDependencies: ["grid-list"],
+    files: [
+      {
+        path: "examples/grid-list-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "grid-list-empty",
+    type: "registry:example",
+    registryDependencies: ["grid-list"],
+    files: [
+      {
+        path: "examples/grid-list-empty.tsx",
         type: "registry:example",
       },
     ],
@@ -1762,7 +1965,7 @@ export const examples: Registry["items"] = [
   {
     name: "input-group-dropdown",
     type: "registry:example",
-    registryDependencies: ["input-group", "dropdown-menu", "button"],
+    registryDependencies: ["input-group", "menu", "button"],
     files: [
       {
         path: "examples/input-group-dropdown.tsx",
@@ -1810,7 +2013,7 @@ export const examples: Registry["items"] = [
       "input-group",
       "badge",
       "progress",
-      "dropdown-menu",
+      "menu",
       "tooltip",
     ],
     files: [
@@ -2008,6 +2211,83 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "list-box-demo",
+    type: "registry:example",
+    registryDependencies: ["list-box"],
+    files: [
+      {
+        path: "examples/list-box-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "list-box-multiple",
+    type: "registry:example",
+    registryDependencies: ["list-box"],
+    files: [
+      {
+        path: "examples/list-box-multiple.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "list-box-sections",
+    type: "registry:example",
+    registryDependencies: ["list-box"],
+    files: [
+      {
+        path: "examples/list-box-sections.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "list-box-disabled",
+    type: "registry:example",
+    registryDependencies: ["list-box"],
+    files: [
+      {
+        path: "examples/list-box-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "list-box-empty",
+    type: "registry:example",
+    registryDependencies: ["list-box"],
+    files: [
+      {
+        path: "examples/list-box-empty.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "list-box-links",
+    type: "registry:example",
+    registryDependencies: ["list-box"],
+    files: [
+      {
+        path: "examples/list-box-links.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "list-box-dynamic",
+    type: "registry:example",
+    registryDependencies: ["list-box"],
+    files: [
+      {
+        path: "examples/list-box-dynamic.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "kbd-input-group",
     type: "registry:example",
     registryDependencies: ["kbd", "input", "button", "label"],
@@ -2065,7 +2345,7 @@ export const examples: Registry["items"] = [
   {
     name: "open-in-chat-demo",
     type: "registry:example",
-    registryDependencies: ["open-in-chat", "button", "dropdown-menu"],
+    registryDependencies: ["open-in-chat", "button", "menu"],
     files: [
       {
         path: "examples/open-in-chat-demo.tsx",
@@ -2076,7 +2356,7 @@ export const examples: Registry["items"] = [
   {
     name: "plan-demo",
     type: "registry:example",
-    registryDependencies: ["plan", "card", "collapsible", "button", "shimmer"],
+    registryDependencies: ["plan", "card", "disclosure", "button", "shimmer"],
     files: [
       {
         path: "examples/plan-demo.tsx",
@@ -2099,7 +2379,7 @@ export const examples: Registry["items"] = [
   {
     name: "queue-demo",
     type: "registry:example",
-    registryDependencies: ["queue", "button", "collapsible", "scroll-area"],
+    registryDependencies: ["queue", "button", "disclosure", "scroll-area"],
     files: [
       {
         path: "examples/queue-demo.tsx",
@@ -2110,7 +2390,7 @@ export const examples: Registry["items"] = [
   {
     name: "reasoning-demo",
     type: "registry:example",
-    registryDependencies: ["reasoning", "collapsible", "response", "shimmer"],
+    registryDependencies: ["reasoning", "disclosure", "response", "shimmer"],
     files: [
       {
         path: "examples/reasoning-demo.tsx",
@@ -2133,7 +2413,7 @@ export const examples: Registry["items"] = [
   {
     name: "sources-demo",
     type: "registry:example",
-    registryDependencies: ["sources", "collapsible"],
+    registryDependencies: ["sources", "disclosure"],
     files: [
       {
         path: "examples/sources-demo.tsx",
@@ -2144,7 +2424,7 @@ export const examples: Registry["items"] = [
   {
     name: "task-demo",
     type: "registry:example",
-    registryDependencies: ["task", "collapsible"],
+    registryDependencies: ["task", "disclosure"],
     files: [
       {
         path: "examples/task-demo.tsx",
@@ -2155,7 +2435,7 @@ export const examples: Registry["items"] = [
   {
     name: "tool-demo",
     type: "registry:example",
-    registryDependencies: ["tool", "collapsible", "badge", "code-block"],
+    registryDependencies: ["tool", "disclosure", "badge", "code-block"],
     dependencies: ["ai"],
     files: [
       {
@@ -2170,7 +2450,7 @@ export const examples: Registry["items"] = [
     registryDependencies: [
       "web-preview",
       "button",
-      "collapsible",
+      "disclosure",
       "input",
       "tooltip",
       "badge",
@@ -2322,6 +2602,50 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/progress-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "progress-bar-demo",
+    type: "registry:example",
+    registryDependencies: ["progress-bar"],
+    files: [
+      {
+        path: "examples/progress-bar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "progress-bar-indeterminate",
+    type: "registry:example",
+    registryDependencies: ["progress-bar"],
+    files: [
+      {
+        path: "examples/progress-bar-indeterminate.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "progress-bar-label",
+    type: "registry:example",
+    registryDependencies: ["progress-bar"],
+    files: [
+      {
+        path: "examples/progress-bar-label.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "progress-bar-value-scale",
+    type: "registry:example",
+    registryDependencies: ["progress-bar"],
+    files: [
+      {
+        path: "examples/progress-bar-value-scale.tsx",
         type: "registry:example",
       },
     ],
@@ -2828,12 +3152,133 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "tag-group-demo",
+    type: "registry:example",
+    registryDependencies: ["tag-group"],
+    files: [
+      {
+        path: "examples/tag-group-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tag-group-variants",
+    type: "registry:example",
+    registryDependencies: ["tag-group"],
+    files: [
+      {
+        path: "examples/tag-group-variants.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tag-group-removable",
+    type: "registry:example",
+    registryDependencies: ["tag-group"],
+    files: [
+      {
+        path: "examples/tag-group-removable.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tag-group-selection",
+    type: "registry:example",
+    registryDependencies: ["tag-group"],
+    files: [
+      {
+        path: "examples/tag-group-selection.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tag-group-disabled",
+    type: "registry:example",
+    registryDependencies: ["tag-group"],
+    files: [
+      {
+        path: "examples/tag-group-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tag-group-links",
+    type: "registry:example",
+    registryDependencies: ["tag-group"],
+    files: [
+      {
+        path: "examples/tag-group-links.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tag-group-empty",
+    type: "registry:example",
+    registryDependencies: ["tag-group"],
+    files: [
+      {
+        path: "examples/tag-group-empty.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "tabs-demo",
+    type: "registry:example",
+    registryDependencies: ["tabs", "card", "input", "label", "button"],
+    files: [
+      {
+        path: "examples/tabs-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tabs-disabled",
     type: "registry:example",
     registryDependencies: ["tabs"],
     files: [
       {
-        path: "examples/tabs-demo.tsx",
+        path: "examples/tabs-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tabs-orientation",
+    type: "registry:example",
+    registryDependencies: ["tabs"],
+    files: [
+      {
+        path: "examples/tabs-orientation.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tabs-icons",
+    type: "registry:example",
+    registryDependencies: ["tabs"],
+    files: [
+      {
+        path: "examples/tabs-icons.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tabs-controlled",
+    type: "registry:example",
+    registryDependencies: ["tabs", "button"],
+    files: [
+      {
+        path: "examples/tabs-controlled.tsx",
         type: "registry:example",
       },
     ],
@@ -3110,133 +3555,100 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "toggle-group-demo",
+    name: "toggle-button-demo",
     type: "registry:example",
-    registryDependencies: ["toggle-group"],
+    registryDependencies: ["toggle-button"],
     files: [
       {
-        path: "examples/toggle-group-demo.tsx",
+        path: "examples/toggle-button-demo.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toggle-group-disabled",
+    name: "toggle-button-default",
     type: "registry:example",
-    registryDependencies: ["toggle-group"],
+    registryDependencies: ["toggle-button"],
     files: [
       {
-        path: "examples/toggle-group-disabled.tsx",
+        path: "examples/toggle-button-default.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toggle-group-lg",
+    name: "toggle-button-outline",
     type: "registry:example",
-    registryDependencies: ["toggle-group"],
+    registryDependencies: ["toggle-button"],
     files: [
       {
-        path: "examples/toggle-group-lg.tsx",
+        path: "examples/toggle-button-outline.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toggle-group-outline",
+    name: "toggle-button-disabled",
     type: "registry:example",
-    registryDependencies: ["toggle-group"],
+    registryDependencies: ["toggle-button"],
     files: [
       {
-        path: "examples/toggle-group-outline.tsx",
+        path: "examples/toggle-button-disabled.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toggle-group-sm",
+    name: "toggle-button-size",
     type: "registry:example",
-    registryDependencies: ["toggle-group"],
+    registryDependencies: ["toggle-button"],
     files: [
       {
-        path: "examples/toggle-group-sm.tsx",
+        path: "examples/toggle-button-size.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toggle-group-single",
+    name: "toggle-button-controlled",
     type: "registry:example",
-    registryDependencies: ["toggle-group"],
+    registryDependencies: ["toggle-button"],
     files: [
       {
-        path: "examples/toggle-group-single.tsx",
+        path: "examples/toggle-button-controlled.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toggle-demo",
+    name: "toggle-button-group-demo",
     type: "registry:example",
-    registryDependencies: ["toggle"],
+    registryDependencies: ["toggle-button-group"],
     files: [
       {
-        path: "examples/toggle-demo.tsx",
+        path: "examples/toggle-button-group-demo.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toggle-disabled",
+    name: "toggle-button-group-default",
     type: "registry:example",
-    registryDependencies: ["toggle"],
+    registryDependencies: ["toggle-button-group"],
     files: [
       {
-        path: "examples/toggle-disabled.tsx",
+        path: "examples/toggle-button-group-default.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toggle-lg",
+    name: "toggle-button-group-size",
     type: "registry:example",
-    registryDependencies: ["toggle"],
+    registryDependencies: ["toggle-button-group"],
     files: [
       {
-        path: "examples/toggle-lg.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "toggle-outline",
-    type: "registry:example",
-    registryDependencies: ["toggle"],
-    files: [
-      {
-        path: "examples/toggle-outline.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "toggle-sm",
-    type: "registry:example",
-    registryDependencies: ["toggle"],
-    files: [
-      {
-        path: "examples/toggle-sm.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "toggle-with-text",
-    type: "registry:example",
-    registryDependencies: ["toggle"],
-    files: [
-      {
-        path: "examples/toggle-with-text.tsx",
+        path: "examples/toggle-button-group-size.tsx",
         type: "registry:example",
       },
     ],
@@ -3281,6 +3693,83 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/tooltip-delay.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tree-demo",
+    type: "registry:example",
+    registryDependencies: ["tree"],
+    files: [
+      {
+        path: "examples/tree-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tree-selection",
+    type: "registry:example",
+    registryDependencies: ["tree"],
+    files: [
+      {
+        path: "examples/tree-selection.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tree-single-selection",
+    type: "registry:example",
+    registryDependencies: ["tree"],
+    files: [
+      {
+        path: "examples/tree-single-selection.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tree-disabled",
+    type: "registry:example",
+    registryDependencies: ["tree"],
+    files: [
+      {
+        path: "examples/tree-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tree-actions",
+    type: "registry:example",
+    registryDependencies: ["tree"],
+    files: [
+      {
+        path: "examples/tree-actions.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tree-links",
+    type: "registry:example",
+    registryDependencies: ["tree"],
+    files: [
+      {
+        path: "examples/tree-links.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tree-dynamic",
+    type: "registry:example",
+    registryDependencies: ["tree", "button"],
+    files: [
+      {
+        path: "examples/tree-dynamic.tsx",
         type: "registry:example",
       },
     ],
@@ -3587,6 +4076,28 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/menu-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "menu-submenu",
+    type: "registry:example",
+    registryDependencies: ["menu"],
+    files: [
+      {
+        path: "examples/menu-submenu.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "menu-command",
+    type: "registry:example",
+    registryDependencies: ["menu", "command", "avatar"],
+    files: [
+      {
+        path: "examples/menu-command.tsx",
         type: "registry:example",
       },
     ],

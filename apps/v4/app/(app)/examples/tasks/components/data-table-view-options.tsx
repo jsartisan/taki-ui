@@ -1,57 +1,68 @@
 "use client"
 
-import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
-import { Table } from "@tanstack/react-table"
+import { Table, VisibilityState } from "@tanstack/react-table"
 import { Settings2 } from "lucide-react"
 
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
+  Menu,
+  MenuItem,
+  MenuSection,
+  MenuSeparator,
+  MenuTrigger,
+} from "@/registry/new-york-v4/ui/menu"
 
 export function DataTableViewOptions<TData>({
   table,
 }: {
   table: Table<TData>
 }) {
+  const columnVisibility = table.getState().columnVisibility
+
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="sm"
-          className="ml-auto hidden h-8 lg:flex"
-        >
-          <Settings2 />
-          View
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[150px]">
-        <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        {table
-          .getAllColumns()
-          .filter(
-            (column) =>
-              typeof column.accessorFn !== "undefined" && column.getCanHide()
-          )
-          .map((column) => {
-            return (
-              <DropdownMenuCheckboxItem
-                key={column.id}
-                className="capitalize"
-                checked={column.getIsVisible()}
-                onCheckedChange={(value) => column.toggleVisibility(!!value)}
-              >
-                {column.id}
-              </DropdownMenuCheckboxItem>
+    <MenuTrigger>
+      <Button
+        variant="outline"
+        size="sm"
+        className="ml-auto hidden h-8 lg:flex"
+      >
+        <Settings2 />
+        View
+      </Button>
+      <Menu
+        placement="bottom end"
+        className="w-[150px]"
+        selectionMode="multiple"
+        selectedKeys={Object.keys(columnVisibility).filter(
+          (key) => columnVisibility[key]
+        )}
+        onSelectionChange={(keys) => {
+          const newVisibility: VisibilityState = {}
+          table
+            .getAllColumns()
+            .filter((column) => column.getCanHide())
+            .forEach((column) => {
+              newVisibility[column.id] = Array.from(keys).includes(column.id)
+            })
+          table.setColumnVisibility(newVisibility)
+        }}
+      >
+        <MenuSection title="Toggle columns">
+          {table
+            .getAllColumns()
+            .filter(
+              (column) =>
+                typeof column.accessorFn !== "undefined" && column.getCanHide()
             )
-          })}
-      </DropdownMenuContent>
-    </DropdownMenu>
+            .map((column) => {
+              return (
+                <MenuItem key={column.id} id={column.id} className="capitalize">
+                  {column.id}
+                </MenuItem>
+              )
+            })}
+        </MenuSection>
+      </Menu>
+    </MenuTrigger>
   )
 }

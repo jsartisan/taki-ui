@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "select"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/select-demo.tsx",
+      "content": "import { Select, SelectItem } from \"@/registry/new-york-v4/ui/select\"\n\nexport default function SelectDemo() {\n  return (\n    <Select label=\"Fruit\" placeholder=\"Select a fruit\" className=\"w-[180px]\">\n      <SelectItem id=\"apple\">Apple</SelectItem>\n      <SelectItem id=\"banana\">Banana</SelectItem>\n      <SelectItem id=\"blueberry\">Blueberry</SelectItem>\n      <SelectItem id=\"grapes\">Grapes</SelectItem>\n      <SelectItem id=\"pineapple\">Pineapple</SelectItem>\n    </Select>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

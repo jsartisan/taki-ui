@@ -10,13 +10,12 @@ import {
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
+  Menu,
+  MenuItem,
+  MenuSection,
+  MenuSeparator,
+  MenuTrigger,
+} from "@/registry/new-york-v4/ui/menu"
 
 const providers = {
   github: {
@@ -194,173 +193,145 @@ const useOpenInContext = () => {
   return context
 }
 
-export type OpenInProps = ComponentProps<typeof DropdownMenu> & {
+export type OpenInProps = ComponentProps<typeof MenuTrigger> & {
   query: string
 }
 
 export const OpenIn = ({ query, ...props }: OpenInProps) => (
   <OpenInContext.Provider value={{ query }}>
-    <DropdownMenu {...props} />
+    <MenuTrigger {...props} />
   </OpenInContext.Provider>
 )
 
-export type OpenInContentProps = ComponentProps<typeof DropdownMenuContent>
+export type OpenInContentProps = ComponentProps<typeof Menu>
 
 export const OpenInContent = ({ className, ...props }: OpenInContentProps) => (
-  <DropdownMenuContent
-    align="start"
+  <Menu
+    placement="bottom start"
     className={cn("w-[240px]", className)}
     {...props}
   />
 )
 
-export type OpenInItemProps = ComponentProps<typeof DropdownMenuItem>
+export type OpenInItemProps = ComponentProps<typeof MenuItem>
 
-export const OpenInItem = (props: OpenInItemProps) => (
-  <DropdownMenuItem {...props} />
-)
+export const OpenInItem = (props: OpenInItemProps) => <MenuItem {...props} />
 
-export type OpenInLabelProps = ComponentProps<typeof DropdownMenuLabel>
+export type OpenInLabelProps = ComponentProps<typeof MenuSection>
 
 export const OpenInLabel = (props: OpenInLabelProps) => (
-  <DropdownMenuLabel {...props} />
+  <MenuSection {...props} />
 )
 
-export type OpenInSeparatorProps = ComponentProps<typeof DropdownMenuSeparator>
+export type OpenInSeparatorProps = ComponentProps<typeof MenuSeparator>
 
 export const OpenInSeparator = (props: OpenInSeparatorProps) => (
-  <DropdownMenuSeparator {...props} />
+  <MenuSeparator {...props} />
 )
 
-export type OpenInTriggerProps = ComponentProps<typeof DropdownMenuTrigger>
+export type OpenInTriggerProps = ComponentProps<typeof Button>
 
 export const OpenInTrigger = ({ children, ...props }: OpenInTriggerProps) => (
-  <DropdownMenuTrigger {...props} asChild>
+  <>
     {children ?? (
-      <Button type="button" variant="outline">
+      <Button type="button" variant="outline" {...props}>
         Open in chat
         <ChevronDownIcon className="ml-2 size-4" />
       </Button>
     )}
-  </DropdownMenuTrigger>
+  </>
 )
 
-export type OpenInChatGPTProps = ComponentProps<typeof DropdownMenuItem>
+export type OpenInChatGPTProps = ComponentProps<typeof MenuItem>
 
 export const OpenInChatGPT = (props: OpenInChatGPTProps) => {
   const { query } = useOpenInContext()
   return (
-    <DropdownMenuItem asChild {...props}>
-      <a
-        className="flex items-center gap-2"
-        href={providers.chatgpt.createUrl(query)}
-        rel="noopener"
-        target="_blank"
-      >
-        <span className="shrink-0">{providers.chatgpt.icon}</span>
-        <span className="flex-1">{providers.chatgpt.title}</span>
-        <ExternalLinkIcon className="size-4 shrink-0" />
-      </a>
-    </DropdownMenuItem>
+    <MenuItem
+      href={providers.chatgpt.createUrl(query)}
+      target="_blank"
+      {...props}
+    >
+      <span className="size-4 shrink-0">{providers.chatgpt.icon}</span>
+      <span className="flex-1">{providers.chatgpt.title}</span>
+      <ExternalLinkIcon className="size-4 shrink-0" />
+    </MenuItem>
   )
 }
 
-export type OpenInClaudeProps = ComponentProps<typeof DropdownMenuItem>
+export type OpenInClaudeProps = ComponentProps<typeof MenuItem>
 
 export const OpenInClaude = (props: OpenInClaudeProps) => {
   const { query } = useOpenInContext()
   return (
-    <DropdownMenuItem asChild {...props}>
-      <a
-        className="flex items-center gap-2"
-        href={providers.claude.createUrl(query)}
-        rel="noopener"
-        target="_blank"
-      >
-        <span className="shrink-0">{providers.claude.icon}</span>
-        <span className="flex-1">{providers.claude.title}</span>
-        <ExternalLinkIcon className="size-4 shrink-0" />
-      </a>
-    </DropdownMenuItem>
+    <MenuItem
+      href={providers.claude.createUrl(query)}
+      target="_blank"
+      {...props}
+    >
+      <span className="size-4 shrink-0">{providers.claude.icon}</span>
+      <span className="flex-1">{providers.claude.title}</span>
+      <ExternalLinkIcon className="size-4 shrink-0" />
+    </MenuItem>
   )
 }
 
-export type OpenInT3Props = ComponentProps<typeof DropdownMenuItem>
+export type OpenInT3Props = ComponentProps<typeof MenuItem>
 
 export const OpenInT3 = (props: OpenInT3Props) => {
   const { query } = useOpenInContext()
   return (
-    <DropdownMenuItem asChild {...props}>
-      <a
-        className="flex items-center gap-2"
-        href={providers.t3.createUrl(query)}
-        rel="noopener"
-        target="_blank"
-      >
-        <span className="shrink-0">{providers.t3.icon}</span>
-        <span className="flex-1">{providers.t3.title}</span>
-        <ExternalLinkIcon className="size-4 shrink-0" />
-      </a>
-    </DropdownMenuItem>
+    <MenuItem href={providers.t3.createUrl(query)} target="_blank" {...props}>
+      <span className="size-4 shrink-0">{providers.t3.icon}</span>
+      <span className="flex-1">{providers.t3.title}</span>
+      <ExternalLinkIcon className="size-4 shrink-0" />
+    </MenuItem>
   )
 }
 
-export type OpenInSciraProps = ComponentProps<typeof DropdownMenuItem>
+export type OpenInSciraProps = ComponentProps<typeof MenuItem>
 
 export const OpenInScira = (props: OpenInSciraProps) => {
   const { query } = useOpenInContext()
   return (
-    <DropdownMenuItem asChild {...props}>
-      <a
-        className="flex items-center gap-2"
-        href={providers.scira.createUrl(query)}
-        rel="noopener"
-        target="_blank"
-      >
-        <span className="shrink-0">{providers.scira.icon}</span>
-        <span className="flex-1">{providers.scira.title}</span>
-        <ExternalLinkIcon className="size-4 shrink-0" />
-      </a>
-    </DropdownMenuItem>
+    <MenuItem
+      href={providers.scira.createUrl(query)}
+      target="_blank"
+      {...props}
+    >
+      <span className="size-4 shrink-0">{providers.scira.icon}</span>
+      <span className="flex-1">{providers.scira.title}</span>
+      <ExternalLinkIcon className="size-4 shrink-0" />
+    </MenuItem>
   )
 }
 
-export type OpenInv0Props = ComponentProps<typeof DropdownMenuItem>
+export type OpenInv0Props = ComponentProps<typeof MenuItem>
 
 export const OpenInv0 = (props: OpenInv0Props) => {
   const { query } = useOpenInContext()
   return (
-    <DropdownMenuItem asChild {...props}>
-      <a
-        className="flex items-center gap-2"
-        href={providers.v0.createUrl(query)}
-        rel="noopener"
-        target="_blank"
-      >
-        <span className="shrink-0">{providers.v0.icon}</span>
-        <span className="flex-1">{providers.v0.title}</span>
-        <ExternalLinkIcon className="size-4 shrink-0" />
-      </a>
-    </DropdownMenuItem>
+    <MenuItem href={providers.v0.createUrl(query)} target="_blank" {...props}>
+      <span className="size-4 shrink-0">{providers.v0.icon}</span>
+      <span className="flex-1">{providers.v0.title}</span>
+      <ExternalLinkIcon className="size-4 shrink-0" />
+    </MenuItem>
   )
 }
 
-export type OpenInCursorProps = ComponentProps<typeof DropdownMenuItem>
+export type OpenInCursorProps = ComponentProps<typeof MenuItem>
 
 export const OpenInCursor = (props: OpenInCursorProps) => {
   const { query } = useOpenInContext()
   return (
-    <DropdownMenuItem asChild {...props}>
-      <a
-        className="flex items-center gap-2"
-        href={providers.cursor.createUrl(query)}
-        rel="noopener"
-        target="_blank"
-      >
-        <span className="shrink-0">{providers.cursor.icon}</span>
-        <span className="flex-1">{providers.cursor.title}</span>
-        <ExternalLinkIcon className="size-4 shrink-0" />
-      </a>
-    </DropdownMenuItem>
+    <MenuItem
+      href={providers.cursor.createUrl(query)}
+      target="_blank"
+      {...props}
+    >
+      <span className="size-4 shrink-0">{providers.cursor.icon}</span>
+      <span className="flex-1">{providers.cursor.title}</span>
+      <ExternalLinkIcon className="size-4 shrink-0" />
+    </MenuItem>
   )
 }

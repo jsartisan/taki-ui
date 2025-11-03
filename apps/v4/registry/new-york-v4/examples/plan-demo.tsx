@@ -3,15 +3,18 @@ import {
   PlanAction,
   PlanContent,
   PlanDescription,
+  PlanFooter,
   PlanHeader,
   PlanTitle,
   PlanTrigger,
 } from "@/registry/new-york-v4/ai-elements/plan"
 
+import { Button } from "../ui/button"
+
 export default function PlanDemo() {
   return (
     <div className="w-full max-w-2xl">
-      <Plan defaultOpen={false} isStreaming={false}>
+      <Plan defaultExpanded={false} isStreaming={false}>
         <PlanHeader>
           <div className="space-y-1">
             <PlanTitle>Build a Todo App</PlanTitle>

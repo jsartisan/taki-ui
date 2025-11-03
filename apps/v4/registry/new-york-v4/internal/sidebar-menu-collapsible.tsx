@@ -1,12 +1,8 @@
 "use client"
 
+import * as CollapsiblePrimitive from "@radix-ui/react-collapsible"
 import { ChevronRightIcon } from "lucide-react"
 
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/registry/new-york-v4/ui/collapsible"
 import {
   Sidebar,
   SidebarContent,
@@ -20,6 +16,10 @@ import {
   SidebarMenuSubItem,
   SidebarProvider,
 } from "@/registry/new-york-v4/ui/sidebar"
+
+const Collapsible = CollapsiblePrimitive.Root
+const CollapsibleTrigger = CollapsiblePrimitive.CollapsibleTrigger
+const CollapsibleContent = CollapsiblePrimitive.CollapsibleContent
 
 const items = [
   {

@@ -1,0 +1,218 @@
+---
+title: Toggle Button Group
+description: A toggle button group allows a user to toggle a selection of items, for example a set of formatting options.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/ToggleButton.html
+  api: https://react-spectrum.adobe.com/react-aria/ToggleButton.html#props
+---
+
+<ComponentPreview name="toggle-button-group-demo" description="A toggle button group." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add toggle-button-group
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components tailwind-variants
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="toggle-button-group" title="components/ui/toggle-button-group.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  ToggleButtonGroup,
+  ToggleButtonGroupItem,
+} from "@/components/ui/toggle-button-group"
+```
+
+```tsx showLineNumbers
+<ToggleButtonGroup aria-label="Text formatting">
+  <ToggleButtonGroupItem aria-label="Toggle bold">
+    <BoldIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle italic">
+    <ItalicIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle underline">
+    <UnderlineIcon />
+  </ToggleButtonGroupItem>
+</ToggleButtonGroup>
+```
+
+## Features
+
+A toggle button group is a set of toggle buttons that are visually grouped together. They are commonly used for formatting toolbars and similar use cases where multiple related toggles are presented together.
+
+- **Flexible** – Each button in the group can be independently toggled on or off.
+- **Styleable** – Supports both default and outline variants with multiple size options.
+- **Accessible** – Each toggle button has proper ARIA attributes and keyboard support.
+- **Consistent styling** – Buttons in the group are visually connected with shared borders.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="toggle-button-group-default" description="A default toggle button group." />
+
+```tsx
+<ToggleButtonGroup aria-label="Text formatting">
+  <ToggleButtonGroupItem aria-label="Toggle bold">
+    <BoldIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle italic">
+    <ItalicIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle underline">
+    <UnderlineIcon />
+  </ToggleButtonGroupItem>
+</ToggleButtonGroup>
+```
+
+### Outline
+
+<ComponentPreview name="toggle-button-group-demo" description="A toggle button group with outline variant." />
+
+```tsx
+<ToggleButtonGroup variant="outline" aria-label="Text formatting">
+  <ToggleButtonGroupItem aria-label="Toggle bold">
+    <BoldIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle italic">
+    <ItalicIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle underline">
+    <UnderlineIcon />
+  </ToggleButtonGroupItem>
+</ToggleButtonGroup>
+```
+
+### Size
+
+<ComponentPreview name="toggle-button-group-size" description="Toggle button groups in different sizes." />
+
+```tsx
+// Small
+<ToggleButtonGroup variant="outline" size="sm" aria-label="Text formatting">
+  <ToggleButtonGroupItem aria-label="Toggle bold">
+    <BoldIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle italic">
+    <ItalicIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle underline">
+    <UnderlineIcon />
+  </ToggleButtonGroupItem>
+</ToggleButtonGroup>
+
+// Default
+<ToggleButtonGroup variant="outline" aria-label="Text formatting">
+  <ToggleButtonGroupItem aria-label="Toggle bold">
+    <BoldIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle italic">
+    <ItalicIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle underline">
+    <UnderlineIcon />
+  </ToggleButtonGroupItem>
+</ToggleButtonGroup>
+
+// Large
+<ToggleButtonGroup variant="outline" size="lg" aria-label="Text formatting">
+  <ToggleButtonGroupItem aria-label="Toggle bold">
+    <BoldIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle italic">
+    <ItalicIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle underline">
+    <UnderlineIcon />
+  </ToggleButtonGroupItem>
+</ToggleButtonGroup>
+```
+
+## API Reference
+
+### ToggleButtonGroup
+
+The `ToggleButtonGroup` component serves as a container for grouping multiple toggle buttons together.
+
+| Prop      | Type                            | Default     | Description                                        |
+| --------- | ------------------------------- | ----------- | -------------------------------------------------- |
+| `variant` | `"default" \| "outline"`        | `"default"` | The visual style applied to all buttons in the group. |
+| `size`    | `"default" \| "sm" \| "lg"`     | `"default"` | The size applied to all buttons in the group.      |
+| `aria-label` | `string`                     | -           | A label for the group (required for accessibility). |
+
+### ToggleButtonGroupItem
+
+Individual toggle buttons within a group.
+
+| Prop              | Type                             | Default     | Description                                                      |
+| ----------------- | -------------------------------- | ----------- | ---------------------------------------------------------------- |
+| `variant`         | `"default" \| "outline"`         | -           | Override the variant from the parent group.                      |
+| `size`            | `"default" \| "sm" \| "lg"`      | -           | Override the size from the parent group.                         |
+| `isSelected`      | `boolean`                        | -           | Whether the toggle button is selected (controlled).              |
+| `defaultSelected` | `boolean`                        | `false`     | Whether the toggle button is selected by default (uncontrolled). |
+| `onChange`        | `(isSelected: boolean) => void`  | -           | Handler that is called when the selection state changes.         |
+| `isDisabled`      | `boolean`                        | `false`     | Whether the toggle button is disabled.                           |
+| `aria-label`      | `string`                         | -           | A label for the button (required if no visible text).            |
+
+## Accessibility
+
+Each toggle button in the group should have an `aria-label` or visible text to identify it to assistive technology. The group itself should also have an `aria-label` describing the purpose of the group.
+
+```tsx
+// Good: group and items have labels
+<ToggleButtonGroup variant="outline" aria-label="Text formatting">
+  <ToggleButtonGroupItem aria-label="Toggle bold">
+    <BoldIcon />
+  </ToggleButtonGroupItem>
+  <ToggleButtonGroupItem aria-label="Toggle italic">
+    <ItalicIcon />
+  </ToggleButtonGroupItem>
+</ToggleButtonGroup>
+
+// Bad: missing labels
+<ToggleButtonGroup variant="outline">
+  <ToggleButtonGroupItem>
+    <BoldIcon />
+  </ToggleButtonGroupItem>
+</ToggleButtonGroup>
+```
+
+## Related
+
+- [Toggle Button](/docs/components/toggle-button) - Individual toggle button component
+- [Button Group](/docs/components/button-group) - For grouping regular buttons
+

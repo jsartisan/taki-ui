@@ -2,12 +2,7 @@
 
 import { ChevronDownIcon } from "lucide-react"
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
 import {
   Sidebar,
   SidebarHeader,
@@ -26,22 +21,20 @@ export default function AppSidebar() {
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <SidebarMenuButton className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
-                    Select Workspace
-                    <ChevronDownIcon className="ml-auto" />
-                  </SidebarMenuButton>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-(--radix-popper-anchor-width)">
-                  <DropdownMenuItem>
+              <MenuTrigger>
+                <SidebarMenuButton className="data-[pressed]:bg-sidebar-accent data-[pressed]:text-sidebar-accent-foreground">
+                  Select Workspace
+                  <ChevronDownIcon className="ml-auto" />
+                </SidebarMenuButton>
+                <Menu className="w-(--trigger-width)">
+                  <MenuItem>
                     <span>Acme Inc</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
+                  </MenuItem>
+                  <MenuItem>
                     <span>Acme Corp.</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+                  </MenuItem>
+                </Menu>
+              </MenuTrigger>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarHeader>

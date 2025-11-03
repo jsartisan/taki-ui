@@ -2,24 +2,24 @@
 
 import type { ComponentProps } from "react"
 import { BookIcon, ChevronDownIcon } from "lucide-react"
+import { Button } from "react-aria-components"
 
 import { cn } from "@/lib/utils"
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/registry/new-york-v4/ui/collapsible"
+  Disclosure,
+  DisclosurePanel,
+} from "@/registry/new-york-v4/ui/disclosure"
 
 export type SourcesProps = ComponentProps<"div">
 
 export const Sources = ({ className, ...props }: SourcesProps) => (
-  <Collapsible
+  <Disclosure
     className={cn("not-prose text-primary mb-4 text-xs", className)}
     {...props}
   />
 )
 
-export type SourcesTriggerProps = ComponentProps<typeof CollapsibleTrigger> & {
+export type SourcesTriggerProps = ComponentProps<typeof Button> & {
   count: number
 }
 
@@ -29,7 +29,8 @@ export const SourcesTrigger = ({
   children,
   ...props
 }: SourcesTriggerProps) => (
-  <CollapsibleTrigger
+  <Button
+    slot="trigger"
     className={cn("flex items-center gap-2", className)}
     {...props}
   >
@@ -39,16 +40,16 @@ export const SourcesTrigger = ({
         <ChevronDownIcon className="h-4 w-4" />
       </>
     )}
-  </CollapsibleTrigger>
+  </Button>
 )
 
-export type SourcesContentProps = ComponentProps<typeof CollapsibleContent>
+export type SourcesContentProps = ComponentProps<typeof DisclosurePanel>
 
 export const SourcesContent = ({
   className,
   ...props
 }: SourcesContentProps) => (
-  <CollapsibleContent
+  <DisclosurePanel
     className={cn(
       "mt-3 flex w-fit flex-col gap-2",
       "data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2 data-[state=open]:slide-in-from-top-2 data-[state=closed]:animate-out data-[state=open]:animate-in outline-none",

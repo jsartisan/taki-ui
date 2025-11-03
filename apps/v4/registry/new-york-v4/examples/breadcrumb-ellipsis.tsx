@@ -1,39 +1,29 @@
-import Link from "next/link"
-
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
-  BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
+  Breadcrumbs,
   BreadcrumbSeparator,
 } from "@/registry/new-york-v4/ui/breadcrumb"
 
 export default function BreadcrumbCollapsed() {
   return (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href="/">Home</Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
+    <Breadcrumbs>
+      <Breadcrumb>
+        <BreadcrumbLink href="/">Home</BreadcrumbLink>
         <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbEllipsis />
-        </BreadcrumbItem>
+      </Breadcrumb>
+      <Breadcrumb>
+        <BreadcrumbEllipsis />
         <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href="/docs/components">Components</Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
+      </Breadcrumb>
+      <Breadcrumb>
+        <BreadcrumbLink href="/docs/components">Components</BreadcrumbLink>
         <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
+      </Breadcrumb>
+      <Breadcrumb>
+        <BreadcrumbLink>Breadcrumb</BreadcrumbLink>
+      </Breadcrumb>
+    </Breadcrumbs>
   )
 }

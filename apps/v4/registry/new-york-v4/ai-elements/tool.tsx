@@ -11,21 +11,29 @@ import {
   WrenchIcon,
   XCircleIcon,
 } from "lucide-react"
+import { Button } from "react-aria-components"
 
 import { cn } from "@/lib/utils"
 import { Badge } from "@/registry/new-york-v4/ui/badge"
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/registry/new-york-v4/ui/collapsible"
+  Disclosure,
+  DisclosurePanel,
+} from "@/registry/new-york-v4/ui/disclosure"
 
-import { CodeBlock } from "./code-block"
+import {
+  CodeBlock,
+  CodeBlockBody,
+  CodeBlockContent,
+  CodeBlockCopyButton,
+  CodeBlockFilename,
+  CodeBlockHeader,
+  CodeBlockItem,
+} from "./code-block"
 
-export type ToolProps = ComponentProps<typeof Collapsible>
+export type ToolProps = ComponentProps<typeof Disclosure>
 
 export const Tool = ({ className, ...props }: ToolProps) => (
-  <Collapsible
+  <Disclosure
     className={cn("not-prose mb-4 w-full rounded-md border", className)}
     {...props}
   />
@@ -68,7 +76,8 @@ export const ToolHeader = ({
   state,
   ...props
 }: ToolHeaderProps) => (
-  <CollapsibleTrigger
+  <Button
+    slot="trigger"
     className={cn(
       "flex w-full items-center justify-between gap-4 p-3",
       className
@@ -83,13 +92,13 @@ export const ToolHeader = ({
       {getStatusBadge(state)}
     </div>
     <ChevronDownIcon className="text-muted-foreground size-4 transition-transform group-data-[state=open]:rotate-180" />
-  </CollapsibleTrigger>
+  </Button>
 )
 
-export type ToolContentProps = ComponentProps<typeof CollapsibleContent>
+export type ToolContentProps = ComponentProps<typeof DisclosurePanel>
 
 export const ToolContent = ({ className, ...props }: ToolContentProps) => (
-  <CollapsibleContent
+  <DisclosurePanel
     className={cn(
       "data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-top-2 data-[state=open]:slide-in-from-top-2 text-popover-foreground data-[state=closed]:animate-out data-[state=open]:animate-in outline-none",
       className
@@ -108,7 +117,25 @@ export const ToolInput = ({ className, input, ...props }: ToolInputProps) => (
       Parameters
     </h4>
     <div className="bg-muted/50 rounded-md">
-      <CodeBlock code={JSON.stringify(input, null, 2)} language="json" />
+      <CodeBlock
+        data={[
+          {
+            code: JSON.stringify(input, null, 2),
+            language: "json",
+            filename: "input.json",
+          },
+        ]}
+      >
+        <CodeBlockBody>
+          {(item) => (
+            <CodeBlockItem key={item.filename} value={item.filename}>
+              <CodeBlockContent language={item.language as any}>
+                {item.code}
+              </CodeBlockContent>
+            </CodeBlockItem>
+          )}
+        </CodeBlockBody>
+      </CodeBlock>
     </div>
   </div>
 )
@@ -132,10 +159,48 @@ export const ToolOutput = ({
 
   if (typeof output === "object" && !isValidElement(output)) {
     Output = (
-      <CodeBlock code={JSON.stringify(output, null, 2)} language="json" />
+      <CodeBlock
+        data={[
+          {
+            code: JSON.stringify(output, null, 2),
+            language: "json",
+            filename: "output.json",
+          },
+        ]}
+      >
+        <CodeBlockBody>
+          {(item) => (
+            <CodeBlockItem key={item.filename} value={item.filename}>
+              <CodeBlockContent language={item.language as any}>
+                {item.code}
+              </CodeBlockContent>
+            </CodeBlockItem>
+          )}
+        </CodeBlockBody>
+      </CodeBlock>
     )
   } else if (typeof output === "string") {
-    Output = <CodeBlock code={output} language="json" />
+    Output = (
+      <CodeBlock
+        data={[
+          {
+            code: output,
+            language: "json",
+            filename: "output.json",
+          },
+        ]}
+      >
+        <CodeBlockBody>
+          {(item) => (
+            <CodeBlockItem key={item.filename} value={item.filename}>
+              <CodeBlockContent language={item.language as any}>
+                {item.code}
+              </CodeBlockContent>
+            </CodeBlockItem>
+          )}
+        </CodeBlockBody>
+      </CodeBlock>
+    )
   }
 
   return (

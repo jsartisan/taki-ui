@@ -1,0 +1,194 @@
+---
+title: Toggle Button
+description: A toggle button allows a user to toggle a selection on or off, for example switching between two states or modes.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/ToggleButton.html
+  api: https://react-spectrum.adobe.com/react-aria/ToggleButton.html#props
+---
+
+<ComponentPreview name="toggle-button-demo" description="A toggle button." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add toggle-button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components tailwind-variants
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="toggle-button" title="components/ui/toggle-button.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ToggleButton } from "@/components/ui/toggle-button"
+```
+
+```tsx
+<ToggleButton aria-label="Toggle bold">
+  <BoldIcon />
+</ToggleButton>
+```
+
+## Features
+
+Toggle buttons are similar to action buttons, but support an additional selection state that is toggled when a user presses the button. There is no built-in HTML element that represents a toggle button, so React Aria implements it using ARIA attributes.
+
+- **Styleable** – Hover, press, keyboard focus, and selection states are provided for easy styling.
+- **Accessible** – Uses a native `<button>` element with the `aria-pressed` attribute, and supports the Space and Enter keys to toggle the selection state.
+- **Cross-browser** – Mouse, touch, keyboard, and focus interactions are normalized to ensure consistency across browsers and devices.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="toggle-button-default" description="A default toggle button." />
+
+```tsx
+<ToggleButton aria-label="Toggle bold">
+  <BoldIcon />
+</ToggleButton>
+```
+
+### Outline
+
+<ComponentPreview name="toggle-button-outline" description="A toggle button with an outline variant." />
+
+```tsx
+<ToggleButton variant="outline" aria-label="Toggle bold">
+  <BoldIcon />
+</ToggleButton>
+```
+
+### With Text
+
+<ComponentPreview name="toggle-button-demo" description="A toggle button with text and icon." />
+
+```tsx
+<ToggleButton variant="outline" aria-label="Toggle bold">
+  <BoldIcon />
+  Bold
+</ToggleButton>
+```
+
+### Size
+
+<ComponentPreview name="toggle-button-size" description="Toggle buttons in different sizes." />
+
+```tsx
+<ToggleButton variant="outline" size="sm" aria-label="Toggle bold">
+  <BoldIcon />
+</ToggleButton>
+
+<ToggleButton variant="outline" aria-label="Toggle bold">
+  <BoldIcon />
+</ToggleButton>
+
+<ToggleButton variant="outline" size="lg" aria-label="Toggle bold">
+  <BoldIcon />
+</ToggleButton>
+```
+
+### Disabled
+
+<ComponentPreview name="toggle-button-disabled" description="A disabled toggle button." />
+
+```tsx
+<ToggleButton variant="outline" isDisabled aria-label="Toggle bold">
+  <BoldIcon />
+</ToggleButton>
+```
+
+### Controlled
+
+<ComponentPreview name="toggle-button-controlled" description="A controlled toggle button." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { StarIcon } from "lucide-react"
+import { ToggleButton } from "@/components/ui/toggle-button"
+
+export default function Example() {
+  const [isSelected, setSelected] = useState(false)
+
+  return (
+    <ToggleButton
+      variant="outline"
+      isSelected={isSelected}
+      onChange={setSelected}
+      aria-label="Toggle favorite"
+    >
+      <StarIcon className={isSelected ? "fill-current" : ""} />
+      Favorite
+    </ToggleButton>
+  )
+}
+```
+
+A default selection state for a toggle button can be set using the `defaultSelected` prop, or controlled with the `isSelected` prop. The `onChange` event is fired when the user presses the button, toggling the boolean.
+
+## API Reference
+
+### ToggleButton
+
+The `ToggleButton` component supports both uncontrolled and controlled states.
+
+| Prop              | Type                    | Default     | Description                                                    |
+| ----------------- | ----------------------- | ----------- | -------------------------------------------------------------- |
+| `variant`         | `"default" \| "outline"` | `"default"` | The visual style of the toggle button.                         |
+| `size`            | `"default" \| "sm" \| "lg"` | `"default"` | The size of the toggle button.                                 |
+| `isSelected`      | `boolean`               | -           | Whether the toggle button is selected (controlled).            |
+| `defaultSelected` | `boolean`               | `false`     | Whether the toggle button is selected by default (uncontrolled). |
+| `onChange`        | `(isSelected: boolean) => void` | -           | Handler that is called when the selection state changes.       |
+| `isDisabled`      | `boolean`               | `false`     | Whether the toggle button is disabled.                         |
+| `aria-label`      | `string`                | -           | A label for the toggle button (required if no visible text).   |
+
+Apart from the props above, the `ToggleButton` component also supports all props from the `react-aria-components` `ToggleButton` component. Check the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/ToggleButton.html#props) for more details.
+
+## Accessibility
+
+If a visual label is not provided (e.g. an icon only button), then an `aria-label` or `aria-labelledby` prop must be passed to identify the button to assistive technology.
+
+```tsx
+// Good: has aria-label
+<ToggleButton variant="outline" aria-label="Toggle bold">
+  <BoldIcon />
+</ToggleButton>
+
+// Bad: missing label
+<ToggleButton variant="outline">
+  <BoldIcon />
+</ToggleButton>
+```
+

@@ -11,8 +11,8 @@ import {
 } from "lucide-react"
 
 import {
+  Command,
   CommandDialog,
-  CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
@@ -44,44 +44,45 @@ export default function CommandDialogDemo() {
           <span className="text-xs">⌘</span>J
         </kbd>
       </p>
-      <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Suggestions">
-            <CommandItem>
-              <Calendar />
-              <span>Calendar</span>
-            </CommandItem>
-            <CommandItem>
-              <Smile />
-              <span>Search Emoji</span>
-            </CommandItem>
-            <CommandItem>
-              <Calculator />
-              <span>Calculator</span>
-            </CommandItem>
-          </CommandGroup>
-          <CommandSeparator />
-          <CommandGroup heading="Settings">
-            <CommandItem>
-              <User />
-              <span>Profile</span>
-              <CommandShortcut>⌘P</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              <CreditCard />
-              <span>Billing</span>
-              <CommandShortcut>⌘B</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              <Settings />
-              <span>Settings</span>
-              <CommandShortcut>⌘S</CommandShortcut>
-            </CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </CommandDialog>
+      <Command>
+        <CommandDialog isOpen={open} onOpenChange={setOpen}>
+          <CommandInput autoFocus placeholder="Type a command or search..." />
+          <CommandList emptyMessage="No results found.">
+            <CommandGroup heading="Suggestions">
+              <CommandItem id="calendar" textValue="Calendar">
+                <Calendar />
+                <span>Calendar</span>
+              </CommandItem>
+              <CommandItem id="search-emoji" textValue="Search Emoji">
+                <Smile />
+                <span>Search Emoji</span>
+              </CommandItem>
+              <CommandItem id="calculator" textValue="Calculator">
+                <Calculator />
+                <span>Calculator</span>
+              </CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup heading="Settings">
+              <CommandItem id="profile" textValue="Profile">
+                <User />
+                <span>Profile</span>
+                <CommandShortcut>⌘P</CommandShortcut>
+              </CommandItem>
+              <CommandItem id="billing" textValue="Billing">
+                <CreditCard />
+                <span>Billing</span>
+                <CommandShortcut>⌘B</CommandShortcut>
+              </CommandItem>
+              <CommandItem id="settings" textValue="Settings">
+                <Settings />
+                <span>Settings</span>
+                <CommandShortcut>⌘S</CommandShortcut>
+              </CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </CommandDialog>
+      </Command>
     </>
   )
 }

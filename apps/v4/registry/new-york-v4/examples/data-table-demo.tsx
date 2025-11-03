@@ -17,16 +17,13 @@ import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
 
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
 import { Input } from "@/registry/new-york-v4/ui/input"
+import {
+  Menu,
+  MenuItem,
+  MenuSeparator,
+  MenuTrigger,
+} from "@/registry/new-york-v4/ui/menu"
 import {
   Table,
   TableBody,
@@ -81,18 +78,18 @@ export const columns: ColumnDef<Payment>[] = [
     id: "select",
     header: ({ table }) => (
       <Checkbox
-        checked={
+        isSelected={
           table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
+          (table.getIsSomePageRowsSelected() ? "indeterminate" : false)
         }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        onChange={(isSelected) => table.toggleAllPageRowsSelected(!!isSelected)}
         aria-label="Select all"
       />
     ),
     cell: ({ row }) => (
       <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        isSelected={row.getIsSelected()}
+        onChange={(isSelected) => row.toggleSelected(!!isSelected)}
         aria-label="Select row"
       />
     ),
@@ -112,7 +109,7 @@ export const columns: ColumnDef<Payment>[] = [
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          onPress={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Email
           <ArrowUpDown />
@@ -143,25 +140,22 @@ export const columns: ColumnDef<Payment>[] = [
       const payment = row.original
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+        <MenuTrigger>
+          <Button variant="ghost" className="h-8 w-8 p-0">
+            <span className="sr-only">Open menu</span>
+            <MoreHorizontal />
+          </Button>
+          <Menu placement="bottom end">
+            <MenuItem
+              onAction={() => navigator.clipboard.writeText(payment.id)}
             >
               Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </MenuItem>
+            <MenuSeparator />
+            <MenuItem>View customer</MenuItem>
+            <MenuItem>View payment details</MenuItem>
+          </Menu>
+        </MenuTrigger>
       )
     },
   },
@@ -206,32 +200,45 @@ export default function DataTableDemo() {
           }
           className="max-w-sm"
         />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              Columns <ChevronDown />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+        <MenuTrigger>
+          <Button variant="outline" className="ml-auto">
+            Columns <ChevronDown />
+          </Button>
+          <Menu
+            placement="bottom end"
+            selectionMode="multiple"
+            selectedKeys={Object.keys(columnVisibility).filter(
+              (key) => columnVisibility[key]
+            )}
+            onSelectionChange={(keys) => {
+              const newVisibility: VisibilityState = {}
+              table
+                .getAllColumns()
+                .filter((column) => column.getCanHide())
+                .forEach((column) => {
+                  newVisibility[column.id] = Array.from(keys).includes(
+                    column.id
+                  )
+                })
+              setColumnVisibility(newVisibility)
+            }}
+          >
             {table
               .getAllColumns()
               .filter((column) => column.getCanHide())
               .map((column) => {
                 return (
-                  <DropdownMenuCheckboxItem
+                  <MenuItem
                     key={column.id}
+                    id={column.id}
                     className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
                   >
                     {column.id}
-                  </DropdownMenuCheckboxItem>
+                  </MenuItem>
                 )
               })}
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </Menu>
+        </MenuTrigger>
       </div>
       <div className="overflow-hidden rounded-md border">
         <Table>
@@ -292,16 +299,16 @@ export default function DataTableDemo() {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
+            onPress={() => table.previousPage()}
+            isDisabled={!table.getCanPreviousPage()}
           >
             Previous
           </Button>
           <Button
             variant="outline"
             size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
+            onPress={() => table.nextPage()}
+            isDisabled={!table.getCanNextPage()}
           >
             Next
           </Button>

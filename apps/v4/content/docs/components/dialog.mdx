@@ -86,3 +86,52 @@ import {
 Use the `slot="close"` prop to add a custom close button to the dialog.
 
 <ComponentPreview name="dialog-close-button" />
+
+### Alert Dialog
+
+You can compose an alert dialog using the Dialog component by setting `role="alertdialog"` on the Dialog and `isDismissable={false}` on the Modal to prevent dismissing by clicking outside or pressing Escape.
+
+<ComponentPreview name="dialog-alert" description="An alert dialog composed with the Dialog component." />
+
+```tsx showLineNumbers
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Modal } from "@/components/ui/modal"
+
+export default function DialogAlert() {
+  return (
+    <DialogTrigger>
+      <Button variant="outline">Delete Account</Button>
+      <Modal isDismissable={false}>
+        <Dialog role="alertdialog">
+          {({ close }) => (
+            <>
+              <DialogHeader>
+                <DialogTitle>Are you absolutely sure?</DialogTitle>
+                <DialogDescription>
+                  This action cannot be undone. This will permanently delete
+                  your account and remove your data from our servers.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+                <Button variant="outline" onPress={close}>
+                  Cancel
+                </Button>
+                <Button variant="destructive" onPress={close}>
+                  Delete Account
+                </Button>
+              </div>
+            </>
+          )}
+        </Dialog>
+      </Modal>
+    </DialogTrigger>
+  )
+}
+```

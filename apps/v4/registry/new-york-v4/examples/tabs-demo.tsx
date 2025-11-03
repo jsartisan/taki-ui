@@ -1,5 +1,3 @@
-import { AppWindowIcon, CodeIcon } from "lucide-react"
-
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Card,
@@ -12,8 +10,8 @@ import {
 import { Input } from "@/registry/new-york-v4/ui/input"
 import { Label } from "@/registry/new-york-v4/ui/label"
 import {
+  TabPanel,
   Tabs,
-  TabsContent,
   TabsList,
   TabsTrigger,
 } from "@/registry/new-york-v4/ui/tabs"
@@ -21,12 +19,12 @@ import {
 export default function TabsDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-6">
-      <Tabs defaultValue="account">
-        <TabsList>
-          <TabsTrigger value="account">Account</TabsTrigger>
-          <TabsTrigger value="password">Password</TabsTrigger>
+      <Tabs defaultSelectedKey="account">
+        <TabsList aria-label="Account settings">
+          <TabsTrigger id="account">Account</TabsTrigger>
+          <TabsTrigger id="password">Password</TabsTrigger>
         </TabsList>
-        <TabsContent value="account">
+        <TabPanel id="account">
           <Card>
             <CardHeader>
               <CardTitle>Account</CardTitle>
@@ -49,8 +47,8 @@ export default function TabsDemo() {
               <Button>Save changes</Button>
             </CardFooter>
           </Card>
-        </TabsContent>
-        <TabsContent value="password">
+        </TabPanel>
+        <TabPanel id="password">
           <Card>
             <CardHeader>
               <CardTitle>Password</CardTitle>
@@ -73,7 +71,7 @@ export default function TabsDemo() {
               <Button>Save password</Button>
             </CardFooter>
           </Card>
-        </TabsContent>
+        </TabPanel>
       </Tabs>
     </div>
   )

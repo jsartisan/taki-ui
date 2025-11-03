@@ -9,7 +9,7 @@ import {
 import { tv } from "tailwind-variants"
 
 const overlayStyles = tv({
-  base: "absolute top-0 left-0 w-full h-(--page-height) isolate z-20 bg-black/[50%] text-center backdrop-blur-lg",
+  base: "absolute top-0 left-0 w-full h-(--page-height) isolate z-20 bg-black/[50%] backdrop-blur-lg",
   variants: {
     isEntering: {
       true: "animate-in fade-in duration-200 ease-out",

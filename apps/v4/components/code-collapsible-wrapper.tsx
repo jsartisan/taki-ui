@@ -1,15 +1,15 @@
 "use client"
 
 import * as React from "react"
+import * as CollapsiblePrimitive from "@radix-ui/react-collapsible"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/registry/new-york-v4/ui/collapsible"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
+
+const Collapsible = CollapsiblePrimitive.Root
+const CollapsibleTrigger = CollapsiblePrimitive.CollapsibleTrigger
+const CollapsibleContent = CollapsiblePrimitive.CollapsibleContent
 
 export function CodeCollapsibleWrapper({
   className,

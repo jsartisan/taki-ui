@@ -51,9 +51,9 @@ import {
 } from "@/registry/new-york-v4/ui/sidebar"
 import { Tabs, TabsList, TabsTrigger } from "@/registry/new-york-v4/ui/tabs"
 import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "@/registry/new-york-v4/ui/toggle-group"
+  ToggleButtonGroup,
+  ToggleButtonGroupItem,
+} from "@/registry/new-york-v4/ui/toggle-button-group"
 
 type BlockViewerContext = {
   item: z.infer<typeof registryItemSchema>
@@ -153,26 +153,49 @@ function BlockViewerToolbar() {
       </a>
       <div className="ml-auto flex items-center gap-2">
         <div className="h-8 items-center gap-1.5 rounded-md border p-1 shadow-none">
-          <ToggleGroup
-            type="single"
-            defaultValue="100"
-            onValueChange={(value) => {
-              setView("preview")
-              if (resizablePanelRef?.current) {
-                resizablePanelRef.current.resize(parseInt(value))
-              }
-            }}
-            className="gap-1 *:data-[slot=toggle-group-item]:!size-6 *:data-[slot=toggle-group-item]:!rounded-sm"
+          <ToggleButtonGroup
+            className="gap-1 *:data-[slot=toggle-button-group-item]:!size-6 *:data-[slot=toggle-button-group-item]:!rounded-sm"
           >
-            <ToggleGroupItem value="100" title="Desktop">
+            <ToggleButtonGroupItem
+              defaultSelected
+              onChange={(selected) => {
+                if (selected) {
+                  setView("preview")
+                  if (resizablePanelRef?.current) {
+                    resizablePanelRef.current.resize(100)
+                  }
+                }
+              }}
+              title="Desktop"
+            >
               <Monitor />
-            </ToggleGroupItem>
-            <ToggleGroupItem value="60" title="Tablet">
+            </ToggleButtonGroupItem>
+            <ToggleButtonGroupItem
+              onChange={(selected) => {
+                if (selected) {
+                  setView("preview")
+                  if (resizablePanelRef?.current) {
+                    resizablePanelRef.current.resize(60)
+                  }
+                }
+              }}
+              title="Tablet"
+            >
               <Tablet />
-            </ToggleGroupItem>
-            <ToggleGroupItem value="30" title="Mobile">
+            </ToggleButtonGroupItem>
+            <ToggleButtonGroupItem
+              onChange={(selected) => {
+                if (selected) {
+                  setView("preview")
+                  if (resizablePanelRef?.current) {
+                    resizablePanelRef.current.resize(30)
+                  }
+                }
+              }}
+              title="Mobile"
+            >
               <Smartphone />
-            </ToggleGroupItem>
+            </ToggleButtonGroupItem>
             <Separator orientation="vertical" className="!h-4" />
             <Button
               size="icon"
@@ -201,7 +224,7 @@ function BlockViewerToolbar() {
               <RotateCw />
               <span className="sr-only">Refresh Preview</span>
             </Button>
-          </ToggleGroup>
+          </ToggleButtonGroup>
         </div>
         <Separator orientation="vertical" className="mx-1 !h-4" />
         <Button

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "radio-group-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "radio-group"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/radio-group-demo.tsx",
+      "content": "import { Radio, RadioGroup } from \"@/registry/new-york-v4/ui/radio-group\"\n\nexport default function RadioGroupDemo() {\n  return (\n    <div className=\"mx-auto w-max\">\n      <RadioGroup defaultValue=\"comfortable\" label=\"Comfort Level\">\n        <Radio value=\"default\" id=\"r1\">\n          Default\n        </Radio>\n        <Radio value=\"comfortable\" id=\"r2\">\n          Comfortable\n        </Radio>\n        <Radio value=\"compact\" id=\"r3\">\n          Compact\n        </Radio>\n      </RadioGroup>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

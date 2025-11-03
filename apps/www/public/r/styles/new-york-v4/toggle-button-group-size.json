@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-button-group-size",
+  "type": "registry:example",
+  "registryDependencies": [
+    "toggle-button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/toggle-button-group-size.tsx",
+      "content": "import { BoldIcon, ItalicIcon, UnderlineIcon } from \"lucide-react\"\n\nimport {\n  ToggleButtonGroup,\n  ToggleButtonGroupItem,\n} from \"@/registry/new-york-v4/ui/toggle-button-group\"\n\nexport default function ToggleButtonGroupSize() {\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <ToggleButtonGroup\n        variant=\"outline\"\n        size=\"sm\"\n        aria-label=\"Text formatting\"\n      >\n        <ToggleButtonGroupItem aria-label=\"Toggle bold\">\n          <BoldIcon />\n        </ToggleButtonGroupItem>\n        <ToggleButtonGroupItem aria-label=\"Toggle italic\">\n          <ItalicIcon />\n        </ToggleButtonGroupItem>\n        <ToggleButtonGroupItem aria-label=\"Toggle underline\">\n          <UnderlineIcon />\n        </ToggleButtonGroupItem>\n      </ToggleButtonGroup>\n\n      <ToggleButtonGroup variant=\"outline\" aria-label=\"Text formatting\">\n        <ToggleButtonGroupItem aria-label=\"Toggle bold\">\n          <BoldIcon />\n        </ToggleButtonGroupItem>\n        <ToggleButtonGroupItem aria-label=\"Toggle italic\">\n          <ItalicIcon />\n        </ToggleButtonGroupItem>\n        <ToggleButtonGroupItem aria-label=\"Toggle underline\">\n          <UnderlineIcon />\n        </ToggleButtonGroupItem>\n      </ToggleButtonGroup>\n\n      <ToggleButtonGroup\n        variant=\"outline\"\n        size=\"lg\"\n        aria-label=\"Text formatting\"\n      >\n        <ToggleButtonGroupItem aria-label=\"Toggle bold\">\n          <BoldIcon />\n        </ToggleButtonGroupItem>\n        <ToggleButtonGroupItem aria-label=\"Toggle italic\">\n          <ItalicIcon />\n        </ToggleButtonGroupItem>\n        <ToggleButtonGroupItem aria-label=\"Toggle underline\">\n          <UnderlineIcon />\n        </ToggleButtonGroupItem>\n      </ToggleButtonGroup>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/new-york-v4/ui/input.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  composeRenderProps,\n  InputProps,\n  Input as RACInput,\n} from \"react-aria-components\"\nimport { tv } from \"tailwind-variants\"\n\nexport const inputStyles = tv({\n  base: [\n    \"file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none md:text-sm\",\n  ],\n  variants: {\n    isDisabled: {\n      true: \"pointer-events-none cursor-not-allowed opacity-50\",\n    },\n    isFocusVisible: {\n      true: \"border-ring ring-ring/50 ring-[3px]\",\n    },\n    isFocused: {\n      true: \"border-ring ring-ring/50 z-10 ring-[3px]\",\n    },\n    isInvalid: {\n      true: \"ring-destructive/20 dark:ring-destructive/40 border-destructive\",\n    },\n  },\n})\n\nfunction Input({ className, type, ...props }: InputProps) {\n  return (\n    <RACInput\n      type={type}\n      data-slot=\"input\"\n      className={composeRenderProps(className, (className, renderProps) =>\n        inputStyles({ ...renderProps, className })\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { Input }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

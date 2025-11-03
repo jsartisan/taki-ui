@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "diff-viewer-new-file",
+  "type": "registry:example",
+  "registryDependencies": [
+    "diff-viewer",
+    "code-block"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/diff-viewer-new-file.tsx",
+      "content": "\"use client\"\n\nimport { DiffViewer } from \"@/registry/new-york-v4/ai-elements/diff-viewer\"\n\nexport default function DiffViewerNewFile() {\n  const oldContent = \"\"\n\n  const newContent = `export interface User {\n  id: string;\n  name: string;\n  email: string;\n  createdAt: Date;\n}\n\nexport function createUser(data: Omit<User, 'id' | 'createdAt'>): User {\n  return {\n    id: crypto.randomUUID(),\n    ...data,\n    createdAt: new Date(),\n  };\n}`\n\n  return (\n    <DiffViewer\n      oldContent={oldContent}\n      newContent={newContent}\n      language=\"typescript\"\n    />\n  )\n}\n\n",
+      "type": "registry:example"
+    }
+  ]
+}

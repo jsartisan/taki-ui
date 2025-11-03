@@ -33,10 +33,13 @@ export function MenuTrigger(
 
 export function Menu<T extends object>(props: MenuProps<T>) {
   return (
-    <Popover placement={props.placement} className={cn(props.className)}>
+    <Popover
+      placement={props.placement}
+      className={cn("w-56", props.className)}
+    >
       <AriaMenu
         {...props}
-        className="max-h-[inherit] overflow-auto rounded-[inherit] p-1 outline outline-0"
+        className="max-h-[inherit] overflow-auto rounded-[inherit] p-1 outline-0"
       />
     </Popover>
   )
@@ -50,20 +53,20 @@ export function MenuItem(props: MenuItemProps) {
     <AriaMenuItem
       textValue={textValue}
       {...props}
-      className={dropdownItemStyles}
+      className={composeRenderProps(props.className, (className, renderProps) =>
+        dropdownItemStyles({ ...renderProps, className })
+      )}
     >
       {composeRenderProps(
         props.children,
         (children, { selectionMode, isSelected, hasSubmenu }) => (
           <>
-            {selectionMode !== "none" && (
-              <span className="flex w-4 items-center">
-                {isSelected && <Check aria-hidden className="h-4 w-4" />}
-              </span>
-            )}
             <span className="group-selected:font-semibold flex flex-1 items-center gap-2 truncate font-normal">
               {children}
             </span>
+            {selectionMode !== "none" && isSelected && (
+              <Check aria-hidden className="h-4 w-4" />
+            )}
             {hasSubmenu && (
               <ChevronRight aria-hidden className="absolute right-2 h-4 w-4" />
             )}

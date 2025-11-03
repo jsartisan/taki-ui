@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "combobox-description",
+  "type": "registry:example",
+  "registryDependencies": [
+    "combobox"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/combobox-description.tsx",
+      "content": "import { ComboBox, ComboBoxItem } from \"@/registry/new-york-v4/ui/combobox\"\n\nconst editors = [\n  { id: \"vscode\", name: \"Visual Studio Code\" },\n  { id: \"sublime\", name: \"Sublime Text\" },\n  { id: \"atom\", name: \"Atom\" },\n  { id: \"vim\", name: \"Vim\" },\n  { id: \"neovim\", name: \"Neovim\" },\n  { id: \"emacs\", name: \"Emacs\" },\n]\n\nexport default function ComboboxDescription() {\n  return (\n    <ComboBox\n      label=\"Code Editor\"\n      description=\"Choose your preferred code editor for development.\"\n      placeholder=\"Search editors...\"\n      className=\"w-full max-w-xs\"\n    >\n      {editors.map((editor) => (\n        <ComboBoxItem key={editor.id} id={editor.id} textValue={editor.name}>\n          {editor.name}\n        </ComboBoxItem>\n      ))}\n    </ComboBox>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 ---
 title: Tabs
-description: A set of layered sections of content—known as tab panels—that are displayed one at a time.
+description: Tabs organize content into multiple sections and allow users to navigate between them.
 component: true
 links:
-  doc: https://www.radix-ui.com/docs/primitives/components/tabs
-  api: https://www.radix-ui.com/docs/primitives/components/tabs#api-reference
+  doc: https://react-spectrum.adobe.com/react-aria/Tabs.html
+  api: https://react-spectrum.adobe.com/react-aria/Tabs.html#props
 ---
 
 <ComponentPreview
@@ -35,7 +35,7 @@ npx shadcn@latest add tabs
 <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @radix-ui/react-tabs
+npm install react-aria-components tailwind-variants
 ```
 
 <Step>Copy and paste the following code into your project.</Step>
@@ -53,16 +53,178 @@ npm install @radix-ui/react-tabs
 ## Usage
 
 ```tsx showLineNumbers
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabPanel, TabsList, TabsTrigger } from "@/components/ui/tabs"
 ```
 
 ```tsx showLineNumbers
-<Tabs defaultValue="account" className="w-[400px]">
-  <TabsList>
-    <TabsTrigger value="account">Account</TabsTrigger>
-    <TabsTrigger value="password">Password</TabsTrigger>
+<Tabs defaultSelectedKey="account">
+  <TabsList aria-label="Account settings">
+    <TabsTrigger id="account">Account</TabsTrigger>
+    <TabsTrigger id="password">Password</TabsTrigger>
   </TabsList>
-  <TabsContent value="account">Make changes to your account here.</TabsContent>
-  <TabsContent value="password">Change your password here.</TabsContent>
+  <TabPanel id="account">
+    Make changes to your account here.
+  </TabPanel>
+  <TabPanel id="password">
+    Change your password here.
+  </TabPanel>
 </Tabs>
 ```
+
+## Examples
+
+### Disabled
+
+<ComponentPreview
+  name="tabs-disabled"
+  description="Disable individual tabs to prevent user interaction."
+/>
+
+```tsx showLineNumbers
+<Tabs defaultSelectedKey="general">
+  <TabsList aria-label="Settings">
+    <TabsTrigger id="general">General</TabsTrigger>
+    <TabsTrigger id="billing" isDisabled>
+      Billing
+    </TabsTrigger>
+    <TabsTrigger id="team">Team</TabsTrigger>
+  </TabsList>
+  <TabPanel id="general">General settings</TabPanel>
+  <TabPanel id="billing">Billing information</TabPanel>
+  <TabPanel id="team">Team management</TabPanel>
+</Tabs>
+```
+
+### With Icons
+
+<ComponentPreview
+  name="tabs-icons"
+  description="Add icons to tabs for better visual hierarchy."
+/>
+
+```tsx showLineNumbers
+import { UserIcon, LockIcon, BellIcon } from "lucide-react"
+
+<Tabs defaultSelectedKey="account">
+  <TabsList aria-label="Settings">
+    <TabsTrigger id="account">
+      <UserIcon />
+      Account
+    </TabsTrigger>
+    <TabsTrigger id="security">
+      <LockIcon />
+      Security
+    </TabsTrigger>
+    <TabsTrigger id="notifications">
+      <BellIcon />
+      Notifications
+    </TabsTrigger>
+  </TabsList>
+  <TabPanel id="account">Account settings</TabPanel>
+  <TabPanel id="security">Security settings</TabPanel>
+  <TabPanel id="notifications">Notification preferences</TabPanel>
+</Tabs>
+```
+
+### Orientation
+
+<ComponentPreview
+  name="tabs-orientation"
+  description="Display tabs vertically instead of horizontally."
+/>
+
+```tsx showLineNumbers
+<Tabs defaultSelectedKey="profile" orientation="vertical">
+  <TabsList aria-label="User settings">
+    <TabsTrigger id="profile">Profile</TabsTrigger>
+    <TabsTrigger id="security">Security</TabsTrigger>
+    <TabsTrigger id="notifications">Notifications</TabsTrigger>
+  </TabsList>
+  <TabPanel id="profile">Profile information</TabPanel>
+  <TabPanel id="security">Security settings</TabPanel>
+  <TabPanel id="notifications">Notification settings</TabPanel>
+</Tabs>
+```
+
+### Controlled
+
+<ComponentPreview
+  name="tabs-controlled"
+  description="Control tab selection programmatically."
+/>
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+
+export default function TabsControlled() {
+  const [selectedTab, setSelectedTab] = useState("overview")
+
+  return (
+    <Tabs
+      selectedKey={selectedTab}
+      onSelectionChange={(key) => setSelectedTab(key as string)}
+    >
+      <TabsList aria-label="Dashboard">
+        <TabsTrigger id="overview">Overview</TabsTrigger>
+        <TabsTrigger id="analytics">Analytics</TabsTrigger>
+        <TabsTrigger id="reports">Reports</TabsTrigger>
+      </TabsList>
+      <TabPanel id="overview">Overview content</TabPanel>
+      <TabPanel id="analytics">Analytics content</TabPanel>
+      <TabPanel id="reports">Reports content</TabPanel>
+    </Tabs>
+  )
+}
+```
+
+## API Reference
+
+### Tabs
+
+The root tabs component that manages the selection state.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultSelectedKey` | `Key` | - | The initial selected tab (uncontrolled) |
+| `selectedKey` | `Key` | - | The currently selected tab (controlled) |
+| `onSelectionChange` | `(key: Key) => void` | - | Handler called when tab selection changes |
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | The orientation of the tabs |
+| `isDisabled` | `boolean` | `false` | Whether all tabs are disabled |
+
+### TabsList
+
+Container for the tab triggers.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `aria-label` | `string` | - | Accessible label for the tab list |
+| `children` | `ReactNode` | - | The tab triggers to display |
+
+### TabsTrigger
+
+Individual tab trigger button.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `id` | `Key` | - | Unique identifier for the tab |
+| `isDisabled` | `boolean` | `false` | Whether the tab is disabled |
+| `children` | `ReactNode` | - | The content to display in the tab |
+
+### TabPanel
+
+The panel that displays the content for a selected tab.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `id` | `Key` | - | Must match the `id` of the corresponding trigger |
+| `children` | `ReactNode` | - | The content to display when tab is selected |
+
+## Accessibility
+
+- Uses the [ARIA tabs pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
+- Keyboard navigation with arrow keys
+- Tab key moves focus in and out of the tab list
+- Supports automatic and manual activation modes
+- Proper ARIA roles and attributes

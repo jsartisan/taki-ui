@@ -22,35 +22,34 @@ export default function CommandDemo() {
   return (
     <Command className="rounded-lg border shadow-md md:min-w-[450px]">
       <CommandInput placeholder="Type a command or search..." />
-      <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
+      <CommandList emptyMessage="No results found.">
         <CommandGroup heading="Suggestions">
-          <CommandItem>
+          <CommandItem id="calendar" textValue="Calendar">
             <Calendar />
             <span>Calendar</span>
           </CommandItem>
-          <CommandItem>
+          <CommandItem id="search-emoji" textValue="Search Emoji">
             <Smile />
             <span>Search Emoji</span>
           </CommandItem>
-          <CommandItem disabled>
+          <CommandItem id="calculator" textValue="Calculator" isDisabled>
             <Calculator />
             <span>Calculator</span>
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
         <CommandGroup heading="Settings">
-          <CommandItem>
+          <CommandItem id="profile" textValue="Profile">
             <User />
             <span>Profile</span>
             <CommandShortcut>⌘P</CommandShortcut>
           </CommandItem>
-          <CommandItem>
+          <CommandItem id="billing" textValue="Billing">
             <CreditCard />
             <span>Billing</span>
             <CommandShortcut>⌘B</CommandShortcut>
           </CommandItem>
-          <CommandItem>
+          <CommandItem id="settings" textValue="Settings">
             <Settings />
             <span>Settings</span>
             <CommandShortcut>⌘S</CommandShortcut>

@@ -2,12 +2,6 @@ import { IconCheck, IconInfoCircle, IconPlus } from "@tabler/icons-react"
 import { ArrowUpIcon, Search } from "lucide-react"
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
-import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
@@ -15,6 +9,7 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from "@/registry/new-york-v4/ui/input-group"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
 import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
 
@@ -57,20 +52,14 @@ export function InputGroupDemo() {
           >
             <IconPlus />
           </InputGroupButton>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <InputGroupButton variant="ghost">Auto</InputGroupButton>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              side="top"
-              align="start"
-              className="[--radius:0.95rem]"
-            >
-              <DropdownMenuItem>Auto</DropdownMenuItem>
-              <DropdownMenuItem>Agent</DropdownMenuItem>
-              <DropdownMenuItem>Manual</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <MenuTrigger>
+            <InputGroupButton variant="ghost">Auto</InputGroupButton>
+            <Menu placement="top start" className="[--radius:0.95rem]">
+              <MenuItem>Auto</MenuItem>
+              <MenuItem>Agent</MenuItem>
+              <MenuItem>Manual</MenuItem>
+            </Menu>
+          </MenuTrigger>
           <InputGroupText className="ml-auto">52% used</InputGroupText>
           <Separator orientation="vertical" className="!h-4" />
           <InputGroupButton

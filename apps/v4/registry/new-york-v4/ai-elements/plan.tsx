@@ -16,10 +16,9 @@ import {
   CardTitle,
 } from "@/registry/new-york-v4/ui/card"
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/registry/new-york-v4/ui/collapsible"
+  Disclosure,
+  DisclosurePanel,
+} from "@/registry/new-york-v4/ui/disclosure"
 
 import { Shimmer } from "./shimmer"
 
@@ -37,7 +36,7 @@ const usePlan = () => {
   return context
 }
 
-export type PlanProps = ComponentProps<typeof Collapsible> & {
+export type PlanProps = ComponentProps<typeof Disclosure> & {
   isStreaming?: boolean
 }
 
@@ -48,9 +47,11 @@ export const Plan = ({
   ...props
 }: PlanProps) => (
   <PlanContext.Provider value={{ isStreaming }}>
-    <Collapsible asChild data-slot="plan" {...props}>
-      <Card className={cn("shadow-none", className)}>{children}</Card>
-    </Collapsible>
+    <Card className={cn("shadow-none", className)}>
+      <Disclosure data-slot="plan" {...props}>
+        {children}
+      </Disclosure>
+    </Card>
   </PlanContext.Provider>
 )
 
@@ -115,9 +116,9 @@ export const PlanAction = (props: PlanActionProps) => (
 export type PlanContentProps = ComponentProps<typeof CardContent>
 
 export const PlanContent = (props: PlanContentProps) => (
-  <CollapsibleContent asChild>
+  <DisclosurePanel className={cn("pt-4", props.className)}>
     <CardContent data-slot="plan-content" {...props} />
-  </CollapsibleContent>
+  </DisclosurePanel>
 )
 
 export type PlanFooterProps = ComponentProps<"div">
@@ -126,19 +127,18 @@ export const PlanFooter = (props: PlanFooterProps) => (
   <CardFooter data-slot="plan-footer" {...props} />
 )
 
-export type PlanTriggerProps = ComponentProps<typeof CollapsibleTrigger>
+export type PlanTriggerProps = ComponentProps<typeof Button>
 
 export const PlanTrigger = ({ className, ...props }: PlanTriggerProps) => (
-  <CollapsibleTrigger asChild>
-    <Button
-      className={cn("size-8", className)}
-      data-slot="plan-trigger"
-      size="icon"
-      variant="ghost"
-      {...props}
-    >
-      <ChevronsUpDownIcon className="size-4" />
-      <span className="sr-only">Toggle plan</span>
-    </Button>
-  </CollapsibleTrigger>
+  <Button
+    className={cn("size-8", className)}
+    data-slot="plan-trigger"
+    size="icon"
+    variant="ghost"
+    slot="trigger"
+    {...props}
+  >
+    <ChevronsUpDownIcon className="size-4" />
+    <span className="sr-only">Toggle plan</span>
+  </Button>
 )

@@ -9,12 +9,11 @@ import {
 } from "@tabler/icons-react"
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/new-york-v4/ui/dropdown-menu"
+  Menu,
+  MenuItem,
+  MenuSeparator,
+  MenuTrigger,
+} from "@/registry/new-york-v4/ui/menu"
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -48,36 +47,36 @@ export function NavDocuments({
                 <span>{item.name}</span>
               </a>
             </SidebarMenuButton>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuAction
-                  showOnHover
-                  className="data-[state=open]:bg-accent rounded-sm"
-                >
-                  <IconDots />
-                  <span className="sr-only">More</span>
-                </SidebarMenuAction>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                className="w-24 rounded-lg"
-                side={isMobile ? "bottom" : "right"}
-                align={isMobile ? "end" : "start"}
+            <MenuTrigger>
+              <SidebarMenuAction
+                showOnHover
+                className="data-[state=open]:bg-accent rounded-sm"
               >
-                <DropdownMenuItem>
+                <IconDots />
+                <span className="sr-only">More</span>
+              </SidebarMenuAction>
+              <Menu
+                className="w-24 rounded-lg"
+                placement={isMobile ? "bottom end" : "right start"}
+              >
+                <MenuItem onAction={() => console.log("Open")}>
                   <IconFolder />
                   <span>Open</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
+                </MenuItem>
+                <MenuItem onAction={() => console.log("Share")}>
                   <IconShare3 />
                   <span>Share</span>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem variant="destructive">
+                </MenuItem>
+                <MenuSeparator />
+                <MenuItem
+                  className="text-destructive focus:bg-destructive focus:text-destructive-foreground"
+                  onAction={() => console.log("Delete")}
+                >
                   <IconTrash />
                   <span>Delete</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </MenuItem>
+              </Menu>
+            </MenuTrigger>
           </SidebarMenuItem>
         ))}
         <SidebarMenuItem>

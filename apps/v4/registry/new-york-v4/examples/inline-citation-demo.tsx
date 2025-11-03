@@ -2,11 +2,15 @@ import {
   InlineCitation,
   InlineCitationCard,
   InlineCitationCardBody,
-  InlineCitationCardCarousel,
-  InlineCitationCardCarouselContent,
-  InlineCitationCardCarouselControl,
-  InlineCitationCardCarouselItem,
   InlineCitationCardTrigger,
+  InlineCitationCarousel,
+  InlineCitationCarouselContent,
+  InlineCitationCarouselHeader,
+  InlineCitationCarouselIndex,
+  InlineCitationCarouselItem,
+  InlineCitationCarouselNext,
+  InlineCitationCarouselPrev,
+  InlineCitationSource,
   InlineCitationText,
 } from "@/registry/new-york-v4/ai-elements/inline-citation"
 
@@ -27,62 +31,36 @@ export default function InlineCitationDemo() {
           <InlineCitationCard>
             <InlineCitationCardTrigger sources={sources} />
             <InlineCitationCardBody>
-              <InlineCitationCardCarousel>
-                <InlineCitationCardCarouselContent>
-                  <InlineCitationCardCarouselItem>
-                    <div className="space-y-2 p-4">
-                      <h4 className="text-sm font-semibold">
-                        React Documentation
-                      </h4>
-                      <p className="text-muted-foreground text-xs">
-                        The official React documentation provides comprehensive
-                        guides and API references.
-                      </p>
-                      <a
-                        className="text-primary text-xs hover:underline"
-                        href="https://react.dev"
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        Visit source →
-                      </a>
-                    </div>
-                  </InlineCitationCardCarouselItem>
-                  <InlineCitationCardCarouselItem>
-                    <div className="space-y-2 p-4">
-                      <h4 className="text-sm font-semibold">MDN Web Docs</h4>
-                      <p className="text-muted-foreground text-xs">
-                        Mozilla's comprehensive web development documentation.
-                      </p>
-                      <a
-                        className="text-primary text-xs hover:underline"
-                        href="https://developer.mozilla.org"
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        Visit source →
-                      </a>
-                    </div>
-                  </InlineCitationCardCarouselItem>
-                  <InlineCitationCardCarouselItem>
-                    <div className="space-y-2 p-4">
-                      <h4 className="text-sm font-semibold">TypeScript Docs</h4>
-                      <p className="text-muted-foreground text-xs">
-                        Official TypeScript documentation and tutorials.
-                      </p>
-                      <a
-                        className="text-primary text-xs hover:underline"
-                        href="https://www.typescriptlang.org"
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        Visit source →
-                      </a>
-                    </div>
-                  </InlineCitationCardCarouselItem>
-                </InlineCitationCardCarouselContent>
-                <InlineCitationCardCarouselControl />
-              </InlineCitationCardCarousel>
+              <InlineCitationCarousel>
+                <InlineCitationCarouselHeader>
+                  <InlineCitationCarouselPrev />
+                  <InlineCitationCarouselNext />
+                  <InlineCitationCarouselIndex />
+                </InlineCitationCarouselHeader>
+                <InlineCitationCarouselContent>
+                  <InlineCitationCarouselItem>
+                    <InlineCitationSource
+                      title="React Documentation"
+                      url="https://react.dev"
+                      description="The official React documentation provides comprehensive guides and API references for building user interfaces."
+                    />
+                  </InlineCitationCarouselItem>
+                  <InlineCitationCarouselItem>
+                    <InlineCitationSource
+                      title="MDN Web Docs"
+                      url="https://developer.mozilla.org"
+                      description="Mozilla's comprehensive web development documentation covering HTML, CSS, JavaScript, and Web APIs."
+                    />
+                  </InlineCitationCarouselItem>
+                  <InlineCitationCarouselItem>
+                    <InlineCitationSource
+                      title="TypeScript Docs"
+                      url="https://www.typescriptlang.org"
+                      description="Official TypeScript documentation and tutorials for learning typed JavaScript."
+                    />
+                  </InlineCitationCarouselItem>
+                </InlineCitationCarouselContent>
+              </InlineCitationCarousel>
             </InlineCitationCardBody>
           </InlineCitationCard>
         </InlineCitation>

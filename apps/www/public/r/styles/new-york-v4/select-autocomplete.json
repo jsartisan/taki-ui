@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select-autocomplete",
+  "type": "registry:example",
+  "registryDependencies": [
+    "combobox"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york-v4/examples/select-autocomplete.tsx",
+      "content": "\"use client\"\n\nimport { ComboBox, ComboBoxItem } from \"@/registry/new-york-v4/ui/combobox\"\n\nconst countries = [\n  { id: \"us\", name: \"United States\" },\n  { id: \"uk\", name: \"United Kingdom\" },\n  { id: \"ca\", name: \"Canada\" },\n  { id: \"au\", name: \"Australia\" },\n  { id: \"de\", name: \"Germany\" },\n  { id: \"fr\", name: \"France\" },\n  { id: \"it\", name: \"Italy\" },\n  { id: \"es\", name: \"Spain\" },\n  { id: \"nl\", name: \"Netherlands\" },\n  { id: \"se\", name: \"Sweden\" },\n  { id: \"no\", name: \"Norway\" },\n  { id: \"dk\", name: \"Denmark\" },\n  { id: \"fi\", name: \"Finland\" },\n  { id: \"pl\", name: \"Poland\" },\n  { id: \"ch\", name: \"Switzerland\" },\n  { id: \"at\", name: \"Austria\" },\n  { id: \"be\", name: \"Belgium\" },\n  { id: \"ie\", name: \"Ireland\" },\n  { id: \"nz\", name: \"New Zealand\" },\n  { id: \"sg\", name: \"Singapore\" },\n  { id: \"jp\", name: \"Japan\" },\n  { id: \"kr\", name: \"South Korea\" },\n  { id: \"in\", name: \"India\" },\n  { id: \"br\", name: \"Brazil\" },\n  { id: \"mx\", name: \"Mexico\" },\n  { id: \"ar\", name: \"Argentina\" },\n  { id: \"cl\", name: \"Chile\" },\n  { id: \"za\", name: \"South Africa\" },\n  { id: \"eg\", name: \"Egypt\" },\n  { id: \"ng\", name: \"Nigeria\" },\n]\n\nexport default function SelectAutocomplete() {\n  return (\n    <ComboBox\n      label=\"Country\"\n      description=\"Search and select your country\"\n      placeholder=\"Search country...\"\n      className=\"w-full max-w-xs\"\n    >\n      {countries.map((country) => (\n        <ComboBoxItem\n          key={country.id}\n          id={country.id}\n          textValue={country.name}\n        >\n          {country.name}\n        </ComboBoxItem>\n      ))}\n    </ComboBox>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

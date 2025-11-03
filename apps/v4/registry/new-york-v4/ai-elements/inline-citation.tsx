@@ -9,6 +9,7 @@ import {
   type ComponentProps,
 } from "react"
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
+import { Focusable } from "react-aria-components"
 
 import { cn } from "@/lib/utils"
 import { Badge } from "@/registry/new-york-v4/ui/badge"
@@ -21,7 +22,6 @@ import {
 import {
   HoverCard,
   HoverCardContent,
-  HoverCardTrigger,
 } from "@/registry/new-york-v4/ui/hover-card"
 
 export type InlineCitationProps = ComponentProps<"span">
@@ -51,7 +51,7 @@ export const InlineCitationText = ({
 export type InlineCitationCardProps = ComponentProps<typeof HoverCard>
 
 export const InlineCitationCard = (props: InlineCitationCardProps) => (
-  <HoverCard closeDelay={0} openDelay={0} {...props} />
+  <HoverCard closeDelay={0} delay={0} {...props} />
 )
 
 export type InlineCitationCardTriggerProps = ComponentProps<typeof Badge> & {
@@ -63,8 +63,9 @@ export const InlineCitationCardTrigger = ({
   className,
   ...props
 }: InlineCitationCardTriggerProps) => (
-  <HoverCardTrigger asChild>
+  <Focusable>
     <Badge
+      role="button"
       className={cn("ml-1 rounded-full", className)}
       variant="secondary"
       {...props}
@@ -78,7 +79,7 @@ export const InlineCitationCardTrigger = ({
         "unknown"
       )}
     </Badge>
-  </HoverCardTrigger>
+  </Focusable>
 )
 
 export type InlineCitationCardBodyProps = ComponentProps<"div">

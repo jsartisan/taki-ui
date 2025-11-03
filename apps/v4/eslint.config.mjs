@@ -15,6 +15,8 @@ const eslintConfig = [
     extends: ["next/core-web-vitals", "next/typescript"],
     rules: {
       "@next/next/no-duplicate-head": "off",
+      "@typescript-eslint/no-empty-interface": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
     },
   }),
   eslintPluginPrettierRecommended,
