@@ -16,7 +16,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/registry/new-york-v4/ui/dialog"
-import { Modal } from "@/registry/new-york-v4/ui/modal"
 import {
   Drawer,
   DrawerContent,
@@ -26,7 +25,7 @@ import {
   DrawerTrigger,
 } from "@/registry/new-york-v4/ui/drawer"
 import { Label } from "@/registry/new-york-v4/ui/label"
-import { ScrollArea, ScrollBar } from "@/registry/new-york-v4/ui/scroll-area"
+import { Modal } from "@/registry/new-york-v4/ui/modal"
 import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import {
   Tabs,
@@ -54,7 +53,7 @@ export function ThemeCustomizer({ className }: React.ComponentProps<"div">) {
 
   return (
     <div className={cn("flex w-full items-center gap-2", className)}>
-      <ScrollArea className="hidden max-w-[96%] md:max-w-[600px] lg:flex lg:max-w-none">
+      <div className="hidden max-w-[96%] overflow-x-auto md:max-w-[600px] lg:flex lg:max-w-none">
         <div className="flex items-center">
           {THEMES.map((theme) => (
             <Button
@@ -69,8 +68,7 @@ export function ThemeCustomizer({ className }: React.ComponentProps<"div">) {
             </Button>
           ))}
         </div>
-        <ScrollBar orientation="horizontal" className="invisible" />
-      </ScrollArea>
+      </div>
       <div className="flex items-center gap-2 lg:hidden">
         <Select
           selectedKey={activeTheme === "default" ? "neutral" : activeTheme}

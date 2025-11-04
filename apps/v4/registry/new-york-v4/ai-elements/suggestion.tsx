@@ -4,21 +4,19 @@ import type { ComponentProps } from "react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
-import { ScrollArea, ScrollBar } from "@/registry/new-york-v4/ui/scroll-area"
 
-export type SuggestionsProps = ComponentProps<typeof ScrollArea>
+export type SuggestionsProps = ComponentProps<"div">
 
 export const Suggestions = ({
   className,
   children,
   ...props
 }: SuggestionsProps) => (
-  <ScrollArea className="w-full overflow-x-auto whitespace-nowrap" {...props}>
+  <div className="w-full overflow-x-auto whitespace-nowrap" {...props}>
     <div className={cn("flex w-max flex-nowrap items-center gap-2", className)}>
       {children}
     </div>
-    <ScrollBar className="hidden" orientation="horizontal" />
-  </ScrollArea>
+  </div>
 )
 
 export type SuggestionProps = Omit<ComponentProps<typeof Button>, "onClick"> & {

@@ -5,7 +5,6 @@ import { PlusIcon, SearchIcon, SettingsIcon, SparklesIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { Input } from "@/registry/new-york-v4/ui/input"
-import { ScrollArea } from "@/registry/new-york-v4/ui/scroll-area"
 
 type ConversationType = {
   id: string
@@ -54,7 +53,7 @@ export function ChatSidebar({
         </div>
       </div>
 
-      <ScrollArea className="flex-1">
+      <div className="flex-1 overflow-y-auto">
         <div className="space-y-1 p-2">
           {conversations.map((conv) => (
             <button
@@ -72,7 +71,7 @@ export function ChatSidebar({
             </button>
           ))}
         </div>
-      </ScrollArea>
+      </div>
 
       <div className="border-t p-4">
         <Button variant="ghost" className="w-full justify-start gap-2">

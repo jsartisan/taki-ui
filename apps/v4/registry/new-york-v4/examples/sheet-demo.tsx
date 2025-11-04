@@ -15,7 +15,7 @@ import {
 export default function SheetDemo() {
   return (
     <Sheet>
-      <SheetTrigger>Outline</SheetTrigger>
+      <Button>Outline</Button>
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>
@@ -35,9 +35,10 @@ export default function SheetDemo() {
         </div>
         <SheetFooter>
           <Button type="submit">Save changes</Button>
-          <SheetClose asChild>
-            <Button variant="outline">Close</Button>
-          </SheetClose>
+
+          <Button variant="outline" slot="close">
+            Close
+          </Button>
         </SheetFooter>
       </SheetContent>
     </Sheet>

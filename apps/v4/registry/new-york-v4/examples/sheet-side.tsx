@@ -5,13 +5,11 @@ import { Input } from "@/registry/new-york-v4/ui/input"
 import { Label } from "@/registry/new-york-v4/ui/label"
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/registry/new-york-v4/ui/sheet"
 
 const SHEET_SIDES = ["top", "right", "bottom", "left"] as const
@@ -23,9 +21,7 @@ export default function SheetSide() {
     <div className="grid grid-cols-2 gap-2">
       {SHEET_SIDES.map((side) => (
         <Sheet key={side}>
-          <SheetTrigger asChild>
-            <Button variant="outline">{side}</Button>
-          </SheetTrigger>
+          <Button variant="outline">{side}</Button>
           <SheetContent side={side}>
             <SheetHeader>
               <SheetTitle>Edit profile</SheetTitle>
@@ -48,9 +44,7 @@ export default function SheetSide() {
               </div>
             </div>
             <SheetFooter>
-              <SheetClose asChild>
-                <Button type="submit">Save changes</Button>
-              </SheetClose>
+              <Button type="submit">Save changes</Button>
             </SheetFooter>
           </SheetContent>
         </Sheet>

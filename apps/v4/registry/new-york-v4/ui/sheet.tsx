@@ -1,20 +1,17 @@
 "use client"
 
 import * as React from "react"
-import { XIcon } from "lucide-react"
 import {
   DialogTrigger,
   Heading,
   Modal,
   ModalOverlay,
   Dialog as RACDialog,
-  type ButtonProps,
   type HeadingProps,
   type ModalOverlayProps,
 } from "react-aria-components"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
 
 interface SheetContextValue {
   side?: "top" | "right" | "bottom" | "left"
@@ -35,17 +32,10 @@ function Sheet({ children, side = "right" }: SheetProps) {
   )
 }
 
-function SheetTrigger({ className, ...props }: ButtonProps) {
-  return <Button data-slot="sheet-trigger" className={className} {...props} />
-}
-
-function SheetClose({ className, ...props }: ButtonProps) {
-  return <Button data-slot="sheet-close" className={className} {...props} />
-}
-
 function SheetContent({
   className,
   children,
+  isDismissable = true,
   ...props
 }: Omit<ModalOverlayProps, "children"> & {
   children: React.ReactNode
@@ -54,6 +44,7 @@ function SheetContent({
 
   return (
     <ModalOverlay
+      isDismissable={isDismissable}
       data-slot="sheet-portal"
       className={cn(
         "data-[entering]:animate-in data-[exiting]:animate-out data-[exiting]:fade-out-0 data-[entering]:fade-in-0 fixed inset-0 z-50 bg-black/50",
@@ -93,18 +84,7 @@ function SheetContent({
         }
       >
         <RACDialog className="relative flex h-full max-h-full flex-col overflow-auto outline-none">
-          {({ close }) => (
-            <>
-              {children}
-              <Button
-                onPress={close}
-                className="ring-offset-background focus:ring-ring data-[hovered]:bg-secondary absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none"
-              >
-                <XIcon className="size-4" />
-                <span className="sr-only">Close</span>
-              </Button>
-            </>
-          )}
+          {children}
         </RACDialog>
       </Modal>
     </ModalOverlay>
@@ -154,8 +134,6 @@ function SheetDescription({ className, ...props }: React.ComponentProps<"p">) {
 
 export {
   Sheet,
-  SheetTrigger,
-  SheetClose,
   SheetContent,
   SheetHeader,
   SheetFooter,

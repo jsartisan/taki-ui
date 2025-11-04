@@ -28,10 +28,9 @@ import { getIconForLanguageExtension } from "@/components/icons"
 import { OpenInV0Button } from "@/components/open-in-v0-button"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/registry/new-york-v4/ui/collapsible"
+  Disclosure,
+  DisclosurePanel,
+} from "@/registry/new-york-v4/ui/disclosure"
 import {
   ResizableHandle,
   ResizablePanel,
@@ -153,9 +152,7 @@ function BlockViewerToolbar() {
       </a>
       <div className="ml-auto flex items-center gap-2">
         <div className="h-8 items-center gap-1.5 rounded-md border p-1 shadow-none">
-          <ToggleButtonGroup
-            className="gap-1 *:data-[slot=toggle-button-group-item]:!size-6 *:data-[slot=toggle-button-group-item]:!rounded-sm"
-          >
+          <ToggleButtonGroup className="gap-1 *:data-[slot=toggle-button-group-item]:!size-6 *:data-[slot=toggle-button-group-item]:!rounded-sm">
             <ToggleButtonGroupItem
               defaultSelected
               onChange={(selected) => {
@@ -424,32 +421,31 @@ function Tree({ item, index }: { item: FileTree; index: number }) {
 
   return (
     <SidebarMenuItem>
-      <Collapsible
-        className="group/collapsible [&[data-state=open]>button>svg:first-child]:rotate-90"
-        defaultOpen
+      <Disclosure
+        className="group/disclosure [&[data-expanded]>button>svg:first-child]:rotate-90"
+        defaultExpanded
       >
-        <CollapsibleTrigger asChild>
-          <SidebarMenuButton
-            className="hover:bg-muted-foreground/15 focus:bg-muted-foreground/15 focus-visible:bg-muted-foreground/15 active:bg-muted-foreground/15 data-[active=true]:bg-muted-foreground/15 rounded-none pl-(--index) whitespace-nowrap"
-            style={
-              {
-                "--index": `${index * (index === 1 ? 1 : 1.2)}rem`,
-              } as React.CSSProperties
-            }
-          >
-            <ChevronRight className="transition-transform" />
-            <Folder />
-            {item.name}
-          </SidebarMenuButton>
-        </CollapsibleTrigger>
-        <CollapsibleContent>
+        <SidebarMenuButton
+          slot="trigger"
+          className="hover:bg-muted-foreground/15 focus:bg-muted-foreground/15 focus-visible:bg-muted-foreground/15 active:bg-muted-foreground/15 data-[active=true]:bg-muted-foreground/15 rounded-none pl-(--index) whitespace-nowrap"
+          style={
+            {
+              "--index": `${index * (index === 1 ? 1 : 1.2)}rem`,
+            } as React.CSSProperties
+          }
+        >
+          <ChevronRight className="transition-transform" />
+          <Folder />
+          {item.name}
+        </SidebarMenuButton>
+        <DisclosurePanel className="p-0">
           <SidebarMenuSub className="m-0 w-full translate-x-0 border-none p-0">
             {item.children.map((subItem, key) => (
               <Tree key={key} item={subItem} index={index + 1} />
             ))}
           </SidebarMenuSub>
-        </CollapsibleContent>
-      </Collapsible>
+        </DisclosurePanel>
+      </Disclosure>
     </SidebarMenuItem>
   )
 }

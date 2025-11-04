@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { CodeIcon, EyeIcon } from "lucide-react"
+import { Key } from "react-aria-components"
 
 import {
   CodeBlock,
@@ -35,6 +36,9 @@ console.log(message);`,
 
 export function Preview() {
   const [tab, setTab] = React.useState("preview")
+  const [expandedKeys, setExpandedKeys] = React.useState<Set<Key>>(
+    new Set(["components", "app"])
+  )
 
   return (
     <Tabs
@@ -61,6 +65,8 @@ export function Preview() {
               defaultSelectedKeys={["todo-list"]}
               selectionMode="single"
               defaultExpandedKeys={["components", "app"]}
+              expandedKeys={expandedKeys}
+              onExpandedChange={setExpandedKeys}
             >
               <TreeItem id="app" title="app">
                 <TreeItem id="globals" title="globals.css" />

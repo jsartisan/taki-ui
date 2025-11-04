@@ -9,7 +9,7 @@ export function AICodingPlatform() {
     <div className="bg-background flex h-full">
       <div className="relative grid w-full grid-rows-[auto_720px] [scrollbar-color:var(--border)_transparent]">
         <SiteHeader />
-        <div className="flex gap-4">
+        <div className="flex">
           <Chat />
           <Preview />
         </div>

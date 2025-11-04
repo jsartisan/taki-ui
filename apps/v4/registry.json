@@ -408,28 +408,6 @@
       ]
     },
     {
-      "name": "menubar",
-      "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-menubar"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/ui/menubar.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "navigation-menu",
-      "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-navigation-menu"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/ui/navigation-menu.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "number-field",
       "type": "registry:ui",
       "dependencies": ["react-aria-components"],
@@ -459,17 +437,6 @@
       "files": [
         {
           "path": "registry/new-york-v4/ui/popover.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "progress",
-      "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-progress"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/ui/progress.tsx",
           "type": "registry:ui"
         }
       ]
@@ -516,17 +483,6 @@
       "files": [
         {
           "path": "registry/new-york-v4/ui/resizable.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "scroll-area",
-      "type": "registry:ui",
-      "dependencies": ["@radix-ui/react-scroll-area"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/ui/scroll-area.tsx",
           "type": "registry:ui"
         }
       ]
@@ -1052,7 +1008,7 @@
     {
       "name": "queue",
       "type": "registry:ui",
-      "registryDependencies": ["button", "disclosure", "scroll-area"],
+      "registryDependencies": ["button", "disclosure"],
       "files": [
         {
           "path": "registry/new-york-v4/ai-elements/queue.tsx",
@@ -1107,7 +1063,7 @@
     {
       "name": "suggestion",
       "type": "registry:ui",
-      "registryDependencies": ["button", "scroll-area"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/new-york-v4/ai-elements/suggestion.tsx",
@@ -1157,8 +1113,7 @@
         "disclosure",
         "input",
         "tooltip",
-        "badge",
-        "scroll-area"
+        "badge"
       ],
       "files": [
         {
@@ -4801,7 +4756,7 @@
     {
       "name": "queue-demo",
       "type": "registry:example",
-      "registryDependencies": ["queue", "button", "disclosure", "scroll-area"],
+      "registryDependencies": ["queue", "button", "disclosure"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/queue-demo.tsx",
@@ -4880,23 +4835,11 @@
         "disclosure",
         "input",
         "tooltip",
-        "badge",
-        "scroll-area"
+        "badge"
       ],
       "files": [
         {
           "path": "registry/new-york-v4/examples/web-preview-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "menubar-demo",
-      "type": "registry:example",
-      "registryDependencies": ["menubar"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/menubar-demo.tsx",
           "type": "registry:example"
         }
       ]
@@ -4919,17 +4862,6 @@
       "files": [
         {
           "path": "registry/new-york-v4/examples/message-flat.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "navigation-menu-demo",
-      "type": "registry:example",
-      "registryDependencies": ["navigation-menu"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/navigation-menu-demo.tsx",
           "type": "registry:example"
         }
       ]
@@ -5018,17 +4950,6 @@
       "files": [
         {
           "path": "registry/new-york-v4/examples/popover-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "progress-demo",
-      "type": "registry:example",
-      "registryDependencies": ["progress"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/progress-demo.tsx",
           "type": "registry:example"
         }
       ]
@@ -5216,28 +5137,6 @@
       ]
     },
     {
-      "name": "scroll-area-demo",
-      "type": "registry:example",
-      "registryDependencies": ["scroll-area"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/scroll-area-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
-      "name": "scroll-area-horizontal-demo",
-      "type": "registry:example",
-      "registryDependencies": ["scroll-area"],
-      "files": [
-        {
-          "path": "registry/new-york-v4/examples/scroll-area-horizontal-demo.tsx",
-          "type": "registry:example"
-        }
-      ]
-    },
-    {
       "name": "search-field-demo",
       "type": "registry:example",
       "registryDependencies": ["search-field"],
@@ -5383,7 +5282,7 @@
     {
       "name": "suggestion-demo",
       "type": "registry:example",
-      "registryDependencies": ["suggestion", "scroll-area", "button"],
+      "registryDependencies": ["suggestion", "button"],
       "files": [
         {
           "path": "registry/new-york-v4/examples/suggestion-demo.tsx",

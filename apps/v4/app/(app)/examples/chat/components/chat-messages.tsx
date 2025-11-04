@@ -35,7 +35,6 @@ import {
   TaskItemFile,
   TaskTrigger,
 } from "@/registry/new-york-v4/ai-elements/task"
-import { ScrollArea } from "@/registry/new-york-v4/ui/scroll-area"
 
 import { assistantMessage } from "./chat-data"
 

@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import { ScrollArea, ScrollBar } from "@/registry/new-york-v4/ui/scroll-area"
 import { registryCategories } from "@/registry/registry-categories"
 
 export function BlocksNav() {
@@ -11,7 +10,7 @@ export function BlocksNav() {
 
   return (
     <div className="relative overflow-hidden">
-      <ScrollArea className="max-w-none">
+      <div className="max-w-none overflow-x-auto">
         <div className="flex items-center">
           <BlocksNavLink
             category={{ name: "Featured", slug: "", hidden: false }}
@@ -25,8 +24,7 @@ export function BlocksNav() {
             />
           ))}
         </div>
-        <ScrollBar orientation="horizontal" className="invisible" />
-      </ScrollArea>
+      </div>
     </div>
   )
 }

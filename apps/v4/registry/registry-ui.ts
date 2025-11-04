@@ -389,28 +389,6 @@ export const ui: Registry["items"] = [
     ],
   },
   {
-    name: "menubar",
-    type: "registry:ui",
-    dependencies: ["@radix-ui/react-menubar"],
-    files: [
-      {
-        path: "ui/menubar.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
-    name: "navigation-menu",
-    type: "registry:ui",
-    dependencies: ["@radix-ui/react-navigation-menu"],
-    files: [
-      {
-        path: "ui/navigation-menu.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
     name: "number-field",
     type: "registry:ui",
     dependencies: ["react-aria-components"],
@@ -440,17 +418,6 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/popover.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
-    name: "progress",
-    type: "registry:ui",
-    dependencies: ["@radix-ui/react-progress"],
-    files: [
-      {
-        path: "ui/progress.tsx",
         type: "registry:ui",
       },
     ],
@@ -497,17 +464,6 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/resizable.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
-    name: "scroll-area",
-    type: "registry:ui",
-    dependencies: ["@radix-ui/react-scroll-area"],
-    files: [
-      {
-        path: "ui/scroll-area.tsx",
         type: "registry:ui",
       },
     ],
@@ -1053,7 +1009,7 @@ export const ui: Registry["items"] = [
   {
     name: "queue",
     type: "registry:ui",
-    registryDependencies: ["button", "disclosure", "scroll-area"],
+    registryDependencies: ["button", "disclosure"],
     files: [
       {
         path: "ai-elements/queue.tsx",
@@ -1108,7 +1064,7 @@ export const ui: Registry["items"] = [
   {
     name: "suggestion",
     type: "registry:ui",
-    registryDependencies: ["button", "scroll-area"],
+    registryDependencies: ["button"],
     files: [
       {
         path: "ai-elements/suggestion.tsx",
@@ -1153,14 +1109,7 @@ export const ui: Registry["items"] = [
   {
     name: "web-preview",
     type: "registry:ui",
-    registryDependencies: [
-      "button",
-      "disclosure",
-      "input",
-      "tooltip",
-      "badge",
-      "scroll-area",
-    ],
+    registryDependencies: ["button", "disclosure", "input", "tooltip", "badge"],
     files: [
       {
         path: "ai-elements/web-preview.tsx",

@@ -27,7 +27,7 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "@/registry/new-york-v4/ui/input-group"
-import { Progress } from "@/registry/new-york-v4/ui/progress"
+import { ProgressBar } from "@/registry/new-york-v4/ui/progress-bar"
 
 const passwordRequirements = [
   {
@@ -161,7 +161,7 @@ export default function FormRhfPassword() {
 
                   {/* Password strength meter. */}
                   <div className="space-y-2">
-                    <Progress
+                    <ProgressBar
                       value={strengthPercentage}
                       className={getStrengthColor()}
                     />

@@ -4,7 +4,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
-import { ScrollArea, ScrollBar } from "@/registry/new-york-v4/ui/scroll-area"
 
 const links = [
   {
@@ -45,7 +44,7 @@ export function ChartsNav({
 
   return (
     <div className="relative overflow-hidden">
-      <ScrollArea className="max-w-[600px] lg:max-w-none">
+      <div className="max-w-[600px] overflow-x-auto lg:max-w-none">
         <div className={cn("flex items-center", className)} {...props}>
           {links.map((link) => (
             <Link
@@ -60,8 +59,7 @@ export function ChartsNav({
             </Link>
           ))}
         </div>
-        <ScrollBar orientation="horizontal" className="invisible" />
-      </ScrollArea>
+      </div>
     </div>
   )
 }

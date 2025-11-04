@@ -2379,7 +2379,7 @@ export const examples: Registry["items"] = [
   {
     name: "queue-demo",
     type: "registry:example",
-    registryDependencies: ["queue", "button", "disclosure", "scroll-area"],
+    registryDependencies: ["queue", "button", "disclosure"],
     files: [
       {
         path: "examples/queue-demo.tsx",
@@ -2454,22 +2454,10 @@ export const examples: Registry["items"] = [
       "input",
       "tooltip",
       "badge",
-      "scroll-area",
     ],
     files: [
       {
         path: "examples/web-preview-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "menubar-demo",
-    type: "registry:example",
-    registryDependencies: ["menubar"],
-    files: [
-      {
-        path: "examples/menubar-demo.tsx",
         type: "registry:example",
       },
     ],
@@ -2492,17 +2480,6 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/message-flat.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "navigation-menu-demo",
-    type: "registry:example",
-    registryDependencies: ["navigation-menu"],
-    files: [
-      {
-        path: "examples/navigation-menu-demo.tsx",
         type: "registry:example",
       },
     ],
@@ -2591,17 +2568,6 @@ export const examples: Registry["items"] = [
     files: [
       {
         path: "examples/popover-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "progress-demo",
-    type: "registry:example",
-    registryDependencies: ["progress"],
-    files: [
-      {
-        path: "examples/progress-demo.tsx",
         type: "registry:example",
       },
     ],
@@ -2789,28 +2755,6 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "scroll-area-demo",
-    type: "registry:example",
-    registryDependencies: ["scroll-area"],
-    files: [
-      {
-        path: "examples/scroll-area-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "scroll-area-horizontal-demo",
-    type: "registry:example",
-    registryDependencies: ["scroll-area"],
-    files: [
-      {
-        path: "examples/scroll-area-horizontal-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "search-field-demo",
     type: "registry:example",
     registryDependencies: ["search-field"],
@@ -2956,7 +2900,7 @@ export const examples: Registry["items"] = [
   {
     name: "suggestion-demo",
     type: "registry:example",
-    registryDependencies: ["suggestion", "scroll-area", "button"],
+    registryDependencies: ["suggestion", "button"],
     files: [
       {
         path: "examples/suggestion-demo.tsx",

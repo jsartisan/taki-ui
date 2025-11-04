@@ -8,7 +8,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/registry/new-york-v4/ui/item"
-import { Progress } from "@/registry/new-york-v4/ui/progress"
+import { ProgressBar } from "@/registry/new-york-v4/ui/progress-bar"
 import { Spinner } from "@/registry/new-york-v4/ui/spinner"
 
 export default function SpinnerItem() {
@@ -28,7 +28,7 @@ export default function SpinnerItem() {
           </Button>
         </ItemActions>
         <ItemFooter>
-          <Progress value={75} />
+          <ProgressBar value={75} />
         </ItemFooter>
       </Item>
     </div>

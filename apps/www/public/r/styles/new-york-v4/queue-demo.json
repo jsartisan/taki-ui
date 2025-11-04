@@ -5,8 +5,7 @@
   "registryDependencies": [
     "queue",
     "button",
-    "disclosure",
-    "scroll-area"
+    "disclosure"
   ],
   "files": [
     {

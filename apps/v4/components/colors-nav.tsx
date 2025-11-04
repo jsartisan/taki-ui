@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation"
 
 import { getColors } from "@/lib/colors"
 import { cn } from "@/lib/utils"
-import { ScrollArea, ScrollBar } from "@/registry/new-york-v4/ui/scroll-area"
 
 export function ColorsNav({
   className,
@@ -16,7 +15,7 @@ export function ColorsNav({
 
   return (
     <div className={cn("flex items-center", className)} {...props}>
-      <ScrollArea className="max-w-full">
+      <div className="max-w-full overflow-x-auto">
         <div className="flex items-center">
           {colors.map((colorPalette, index) => (
             <Link
@@ -34,8 +33,7 @@ export function ColorsNav({
             </Link>
           ))}
         </div>
-        <ScrollBar orientation="horizontal" className="invisible" />
-      </ScrollArea>
+      </div>
     </div>
   )
 }

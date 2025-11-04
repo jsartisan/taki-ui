@@ -4,7 +4,6 @@ import { PlusIcon, SparklesIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/new-york-v4/ui/button"
-import { ScrollArea } from "@/registry/new-york-v4/ui/scroll-area"
 import {
   Sheet,
   SheetContent,
@@ -56,7 +55,7 @@ export function ChatMobileSidebar({
           </Button>
         </div>
 
-        <ScrollArea className="h-[calc(100vh-200px)]">
+        <div className="h-[calc(100vh-200px)] overflow-y-auto">
           <div className="space-y-1 p-2">
             {conversations.map((conv) => (
               <button
@@ -77,7 +76,7 @@ export function ChatMobileSidebar({
               </button>
             ))}
           </div>
-        </ScrollArea>
+        </div>
       </SheetContent>
     </Sheet>
   )

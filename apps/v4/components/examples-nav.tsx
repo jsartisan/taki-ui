@@ -4,7 +4,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { cn } from "@/lib/utils"
-import { ScrollArea, ScrollBar } from "@/registry/new-york-v4/ui/scroll-area"
 
 const examples = [
   {
@@ -41,7 +40,7 @@ export function ExamplesNav({
 
   return (
     <div className={cn("flex items-center", className)} {...props}>
-      <ScrollArea className="max-w-[96%] md:max-w-[600px] lg:max-w-none">
+      <div className="max-w-[96%] overflow-x-auto md:max-w-[600px] lg:max-w-none">
         <div className="flex items-center">
           <ExampleLink
             example={{ name: "AI", href: "/", code: "", hidden: false }}
@@ -55,8 +54,7 @@ export function ExamplesNav({
             />
           ))}
         </div>
-        <ScrollBar orientation="horizontal" className="invisible" />
-      </ScrollArea>
+      </div>
     </div>
   )
 }

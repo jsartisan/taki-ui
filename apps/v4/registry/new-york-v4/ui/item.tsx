@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -55,13 +54,11 @@ function Item({
   className,
   variant = "default",
   size = "default",
-  asChild = false,
   ...props
 }: React.ComponentProps<"div"> &
   VariantProps<typeof itemVariants> & { asChild?: boolean }) {
-  const Comp = asChild ? Slot : "div"
   return (
-    <Comp
+    <div
       data-slot="item"
       data-variant={variant}
       data-size={size}

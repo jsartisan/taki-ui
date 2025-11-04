@@ -10,7 +10,7 @@ import {
   HoverCard,
   HoverCardContent,
 } from "@/registry/new-york-v4/ui/hover-card"
-import { Progress } from "@/registry/new-york-v4/ui/progress"
+import { ProgressBar } from "@/registry/new-york-v4/ui/progress-bar"
 
 const PERCENT_MAX = 100
 const ICON_RADIUS = 10
@@ -166,7 +166,10 @@ export const ContextContentHeader = ({
             </p>
           </div>
           <div className="space-y-2">
-            <Progress className="bg-muted" value={usedPercent * PERCENT_MAX} />
+            <ProgressBar
+              className="bg-muted"
+              value={usedPercent * PERCENT_MAX}
+            />
           </div>
         </>
       )}
