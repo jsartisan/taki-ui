@@ -245,30 +245,35 @@ If you want to do it manually, here's how to do it step by step:
 #### Before
 
 ```tsx showLineNumbers
-const AccordionItem = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
->(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item
+const Button = React.forwardRef<
+  React.ElementRef<typeof ButtonPrimitive>,
+  React.ComponentPropsWithoutRef<typeof ButtonPrimitive>
+>(({ className, variant, size, ...props }, ref) => (
+  <ButtonPrimitive
     ref={ref}
-    className={cn("border-b last:border-b-0", className)}
+    className={cn(buttonVariants({ variant, size, className }))}
     {...props}
   />
 ))
-AccordionItem.displayName = "AccordionItem"
+Button.displayName = "Button"
 ```
 
 #### After
 
 ```tsx showLineNumbers
-function AccordionItem({
+function Button({
   className,
+  variant,
+  size,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Item>) {
+}: React.ComponentProps<typeof ButtonPrimitive> & {
+  variant?: string
+  size?: string
+}) {
   return (
-    <AccordionPrimitive.Item
-      data-slot="accordion-item"
-      className={cn("border-b last:border-b-0", className)}
+    <ButtonPrimitive
+      data-slot="button"
+      className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
   )

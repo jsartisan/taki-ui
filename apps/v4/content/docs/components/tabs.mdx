@@ -179,6 +179,74 @@ export default function TabsControlled() {
 }
 ```
 
+## Using Menu Components Inside Tabs
+
+When placing a `Menu` component as a sibling to `TabsList` (for example, in a toolbar), you need to use `createHideableComponent` to prevent React Aria's collection system from incorrectly treating the `MenuItem` components as part of the Tabs collection.
+
+### The Problem
+
+React Aria's Tabs component uses a collection system to manage its children (TabTriggers). When you place a Menu inside the Tabs tree, the collection system can incorrectly process MenuItems as if they were TabTriggers, causing errors like:
+
+```
+TypeError: Cannot read properties of null (reading 'isDisabled')
+```
+
+See the [related GitHub issue](https://github.com/adobe/react-spectrum/issues/9011) for more details.
+
+### The Solution
+
+Wrap your Menu component using `createHideableComponent` from `@react-aria/collections`:
+
+```tsx showLineNumbers
+"use client"
+
+import { useMemo } from "react"
+import { createHideableComponent } from "@react-aria/collections"
+import { MenuTrigger, Menu, MenuItem } from "@/components/ui/menu"
+import { Button } from "@/components/ui/button"
+import { Tabs, TabsList, TabsTrigger, TabPanel } from "@/components/ui/tabs"
+
+export function TabsWithMenu() {
+  // Create a hideable component to prevent Menu from being part of Tabs collection
+  const SafeMenu = useMemo(
+    () =>
+      createHideableComponent(function () {
+        return (
+          <MenuTrigger>
+            <Button variant="outline">Options</Button>
+            <Menu>
+              <MenuItem id="edit">Edit</MenuItem>
+              <MenuItem id="delete">Delete</MenuItem>
+            </Menu>
+          </MenuTrigger>
+        )
+      }),
+    []
+  )
+
+  return (
+    <Tabs defaultSelectedKey="account">
+      <div className="flex items-center justify-between">
+        <TabsList aria-label="Settings">
+          <TabsTrigger id="account">Account</TabsTrigger>
+          <TabsTrigger id="security">Security</TabsTrigger>
+        </TabsList>
+        <SafeMenu />
+      </div>
+      <TabPanel id="account">Account settings</TabPanel>
+      <TabPanel id="security">Security settings</TabPanel>
+    </Tabs>
+  )
+}
+```
+
+### Key Points
+
+- **Wrap a function**, not the component itself: `createHideableComponent(function () { ... })`
+- **Include dependencies** in `useMemo` if your Menu uses external state
+- This is only needed when Menu is a **sibling** to TabsList within the Tabs tree
+- The same pattern applies to other collection-based components like `Select`, `ComboBox`, etc.
+
 ## API Reference
 
 ### Tabs

@@ -95,7 +95,7 @@ export function Preview() {
               <CodeBlockBody>
                 {(item) => (
                   <CodeBlockItem key={item.language} value={item.language}>
-                    <CodeBlockContent language={item.language as any}>
+                    <CodeBlockContent language={item.language}>
                       {item.code}
                     </CodeBlockContent>
                   </CodeBlockItem>

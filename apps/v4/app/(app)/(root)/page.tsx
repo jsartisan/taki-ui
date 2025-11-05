@@ -1,6 +1,4 @@
 import { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
 
 import { Announcement } from "@/components/announcement"
 import { ExamplesNav } from "@/components/examples-nav"
@@ -15,8 +13,6 @@ import { ThemeSelector } from "@/components/theme-selector"
 import { LinkButton } from "@/registry/new-york-v4/ui/link-button"
 
 import { AICodingPlatform } from "../examples/ai/components/ai-coding-platform"
-import { ChatInterface } from "../examples/chat/components/chat-interface"
-import { RootComponents } from "./components"
 
 const title = "AI-Ready. Accessible. Composable."
 const description =

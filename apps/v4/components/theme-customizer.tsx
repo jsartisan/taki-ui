@@ -24,7 +24,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/registry/new-york-v4/ui/drawer"
-import { Label } from "@/registry/new-york-v4/ui/label"
 import { Modal } from "@/registry/new-york-v4/ui/modal"
 import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
 import {

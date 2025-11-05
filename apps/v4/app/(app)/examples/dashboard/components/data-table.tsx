@@ -20,6 +20,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
+import { createHideableComponent } from "@react-aria/collections"
 import {
   IconChevronDown,
   IconChevronLeft,
@@ -92,8 +93,8 @@ import {
   TableRow,
 } from "@/registry/new-york-v4/ui/table"
 import {
+  TabPanel,
   Tabs,
-  TabsContent,
   TabsList,
   TabsTrigger,
 } from "@/registry/new-york-v4/ui/tabs"
@@ -392,38 +393,11 @@ export function DataTable({
     }
   }
 
-  return (
-    <Tabs
-      defaultValue="outline"
-      className="w-full flex-col justify-start gap-6"
-    >
-      <div className="flex items-center justify-between px-4 lg:px-6">
-        <Label htmlFor="view-selector" className="sr-only">
-          View
-        </Label>
-        <Select
-          id="view-selector"
-          defaultSelectedKey="outline"
-          placeholder="Select a view"
-          size="sm"
-          className="flex w-fit @4xl/main:hidden"
-        >
-          <SelectItem id="outline">Outline</SelectItem>
-          <SelectItem id="past-performance">Past Performance</SelectItem>
-          <SelectItem id="key-personnel">Key Personnel</SelectItem>
-          <SelectItem id="focus-documents">Focus Documents</SelectItem>
-        </Select>
-        <TabsList className="**:data-[slot=badge]:bg-muted-foreground/30 hidden **:data-[slot=badge]:size-5 **:data-[slot=badge]:rounded-full **:data-[slot=badge]:px-1 @4xl/main:flex">
-          <TabsTrigger value="outline">Outline</TabsTrigger>
-          <TabsTrigger value="past-performance">
-            Past Performance <Badge variant="secondary">3</Badge>
-          </TabsTrigger>
-          <TabsTrigger value="key-personnel">
-            Key Personnel <Badge variant="secondary">2</Badge>
-          </TabsTrigger>
-          <TabsTrigger value="focus-documents">Focus Documents</TabsTrigger>
-        </TabsList>
-        <div className="flex items-center gap-2">
+  // Create a hideable component to prevent Menu from being part of Tabs collection
+  const SafeColumnMenu = React.useMemo(
+    () =>
+      createHideableComponent(function () {
+        return (
           <MenuTrigger>
             <Button variant="outline" size="sm">
               <IconLayoutColumns />
@@ -452,11 +426,7 @@ export function DataTable({
             >
               {table
                 .getAllColumns()
-                .filter(
-                  (column) =>
-                    typeof column.accessorFn !== "undefined" &&
-                    column.getCanHide()
-                )
+                .filter((column) => column.getCanHide())
                 .map((column) => {
                   return (
                     <MenuItem
@@ -470,14 +440,55 @@ export function DataTable({
                 })}
             </Menu>
           </MenuTrigger>
+        )
+      }),
+    [columnVisibility, table]
+  )
+
+  return (
+    <Tabs
+      defaultSelectedKey="outline"
+      className="w-full flex-col justify-start gap-6"
+    >
+      <div className="flex items-center justify-between px-4 lg:px-6">
+        <Label htmlFor="view-selector" className="sr-only">
+          View
+        </Label>
+        <Select
+          id="view-selector"
+          defaultSelectedKey="outline"
+          placeholder="Select a view"
+          size="sm"
+          className="flex w-fit @4xl/main:hidden"
+        >
+          <SelectItem id="outline">Outline</SelectItem>
+          <SelectItem id="past-performance">Past Performance</SelectItem>
+          <SelectItem id="key-personnel">Key Personnel</SelectItem>
+          <SelectItem id="focus-documents">Focus Documents</SelectItem>
+        </Select>
+        <TabsList
+          aria-label="View selector"
+          className="[&_[data-slot=badge]]:bg-muted-foreground/30 hidden @4xl/main:flex [&_[data-slot=badge]]:size-5 [&_[data-slot=badge]]:rounded-full [&_[data-slot=badge]]:px-1"
+        >
+          <TabsTrigger id="outline">Outline</TabsTrigger>
+          <TabsTrigger id="past-performance">
+            Past Performance <Badge variant="secondary">3</Badge>
+          </TabsTrigger>
+          <TabsTrigger id="key-personnel">
+            Key Personnel <Badge variant="secondary">2</Badge>
+          </TabsTrigger>
+          <TabsTrigger id="focus-documents">Focus Documents</TabsTrigger>
+        </TabsList>
+        <div className="flex items-center gap-2">
+          <SafeColumnMenu />
           <Button variant="outline" size="sm">
             <IconPlus />
             <span className="hidden lg:inline">Add Section</span>
           </Button>
         </div>
       </div>
-      <TabsContent
-        value="outline"
+      <TabPanel
+        id="outline"
         className="relative flex flex-col gap-4 overflow-auto px-4 lg:px-6"
       >
         <div className="overflow-hidden rounded-lg border">
@@ -604,22 +615,16 @@ export function DataTable({
             </div>
           </div>
         </div>
-      </TabsContent>
-      <TabsContent
-        value="past-performance"
-        className="flex flex-col px-4 lg:px-6"
-      >
+      </TabPanel>
+      <TabPanel id="past-performance" className="flex flex-col px-4 lg:px-6">
         <div className="aspect-video w-full flex-1 rounded-lg border border-dashed"></div>
-      </TabsContent>
-      <TabsContent value="key-personnel" className="flex flex-col px-4 lg:px-6">
+      </TabPanel>
+      <TabPanel id="key-personnel" className="flex flex-col px-4 lg:px-6">
         <div className="aspect-video w-full flex-1 rounded-lg border border-dashed"></div>
-      </TabsContent>
-      <TabsContent
-        value="focus-documents"
-        className="flex flex-col px-4 lg:px-6"
-      >
+      </TabPanel>
+      <TabPanel id="focus-documents" className="flex flex-col px-4 lg:px-6">
         <div className="aspect-video w-full flex-1 rounded-lg border border-dashed"></div>
-      </TabsContent>
+      </TabPanel>
     </Tabs>
   )
 }

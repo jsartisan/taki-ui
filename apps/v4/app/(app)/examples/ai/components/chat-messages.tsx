@@ -95,7 +95,7 @@ export function ChatMessages() {
         <Message from="assistant">
           <MessageContent variant="flat">
             I&apos;ll create a modern todo app with a clean, minimalist design
-            inspired by the dark theme aesthetic. I'll build it with task
+            inspired by the dark theme aesthetic. I&apos;ll build it with task
             management features including add, complete, and delete
             functionality, using local state for a smooth user experience.
           </MessageContent>

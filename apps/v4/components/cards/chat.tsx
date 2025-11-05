@@ -31,13 +31,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/registry/new-york-v4/ui/dialog"
-import { Modal } from "@/registry/new-york-v4/ui/modal"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
 } from "@/registry/new-york-v4/ui/input-group"
+import { Modal } from "@/registry/new-york-v4/ui/modal"
 import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
 
 const users = [

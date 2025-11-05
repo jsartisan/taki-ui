@@ -28,7 +28,7 @@ export function ChatInput(props: { className?: string } = {}) {
     "ready"
   )
 
-  const handleSubmit = (message: { text?: string; files?: any[] }) => {
+  const handleSubmit = (message: { text?: string; files?: File[] }) => {
     if (!message.text?.trim() && !message.files?.length) {
       return
     }

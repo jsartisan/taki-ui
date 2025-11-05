@@ -21,7 +21,6 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/registry/new-york-v4/ui/sheet"
 
 export function ChartCodeViewer({
@@ -101,7 +100,7 @@ export function ChartCodeViewer({
 
   return (
     <Sheet>
-      <SheetTrigger asChild>{button}</SheetTrigger>
+      {button}
       <SheetContent
         side="right"
         className={cn(

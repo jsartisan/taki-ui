@@ -8,7 +8,6 @@ import {
   Menu,
   MenuItem,
   MenuSection,
-  MenuSeparator,
   MenuTrigger,
 } from "@/registry/new-york-v4/ui/menu"
 

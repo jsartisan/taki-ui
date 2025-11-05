@@ -23,6 +23,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/registry/new-york-v4/ui/command"
+import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
 import {
   Item,
   ItemActions,
@@ -30,7 +31,6 @@ import {
   ItemDescription,
   ItemTitle,
 } from "@/registry/new-york-v4/ui/item"
-import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
 import { Popover } from "@/registry/new-york-v4/ui/popover"
 
 const teamMembers = [

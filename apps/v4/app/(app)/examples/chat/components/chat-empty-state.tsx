@@ -32,7 +32,7 @@ export function ChatEmptyState({
           <Button
             key={index}
             variant="outline"
-            className="h-auto justify-start whitespace-normal p-4 text-left"
+            className="h-auto justify-start p-4 text-left whitespace-normal"
             onClick={() => onSuggestionClick(suggestion)}
           >
             {suggestion}

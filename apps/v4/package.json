@@ -53,6 +53,7 @@
     "@radix-ui/react-toggle": "^1.1.1",
     "@radix-ui/react-toggle-group": "^1.1.1",
     "@radix-ui/react-tooltip": "^1.1.7",
+    "@react-aria/collections": "^3.0.0",
     "@shikijs/transformers": "^3.14.0",
     "@tabler/icons-react": "^3.31.0",
     "@tailwindcss/postcss": "^4.1.11",

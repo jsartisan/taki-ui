@@ -2,6 +2,7 @@
 
 import { BotIcon, UserIcon } from "lucide-react"
 
+import { cn } from "@/lib/utils"
 import { Loader } from "@/registry/new-york-v4/ai-elements/loader"
 import {
   Message,
@@ -13,7 +14,6 @@ import {
   ReasoningContent,
   ReasoningTrigger,
 } from "@/registry/new-york-v4/ai-elements/reasoning"
-import { cn } from "@/lib/utils"
 
 export type MessageType = {
   id: string
@@ -75,4 +75,3 @@ export function ChatMessageItem({ message }: ChatMessageItemProps) {
     </Message>
   )
 }
-

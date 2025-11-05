@@ -1,14 +1,8 @@
 "use client"
 
 import { IconMinus, IconPlus } from "@tabler/icons-react"
-import { CheckIcon } from "lucide-react"
-import {
-  NumberField,
-  Radio as RACRadio,
-  TextField,
-} from "react-aria-components"
+import { NumberField } from "react-aria-components"
 
-import { useThemeConfig } from "@/components/active-theme"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { ButtonGroup } from "@/registry/new-york-v4/ui/button-group"
 import {
@@ -23,31 +17,10 @@ import {
   FieldTitle,
 } from "@/registry/new-york-v4/ui/field"
 import { Input } from "@/registry/new-york-v4/ui/input"
-import { Label } from "@/registry/new-york-v4/ui/label"
 import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
 import { Switch } from "@/registry/new-york-v4/ui/switch"
 
-const accents = [
-  {
-    name: "Blue",
-    value: "blue",
-  },
-  {
-    name: "Amber",
-    value: "amber",
-  },
-  {
-    name: "Green",
-    value: "green",
-  },
-  {
-    name: "Rose",
-    value: "rose",
-  },
-]
-
 export function AppearanceSettings() {
-  const { activeTheme, setActiveTheme } = useThemeConfig()
   return (
     <FieldSet>
       <FieldGroup>

@@ -3,13 +3,11 @@ import { Input } from "@/registry/new-york-v4/ui/input"
 import { Label } from "@/registry/new-york-v4/ui/label"
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
 } from "@/registry/new-york-v4/ui/sheet"
 
 export default function SheetDemo() {

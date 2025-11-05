@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 
 import {
@@ -11,6 +13,8 @@ import { SectionCards } from "@/app/(app)/examples/dashboard/components/section-
 import { SiteHeader } from "@/app/(app)/examples/dashboard/components/site-header"
 
 import data from "./data.json"
+
+export const dynamic = "force-dynamic"
 
 export default function Page() {
   return (

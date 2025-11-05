@@ -1,5 +1,3 @@
-import { ChatInput } from "../../chat/components/chat-input"
-import { ChatMessages } from "../../chat/components/chat-messages"
 import { Chat } from "./chat"
 import { Preview } from "./preview"
 import { SiteHeader } from "./site-header"

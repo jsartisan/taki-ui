@@ -4,20 +4,11 @@ import { useEffect, useState } from "react"
 import {
   CopyIcon,
   RefreshCwIcon,
-  SearchIcon,
   ThumbsDownIcon,
   ThumbsUpIcon,
 } from "lucide-react"
-import { nanoid } from "nanoid"
 
-import { cn } from "@/lib/utils"
 import { Action, Actions } from "@/registry/new-york-v4/ai-elements/actions"
-import {
-  ChainOfThought,
-  ChainOfThoughtContent,
-  ChainOfThoughtHeader,
-  ChainOfThoughtStep,
-} from "@/registry/new-york-v4/ai-elements/chain-of-thought"
 import {
   Conversation,
   ConversationContent,
@@ -27,14 +18,6 @@ import {
   MessageContent,
 } from "@/registry/new-york-v4/ai-elements/message"
 import { Response } from "@/registry/new-york-v4/ai-elements/response"
-import { Shimmer } from "@/registry/new-york-v4/ai-elements/shimmer"
-import {
-  Task,
-  TaskContent,
-  TaskItem,
-  TaskItemFile,
-  TaskTrigger,
-} from "@/registry/new-york-v4/ai-elements/task"
 
 import { assistantMessage } from "./chat-data"
 

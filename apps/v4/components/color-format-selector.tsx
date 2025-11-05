@@ -33,7 +33,7 @@ export function ColorFormatSelector({
       {Object.entries(formats).map(([format, value]) => (
         <SelectItem key={format} id={format}>
           <span className="font-medium">{format}</span>
-          <span className="text-muted-foreground font-mono text-xs ml-2">
+          <span className="text-muted-foreground ml-2 font-mono text-xs">
             {value}
           </span>
         </SelectItem>

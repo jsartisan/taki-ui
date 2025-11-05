@@ -72,22 +72,19 @@ npm i <package> --legacy-peer-deps
 
 This will install the package and ignore the peer dependency warnings.
 
-<Accordion type="multiple">
-  <AccordionItem value="flags">
-    <AccordionTrigger className="font-medium">
-      What do the `--force` and `--legacy-peer-deps` flag do?
-    </AccordionTrigger>
-    <AccordionContent className="[&_ul]:mt-0">
+<Disclosure>
+  <DisclosureHeader>
+    What do the `--force` and `--legacy-peer-deps` flag do?
+  </DisclosureHeader>
+  <DisclosurePanel className="[&_ul]:mt-0">
 
-      - `--force`: Ignores and overrides any dependency conflicts, forcing the
-        installation of packages.
-      - `--legacy-peer-deps`: Skips strict peer dependency checks, allowing
-        installation of packages with unmet peer dependencies to avoid errors.
+    - `--force`: Ignores and overrides any dependency conflicts, forcing the
+      installation of packages.
+    - `--legacy-peer-deps`: Skips strict peer dependency checks, allowing
+      installation of packages with unmet peer dependencies to avoid errors.
 
-    </AccordionContent>
-
-  </AccordionItem>
-</Accordion>
+  </DisclosurePanel>
+</Disclosure>
 
 ### Solution 2: Use React 18
 

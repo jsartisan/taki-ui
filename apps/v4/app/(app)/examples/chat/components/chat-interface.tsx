@@ -2,7 +2,6 @@
 
 import { ChatHeader } from "./chat-header"
 import { ChatInput } from "./chat-input"
-import { MessageType } from "./chat-message-item"
 import { ChatMessages } from "./chat-messages"
 
 export function ChatInterface() {

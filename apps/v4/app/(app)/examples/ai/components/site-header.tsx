@@ -2,7 +2,6 @@
 
 import {
   ChevronsUpDown,
-  ChevronUp,
   Gift,
   Github,
   HeartIcon,
@@ -10,13 +9,12 @@ import {
   Settings,
 } from "lucide-react"
 
-import { cn } from "@/lib/utils"
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "@/registry/new-york-v4/ui/avatar"
-import { Button, buttonVariants } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/new-york-v4/ui/button"
 import {
   Menu,
   MenuItem,
@@ -24,7 +22,6 @@ import {
   MenuSeparator,
   MenuTrigger,
 } from "@/registry/new-york-v4/ui/menu"
-import { Separator } from "@/registry/new-york-v4/ui/separator"
 
 export function SiteHeader() {
   return (
