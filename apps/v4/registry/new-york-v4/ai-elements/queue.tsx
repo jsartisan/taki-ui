@@ -218,7 +218,7 @@ export const QueueSectionTrigger = ({
   <Button
     slot="trigger"
     className={cn(
-      "group bg-muted/40 text-muted-foreground hover:bg-muted flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm font-medium transition-colors",
+      "group bg-muted/40 text-foreground hover:bg-muted flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm transition-colors",
       className
     )}
     type="button"

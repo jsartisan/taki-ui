@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
 import {
   IconCamera,
   IconChartBar,
@@ -26,7 +25,7 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuButton,
+  SidebarMenuButtonLink,
   SidebarMenuItem,
 } from "@/registry/new-york-v4/ui/sidebar"
 import { NavDocuments } from "@/app/(app)/examples/dashboard/components/nav-documents"
@@ -157,15 +156,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader className="border-b">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton
-              asChild
+            <SidebarMenuButtonLink
+              href="#"
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <Link href="#">
-                <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
-              </Link>
-            </SidebarMenuButton>
+              <IconInnerShadowTop className="!size-5" />
+              <span className="text-base font-semibold">Acme Inc.</span>
+            </SidebarMenuButtonLink>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>

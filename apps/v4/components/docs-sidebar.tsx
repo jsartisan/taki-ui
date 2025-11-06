@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { PAGES_NEW } from "@/lib/docs"
@@ -13,7 +12,7 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuButton,
+  SidebarMenuButtonLink,
   SidebarMenuItem,
 } from "@/registry/new-york-v4/ui/sidebar"
 
@@ -61,8 +60,8 @@ export function DocsSidebar({
                 }
                 return (
                   <SidebarMenuItem key={name}>
-                    <SidebarMenuButton
-                      asChild
+                    <SidebarMenuButtonLink
+                      href={href}
                       isActive={
                         href === "/docs"
                           ? pathname === href
@@ -70,11 +69,9 @@ export function DocsSidebar({
                       }
                       className="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
                     >
-                      <Link href={href}>
-                        <span className="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />
-                        {name}
-                      </Link>
-                    </SidebarMenuButton>
+                      <span className="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />
+                      {name}
+                    </SidebarMenuButtonLink>
                   </SidebarMenuItem>
                 )
               })}
@@ -107,22 +104,20 @@ export function DocsSidebar({
                         item.type === "page" &&
                         !EXCLUDED_PAGES.includes(item.url) && (
                           <SidebarMenuItem key={item.url}>
-                            <SidebarMenuButton
-                              asChild
+                            <SidebarMenuButtonLink
+                              href={item.url}
                               isActive={item.url === pathname}
                               className="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
                             >
-                              <Link href={item.url}>
-                                <span className="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />
-                                {item.name}
-                                {PAGES_NEW.includes(item.url) && (
-                                  <span
-                                    className="flex size-2 rounded-full bg-blue-500"
-                                    title="New"
-                                  />
-                                )}
-                              </Link>
-                            </SidebarMenuButton>
+                              <span className="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />
+                              {item.name}
+                              {PAGES_NEW.includes(item.url) && (
+                                <span
+                                  className="flex size-2 rounded-full bg-blue-500"
+                                  title="New"
+                                />
+                              )}
+                            </SidebarMenuButtonLink>
                           </SidebarMenuItem>
                         )
                       )

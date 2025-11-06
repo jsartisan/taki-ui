@@ -90,11 +90,11 @@ export default async function Page(props: {
   return (
     <div
       data-slot="docs"
-      className="flex items-stretch pb-6 text-[1.05rem] sm:text-[15px] xl:w-full"
+      className="flex items-stretch text-[1.05rem] sm:text-[15px] xl:w-full"
     >
-      <div className="flex min-w-0 flex-1 flex-col">
+      <div className="flex min-w-0 flex-1 flex-col border-x pb-6">
         <div className="h-(--top-spacing) shrink-0" />
-        <div className="bg-background mx-auto flex w-full min-w-0 flex-1 flex-col gap-8 rounded-xl border p-8 px-4 py-6 text-neutral-800 md:px-8 lg:py-8 dark:text-neutral-300">
+        <div className="bg-background mx-auto flex w-full min-w-0 flex-1 flex-col gap-8 p-8 px-4 py-6 text-neutral-800 md:px-8 lg:py-8 dark:text-neutral-300">
           <div className="flex flex-col gap-2">
             <div className="flex flex-col gap-2">
               <div className="flex items-start justify-between">

@@ -16,9 +16,9 @@ export function SiteHeader() {
   const pageTree = source.pageTree
 
   return (
-    <header className="bg-secondary/40 sticky top-0 z-50 w-full">
-      <div className="container-wrapper 3xl:fixed:px-0 px-6">
-        <div className="3xl:fixed:container flex h-(--header-height) items-center gap-2 **:data-[slot=separator]:!h-4">
+    <header className="bg-background sticky top-0 z-50 w-full border-b">
+      <div className="container-wrapper">
+        <div className="container flex h-(--header-height) items-center gap-2 **:data-[slot=separator]:!h-4">
           <MobileNav
             tree={pageTree}
             items={siteConfig.navItems}

@@ -6,9 +6,9 @@ function PageHeader({
   ...props
 }: React.ComponentProps<"section">) {
   return (
-    <section className={cn("border-grid", className)} {...props}>
+    <section className={cn("", className)} {...props}>
       <div className="container-wrapper">
-        <div className="gap-2py-8 container flex flex-col items-center text-center md:py-16 lg:py-20 xl:gap-4">
+        <div className="container flex flex-col items-center gap-2 py-8 text-center md:py-16 lg:py-20 xl:gap-4">
           {children}
         </div>
       </div>

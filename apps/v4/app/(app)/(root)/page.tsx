@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 export default function IndexPage() {
   return (
     <div className="flex flex-1 flex-col">
-      <PageHeader>
+      <PageHeader className="border-b">
         <Announcement />
         <PageHeaderHeading className="max-w-4xl">{title}</PageHeaderHeading>
         <PageHeaderDescription>{description}</PageHeaderDescription>
@@ -61,11 +61,14 @@ export default function IndexPage() {
           </LinkButton>
         </PageActions>
       </PageHeader>
-      <PageNav className="hidden md:flex">
-        <ExamplesNav className="[&>a:first-child]:text-primary flex-1 overflow-hidden" />
-        <ThemeSelector className="mr-4 hidden md:flex" />
-      </PageNav>
-      <div className="container-wrapper section-soft flex-1">
+      <section className="border-b">
+        <PageNav className="hidden md:flex">
+          <ExamplesNav className="[&>a:first-child]:text-primary flex-1 overflow-hidden" />
+          <ThemeSelector className="mr-4 hidden md:flex" />
+        </PageNav>
+      </section>
+
+      <div className="container-wrapper flex-1">
         {/* <section className="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">
             <Image
               src="/r/styles/new-york-v4/dashboard-01-light.png"
@@ -84,7 +87,7 @@ export default function IndexPage() {
               priority
             />
           </section> */}
-        <section className="theme-container hidden overflow-hidden rounded-xl border md:block">
+        <section className="theme-container hidden md:block">
           <AICodingPlatform />
         </section>
       </div>

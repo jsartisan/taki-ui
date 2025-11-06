@@ -4,7 +4,7 @@ import { SiteHeader } from "./site-header"
 
 export function AICodingPlatform() {
   return (
-    <div className="bg-background flex h-full">
+    <div className="bg-background flex h-full overflow-auto">
       <div className="relative grid w-full grid-rows-[auto_720px] [scrollbar-color:var(--border)_transparent]">
         <SiteHeader />
         <div className="flex">

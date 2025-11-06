@@ -3,6 +3,7 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { PanelLeftIcon } from "lucide-react"
+import { Link as AriaLink, LinkProps } from "react-aria-components"
 
 import { useIsMobile } from "@/registry/new-york-v4/hooks/use-mobile"
 import { cn } from "@/registry/new-york-v4/lib/utils"
@@ -480,6 +481,48 @@ const sidebarMenuButtonVariants = cva(
     },
   }
 )
+
+export function SidebarMenuButtonLink({
+  isActive = false,
+  variant = "default",
+  size = "default",
+  tooltip,
+  className,
+  ...props
+}: LinkProps & {
+  isActive?: boolean
+  tooltip?: React.ReactNode
+} & VariantProps<typeof sidebarMenuButtonVariants>) {
+  const { isMobile, state } = useSidebar()
+
+  const a = (
+    <AriaLink
+      href={props.href}
+      data-slot="sidebar-menu-button-link"
+      data-sidebar="menu-button"
+      data-size={size}
+      data-active={isActive}
+      className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
+      {...props}
+    />
+  )
+
+  if (!tooltip) {
+    return a
+  }
+
+  return (
+    <TooltipTrigger delay={0}>
+      {a}
+      <Tooltip
+        placement="right"
+        className={cn(state !== "collapsed" || isMobile ? "hidden" : "")}
+      >
+        {tooltip}
+      </Tooltip>
+    </TooltipTrigger>
+  )
+}
 
 function SidebarMenuButton({
   isActive = false,
