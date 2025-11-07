@@ -2,6 +2,7 @@ import { Metadata } from "next"
 
 import { Announcement } from "@/components/announcement"
 import { ExamplesNav } from "@/components/examples-nav"
+import { LinePattern } from "@/components/line-pattern"
 import {
   PageActions,
   PageHeader,
@@ -48,7 +49,10 @@ export const metadata: Metadata = {
 export default function IndexPage() {
   return (
     <div className="flex flex-1 flex-col">
-      <PageHeader className="border-b">
+      <LinePattern className="h-6 border-b">
+        <div className="container-wrapper h-full"></div>
+      </LinePattern>
+      <PageHeader>
         <Announcement />
         <PageHeaderHeading className="max-w-4xl">{title}</PageHeaderHeading>
         <PageHeaderDescription>{description}</PageHeaderDescription>
@@ -61,15 +65,19 @@ export default function IndexPage() {
           </LinkButton>
         </PageActions>
       </PageHeader>
-      <section className="border-b">
+      <LinePattern className="h-6 border-t">
+        <div className="container-wrapper h-full"></div>
+      </LinePattern>
+      <section className="border-t">
         <PageNav className="hidden md:flex">
           <ExamplesNav className="[&>a:first-child]:text-primary flex-1 overflow-hidden" />
           <ThemeSelector className="mr-4 hidden md:flex" />
         </PageNav>
       </section>
 
-      <div className="container-wrapper flex-1">
-        {/* <section className="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">
+      <div className="border-t">
+        <div className="container-wrapper flex-1">
+          {/* <section className="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">
             <Image
               src="/r/styles/new-york-v4/dashboard-01-light.png"
               width={1400}
@@ -87,9 +95,10 @@ export default function IndexPage() {
               priority
             />
           </section> */}
-        <section className="theme-container hidden md:block">
-          <AICodingPlatform />
-        </section>
+          <section className="theme-container hidden md:block">
+            <AICodingPlatform />
+          </section>
+        </div>
       </div>
     </div>
   )

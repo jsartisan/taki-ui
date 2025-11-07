@@ -3,7 +3,7 @@
 import * as React from "react"
 import { useRouter } from "next/navigation"
 import { IconArrowRight } from "@tabler/icons-react"
-import { CornerDownLeftIcon, SquareDashedIcon } from "lucide-react"
+import { CornerDownLeftIcon, SearchIcon, SquareDashedIcon } from "lucide-react"
 
 import { type Color, type ColorPalette } from "@/lib/colors"
 import { showMcpDocs } from "@/lib/flags"
@@ -135,14 +135,13 @@ export function CommandMenu({
       <Button
         variant="secondary"
         className={cn(
-          "bg-surface text-foreground dark:bg-card relative h-8 w-full justify-start pl-3 font-medium shadow-none sm:pr-12 md:w-48 lg:w-56 xl:w-64"
+          "bg-surface text-foreground dark:bg-card relative h-8 w-full justify-start font-medium shadow-none"
         )}
         onPress={() => setOpen(true)}
         {...props}
       >
-        <span className="hidden lg:inline-flex">Search documentation...</span>
-        <span className="inline-flex lg:hidden">Search...</span>
-        <div className="absolute top-1.5 right-1.5 hidden gap-1 sm:flex">
+        <SearchIcon />
+        <div className="flex gap-1">
           <KbdGroup>
             <Kbd className="border">{isMac ? "⌘" : "Ctrl"}</Kbd>
             <Kbd className="border">K</Kbd>
@@ -160,6 +159,7 @@ export function CommandMenu({
           <CommandList
             className="no-scrollbar min-h-80 scroll-pt-2 scroll-pb-1.5"
             emptyMessage="No results found."
+            enableVirtualization={true}
           >
             {navItems && navItems.length > 0 && (
               <CommandGroup

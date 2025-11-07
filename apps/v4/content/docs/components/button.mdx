@@ -12,22 +12,15 @@ import { InfoIcon } from "lucide-react"
 
 <ComponentPreview name="button-demo" description="A button" className="mb-4" />
 
-```tsx showLineNumbers
-<Button variant="outline">Button</Button>
-<Button variant="outline" size="icon" aria-label="Submit">
-  <ArrowUpIcon />
-</Button>
-```
-
 ## Installation
 
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
 </TabsList>
-<TabsContent value="cli">
+<TabsContent id="cli">
 
 ```bash
 npx shadcn@latest add button
@@ -35,7 +28,7 @@ npx shadcn@latest add button
 
 </TabsContent>
 
-<TabsContent value="manual">
+<TabsContent id="manual">
 
 <Steps>
 
@@ -88,26 +81,6 @@ If you want to keep the `cursor: pointer` behavior, add the following code to yo
 
 <ComponentPreview name="button-size" className="mb-4" />
 
-```tsx
-// Small
-<Button size="sm" variant="outline">Small</Button>
-<Button size="icon-sm" aria-label="Submit" variant="outline">
-  <ArrowUpRightIcon />
-</Button>
-
-// Medium
-<Button variant="outline">Default</Button>
-<Button size="icon" aria-label="Submit" variant="outline">
-  <ArrowUpRightIcon />
-</Button>
-
-// Large
-<Button size="lg" variant="outline">Large</Button>
-<Button size="icon-lg" aria-label="Submit" variant="outline">
-  <ArrowUpRightIcon />
-</Button>
-```
-
 ### Default
 
 <ComponentPreview
@@ -140,10 +113,6 @@ If you want to keep the `cursor: pointer` behavior, add the following code to yo
   className="mb-4"
 />
 
-```tsx
-<Button variant="secondary">Secondary</Button>
-```
-
 ### Ghost
 
 <ComponentPreview
@@ -151,10 +120,6 @@ If you want to keep the `cursor: pointer` behavior, add the following code to yo
   description="A button using the ghost variant"
   className="mb-4"
 />
-
-```tsx
-<Button variant="ghost">Ghost</Button>
-```
 
 ### Destructive
 
@@ -164,17 +129,9 @@ If you want to keep the `cursor: pointer` behavior, add the following code to yo
   className="mb-4"
 />
 
-```tsx
-<Button variant="destructive">Destructive</Button>
-```
-
 ### Link
 
 <ComponentPreview name="button-link" className="mb-4" />
-
-```tsx
-<Button variant="link">Link</Button>
-```
 
 ### Icon
 
@@ -183,12 +140,6 @@ If you want to keep the `cursor: pointer` behavior, add the following code to yo
   description="An icon button"
   className="mb-4"
 />
-
-```tsx showLineNumbers
-<Button variant="outline" size="icon" aria-label="Submit">
-  <CircleFadingArrowUpIcon />
-</Button>
-```
 
 ### With Icon
 
@@ -201,23 +152,11 @@ based on the size of the button. You do not need any margin on the icon.
   className="mb-4"
 />
 
-```tsx
-<Button variant="outline" size="sm">
-  <IconGitBranch /> New Branch
-</Button>
-```
-
 ### Rounded
 
 Use the `rounded-full` class to make the button rounded.
 
 <ComponentPreview name="button-rounded" className="mb-4" />
-
-```tsx
-<Button variant="outline" size="icon" className="rounded-full">
-  <ArrowUpRightIcon />
-</Button>
-```
 
 ### Spinner
 
@@ -227,43 +166,11 @@ Use the `rounded-full` class to make the button rounded.
   className="mb-4"
 />
 
-```tsx showLineNumbers
-<Button size="sm" variant="outline" disabled>
-  <Spinner />
-  Submit
-</Button>
-```
-
 ### Button Group
 
 To create a button group, use the `ButtonGroup` component. See the [Button Group](/docs/components/button-group) documentation for more details.
 
 <ComponentPreview name="button-group-demo" className="mb-4" />
-
-```tsx showLineNumbers
-<ButtonGroup>
-  <ButtonGroup>
-    <Button variant="outline" size="icon" aria-label="Go Back">
-      <ArrowLeftIcon />
-    </Button>
-  </ButtonGroup>
-  <ButtonGroup>
-    <Button variant="outline">Archive</Button>
-    <Button variant="outline">Report</Button>
-  </ButtonGroup>
-  <ButtonGroup>
-    <Button variant="outline">Snooze</Button>
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" aria-label="More Options">
-          <MoreHorizontalIcon />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent />
-    </DropdownMenu>
-  </ButtonGroup>
-</ButtonGroup>
-```
 
 ### Link Button
 

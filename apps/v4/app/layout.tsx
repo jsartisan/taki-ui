@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { META_THEME_COLORS, siteConfig } from "@/lib/config"
 import { fontVariables } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { LayoutProvider } from "@/hooks/use-layout"
 import { ActiveThemeProvider } from "@/components/active-theme"
 import { Analytics } from "@/components/analytics"
 import { RouterProvider } from "@/components/router-provider"
@@ -85,19 +84,17 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "text-foreground group/body theme-blue overscroll-none font-sans antialiased [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*16)]",
+          "text-foreground layout-fixed group/body theme-blue overscroll-none font-sans antialiased [--footer-height:calc(var(--spacing)*14)] [--header-height:calc(var(--spacing)*14)] xl:[--footer-height:calc(var(--spacing)*14)]",
           fontVariables
         )}
       >
         <ThemeProvider>
-          <LayoutProvider>
-            <ActiveThemeProvider initialTheme="blue">
-              <RouterProvider>{children}</RouterProvider>
-              <TailwindIndicator />
-              <Toaster position="top-center" />
-              <Analytics />
-            </ActiveThemeProvider>
-          </LayoutProvider>
+          <ActiveThemeProvider initialTheme="blue">
+            <RouterProvider>{children}</RouterProvider>
+            <TailwindIndicator />
+            <Toaster position="top-center" />
+            <Analytics />
+          </ActiveThemeProvider>
         </ThemeProvider>
       </body>
     </html>

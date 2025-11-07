@@ -49,10 +49,10 @@ component: true
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
 </TabsList>
-<TabsContent value="cli">
+<TabsContent id="cli">
 
 ```bash
 npx shadcn@latest add component-name
@@ -60,7 +60,7 @@ npx shadcn@latest add component-name
 
 </TabsContent>
 
-<TabsContent value="manual">
+<TabsContent id="manual">
 
 <Steps>
 
@@ -209,10 +209,10 @@ The installation section provides two methods: CLI and manual installation.
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
 </TabsList>
-<TabsContent value="cli">
+<TabsContent id="cli">
 
 ```bash
 npx shadcn@latest add component-name
@@ -220,7 +220,7 @@ npx shadcn@latest add component-name
 
 </TabsContent>
 
-<TabsContent value="manual">
+<TabsContent id="manual">
 
 <Steps>
 
@@ -261,10 +261,10 @@ npm install package-name
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
 </TabsList>
-<TabsContent value="cli">
+<TabsContent id="cli">
 
 ```bash
 npx shadcn@latest add button
@@ -272,7 +272,7 @@ npx shadcn@latest add button
 
 </TabsContent>
 
-<TabsContent value="manual">
+<TabsContent id="manual">
 
 <Steps>
 
@@ -303,10 +303,10 @@ npm install @radix-ui/react-slot
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
 </TabsList>
-<TabsContent value="cli">
+<TabsContent id="cli">
 
 ```bash
 npx shadcn@latest add input
@@ -314,7 +314,7 @@ npx shadcn@latest add input
 
 </TabsContent>
 
-<TabsContent value="manual">
+<TabsContent id="manual">
 
 <Steps>
 
@@ -675,10 +675,10 @@ links:
 <CodeTabs>
 
 <TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
 </TabsList>
-<TabsContent value="cli">
+<TabsContent id="cli">
 
 ```bash
 npx shadcn@latest add checkbox
@@ -686,7 +686,7 @@ npx shadcn@latest add checkbox
 
 </TabsContent>
 
-<TabsContent value="manual">
+<TabsContent id="manual">
 
 <Steps>
 

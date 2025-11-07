@@ -501,7 +501,7 @@ export function SidebarMenuButtonLink({
       data-slot="sidebar-menu-button-link"
       data-sidebar="menu-button"
       data-size={size}
-      data-active={isActive}
+      data-active={Boolean(isActive) === true ? "true" : undefined}
       className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
       {...props}
     />

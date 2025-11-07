@@ -11,6 +11,7 @@ import { source } from "@/lib/source"
 import { absoluteUrl } from "@/lib/utils"
 import { DocsCopyPage } from "@/components/docs-copy-page"
 import { DocsTableOfContents } from "@/components/docs-toc"
+import { LinePattern } from "@/components/line-pattern"
 import { badgeVariants } from "@/registry/new-york-v4/ui/badge"
 import { LinkButton } from "@/registry/new-york-v4/ui/link-button"
 
@@ -92,9 +93,9 @@ export default async function Page(props: {
       data-slot="docs"
       className="flex items-stretch text-[1.05rem] sm:text-[15px] xl:w-full"
     >
-      <div className="flex min-w-0 flex-1 flex-col border-x pb-6">
+      <div className="flex min-w-0 flex-1 flex-col border-x">
         <div className="h-(--top-spacing) shrink-0" />
-        <div className="bg-background mx-auto flex w-full min-w-0 flex-1 flex-col gap-8 p-8 px-4 py-6 text-neutral-800 md:px-8 lg:py-8 dark:text-neutral-300">
+        <div className="bg-background mx-auto flex w-full min-w-0 flex-1 flex-col gap-8 p-8 px-4 py-6 pb-8 text-neutral-800 md:px-8 lg:py-8 lg:pb-12 dark:text-neutral-300">
           <div className="flex flex-col gap-2">
             <div className="flex flex-col gap-2">
               <div className="flex items-start justify-between">
@@ -166,22 +167,23 @@ export default async function Page(props: {
             <MDX components={mdxComponents} />
           </div>
         </div>
-        <div className="mx-auto hidden h-16 w-full max-w-2xl items-center gap-2 px-4 sm:flex md:px-0">
+        <LinePattern className="h-6 border-t" />
+        <div className="mx-auto hidden w-full grid-cols-2 items-center border-t px-4 sm:grid md:px-0">
           {neighbours.previous && (
             <LinkButton
-              variant="secondary"
+              variant="ghost"
               size="sm"
               href={neighbours.previous.url}
-              className="shadow-none"
+              className="h-12 rounded-none shadow-none"
             >
               <IconArrowLeft /> {neighbours.previous.name}
             </LinkButton>
           )}
           {neighbours.next && (
             <LinkButton
-              variant="secondary"
+              variant="ghost"
               size="sm"
-              className="ml-auto shadow-none"
+              className="border-l-border h-12 rounded-none border-l shadow-none"
               href={neighbours.next.url}
             >
               {neighbours.next.name} <IconArrowRight />

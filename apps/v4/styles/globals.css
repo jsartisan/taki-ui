@@ -100,6 +100,10 @@
   --code-number: oklch(0.56 0 0);
   --selection: oklch(0.145 0 0);
   --selection-foreground: oklch(1 0 0);
+
+  --edge: color-mix(in oklab, var(--border) 64%, var(--background));
+  --color-edge: var(--edge);
+  --pattern-foreground:  color-mix(in oklab, var(--color-edge) 56%, transparent);
 }
 
 .dark {

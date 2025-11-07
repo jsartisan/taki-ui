@@ -8,12 +8,14 @@ import {
   Header,
   Input,
   ListBoxSection,
+  ListLayout,
   Menu,
   MenuItem,
   MenuSection,
   Section,
   Separator,
   TextField,
+  Virtualizer,
   useFilter,
   type SeparatorProps,
   type TextFieldProps,
@@ -158,28 +160,58 @@ function CommandInput({
 
 interface CommandListProps extends React.ComponentProps<typeof Menu> {
   emptyMessage?: React.ReactNode
+  enableVirtualization?: boolean
 }
 
 function CommandList({
   className,
   children,
   emptyMessage,
+  enableVirtualization = false,
   ...props
 }: CommandListProps) {
+  if (!enableVirtualization) {
+    return (
+      <Menu
+        data-slot="command-list"
+        className={cn(
+          "max-h-[300px] scroll-py-1 overflow-x-hidden overflow-y-auto outline-hidden",
+          className
+        )}
+        renderEmptyState={() =>
+          emptyMessage && <CommandEmpty>{emptyMessage}</CommandEmpty>
+        }
+        {...props}
+      >
+        <Collection>{children}</Collection>
+      </Menu>
+    )
+  }
+
   return (
-    <Menu
-      data-slot="command-list"
-      className={cn(
-        "max-h-[300px] scroll-py-1 overflow-x-hidden overflow-y-auto outline-hidden",
-        className
-      )}
-      renderEmptyState={() =>
-        emptyMessage && <CommandEmpty>{emptyMessage}</CommandEmpty>
-      }
-      {...props}
+    <Virtualizer
+      layout={ListLayout}
+      layoutOptions={{
+        estimatedRowHeight: 36,
+        estimatedHeadingHeight: 32,
+        gap: 0,
+        padding: 4,
+      }}
     >
-      <Collection>{children}</Collection>
-    </Menu>
+      <Menu
+        data-slot="command-list"
+        className={cn(
+          "max-h-[300px] scroll-py-1 overflow-x-hidden overflow-y-auto outline-hidden",
+          className
+        )}
+        renderEmptyState={() =>
+          emptyMessage && <CommandEmpty>{emptyMessage}</CommandEmpty>
+        }
+        {...props}
+      >
+        <Collection>{children}</Collection>
+      </Menu>
+    </Virtualizer>
   )
 }
 

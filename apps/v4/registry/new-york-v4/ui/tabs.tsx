@@ -69,7 +69,7 @@ const tabTriggerStyles = tv({
   variants: {
     isSelected: {
       true: [
-        "bg-background dark:text-foreground dark:border-input dark:bg-input/30 shadow-sm",
+        "bg-background dark:text-foreground dark:border-input dark:bg-input/30",
       ],
     },
     isDisabled: {
