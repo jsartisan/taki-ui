@@ -1,6 +1,6 @@
 {
     "name": "taki-ui",
-    "version": "1.0.1",
+    "version": "1.0.4",
     "description": "Taki UI is a component library and custom registry built on top of react-aria-components.",
     "bin": {
       "elements": "index.js"
