@@ -33,8 +33,8 @@ const component = args.length >= 2 ? args[1] : "all";
 
 // Get the target URL
 const targetUrl = new URL(
-  `/${component}.json`,
-  "https://registry.kuro.com"
+  `/r/${component}.json`,
+  "https://taki-ui.com"
 ).toString();
 
 const fullCommand = `${commandPrefix} shadcn@latest add ${targetUrl}`;
