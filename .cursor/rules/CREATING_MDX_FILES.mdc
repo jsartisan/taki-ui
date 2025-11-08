@@ -945,7 +945,7 @@ Before submitting your MDX file:
 - [ ] Usage section shows import and basic usage
 - [ ] Examples section demonstrates key use cases
 - [ ] Code blocks use appropriate syntax highlighting
-- [ ] All referenced demo files exist in `registry/new-york-v4/examples/`
+- [ ] All referenced demo files exist in `registry/v1/examples/`
 - [ ] File is named in kebab-case matching the component name
 - [ ] No typos or grammatical errors
 - [ ] Links to related components work correctly
@@ -997,7 +997,7 @@ Each example should be independently understandable without needing to reference
 - MDX syntax: https://mdxjs.com/
 - Component previews: `apps/v4/components/component-preview.tsx`
 - Existing MDX files: `apps/v4/content/docs/components/`
-- Demo files: `apps/v4/registry/new-york-v4/examples/`
+- Demo files: `apps/v4/registry/v1/examples/`
 
 ## Getting Help
 

@@ -17,7 +17,7 @@ Demo files showcase how to use components and are essential for documentation. T
 
 ## Step 1: Create the Demo Component File
 
-Demo files are located in the `apps/v4/registry/new-york-v4/examples/` directory.
+Demo files are located in the `apps/v4/registry/v1/examples/` directory.
 
 ### File Naming Convention
 
@@ -52,7 +52,7 @@ export default function ComponentDemo() {
 
 ### Example: Creating a Checkbox Demo
 
-**File:** `apps/v4/registry/new-york-v4/examples/checkbox-demo.tsx`
+**File:** `apps/v4/registry/v1/examples/checkbox-demo.tsx`
 
 ```tsx
 import { Checkbox } from "@/registry/v1/ui/checkbox"
@@ -233,7 +233,7 @@ Let's create a complete example: a button loading demo.
 
 ### 1. Create the Demo File
 
-**File:** `apps/v4/registry/new-york-v4/examples/button-loading.tsx`
+**File:** `apps/v4/registry/v1/examples/button-loading.tsx`
 
 ```tsx
 import { Button } from "@/registry/v1/ui/button"
@@ -436,7 +436,7 @@ export default function CheckboxControlled() {
 
 Before submitting your demo:
 
-- [ ] Demo file created in `apps/v4/registry/new-york-v4/examples/`
+- [ ] Demo file created in `apps/v4/registry/v1/examples/`
 - [ ] File follows naming convention: `{component}-{variant}.tsx`
 - [ ] Demo uses default export
 - [ ] Registry entry added to `registry-examples.ts` in alphabetical order
@@ -449,8 +449,8 @@ Before submitting your demo:
 
 ## Additional Resources
 
-- Component definitions: `apps/v4/registry/new-york-v4/ui/`
-- Existing demos: `apps/v4/registry/new-york-v4/examples/`
+- Component definitions: `apps/v4/registry/v1/ui/`
+- Existing demos: `apps/v4/registry/v1/examples/`
 - Registry schema: `packages/shadcn/src/schema.ts`
 - Build scripts: `apps/v4/scripts/build-registry.mts`
 
