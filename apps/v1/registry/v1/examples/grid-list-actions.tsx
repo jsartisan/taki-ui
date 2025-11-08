@@ -1,7 +1,7 @@
 import { InfoIcon } from "lucide-react"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { GridList, GridListItem } from "@/registry/new-york-v4/ui/grid-list"
+import { Button } from "@/registry/v1/ui/button"
+import { GridList, GridListItem } from "@/registry/v1/ui/grid-list"
 
 export default function GridListActions() {
   return (

@@ -9,12 +9,12 @@ import {
   BranchPage,
   BranchPrevious,
   BranchSelector,
-} from "@/registry/new-york-v4/ai-elements/branch"
+} from "@/registry/v1/ai-elements/branch"
 import {
   Message,
   MessageAvatar,
   MessageContent,
-} from "@/registry/new-york-v4/ai-elements/message"
+} from "@/registry/v1/ai-elements/message"
 
 const userMessages = [
   {

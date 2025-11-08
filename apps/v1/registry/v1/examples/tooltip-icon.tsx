@@ -1,7 +1,7 @@
 import { InfoIcon } from "lucide-react"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
+import { Button } from "@/registry/v1/ui/button"
+import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
 
 export default function TooltipIcon() {
   return (

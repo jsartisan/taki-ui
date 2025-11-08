@@ -6,15 +6,15 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/registry/new-york-v4/ui/avatar"
-import { Button } from "@/registry/new-york-v4/ui/button"
+} from "@/registry/v1/ui/avatar"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york-v4/ui/card"
+} from "@/registry/v1/ui/card"
 import {
   Command,
   CommandEmpty,
@@ -22,16 +22,16 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/new-york-v4/ui/command"
-import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+} from "@/registry/v1/ui/command"
+import { DialogTrigger } from "@/registry/v1/ui/dialog"
 import {
   Item,
   ItemActions,
   ItemContent,
   ItemDescription,
   ItemTitle,
-} from "@/registry/new-york-v4/ui/item"
-import { Popover } from "@/registry/new-york-v4/ui/popover"
+} from "@/registry/v1/ui/item"
+import { Popover } from "@/registry/v1/ui/popover"
 
 const teamMembers = [
   {

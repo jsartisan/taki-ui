@@ -20,7 +20,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@/registry/new-york-v4/ui/sidebar"
+} from "@/registry/v1/ui/sidebar"
 
 // Menu items.
 const items = [

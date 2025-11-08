@@ -4,8 +4,8 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/registry/new-york-v4/ui/input-group"
-import { Kbd } from "@/registry/new-york-v4/ui/kbd"
+} from "@/registry/v1/ui/input-group"
+import { Kbd } from "@/registry/v1/ui/kbd"
 
 export default function KbdInputGroup() {
   return (

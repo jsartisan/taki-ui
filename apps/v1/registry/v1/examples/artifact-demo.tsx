@@ -9,7 +9,7 @@ import {
   ArtifactDescription,
   ArtifactHeader,
   ArtifactTitle,
-} from "@/registry/new-york-v4/ai-elements/artifact"
+} from "@/registry/v1/ai-elements/artifact"
 
 export default function ArtifactDemo() {
   return (

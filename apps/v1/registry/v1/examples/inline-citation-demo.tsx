@@ -12,7 +12,7 @@ import {
   InlineCitationCarouselPrev,
   InlineCitationSource,
   InlineCitationText,
-} from "@/registry/new-york-v4/ai-elements/inline-citation"
+} from "@/registry/v1/ai-elements/inline-citation"
 
 export default function InlineCitationDemo() {
   const sources = [

@@ -1,4 +1,4 @@
-import { DateRangePicker } from "@/registry/new-york-v4/ui/date-range-picker"
+import { DateRangePicker } from "@/registry/v1/ui/date-range-picker"
 
 export default function DateRangePickerDisabled() {
   return (

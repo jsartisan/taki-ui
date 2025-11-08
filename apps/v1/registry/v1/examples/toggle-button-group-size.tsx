@@ -3,7 +3,7 @@ import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react"
 import {
   ToggleButtonGroup,
   ToggleButtonGroupItem,
-} from "@/registry/new-york-v4/ui/toggle-button-group"
+} from "@/registry/v1/ui/toggle-button-group"
 
 export default function ToggleButtonGroupSize() {
   return (

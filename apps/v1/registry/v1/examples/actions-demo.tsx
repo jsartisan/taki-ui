@@ -9,15 +9,15 @@ import {
   ThumbsUpIcon,
 } from "lucide-react"
 
-import { Action, Actions } from "@/registry/new-york-v4/ai-elements/actions"
+import { Action, Actions } from "@/registry/v1/ai-elements/actions"
 import {
   Conversation,
   ConversationContent,
-} from "@/registry/new-york-v4/ai-elements/conversation"
+} from "@/registry/v1/ai-elements/conversation"
 import {
   Message,
   MessageContent,
-} from "@/registry/new-york-v4/ai-elements/message"
+} from "@/registry/v1/ai-elements/message"
 
 const messages = [
   {

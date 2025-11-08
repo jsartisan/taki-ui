@@ -10,7 +10,7 @@ import {
 } from "react-aria-components"
 import { tv, type VariantProps } from "tailwind-variants"
 
-import { toggleButtonVariants } from "@/registry/new-york-v4/ui/toggle-button"
+import { toggleButtonVariants } from "@/registry/v1/ui/toggle-button"
 
 const ToggleButtonGroupContext = React.createContext<
   VariantProps<typeof toggleButtonVariants>

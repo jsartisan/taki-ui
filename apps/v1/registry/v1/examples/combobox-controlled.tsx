@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-import { ComboBox, ComboBoxItem } from "@/registry/new-york-v4/ui/combobox"
+import { ComboBox, ComboBoxItem } from "@/registry/v1/ui/combobox"
 
 const countries = [
   { id: "us", name: "United States" },

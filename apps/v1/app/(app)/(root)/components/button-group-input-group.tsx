@@ -3,15 +3,15 @@
 import * as React from "react"
 import { AudioLinesIcon, PlusIcon } from "lucide-react"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { ButtonGroup } from "@/registry/new-york-v4/ui/button-group"
+import { Button } from "@/registry/v1/ui/button"
+import { ButtonGroup } from "@/registry/v1/ui/button-group"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/registry/new-york-v4/ui/input-group"
-import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
+} from "@/registry/v1/ui/input-group"
+import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
 
 export function ButtonGroupInputGroup() {
   const [voiceEnabled, setVoiceEnabled] = React.useState(false)

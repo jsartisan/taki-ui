@@ -11,7 +11,7 @@ import {
 } from "@/components/page-header"
 import { PageNav } from "@/components/page-nav"
 import { ThemeSelector } from "@/components/theme-selector"
-import { LinkButton } from "@/registry/new-york-v4/ui/link-button"
+import { LinkButton } from "@/registry/v1/ui/link-button"
 
 import { AICodingPlatform } from "../examples/ai/components/ai-coding-platform"
 

@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { GridList, GridListItem } from "@/registry/new-york-v4/ui/grid-list"
+import { GridList, GridListItem } from "@/registry/v1/ui/grid-list"
 
 export default function GridListLinks() {
   return (

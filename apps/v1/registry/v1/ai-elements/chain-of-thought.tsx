@@ -16,12 +16,12 @@ import {
 } from "react-aria-components"
 
 import { cn } from "@/lib/utils"
-import { Badge } from "@/registry/new-york-v4/ui/badge"
+import { Badge } from "@/registry/v1/ui/badge"
 import {
   Disclosure,
   DisclosureHeader,
   DisclosurePanel,
-} from "@/registry/new-york-v4/ui/disclosure"
+} from "@/registry/v1/ui/disclosure"
 
 import { useControllableState } from "../hooks/use-controllable-state"
 

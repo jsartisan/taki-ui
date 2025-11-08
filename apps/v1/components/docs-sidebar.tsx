@@ -14,7 +14,7 @@ import {
   SidebarMenu,
   SidebarMenuButtonLink,
   SidebarMenuItem,
-} from "@/registry/new-york-v4/ui/sidebar"
+} from "@/registry/v1/ui/sidebar"
 
 const TOP_LEVEL_SECTIONS = [
   { name: "Get Started", href: "/docs" },

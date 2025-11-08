@@ -4,8 +4,8 @@ import type { ComponentProps } from "react"
 import { composeRenderProps } from "react-aria-components"
 
 import { cn } from "@/lib/utils"
-import { Button, type ButtonProps } from "@/registry/new-york-v4/ui/button"
-import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
+import { Button, type ButtonProps } from "@/registry/v1/ui/button"
+import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
 
 export type ActionsProps = ComponentProps<"div">
 

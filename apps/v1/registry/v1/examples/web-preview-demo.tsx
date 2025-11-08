@@ -10,7 +10,7 @@ import {
   WebPreviewNavigation,
   WebPreviewNavigationButton,
   WebPreviewUrl,
-} from "@/registry/new-york-v4/ai-elements/web-preview"
+} from "@/registry/v1/ai-elements/web-preview"
 
 export default function WebPreviewDemo() {
   const [url, setUrl] = useState("https://ai-sdk.dev")

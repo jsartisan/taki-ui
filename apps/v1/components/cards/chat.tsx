@@ -8,14 +8,14 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/registry/new-york-v4/ui/avatar"
-import { Button } from "@/registry/new-york-v4/ui/button"
+} from "@/registry/v1/ui/avatar"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-} from "@/registry/new-york-v4/ui/card"
+} from "@/registry/v1/ui/card"
 import {
   Command,
   CommandEmpty,
@@ -23,22 +23,22 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/new-york-v4/ui/command"
+} from "@/registry/v1/ui/command"
 import {
   Dialog,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/new-york-v4/ui/dialog"
+} from "@/registry/v1/ui/dialog"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/registry/new-york-v4/ui/input-group"
-import { Modal } from "@/registry/new-york-v4/ui/modal"
-import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
+} from "@/registry/v1/ui/input-group"
+import { Modal } from "@/registry/v1/ui/modal"
+import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
 
 const users = [
   {

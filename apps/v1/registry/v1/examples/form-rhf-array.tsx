@@ -7,7 +7,7 @@ import { Controller, useFieldArray, useForm } from "react-hook-form"
 import { toast } from "sonner"
 import * as z from "zod"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Card,
   CardContent,
@@ -15,7 +15,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york-v4/ui/card"
+} from "@/registry/v1/ui/card"
 import {
   Field,
   FieldContent,
@@ -24,13 +24,13 @@ import {
   FieldGroup,
   FieldLegend,
   FieldSet,
-} from "@/registry/new-york-v4/ui/field"
+} from "@/registry/v1/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/registry/new-york-v4/ui/input-group"
+} from "@/registry/v1/ui/input-group"
 
 const formSchema = z.object({
   emails: z

@@ -18,8 +18,8 @@ import {
   PromptInputSubmit,
   PromptInputTextarea,
   PromptInputTools,
-} from "@/registry/new-york-v4/ai-elements/prompt-input"
-import { cn } from "@/registry/new-york-v4/lib/utils"
+} from "@/registry/v1/ai-elements/prompt-input"
+import { cn } from "@/registry/v1/lib/utils"
 
 export function ChatInput(props: { className?: string } = {}) {
   const [text, setText] = useState("")

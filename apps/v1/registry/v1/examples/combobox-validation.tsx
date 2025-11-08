@@ -1,6 +1,6 @@
 "use client"
 
-import { ComboBox, ComboBoxItem } from "@/registry/new-york-v4/ui/combobox"
+import { ComboBox, ComboBoxItem } from "@/registry/v1/ui/combobox"
 
 const priorities = [
   { id: "low", name: "Low" },

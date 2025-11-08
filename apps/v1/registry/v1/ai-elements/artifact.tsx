@@ -4,8 +4,8 @@ import type { ComponentProps, HTMLAttributes } from "react"
 import { XIcon, type LucideIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
+import { Button } from "@/registry/v1/ui/button"
+import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
 
 export type ArtifactProps = HTMLAttributes<HTMLDivElement>
 

@@ -2,13 +2,13 @@
 
 import { useState } from "react"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   TabPanel,
   Tabs,
   TabsList,
   TabsTrigger,
-} from "@/registry/new-york-v4/ui/tabs"
+} from "@/registry/v1/ui/tabs"
 
 export default function TabsControlled() {
   const [selectedTab, setSelectedTab] = useState("overview")

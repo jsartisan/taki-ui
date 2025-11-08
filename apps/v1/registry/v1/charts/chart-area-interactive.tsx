@@ -9,7 +9,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york-v4/ui/card"
+} from "@/registry/v1/ui/card"
 import {
   ChartConfig,
   ChartContainer,
@@ -17,8 +17,8 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/registry/new-york-v4/ui/chart"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
+} from "@/registry/v1/ui/chart"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
 
 export const description = "An interactive area chart"
 

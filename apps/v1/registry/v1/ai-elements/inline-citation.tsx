@@ -12,17 +12,17 @@ import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
 import { Focusable } from "react-aria-components"
 
 import { cn } from "@/lib/utils"
-import { Badge } from "@/registry/new-york-v4/ui/badge"
+import { Badge } from "@/registry/v1/ui/badge"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   type CarouselApi,
-} from "@/registry/new-york-v4/ui/carousel"
+} from "@/registry/v1/ui/carousel"
 import {
   HoverCard,
   HoverCardContent,
-} from "@/registry/new-york-v4/ui/hover-card"
+} from "@/registry/v1/ui/hover-card"
 
 export type InlineCitationProps = ComponentProps<"span">
 

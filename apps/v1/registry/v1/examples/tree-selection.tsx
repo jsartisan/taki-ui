@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-import { Tree, TreeItem } from "@/registry/new-york-v4/ui/tree"
+import { Tree, TreeItem } from "@/registry/v1/ui/tree"
 
 export default function TreeSelectionDemo() {
   const [selected, setSelected] = useState<Set<string>>(

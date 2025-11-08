@@ -1,4 +1,4 @@
-import { Shimmer } from "@/registry/new-york-v4/ai-elements/shimmer"
+import { Shimmer } from "@/registry/v1/ai-elements/shimmer"
 
 export default function ShimmerDemo() {
   return (

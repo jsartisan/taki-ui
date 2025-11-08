@@ -8,9 +8,9 @@ import { toast } from "sonner"
 import { z } from "zod"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Calendar } from "@/registry/new-york-v4/ui/calendar"
-import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { Button } from "@/registry/v1/ui/button"
+import { Calendar } from "@/registry/v1/ui/calendar"
+import { DialogTrigger } from "@/registry/v1/ui/dialog"
 import {
   Form,
   FormControl,
@@ -19,8 +19,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/registry/new-york-v4/ui/form"
-import { Popover } from "@/registry/new-york-v4/ui/popover"
+} from "@/registry/v1/ui/form"
+import { Popover } from "@/registry/v1/ui/popover"
 
 const FormSchema = z.object({
   dob: z.date({

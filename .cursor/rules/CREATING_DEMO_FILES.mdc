@@ -32,7 +32,7 @@ Follow this pattern: `{component-name}-{variant}.tsx`
 ### Demo File Structure
 
 ```tsx
-import { ComponentName } from "@/registry/new-york-v4/ui/component-name"
+import { ComponentName } from "@/registry/v1/ui/component-name"
 
 export default function ComponentDemo() {
   return (
@@ -55,8 +55,8 @@ export default function ComponentDemo() {
 **File:** `apps/v4/registry/new-york-v4/examples/checkbox-demo.tsx`
 
 ```tsx
-import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
-import { Label } from "@/registry/new-york-v4/ui/label"
+import { Checkbox } from "@/registry/v1/ui/checkbox"
+import { Label } from "@/registry/v1/ui/label"
 
 export default function CheckboxDemo() {
   return (
@@ -236,7 +236,7 @@ Let's create a complete example: a button loading demo.
 **File:** `apps/v4/registry/new-york-v4/examples/button-loading.tsx`
 
 ```tsx
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import { Loader2 } from "lucide-react"
 
 export default function ButtonLoading() {
@@ -409,7 +409,7 @@ Include state when relevant:
 "use client"
 
 import { useState } from "react"
-import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
+import { Checkbox } from "@/registry/v1/ui/checkbox"
 
 export default function CheckboxControlled() {
   const [checked, setChecked] = useState(false)

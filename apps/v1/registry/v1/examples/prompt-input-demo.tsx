@@ -20,7 +20,7 @@ import {
   PromptInputSubmit,
   PromptInputTextarea,
   PromptInputTools,
-} from "@/registry/new-york-v4/ai-elements/prompt-input"
+} from "@/registry/v1/ai-elements/prompt-input"
 
 const models = [
   { id: "gpt-4o", name: "GPT-4o" },

@@ -2,14 +2,14 @@
 
 import { ArchiveIcon, EllipsisIcon, FlagIcon, TrashIcon } from "lucide-react"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Menu,
   MenuItem,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/new-york-v4/ui/menu"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
+} from "@/registry/v1/ui/menu"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
 
 export function ChatHeader() {
   return (

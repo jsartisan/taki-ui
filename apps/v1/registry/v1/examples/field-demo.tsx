@@ -1,5 +1,5 @@
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
+import { Button } from "@/registry/v1/ui/button"
+import { Checkbox } from "@/registry/v1/ui/checkbox"
 import {
   Field,
   FieldDescription,
@@ -8,10 +8,10 @@ import {
   FieldLegend,
   FieldSeparator,
   FieldSet,
-} from "@/registry/new-york-v4/ui/field"
-import { Input } from "@/registry/new-york-v4/ui/input"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
-import { Textarea } from "@/registry/new-york-v4/ui/textarea"
+} from "@/registry/v1/ui/field"
+import { Input } from "@/registry/v1/ui/input"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
+import { Textarea } from "@/registry/v1/ui/textarea"
 
 export default function FieldDemo() {
   return (

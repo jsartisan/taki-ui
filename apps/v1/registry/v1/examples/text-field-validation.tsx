@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-import { TextField } from "@/registry/new-york-v4/ui/text-field"
+import { TextField } from "@/registry/v1/ui/text-field"
 
 export default function TextFieldValidation() {
   const [value, setValue] = useState("")

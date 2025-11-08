@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { CameraIcon } from "lucide-react"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { FileTrigger } from "@/registry/new-york-v4/ui/file-trigger"
+import { Button } from "@/registry/v1/ui/button"
+import { FileTrigger } from "@/registry/v1/ui/file-trigger"
 
 export default function FileTriggerCamera() {
   const [image, setImage] = useState<string | null>(null)

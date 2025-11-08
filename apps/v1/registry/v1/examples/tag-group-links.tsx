@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { Tag, TagGroup } from "@/registry/new-york-v4/ui/tag-group"
+import { Tag, TagGroup } from "@/registry/v1/ui/tag-group"
 
 export default function TagGroupLinksDemo() {
   return (

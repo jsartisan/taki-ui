@@ -5,8 +5,8 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/registry/new-york-v4/ui/input-group"
-import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
+} from "@/registry/v1/ui/input-group"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/v1/ui/menu"
 
 export default function InputGroupDropdown() {
   return (

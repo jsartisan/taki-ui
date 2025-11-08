@@ -1,6 +1,6 @@
 "use client"
 
-import { ListBox, ListBoxItem } from "@/registry/new-york-v4/ui/list-box"
+import { ListBox, ListBoxItem } from "@/registry/v1/ui/list-box"
 
 interface Animal {
   id: string

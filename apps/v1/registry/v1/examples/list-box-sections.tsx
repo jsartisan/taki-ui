@@ -3,7 +3,7 @@
 import React from "react"
 import { Header, ListBoxSection } from "react-aria-components"
 
-import { ListBox, ListBoxItem } from "@/registry/new-york-v4/ui/list-box"
+import { ListBox, ListBoxItem } from "@/registry/v1/ui/list-box"
 
 export default function ListBoxSections() {
   return (

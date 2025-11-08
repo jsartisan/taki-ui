@@ -88,9 +88,9 @@ import {
 } from "shiki"
 
 import { cn } from "@/lib/utils"
-import { useControllableState } from "@/registry/new-york-v4/hooks/use-controllable-state"
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
+import { useControllableState } from "@/registry/v1/hooks/use-controllable-state"
+import { Button } from "@/registry/v1/ui/button"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
 
 export type { BundledLanguage } from "shiki"
 

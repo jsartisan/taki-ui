@@ -28,8 +28,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/new-york-v4/ui/dialog"
-import { Modal } from "@/registry/new-york-v4/ui/modal"
+} from "@/registry/v1/ui/dialog"
+import { Modal } from "@/registry/v1/ui/modal"
 
 import { ListBox, ListBoxItem } from "./list-box"
 

@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { ListBox } from "@/registry/new-york-v4/ui/list-box"
+import { ListBox } from "@/registry/v1/ui/list-box"
 
 export default function ListBoxEmpty() {
   return (

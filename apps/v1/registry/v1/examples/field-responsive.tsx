@@ -1,4 +1,4 @@
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Field,
   FieldContent,
@@ -8,9 +8,9 @@ import {
   FieldLegend,
   FieldSeparator,
   FieldSet,
-} from "@/registry/new-york-v4/ui/field"
-import { Input } from "@/registry/new-york-v4/ui/input"
-import { Textarea } from "@/registry/new-york-v4/ui/textarea"
+} from "@/registry/v1/ui/field"
+import { Input } from "@/registry/v1/ui/input"
+import { Textarea } from "@/registry/v1/ui/textarea"
 
 export default function FieldResponsive() {
   return (

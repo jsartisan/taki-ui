@@ -4,7 +4,7 @@ import {
   TaskItem,
   TaskItemFile,
   TaskTrigger,
-} from "@/registry/new-york-v4/ai-elements/task"
+} from "@/registry/v1/ai-elements/task"
 
 export default function TaskDemo() {
   return (

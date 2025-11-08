@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { parseDate } from "@internationalized/date"
 
-import { DateField } from "@/registry/new-york-v4/ui/date-field"
+import { DateField } from "@/registry/v1/ui/date-field"
 
 export default function DateFieldControlled() {
   const [value, setValue] = useState(parseDate("2024-01-15"))

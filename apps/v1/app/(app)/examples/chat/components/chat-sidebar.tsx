@@ -3,8 +3,8 @@
 import { PlusIcon, SearchIcon, SettingsIcon, SparklesIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Input } from "@/registry/new-york-v4/ui/input"
+import { Button } from "@/registry/v1/ui/button"
+import { Input } from "@/registry/v1/ui/input"
 
 type ConversationType = {
   id: string

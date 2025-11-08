@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { parseDate } from "@internationalized/date"
 
-import { DatePicker } from "@/registry/new-york-v4/ui/date-picker"
+import { DatePicker } from "@/registry/v1/ui/date-picker"
 
 export default function DatePickerControlled() {
   const [value, setValue] = useState(parseDate("2024-12-25"))

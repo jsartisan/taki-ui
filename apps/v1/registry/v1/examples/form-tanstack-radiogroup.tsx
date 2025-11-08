@@ -5,7 +5,7 @@ import { useForm } from "@tanstack/react-form"
 import { toast } from "sonner"
 import * as z from "zod"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Card,
   CardContent,
@@ -13,7 +13,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york-v4/ui/card"
+} from "@/registry/v1/ui/card"
 import {
   Field,
   FieldContent,
@@ -24,8 +24,8 @@ import {
   FieldLegend,
   FieldSet,
   FieldTitle,
-} from "@/registry/new-york-v4/ui/field"
-import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
+} from "@/registry/v1/ui/field"
+import { Radio, RadioGroup } from "@/registry/v1/ui/radio-group"
 
 const plans = [
   {

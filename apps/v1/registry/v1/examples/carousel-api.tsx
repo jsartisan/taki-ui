@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { Card, CardContent } from "@/registry/new-york-v4/ui/card"
+import { Card, CardContent } from "@/registry/v1/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -10,7 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
-} from "@/registry/new-york-v4/ui/carousel"
+} from "@/registry/v1/ui/carousel"
 
 export default function CarouselDApiDemo() {
   const [api, setApi] = React.useState<CarouselApi>()

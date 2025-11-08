@@ -54,16 +54,16 @@ import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { toast } from "sonner"
 import { z } from "zod"
 
-import { useIsMobile } from "@/registry/new-york-v4/hooks/use-mobile"
-import { Badge } from "@/registry/new-york-v4/ui/badge"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { useIsMobile } from "@/registry/v1/hooks/use-mobile"
+import { Badge } from "@/registry/v1/ui/badge"
+import { Button } from "@/registry/v1/ui/button"
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/registry/new-york-v4/ui/chart"
-import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
+} from "@/registry/v1/ui/chart"
+import { Checkbox } from "@/registry/v1/ui/checkbox"
 import {
   Drawer,
   DrawerClose,
@@ -73,17 +73,17 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/registry/new-york-v4/ui/drawer"
-import { Input } from "@/registry/new-york-v4/ui/input"
-import { Label } from "@/registry/new-york-v4/ui/label"
+} from "@/registry/v1/ui/drawer"
+import { Input } from "@/registry/v1/ui/input"
+import { Label } from "@/registry/v1/ui/label"
 import {
   Menu,
   MenuItem,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/new-york-v4/ui/menu"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
-import { Separator } from "@/registry/new-york-v4/ui/separator"
+} from "@/registry/v1/ui/menu"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
+import { Separator } from "@/registry/v1/ui/separator"
 import {
   Table,
   TableBody,
@@ -91,13 +91,13 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/registry/new-york-v4/ui/table"
+} from "@/registry/v1/ui/table"
 import {
   TabPanel,
   Tabs,
   TabsList,
   TabsTrigger,
-} from "@/registry/new-york-v4/ui/tabs"
+} from "@/registry/v1/ui/tabs"
 
 export const schema = z.object({
   id: z.number(),

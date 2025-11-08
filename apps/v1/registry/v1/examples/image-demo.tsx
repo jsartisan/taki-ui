@@ -1,4 +1,4 @@
-import { Image } from "@/registry/new-york-v4/ai-elements/image"
+import { Image } from "@/registry/v1/ai-elements/image"
 
 export default function ImageDemo() {
   // Example base64 image (1x1 transparent PNG)

@@ -1,6 +1,6 @@
 "use client"
 
-import { TagGroup } from "@/registry/new-york-v4/ui/tag-group"
+import { TagGroup } from "@/registry/v1/ui/tag-group"
 
 export default function TagGroupEmptyDemo() {
   return (

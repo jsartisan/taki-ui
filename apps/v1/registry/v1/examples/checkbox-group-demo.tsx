@@ -1,6 +1,6 @@
 "use client"
 
-import { Checkbox, CheckboxGroup } from "@/registry/new-york-v4/ui/checkbox"
+import { Checkbox, CheckboxGroup } from "@/registry/v1/ui/checkbox"
 
 export default function CheckboxGroupDemo() {
   return (

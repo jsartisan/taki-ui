@@ -1,4 +1,4 @@
-import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
+import { Checkbox } from "@/registry/v1/ui/checkbox"
 import {
   Field,
   FieldDescription,
@@ -6,7 +6,7 @@ import {
   FieldLabel,
   FieldSeparator,
   FieldSet,
-} from "@/registry/new-york-v4/ui/field"
+} from "@/registry/v1/ui/field"
 
 export default function FieldGroupExample() {
   return (

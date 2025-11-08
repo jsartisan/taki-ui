@@ -1,5 +1,5 @@
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Kbd } from "@/registry/new-york-v4/ui/kbd"
+import { Button } from "@/registry/v1/ui/button"
+import { Kbd } from "@/registry/v1/ui/kbd"
 
 export default function KbdButton() {
   return (

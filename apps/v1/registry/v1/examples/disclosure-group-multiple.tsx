@@ -3,7 +3,7 @@ import {
   DisclosureGroup,
   DisclosureHeader,
   DisclosurePanel,
-} from "@/registry/new-york-v4/ui/disclosure"
+} from "@/registry/v1/ui/disclosure"
 
 export default function DisclosureGroupMultiple() {
   return (

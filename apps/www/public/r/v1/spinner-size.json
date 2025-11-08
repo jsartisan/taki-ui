@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/v1/examples/spinner-size.tsx",
-      "content": "import { Spinner } from \"@/registry/new-york-v4/ui/spinner\"\n\nexport default function SpinnerSize() {\n  return (\n    <div className=\"flex items-center gap-6\">\n      <Spinner className=\"size-3\" />\n      <Spinner className=\"size-4\" />\n      <Spinner className=\"size-6\" />\n      <Spinner className=\"size-8\" />\n    </div>\n  )\n}\n",
+      "content": "import { Spinner } from \"@/registry/v1/ui/spinner\"\n\nexport default function SpinnerSize() {\n  return (\n    <div className=\"flex items-center gap-6\">\n      <Spinner className=\"size-3\" />\n      <Spinner className=\"size-4\" />\n      <Spinner className=\"size-6\" />\n      <Spinner className=\"size-8\" />\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

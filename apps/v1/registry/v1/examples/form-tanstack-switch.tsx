@@ -5,7 +5,7 @@ import { useForm } from "@tanstack/react-form"
 import { toast } from "sonner"
 import * as z from "zod"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Card,
   CardContent,
@@ -13,7 +13,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york-v4/ui/card"
+} from "@/registry/v1/ui/card"
 import {
   Field,
   FieldContent,
@@ -21,8 +21,8 @@ import {
   FieldError,
   FieldGroup,
   FieldLabel,
-} from "@/registry/new-york-v4/ui/field"
-import { Switch } from "@/registry/new-york-v4/ui/switch"
+} from "@/registry/v1/ui/field"
+import { Switch } from "@/registry/v1/ui/switch"
 
 const formSchema = z.object({
   twoFactor: z.boolean().refine((val) => val === true, {

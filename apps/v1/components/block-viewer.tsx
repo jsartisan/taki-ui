@@ -26,17 +26,17 @@ import { cn } from "@/lib/utils"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 import { getIconForLanguageExtension } from "@/components/icons"
 import { OpenInV0Button } from "@/components/open-in-v0-button"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Disclosure,
   DisclosurePanel,
-} from "@/registry/new-york-v4/ui/disclosure"
+} from "@/registry/v1/ui/disclosure"
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/registry/new-york-v4/ui/resizable"
-import { Separator } from "@/registry/new-york-v4/ui/separator"
+} from "@/registry/v1/ui/resizable"
+import { Separator } from "@/registry/v1/ui/separator"
 import {
   Sidebar,
   SidebarGroup,
@@ -47,12 +47,12 @@ import {
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarProvider,
-} from "@/registry/new-york-v4/ui/sidebar"
-import { Tabs, TabsList, TabsTrigger } from "@/registry/new-york-v4/ui/tabs"
+} from "@/registry/v1/ui/sidebar"
+import { Tabs, TabsList, TabsTrigger } from "@/registry/v1/ui/tabs"
 import {
   ToggleButtonGroup,
   ToggleButtonGroupItem,
-} from "@/registry/new-york-v4/ui/toggle-button-group"
+} from "@/registry/v1/ui/toggle-button-group"
 
 type BlockViewerContext = {
   item: z.infer<typeof registryItemSchema>

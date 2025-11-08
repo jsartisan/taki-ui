@@ -11,7 +11,7 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/registry/new-york-v4/ui/input-group"
+} from "@/registry/v1/ui/input-group"
 
 export default function InputGroupIcon() {
   return (

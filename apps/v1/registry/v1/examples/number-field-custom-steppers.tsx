@@ -4,13 +4,13 @@ import { useState } from "react"
 import { MinusIcon, PlusIcon } from "lucide-react"
 import { NumberField as AriaNumberField } from "react-aria-components"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { ButtonGroup } from "@/registry/new-york-v4/ui/button-group"
+import { Button } from "@/registry/v1/ui/button"
+import { ButtonGroup } from "@/registry/v1/ui/button-group"
 import {
   FieldDescription,
   FieldLabel,
   fieldVariants,
-} from "@/registry/new-york-v4/ui/field"
+} from "@/registry/v1/ui/field"
 
 import { Input } from "../ui/input"
 

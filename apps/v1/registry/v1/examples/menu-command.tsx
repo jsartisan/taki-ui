@@ -6,8 +6,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/registry/new-york-v4/ui/avatar"
-import { Button } from "@/registry/new-york-v4/ui/button"
+} from "@/registry/v1/ui/avatar"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Command,
   CommandDialog,
@@ -16,13 +16,13 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/new-york-v4/ui/command"
+} from "@/registry/v1/ui/command"
 import {
   Menu,
   MenuItem,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/new-york-v4/ui/menu"
+} from "@/registry/v1/ui/menu"
 
 import { Popover } from "../ui/popover"
 

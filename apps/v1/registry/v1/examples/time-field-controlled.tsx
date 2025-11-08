@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Time } from "@internationalized/date"
 
-import { TimeField } from "@/registry/new-york-v4/ui/time-field"
+import { TimeField } from "@/registry/v1/ui/time-field"
 
 export default function TimeFieldControlledDemo() {
   const [time, setTime] = useState(new Time(9, 0))

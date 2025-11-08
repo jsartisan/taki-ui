@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Form,
   FormControl,
@@ -13,8 +13,8 @@ import {
   FormField,
   FormItem,
   FormLabel,
-} from "@/registry/new-york-v4/ui/form"
-import { Switch } from "@/registry/new-york-v4/ui/switch"
+} from "@/registry/v1/ui/form"
+import { Switch } from "@/registry/v1/ui/switch"
 
 const FormSchema = z.object({
   marketing_emails: z.boolean().default(false).optional(),

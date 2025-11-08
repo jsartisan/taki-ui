@@ -3,17 +3,17 @@
 import { BotIcon, UserIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Loader } from "@/registry/new-york-v4/ai-elements/loader"
+import { Loader } from "@/registry/v1/ai-elements/loader"
 import {
   Message,
   MessageAvatar,
   MessageContent,
-} from "@/registry/new-york-v4/ai-elements/message"
+} from "@/registry/v1/ai-elements/message"
 import {
   Reasoning,
   ReasoningContent,
   ReasoningTrigger,
-} from "@/registry/new-york-v4/ai-elements/reasoning"
+} from "@/registry/v1/ai-elements/reasoning"
 
 export type MessageType = {
   id: string

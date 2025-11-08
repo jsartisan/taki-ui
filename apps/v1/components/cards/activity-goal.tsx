@@ -4,7 +4,7 @@ import * as React from "react"
 import { MinusIcon, PlusIcon } from "lucide-react"
 import { Bar, BarChart } from "recharts"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Card,
   CardContent,
@@ -12,8 +12,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york-v4/ui/card"
-import { ChartConfig, ChartContainer } from "@/registry/new-york-v4/ui/chart"
+} from "@/registry/v1/ui/card"
+import { ChartConfig, ChartContainer } from "@/registry/v1/ui/chart"
 
 const data = [
   {

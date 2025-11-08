@@ -6,7 +6,7 @@ import { ArrowDownIcon } from "lucide-react"
 import { StickToBottom, useStickToBottomContext } from "use-stick-to-bottom"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 
 export type ConversationProps = ComponentProps<typeof StickToBottom>
 

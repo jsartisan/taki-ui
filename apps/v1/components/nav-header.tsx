@@ -8,7 +8,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from "@/registry/new-york-v4/ui/navigation-menu"
+} from "@/registry/v1/ui/navigation-menu"
 
 export function NavHeader() {
   const pathname = usePathname()

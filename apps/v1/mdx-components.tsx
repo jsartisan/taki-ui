@@ -17,21 +17,21 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry/new-york-v4/ui/alert"
-import { Button } from "@/registry/new-york-v4/ui/button"
+} from "@/registry/v1/ui/alert"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Disclosure,
   DisclosureGroup,
   DisclosureHeader,
   DisclosurePanel,
-} from "@/registry/new-york-v4/ui/disclosure"
-import { Kbd } from "@/registry/new-york-v4/ui/kbd"
+} from "@/registry/v1/ui/disclosure"
+import { Kbd } from "@/registry/v1/ui/kbd"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/registry/new-york-v4/ui/tabs"
+} from "@/registry/v1/ui/tabs"
 
 export const mdxComponents = {
   h1: ({ className, ...props }: React.ComponentProps<"h1">) => (

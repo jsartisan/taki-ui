@@ -5,8 +5,8 @@ import {
   InputGroupAddon,
   InputGroupInput,
   InputGroupText,
-} from "@/registry/new-york-v4/ui/input-group"
-import { Spinner } from "@/registry/new-york-v4/ui/spinner"
+} from "@/registry/v1/ui/input-group"
+import { Spinner } from "@/registry/v1/ui/spinner"
 
 export default function InputGroupSpinner() {
   return (

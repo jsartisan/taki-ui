@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { SearchField } from "@/registry/new-york-v4/ui/search-field"
+import { Button } from "@/registry/v1/ui/button"
+import { SearchField } from "@/registry/v1/ui/search-field"
 
 export default function SearchFieldWithButton() {
   const [value, setValue] = useState("")

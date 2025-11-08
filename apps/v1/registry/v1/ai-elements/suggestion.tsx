@@ -3,7 +3,7 @@
 import type { ComponentProps } from "react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 
 export type SuggestionsProps = ComponentProps<"div">
 

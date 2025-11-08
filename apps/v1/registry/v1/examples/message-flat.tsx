@@ -2,7 +2,7 @@ import {
   Message,
   MessageAvatar,
   MessageContent,
-} from "@/registry/new-york-v4/ai-elements/message"
+} from "@/registry/v1/ai-elements/message"
 
 export default function MessageFlat() {
   return (

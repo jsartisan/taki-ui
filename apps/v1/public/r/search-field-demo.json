@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/v1/examples/search-field-demo.tsx",
-      "content": "import { SearchField } from \"@/registry/new-york-v4/ui/search-field\"\n\nexport default function SearchFieldDemo() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <SearchField label=\"Search\" placeholder=\"Search products...\" />\n    </div>\n  )\n}\n",
+      "content": "import { SearchField } from \"@/registry/v1/ui/search-field\"\n\nexport default function SearchFieldDemo() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <SearchField label=\"Search\" placeholder=\"Search products...\" />\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

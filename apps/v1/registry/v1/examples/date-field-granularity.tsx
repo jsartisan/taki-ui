@@ -1,4 +1,4 @@
-import { DateField } from "@/registry/new-york-v4/ui/date-field"
+import { DateField } from "@/registry/v1/ui/date-field"
 
 export default function DateFieldGranularity() {
   return (

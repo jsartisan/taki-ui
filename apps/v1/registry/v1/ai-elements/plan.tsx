@@ -5,7 +5,7 @@ import { createContext, useContext } from "react"
 import { ChevronsUpDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Card,
   CardAction,
@@ -14,11 +14,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york-v4/ui/card"
+} from "@/registry/v1/ui/card"
 import {
   Disclosure,
   DisclosurePanel,
-} from "@/registry/new-york-v4/ui/disclosure"
+} from "@/registry/v1/ui/disclosure"
 
 import { Shimmer } from "./shimmer"
 

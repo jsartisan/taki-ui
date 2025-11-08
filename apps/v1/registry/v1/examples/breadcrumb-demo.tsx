@@ -6,9 +6,9 @@ import {
   BreadcrumbLink,
   Breadcrumbs,
   BreadcrumbSeparator,
-} from "@/registry/new-york-v4/ui/breadcrumb"
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
+} from "@/registry/v1/ui/breadcrumb"
+import { Button } from "@/registry/v1/ui/button"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/v1/ui/menu"
 
 export default function BreadcrumbDemo() {
   return (

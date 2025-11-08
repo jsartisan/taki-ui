@@ -1,4 +1,4 @@
-import { Separator } from "@/registry/new-york-v4/ui/separator"
+import { Separator } from "@/registry/v1/ui/separator"
 
 export default function SeparatorDemo() {
   return (

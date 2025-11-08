@@ -6,14 +6,14 @@ import { Controller, useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Field,
   FieldDescription,
   FieldError,
   FieldLabel,
-} from "@/registry/new-york-v4/ui/field"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
+} from "@/registry/v1/ui/field"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
 
 const FormSchema = z.object({
   email: z

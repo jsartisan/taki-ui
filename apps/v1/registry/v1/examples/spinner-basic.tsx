@@ -1,4 +1,4 @@
-import { Spinner } from "@/registry/new-york-v4/ui/spinner"
+import { Spinner } from "@/registry/v1/ui/spinner"
 
 export default function SpinnerBasic() {
   return (

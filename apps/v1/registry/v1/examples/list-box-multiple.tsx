@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-import { ListBox, ListBoxItem } from "@/registry/new-york-v4/ui/list-box"
+import { ListBox, ListBoxItem } from "@/registry/v1/ui/list-box"
 
 export default function ListBoxMultiple() {
   const [selected, setSelected] = useState<Set<string>>(new Set())

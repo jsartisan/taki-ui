@@ -1,8 +1,8 @@
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
-import { Input } from "@/registry/new-york-v4/ui/input"
-import { Label } from "@/registry/new-york-v4/ui/label"
-import { Popover } from "@/registry/new-york-v4/ui/popover"
+import { Button } from "@/registry/v1/ui/button"
+import { DialogTrigger } from "@/registry/v1/ui/dialog"
+import { Input } from "@/registry/v1/ui/input"
+import { Label } from "@/registry/v1/ui/label"
+import { Popover } from "@/registry/v1/ui/popover"
 
 export default function PopoverDemo() {
   return (

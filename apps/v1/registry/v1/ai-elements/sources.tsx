@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 import {
   Disclosure,
   DisclosurePanel,
-} from "@/registry/new-york-v4/ui/disclosure"
+} from "@/registry/v1/ui/disclosure"
 
 export type SourcesProps = ComponentProps<"div">
 

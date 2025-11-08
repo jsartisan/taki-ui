@@ -1,4 +1,4 @@
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Item,
   ItemActions,
@@ -7,9 +7,9 @@ import {
   ItemFooter,
   ItemMedia,
   ItemTitle,
-} from "@/registry/new-york-v4/ui/item"
-import { ProgressBar } from "@/registry/new-york-v4/ui/progress-bar"
-import { Spinner } from "@/registry/new-york-v4/ui/spinner"
+} from "@/registry/v1/ui/item"
+import { ProgressBar } from "@/registry/v1/ui/progress-bar"
+import { Spinner } from "@/registry/v1/ui/spinner"
 
 export default function SpinnerItem() {
   return (

@@ -11,7 +11,7 @@ import {
   QueueSectionContent,
   QueueSectionLabel,
   QueueSectionTrigger,
-} from "@/registry/new-york-v4/ai-elements/queue"
+} from "@/registry/v1/ai-elements/queue"
 
 export default function QueueDemo() {
   return (

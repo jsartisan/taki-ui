@@ -4,7 +4,7 @@ import * as React from "react"
 import { MoreHorizontal } from "lucide-react"
 import { SubmenuTrigger } from "react-aria-components"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Command,
   CommandEmpty,
@@ -12,13 +12,13 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/new-york-v4/ui/command"
+} from "@/registry/v1/ui/command"
 import {
   Menu,
   MenuItem,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/new-york-v4/ui/menu"
+} from "@/registry/v1/ui/menu"
 
 const labels = [
   "feature",

@@ -3,7 +3,7 @@
 import * as React from "react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
-import { useIsMobile } from "@/registry/new-york-v4/hooks/use-mobile"
+import { useIsMobile } from "@/registry/v1/hooks/use-mobile"
 import {
   Card,
   CardAction,
@@ -11,18 +11,18 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york-v4/ui/card"
+} from "@/registry/v1/ui/card"
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/registry/new-york-v4/ui/chart"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
+} from "@/registry/v1/ui/chart"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
 import {
   ToggleButtonGroup,
   ToggleButtonGroupItem,
-} from "@/registry/new-york-v4/ui/toggle-button-group"
+} from "@/registry/v1/ui/toggle-button-group"
 
 export const description = "An interactive area chart"
 

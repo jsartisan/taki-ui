@@ -2,7 +2,7 @@
 
 import { ChevronDownIcon } from "lucide-react"
 
-import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/v1/ui/menu"
 import {
   Sidebar,
   SidebarHeader,
@@ -12,7 +12,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@/registry/new-york-v4/ui/sidebar"
+} from "@/registry/v1/ui/sidebar"
 
 export default function AppSidebar() {
   return (

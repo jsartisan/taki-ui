@@ -3,7 +3,7 @@
 import { getLocalTimeZone, isWeekend, today } from "@internationalized/date"
 import { useLocale } from "react-aria-components"
 
-import { RangeCalendar } from "@/registry/new-york-v4/ui/range-calendar"
+import { RangeCalendar } from "@/registry/v1/ui/range-calendar"
 
 export default function RangeCalendarUnavailableDates() {
   const now = today(getLocalTimeZone())

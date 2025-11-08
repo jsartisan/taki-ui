@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/v1/examples/time-field-controlled.tsx",
-      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { Time } from \"@internationalized/date\"\n\nimport { TimeField } from \"@/registry/new-york-v4/ui/time-field\"\n\nexport default function TimeFieldControlledDemo() {\n  const [time, setTime] = useState(new Time(9, 0))\n\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <TimeField label=\"Appointment time\" value={time} onChange={setTime} />\n      <p className=\"text-muted-foreground text-sm\">\n        Selected time: {time.toString()}\n      </p>\n    </div>\n  )\n}\n",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { Time } from \"@internationalized/date\"\n\nimport { TimeField } from \"@/registry/v1/ui/time-field\"\n\nexport default function TimeFieldControlledDemo() {\n  const [time, setTime] = useState(new Time(9, 0))\n\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <TimeField label=\"Appointment time\" value={time} onChange={setTime} />\n      <p className=\"text-muted-foreground text-sm\">\n        Selected time: {time.toString()}\n      </p>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

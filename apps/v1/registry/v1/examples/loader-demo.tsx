@@ -1,4 +1,4 @@
-import { Loader } from "@/registry/new-york-v4/ai-elements/loader"
+import { Loader } from "@/registry/v1/ai-elements/loader"
 
 export default function LoaderDemo() {
   return (

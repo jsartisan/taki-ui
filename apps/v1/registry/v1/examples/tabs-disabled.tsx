@@ -3,7 +3,7 @@ import {
   Tabs,
   TabsList,
   TabsTrigger,
-} from "@/registry/new-york-v4/ui/tabs"
+} from "@/registry/v1/ui/tabs"
 
 export default function TabsDisabled() {
   return (

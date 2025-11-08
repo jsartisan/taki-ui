@@ -2,7 +2,7 @@ import {
   Select,
   SelectItem,
   SelectSection,
-} from "@/registry/new-york-v4/ui/select"
+} from "@/registry/v1/ui/select"
 
 export default function SelectScrollable() {
   return (

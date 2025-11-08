@@ -12,8 +12,8 @@ import { absoluteUrl } from "@/lib/utils"
 import { DocsCopyPage } from "@/components/docs-copy-page"
 import { DocsTableOfContents } from "@/components/docs-toc"
 import { LinePattern } from "@/components/line-pattern"
-import { badgeVariants } from "@/registry/new-york-v4/ui/badge"
-import { LinkButton } from "@/registry/new-york-v4/ui/link-button"
+import { badgeVariants } from "@/registry/v1/ui/badge"
+import { LinkButton } from "@/registry/v1/ui/link-button"
 
 export const revalidate = false
 export const dynamic = "force-static"

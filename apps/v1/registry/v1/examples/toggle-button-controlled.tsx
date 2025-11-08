@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { StarIcon } from "lucide-react"
 
-import { ToggleButton } from "@/registry/new-york-v4/ui/toggle-button"
+import { ToggleButton } from "@/registry/v1/ui/toggle-button"
 
 export default function ToggleButtonControlled() {
   const [isSelected, setSelected] = useState(false)

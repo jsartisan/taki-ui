@@ -5,7 +5,7 @@ import { useState } from "react"
 import {
   Suggestion,
   Suggestions,
-} from "@/registry/new-york-v4/ai-elements/suggestion"
+} from "@/registry/v1/ai-elements/suggestion"
 
 export default function SuggestionDemo() {
   const [selected, setSelected] = useState<string | null>(null)

@@ -5,7 +5,7 @@ import { useForm } from "@tanstack/react-form"
 import { toast } from "sonner"
 import * as z from "zod"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Card,
   CardContent,
@@ -13,7 +13,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york-v4/ui/card"
+} from "@/registry/v1/ui/card"
 import {
   Field,
   FieldContent,
@@ -21,9 +21,9 @@ import {
   FieldError,
   FieldGroup,
   FieldLabel,
-} from "@/registry/new-york-v4/ui/field"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
-import { Separator } from "@/registry/new-york-v4/ui/separator"
+} from "@/registry/v1/ui/field"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
+import { Separator } from "@/registry/v1/ui/separator"
 
 const spokenLanguages = [
   { label: "English", value: "en" },

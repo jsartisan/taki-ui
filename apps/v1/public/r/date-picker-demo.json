@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/v1/examples/date-picker-demo.tsx",
-      "content": "import { DatePicker } from \"@/registry/new-york-v4/ui/date-picker\"\n\nexport default function DatePickerDemo() {\n  return (\n    <DatePicker\n      label=\"Event date\"\n      description=\"Select a date for your event.\"\n    />\n  )\n}\n",
+      "content": "import { DatePicker } from \"@/registry/v1/ui/date-picker\"\n\nexport default function DatePickerDemo() {\n  return (\n    <DatePicker\n      label=\"Event date\"\n      description=\"Select a date for your event.\"\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

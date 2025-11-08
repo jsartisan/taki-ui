@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { Time } from "@internationalized/date"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { TimeField } from "@/registry/new-york-v4/ui/time-field"
+import { Button } from "@/registry/v1/ui/button"
+import { TimeField } from "@/registry/v1/ui/time-field"
 
 export default function TimeFieldValidationDemo() {
   const [time, setTime] = useState<Time | null>(null)

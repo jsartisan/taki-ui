@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/v1/examples/date-field-min-max.tsx",
-      "content": "\"use client\"\n\nimport { getLocalTimeZone, today } from \"@internationalized/date\"\n\nimport { DateField } from \"@/registry/new-york-v4/ui/date-field\"\n\nexport default function DateFieldMinMax() {\n  const now = today(getLocalTimeZone())\n\n  return (\n    <DateField\n      label=\"Meeting date\"\n      description=\"Select a date within the next 7 days.\"\n      minValue={now}\n      maxValue={now.add({ days: 7 })}\n    />\n  )\n}\n",
+      "content": "\"use client\"\n\nimport { getLocalTimeZone, today } from \"@internationalized/date\"\n\nimport { DateField } from \"@/registry/v1/ui/date-field\"\n\nexport default function DateFieldMinMax() {\n  const now = today(getLocalTimeZone())\n\n  return (\n    <DateField\n      label=\"Meeting date\"\n      description=\"Select a date within the next 7 days.\"\n      minValue={now}\n      maxValue={now.add({ days: 7 })}\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

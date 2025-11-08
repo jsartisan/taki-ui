@@ -1,5 +1,5 @@
-import { Label } from "@/registry/new-york-v4/ui/label"
-import { Switch } from "@/registry/new-york-v4/ui/switch"
+import { Label } from "@/registry/v1/ui/label"
+import { Switch } from "@/registry/v1/ui/switch"
 
 export default function SwitchDemo() {
   return (

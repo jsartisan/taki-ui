@@ -2,8 +2,8 @@ import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
-import { FieldDescription } from "@/registry/new-york-v4/ui/field"
-import { LinkButton } from "@/registry/new-york-v4/ui/link-button"
+import { FieldDescription } from "@/registry/v1/ui/field"
+import { LinkButton } from "@/registry/v1/ui/link-button"
 import { UserAuthForm } from "@/app/(app)/examples/authentication/components/user-auth-form"
 
 export const metadata: Metadata = {

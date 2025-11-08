@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/v1/examples/range-calendar-min-max.tsx",
-      "content": "\"use client\"\n\nimport { getLocalTimeZone, today } from \"@internationalized/date\"\n\nimport { RangeCalendar } from \"@/registry/new-york-v4/ui/range-calendar\"\n\nexport default function RangeCalendarMinMax() {\n  const now = today(getLocalTimeZone())\n\n  return (\n    <RangeCalendar\n      aria-label=\"Select a date range\"\n      minValue={now}\n      maxValue={now.add({ weeks: 4 })}\n    />\n  )\n}\n",
+      "content": "\"use client\"\n\nimport { getLocalTimeZone, today } from \"@internationalized/date\"\n\nimport { RangeCalendar } from \"@/registry/v1/ui/range-calendar\"\n\nexport default function RangeCalendarMinMax() {\n  const now = today(getLocalTimeZone())\n\n  return (\n    <RangeCalendar\n      aria-label=\"Select a date range\"\n      minValue={now}\n      maxValue={now.add({ weeks: 4 })}\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

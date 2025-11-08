@@ -13,7 +13,7 @@ import { useConfig } from "@/hooks/use-config"
 import { useIsMac } from "@/hooks/use-is-mac"
 import { useMutationObserver } from "@/hooks/use-mutation-observer"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Command,
   CommandDialog,
@@ -21,9 +21,9 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/new-york-v4/ui/command"
-import { Kbd, KbdGroup } from "@/registry/new-york-v4/ui/kbd"
-import { Separator } from "@/registry/new-york-v4/ui/separator"
+} from "@/registry/v1/ui/command"
+import { Kbd, KbdGroup } from "@/registry/v1/ui/kbd"
+import { Separator } from "@/registry/v1/ui/separator"
 
 export function CommandMenu({
   tree,

@@ -5,9 +5,9 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/registry/new-york-v4/ui/input-group"
-import { Label } from "@/registry/new-york-v4/ui/label"
-import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
+} from "@/registry/v1/ui/input-group"
+import { Label } from "@/registry/v1/ui/label"
+import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
 
 export default function InputGroupLabel() {
   return (

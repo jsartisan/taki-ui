@@ -3,7 +3,7 @@ import {
   Sources,
   SourcesContent,
   SourcesTrigger,
-} from "@/registry/new-york-v4/ai-elements/sources"
+} from "@/registry/v1/ai-elements/sources"
 
 export default function SourcesDemo() {
   const sources = [

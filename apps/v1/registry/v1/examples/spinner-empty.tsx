@@ -1,4 +1,4 @@
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Empty,
   EmptyContent,
@@ -6,8 +6,8 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/registry/new-york-v4/ui/empty"
-import { Spinner } from "@/registry/new-york-v4/ui/spinner"
+} from "@/registry/v1/ui/empty"
+import { Spinner } from "@/registry/v1/ui/spinner"
 
 export default function SpinnerEmpty() {
   return (

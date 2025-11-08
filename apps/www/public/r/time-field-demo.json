@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/v1/examples/time-field-demo.tsx",
-      "content": "import { TimeField } from \"@/registry/new-york-v4/ui/time-field\"\n\nexport default function TimeFieldDemo() {\n  return <TimeField label=\"Event time\" />\n}\n",
+      "content": "import { TimeField } from \"@/registry/v1/ui/time-field\"\n\nexport default function TimeFieldDemo() {\n  return <TimeField label=\"Event time\" />\n}\n",
       "type": "registry:example"
     }
   ]

@@ -10,8 +10,8 @@ import {
 import { tv } from "tailwind-variants"
 
 import { cn } from "@/lib/utils"
-import { Label } from "@/registry/new-york-v4/ui/label"
-import { Separator } from "@/registry/new-york-v4/ui/separator"
+import { Label } from "@/registry/v1/ui/label"
+import { Separator } from "@/registry/v1/ui/separator"
 
 import { composeTailwindRenderProps } from "../lib/utils"
 import { Description } from "./description"

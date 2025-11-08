@@ -9,12 +9,12 @@ import {
   ConversationContent,
   ConversationEmptyState,
   ConversationScrollButton,
-} from "@/registry/new-york-v4/ai-elements/conversation"
+} from "@/registry/v1/ai-elements/conversation"
 import {
   Message,
   MessageAvatar,
   MessageContent,
-} from "@/registry/new-york-v4/ai-elements/message"
+} from "@/registry/v1/ai-elements/message"
 
 const messages: { key: string; value: string; name: string; avatar: string }[] =
   [

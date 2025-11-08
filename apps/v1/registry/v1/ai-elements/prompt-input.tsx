@@ -37,7 +37,7 @@ import {
 import { nanoid } from "nanoid"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Command,
   CommandEmpty,
@@ -46,20 +46,20 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/registry/new-york-v4/ui/command"
+} from "@/registry/v1/ui/command"
 import {
   HoverCard,
   HoverCardContent,
-} from "@/registry/new-york-v4/ui/hover-card"
+} from "@/registry/v1/ui/hover-card"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupTextarea,
-} from "@/registry/new-york-v4/ui/input-group"
-import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
-import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
+} from "@/registry/v1/ui/input-group"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/v1/ui/menu"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
+import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
 
 // ============================================================================
 // Provider Context & Types

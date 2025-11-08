@@ -5,8 +5,8 @@ import {
   FieldLabel,
   FieldLegend,
   FieldSet,
-} from "@/registry/new-york-v4/ui/field"
-import { Input } from "@/registry/new-york-v4/ui/input"
+} from "@/registry/v1/ui/field"
+import { Input } from "@/registry/v1/ui/input"
 
 export default function FieldFieldset() {
   return (

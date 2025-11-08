@@ -2,7 +2,7 @@
 
 import { DateValue, getLocalTimeZone, today } from "@internationalized/date"
 
-import { DatePicker } from "@/registry/new-york-v4/ui/date-picker"
+import { DatePicker } from "@/registry/v1/ui/date-picker"
 
 export default function DatePickerUnavailableDates() {
   const now = today(getLocalTimeZone())

@@ -3,7 +3,7 @@
 import * as React from "react"
 
 import { useMediaQuery } from "@/hooks/use-media-query"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Command,
   CommandEmpty,
@@ -11,14 +11,14 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/new-york-v4/ui/command"
-import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+} from "@/registry/v1/ui/command"
+import { DialogTrigger } from "@/registry/v1/ui/dialog"
 import {
   Drawer,
   DrawerContent,
   DrawerTrigger,
-} from "@/registry/new-york-v4/ui/drawer"
-import { Popover } from "@/registry/new-york-v4/ui/popover"
+} from "@/registry/v1/ui/drawer"
+import { Popover } from "@/registry/v1/ui/popover"
 
 type Status = {
   value: string

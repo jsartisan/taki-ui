@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/v1/examples/grid-list-disabled.tsx",
-      "content": "import { GridList, GridListItem } from \"@/registry/new-york-v4/ui/grid-list\"\n\nexport default function GridListDisabled() {\n  return (\n    <GridList\n      aria-label=\"Favorite pokemon\"\n      disabledKeys={[\"blastoise\", \"venusaur\"]}\n      selectionMode=\"multiple\"\n      className=\"w-64\"\n    >\n      <GridListItem id=\"charizard\">Charizard</GridListItem>\n      <GridListItem id=\"blastoise\">Blastoise</GridListItem>\n      <GridListItem id=\"venusaur\">Venusaur</GridListItem>\n      <GridListItem id=\"pikachu\">Pikachu</GridListItem>\n    </GridList>\n  )\n}\n",
+      "content": "import { GridList, GridListItem } from \"@/registry/v1/ui/grid-list\"\n\nexport default function GridListDisabled() {\n  return (\n    <GridList\n      aria-label=\"Favorite pokemon\"\n      disabledKeys={[\"blastoise\", \"venusaur\"]}\n      selectionMode=\"multiple\"\n      className=\"w-64\"\n    >\n      <GridListItem id=\"charizard\">Charizard</GridListItem>\n      <GridListItem id=\"blastoise\">Blastoise</GridListItem>\n      <GridListItem id=\"venusaur\">Venusaur</GridListItem>\n      <GridListItem id=\"pikachu\">Pikachu</GridListItem>\n    </GridList>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

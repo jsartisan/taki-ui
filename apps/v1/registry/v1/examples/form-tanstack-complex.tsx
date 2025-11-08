@@ -6,9 +6,9 @@ import { useForm } from "@tanstack/react-form"
 import { toast } from "sonner"
 import * as z from "zod"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Card, CardContent, CardFooter } from "@/registry/new-york-v4/ui/card"
-import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
+import { Button } from "@/registry/v1/ui/button"
+import { Card, CardContent, CardFooter } from "@/registry/v1/ui/card"
+import { Checkbox } from "@/registry/v1/ui/checkbox"
 import {
   Field,
   FieldContent,
@@ -20,10 +20,10 @@ import {
   FieldSeparator,
   FieldSet,
   FieldTitle,
-} from "@/registry/new-york-v4/ui/field"
-import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
-import { Switch } from "@/registry/new-york-v4/ui/switch"
+} from "@/registry/v1/ui/field"
+import { Radio, RadioGroup } from "@/registry/v1/ui/radio-group"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
+import { Switch } from "@/registry/v1/ui/switch"
 
 const addons = [
   {

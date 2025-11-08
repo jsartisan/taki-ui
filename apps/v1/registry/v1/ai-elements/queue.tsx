@@ -4,11 +4,11 @@ import type { ComponentProps } from "react"
 import { ChevronDownIcon, PaperclipIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Disclosure,
   DisclosurePanel,
-} from "@/registry/new-york-v4/ui/disclosure"
+} from "@/registry/v1/ui/disclosure"
 
 export type QueueMessagePart = {
   type: string

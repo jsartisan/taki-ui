@@ -10,7 +10,7 @@ import {
   ChainOfThoughtSearchResult,
   ChainOfThoughtSearchResults,
   ChainOfThoughtStep,
-} from "@/registry/new-york-v4/ai-elements/chain-of-thought"
+} from "@/registry/v1/ai-elements/chain-of-thought"
 
 export default function ChainOfThoughtDemo() {
   return (

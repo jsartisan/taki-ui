@@ -6,8 +6,8 @@ import {
   FieldLabel,
   FieldSet,
   FieldTitle,
-} from "@/registry/new-york-v4/ui/field"
-import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
+} from "@/registry/v1/ui/field"
+import { Radio, RadioGroup } from "@/registry/v1/ui/radio-group"
 
 export function FieldChoiceCard() {
   return (

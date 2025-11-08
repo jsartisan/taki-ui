@@ -8,14 +8,14 @@ import { cn } from "@/lib/utils"
 import { useThemeConfig } from "@/components/active-theme"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
 import { Icons } from "@/components/icons"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Dialog,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/new-york-v4/ui/dialog"
+} from "@/registry/v1/ui/dialog"
 import {
   Drawer,
   DrawerContent,
@@ -23,15 +23,15 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/registry/new-york-v4/ui/drawer"
-import { Modal } from "@/registry/new-york-v4/ui/modal"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
+} from "@/registry/v1/ui/drawer"
+import { Modal } from "@/registry/v1/ui/modal"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/registry/new-york-v4/ui/tabs"
+} from "@/registry/v1/ui/tabs"
 import {
   BaseColor,
   baseColors,

@@ -5,12 +5,12 @@ import type { LanguageModelUsage } from "ai"
 import { estimateCost, type ModelId } from "tokenlens"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   HoverCard,
   HoverCardContent,
-} from "@/registry/new-york-v4/ui/hover-card"
-import { ProgressBar } from "@/registry/new-york-v4/ui/progress-bar"
+} from "@/registry/v1/ui/hover-card"
+import { ProgressBar } from "@/registry/v1/ui/progress-bar"
 
 const PERCENT_MAX = 100
 const ICON_RADIUS = 10

@@ -5,7 +5,7 @@ import {
   CodeBlockBody,
   CodeBlockContent,
   CodeBlockItem,
-} from "@/registry/new-york-v4/ai-elements/code-block"
+} from "@/registry/v1/ai-elements/code-block"
 
 export default function CodeBlockNoHeaderDemo() {
   const codeData = [

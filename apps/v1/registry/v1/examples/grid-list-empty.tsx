@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { GridList } from "@/registry/new-york-v4/ui/grid-list"
+import { GridList } from "@/registry/v1/ui/grid-list"
 
 export default function GridListEmpty() {
   return (

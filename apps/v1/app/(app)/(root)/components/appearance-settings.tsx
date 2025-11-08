@@ -3,8 +3,8 @@
 import { IconMinus, IconPlus } from "@tabler/icons-react"
 import { NumberField } from "react-aria-components"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { ButtonGroup } from "@/registry/new-york-v4/ui/button-group"
+import { Button } from "@/registry/v1/ui/button"
+import { ButtonGroup } from "@/registry/v1/ui/button-group"
 import {
   Field,
   FieldContent,
@@ -15,10 +15,10 @@ import {
   FieldSeparator,
   FieldSet,
   FieldTitle,
-} from "@/registry/new-york-v4/ui/field"
-import { Input } from "@/registry/new-york-v4/ui/input"
-import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
-import { Switch } from "@/registry/new-york-v4/ui/switch"
+} from "@/registry/v1/ui/field"
+import { Input } from "@/registry/v1/ui/input"
+import { Radio, RadioGroup } from "@/registry/v1/ui/radio-group"
+import { Switch } from "@/registry/v1/ui/switch"
 
 export function AppearanceSettings() {
   return (

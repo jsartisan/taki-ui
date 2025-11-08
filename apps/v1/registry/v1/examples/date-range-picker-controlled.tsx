@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { parseDate } from "@internationalized/date"
 
-import { DateRangePicker } from "@/registry/new-york-v4/ui/date-range-picker"
+import { DateRangePicker } from "@/registry/v1/ui/date-range-picker"
 
 export default function DateRangePickerControlled() {
   const [value, setValue] = useState({

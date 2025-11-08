@@ -4,15 +4,15 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Field,
   FieldGroup,
   FieldLabel,
   FieldSeparator,
-} from "@/registry/new-york-v4/ui/field"
-import { Input } from "@/registry/new-york-v4/ui/input"
-import { Spinner } from "@/registry/new-york-v4/ui/spinner"
+} from "@/registry/v1/ui/field"
+import { Input } from "@/registry/v1/ui/input"
+import { Spinner } from "@/registry/v1/ui/spinner"
 
 export function UserAuthForm({
   className,

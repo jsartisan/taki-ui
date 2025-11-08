@@ -4,9 +4,9 @@ import { cloneElement } from "react"
 import { IconCheck, IconChevronDown, IconCopy } from "@tabler/icons-react"
 
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
-import { Separator } from "@/registry/new-york-v4/ui/separator"
+import { Button } from "@/registry/v1/ui/button"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/v1/ui/menu"
+import { Separator } from "@/registry/v1/ui/separator"
 
 function getPromptUrl(baseURL: string, url: string) {
   return `${baseURL}?q=${encodeURIComponent(

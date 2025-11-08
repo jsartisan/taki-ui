@@ -6,7 +6,7 @@ import {
   ItemContent,
   ItemDescription,
   ItemTitle,
-} from "@/registry/new-york-v4/ui/item"
+} from "@/registry/v1/ui/item"
 
 export default function ItemLink() {
   return (

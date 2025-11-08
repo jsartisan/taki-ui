@@ -1,11 +1,11 @@
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Item,
   ItemActions,
   ItemContent,
   ItemDescription,
   ItemTitle,
-} from "@/registry/new-york-v4/ui/item"
+} from "@/registry/v1/ui/item"
 
 export default function ItemVariant() {
   return (

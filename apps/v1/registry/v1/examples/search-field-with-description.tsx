@@ -1,4 +1,4 @@
-import { SearchField } from "@/registry/new-york-v4/ui/search-field"
+import { SearchField } from "@/registry/v1/ui/search-field"
 
 export default function SearchFieldWithDescription() {
   return (

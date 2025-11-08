@@ -3,7 +3,7 @@ import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/registry/new-york-v4/ui/input-otp"
+} from "@/registry/v1/ui/input-otp"
 
 export default function InputOTPDemo() {
   return (

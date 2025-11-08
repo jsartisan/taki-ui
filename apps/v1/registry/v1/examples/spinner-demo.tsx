@@ -3,8 +3,8 @@ import {
   ItemContent,
   ItemMedia,
   ItemTitle,
-} from "@/registry/new-york-v4/ui/item"
-import { Spinner } from "@/registry/new-york-v4/ui/spinner"
+} from "@/registry/v1/ui/item"
+import { Spinner } from "@/registry/v1/ui/spinner"
 
 export default function SpinnerDemo() {
   return (

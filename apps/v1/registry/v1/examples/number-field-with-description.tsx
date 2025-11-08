@@ -1,4 +1,4 @@
-import { NumberField } from "@/registry/new-york-v4/ui/number-field"
+import { NumberField } from "@/registry/v1/ui/number-field"
 
 export default function NumberFieldWithDescription() {
   return (

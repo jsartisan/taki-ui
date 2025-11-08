@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 
-import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
-import { GridList, GridListItem } from "@/registry/new-york-v4/ui/grid-list"
+import { Checkbox } from "@/registry/v1/ui/checkbox"
+import { GridList, GridListItem } from "@/registry/v1/ui/grid-list"
 
 export default function GridListSelection() {
   const [selected, setSelected] = useState<Set<string>>(new Set())

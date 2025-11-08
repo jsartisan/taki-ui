@@ -6,7 +6,7 @@ import {
   Reasoning,
   ReasoningContent,
   ReasoningTrigger,
-} from "@/registry/new-york-v4/ai-elements/reasoning"
+} from "@/registry/v1/ai-elements/reasoning"
 
 const reasoningSteps = [
   "Let me think about this problem step by step.",

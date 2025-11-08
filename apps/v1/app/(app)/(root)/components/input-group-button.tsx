@@ -9,14 +9,14 @@ import {
 } from "@tabler/icons-react"
 
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
-import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
+import { DialogTrigger } from "@/registry/v1/ui/dialog"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/registry/new-york-v4/ui/input-group"
-import { Popover } from "@/registry/new-york-v4/ui/popover"
+} from "@/registry/v1/ui/input-group"
+import { Popover } from "@/registry/v1/ui/popover"
 
 export function InputGroupButtonExample() {
   const { copyToClipboard, isCopied } = useCopyToClipboard()

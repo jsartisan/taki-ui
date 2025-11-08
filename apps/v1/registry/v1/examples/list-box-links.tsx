@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { ListBox, ListBoxItem } from "@/registry/new-york-v4/ui/list-box"
+import { ListBox, ListBoxItem } from "@/registry/v1/ui/list-box"
 
 export default function ListBoxLinks() {
   return (

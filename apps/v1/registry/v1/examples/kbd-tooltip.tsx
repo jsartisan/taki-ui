@@ -1,7 +1,7 @@
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { ButtonGroup } from "@/registry/new-york-v4/ui/button-group"
-import { Kbd, KbdGroup } from "@/registry/new-york-v4/ui/kbd"
-import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
+import { Button } from "@/registry/v1/ui/button"
+import { ButtonGroup } from "@/registry/v1/ui/button-group"
+import { Kbd, KbdGroup } from "@/registry/v1/ui/kbd"
+import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
 
 export default function KbdTooltip() {
   return (

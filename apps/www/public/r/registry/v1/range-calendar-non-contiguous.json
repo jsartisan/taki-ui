@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/v1/examples/range-calendar-non-contiguous.tsx",
-      "content": "\"use client\"\n\nimport { RangeCalendar } from \"@/registry/new-york-v4/ui/range-calendar\"\n\nexport default function RangeCalendarNonContiguous() {\n  return (\n    <RangeCalendar aria-label=\"Select a date range\" allowsNonContiguousRanges />\n  )\n}\n",
+      "content": "\"use client\"\n\nimport { RangeCalendar } from \"@/registry/v1/ui/range-calendar\"\n\nexport default function RangeCalendarNonContiguous() {\n  return (\n    <RangeCalendar aria-label=\"Select a date range\" allowsNonContiguousRanges />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

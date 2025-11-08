@@ -7,7 +7,7 @@ import {
   PlanHeader,
   PlanTitle,
   PlanTrigger,
-} from "@/registry/new-york-v4/ai-elements/plan"
+} from "@/registry/v1/ai-elements/plan"
 
 import { Button } from "../ui/button"
 

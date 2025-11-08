@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/v1/examples/range-calendar-unavailable-dates.tsx",
-      "content": "\"use client\"\n\nimport { getLocalTimeZone, isWeekend, today } from \"@internationalized/date\"\nimport { useLocale } from \"react-aria-components\"\n\nimport { RangeCalendar } from \"@/registry/new-york-v4/ui/range-calendar\"\n\nexport default function RangeCalendarUnavailableDates() {\n  const now = today(getLocalTimeZone())\n  const { locale } = useLocale()\n\n  return (\n    <RangeCalendar\n      aria-label=\"Select a date range\"\n      minValue={now}\n      isDateUnavailable={(date) => isWeekend(date, locale)}\n    />\n  )\n}\n",
+      "content": "\"use client\"\n\nimport { getLocalTimeZone, isWeekend, today } from \"@internationalized/date\"\nimport { useLocale } from \"react-aria-components\"\n\nimport { RangeCalendar } from \"@/registry/v1/ui/range-calendar\"\n\nexport default function RangeCalendarUnavailableDates() {\n  const now = today(getLocalTimeZone())\n  const { locale } = useLocale()\n\n  return (\n    <RangeCalendar\n      aria-label=\"Select a date range\"\n      minValue={now}\n      isDateUnavailable={(date) => isWeekend(date, locale)}\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

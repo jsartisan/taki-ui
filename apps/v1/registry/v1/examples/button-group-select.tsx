@@ -3,10 +3,10 @@
 import * as React from "react"
 import { ArrowRightIcon } from "lucide-react"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { ButtonGroup } from "@/registry/new-york-v4/ui/button-group"
-import { Input } from "@/registry/new-york-v4/ui/input"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
+import { Button } from "@/registry/v1/ui/button"
+import { ButtonGroup } from "@/registry/v1/ui/button-group"
+import { Input } from "@/registry/v1/ui/input"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
 
 const CURRENCIES = [
   {

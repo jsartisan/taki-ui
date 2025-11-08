@@ -1,4 +1,4 @@
-import { Response } from "@/registry/new-york-v4/ai-elements/response"
+import { Response } from "@/registry/v1/ai-elements/response"
 
 export default function ResponseDemo() {
   const markdown = `# Welcome to Response

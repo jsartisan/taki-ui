@@ -5,7 +5,7 @@ import {
   BreadcrumbLink,
   Breadcrumbs,
   BreadcrumbSeparator,
-} from "@/registry/new-york-v4/ui/breadcrumb"
+} from "@/registry/v1/ui/breadcrumb"
 
 export default function BreadcrumbWithCustomSeparator() {
   return (

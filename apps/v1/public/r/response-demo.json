@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/v1/examples/response-demo.tsx",
-      "content": "import { Response } from \"@/registry/new-york-v4/ai-elements/response\"\n\nexport default function ResponseDemo() {\n  const markdown = `# Welcome to Response\n\nThis component renders markdown content with streaming support.\n\n## Features\n\n- **Streaming**: Progressive rendering as content arrives\n- **Markdown**: Full markdown syntax support\n- **Performance**: Optimized for real-time updates\n\n\\`\\`\\`typescript\nconst message = \"Hello, World!\"\nconsole.log(message)\n\\`\\`\\`\n\n> This is a quote from the AI assistant\n\n- List item 1\n- List item 2\n- List item 3`\n\n  return (\n    <div className=\"w-full max-w-2xl space-y-4\">\n      <Response>{markdown}</Response>\n    </div>\n  )\n}\n",
+      "content": "import { Response } from \"@/registry/v1/ai-elements/response\"\n\nexport default function ResponseDemo() {\n  const markdown = `# Welcome to Response\n\nThis component renders markdown content with streaming support.\n\n## Features\n\n- **Streaming**: Progressive rendering as content arrives\n- **Markdown**: Full markdown syntax support\n- **Performance**: Optimized for real-time updates\n\n\\`\\`\\`typescript\nconst message = \"Hello, World!\"\nconsole.log(message)\n\\`\\`\\`\n\n> This is a quote from the AI assistant\n\n- List item 1\n- List item 2\n- List item 3`\n\n  return (\n    <div className=\"w-full max-w-2xl space-y-4\">\n      <Response>{markdown}</Response>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

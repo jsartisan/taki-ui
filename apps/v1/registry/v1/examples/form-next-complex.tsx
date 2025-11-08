@@ -4,9 +4,9 @@ import * as React from "react"
 import Form from "next/form"
 import { toast } from "sonner"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Card, CardContent, CardFooter } from "@/registry/new-york-v4/ui/card"
-import { Checkbox } from "@/registry/new-york-v4/ui/checkbox"
+import { Button } from "@/registry/v1/ui/button"
+import { Card, CardContent, CardFooter } from "@/registry/v1/ui/card"
+import { Checkbox } from "@/registry/v1/ui/checkbox"
 import {
   Field,
   FieldContent,
@@ -18,11 +18,11 @@ import {
   FieldSeparator,
   FieldSet,
   FieldTitle,
-} from "@/registry/new-york-v4/ui/field"
-import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
-import { Select, SelectItem } from "@/registry/new-york-v4/ui/select"
-import { Spinner } from "@/registry/new-york-v4/ui/spinner"
-import { Switch } from "@/registry/new-york-v4/ui/switch"
+} from "@/registry/v1/ui/field"
+import { Radio, RadioGroup } from "@/registry/v1/ui/radio-group"
+import { Select, SelectItem } from "@/registry/v1/ui/select"
+import { Spinner } from "@/registry/v1/ui/spinner"
+import { Switch } from "@/registry/v1/ui/switch"
 
 import { complexFormAction } from "./form-next-complex-action"
 import { addons, type FormState } from "./form-next-complex-schema"

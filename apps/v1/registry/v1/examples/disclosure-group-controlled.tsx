@@ -2,13 +2,13 @@
 
 import { useState } from "react"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Disclosure,
   DisclosureGroup,
   DisclosureHeader,
   DisclosurePanel,
-} from "@/registry/new-york-v4/ui/disclosure"
+} from "@/registry/v1/ui/disclosure"
 
 export default function DisclosureGroupControlled() {
   const [expandedKeys, setExpandedKeys] = useState<Set<React.Key>>(

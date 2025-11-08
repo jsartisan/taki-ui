@@ -2,7 +2,7 @@ import {
   ComboBox,
   ComboBoxItem,
   ComboBoxSection,
-} from "@/registry/new-york-v4/ui/combobox"
+} from "@/registry/v1/ui/combobox"
 
 export default function ComboboxSections() {
   return (

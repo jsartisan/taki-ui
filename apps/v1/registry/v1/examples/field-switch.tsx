@@ -3,8 +3,8 @@ import {
   FieldContent,
   FieldDescription,
   FieldLabel,
-} from "@/registry/new-york-v4/ui/field"
-import { Switch } from "@/registry/new-york-v4/ui/switch"
+} from "@/registry/v1/ui/field"
+import { Switch } from "@/registry/v1/ui/switch"
 
 export default function FieldSwitch() {
   return (

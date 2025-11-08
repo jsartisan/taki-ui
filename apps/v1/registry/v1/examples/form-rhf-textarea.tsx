@@ -6,7 +6,7 @@ import { Controller, useForm } from "react-hook-form"
 import { toast } from "sonner"
 import * as z from "zod"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Card,
   CardContent,
@@ -14,15 +14,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york-v4/ui/card"
+} from "@/registry/v1/ui/card"
 import {
   Field,
   FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
-} from "@/registry/new-york-v4/ui/field"
-import { Textarea } from "@/registry/new-york-v4/ui/textarea"
+} from "@/registry/v1/ui/field"
+import { Textarea } from "@/registry/v1/ui/textarea"
 
 const formSchema = z.object({
   about: z

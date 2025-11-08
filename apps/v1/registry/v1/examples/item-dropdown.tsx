@@ -6,16 +6,16 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/registry/new-york-v4/ui/avatar"
-import { Button } from "@/registry/new-york-v4/ui/button"
+} from "@/registry/v1/ui/avatar"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Item,
   ItemContent,
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@/registry/new-york-v4/ui/item"
-import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
+} from "@/registry/v1/ui/item"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/v1/ui/menu"
 
 const people = [
   {

@@ -5,14 +5,14 @@ import { createContext, useContext, useEffect, useState } from "react"
 import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Disclosure,
   DisclosureHeader,
   DisclosurePanel,
-} from "@/registry/new-york-v4/ui/disclosure"
-import { Input } from "@/registry/new-york-v4/ui/input"
-import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
+} from "@/registry/v1/ui/disclosure"
+import { Input } from "@/registry/v1/ui/input"
+import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
 
 export type WebPreviewContextValue = {
   url: string

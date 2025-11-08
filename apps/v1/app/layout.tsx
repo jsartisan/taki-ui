@@ -8,7 +8,7 @@ import { Analytics } from "@/components/analytics"
 import { RouterProvider } from "@/components/router-provider"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/registry/new-york-v4/ui/sonner"
+import { Toaster } from "@/registry/v1/ui/sonner"
 
 import "@/styles/globals.css"
 

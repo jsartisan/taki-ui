@@ -6,9 +6,9 @@ import { composeRenderProps, Group, GroupProps } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
-import { Input } from "@/registry/new-york-v4/ui/input"
-import { Textarea } from "@/registry/new-york-v4/ui/textarea"
+import { Button } from "@/registry/v1/ui/button"
+import { Input } from "@/registry/v1/ui/input"
+import { Textarea } from "@/registry/v1/ui/textarea"
 
 export function inputGroupStyles(props: React.ComponentProps<"div">) {
   return cn(

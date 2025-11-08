@@ -4,7 +4,7 @@ import {
   ToolHeader,
   ToolInput,
   ToolOutput,
-} from "@/registry/new-york-v4/ai-elements/tool"
+} from "@/registry/v1/ai-elements/tool"
 
 export default function ToolDemo() {
   const toolData = {

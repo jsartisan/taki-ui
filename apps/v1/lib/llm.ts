@@ -19,7 +19,7 @@ export function processMdxForLLMs(content: string) {
       }
 
       let source = fs.readFileSync(src, "utf8")
-      source = source.replaceAll(`@/registry/new-york-v4/`, "@/components/")
+      source = source.replaceAll(`@/registry/v1/`, "@/components/")
       source = source.replaceAll("export default", "export")
 
       return `\`\`\`tsx

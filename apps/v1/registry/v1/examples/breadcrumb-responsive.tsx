@@ -9,8 +9,8 @@ import {
   BreadcrumbLink,
   Breadcrumbs,
   BreadcrumbSeparator,
-} from "@/registry/new-york-v4/ui/breadcrumb"
-import { Button } from "@/registry/new-york-v4/ui/button"
+} from "@/registry/v1/ui/breadcrumb"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Drawer,
   DrawerClose,
@@ -20,8 +20,8 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/registry/new-york-v4/ui/drawer"
-import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york-v4/ui/menu"
+} from "@/registry/v1/ui/drawer"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/v1/ui/menu"
 
 const items = [
   { href: "#", label: "Home" },

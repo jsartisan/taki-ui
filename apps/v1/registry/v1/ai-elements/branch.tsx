@@ -6,7 +6,7 @@ import type { UIMessage } from "ai"
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 
 type BranchContextType = {
   currentBranch: number

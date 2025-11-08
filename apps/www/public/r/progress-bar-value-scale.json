@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/v1/examples/progress-bar-value-scale.tsx",
-      "content": "import { ProgressBar } from \"@/registry/new-york-v4/ui/progress-bar\"\n\nexport default function ProgressBarValueScale() {\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <ProgressBar\n        label=\"Storage space\"\n        formatOptions={{ style: \"unit\", unit: \"gigabyte\" }}\n        value={450}\n        maxValue={1000}\n      />\n      <ProgressBar\n        label=\"Download progress\"\n        formatOptions={{ style: \"unit\", unit: \"megabyte\" }}\n        value={275}\n        maxValue={500}\n      />\n    </div>\n  )\n}\n",
+      "content": "import { ProgressBar } from \"@/registry/v1/ui/progress-bar\"\n\nexport default function ProgressBarValueScale() {\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <ProgressBar\n        label=\"Storage space\"\n        formatOptions={{ style: \"unit\", unit: \"gigabyte\" }}\n        value={450}\n        maxValue={1000}\n      />\n      <ProgressBar\n        label=\"Download progress\"\n        formatOptions={{ style: \"unit\", unit: \"megabyte\" }}\n        value={275}\n        maxValue={500}\n      />\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

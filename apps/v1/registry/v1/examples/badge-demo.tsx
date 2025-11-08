@@ -1,6 +1,6 @@
 import { AlertCircleIcon, BadgeCheckIcon, CheckIcon } from "lucide-react"
 
-import { Badge } from "@/registry/new-york-v4/ui/badge"
+import { Badge } from "@/registry/v1/ui/badge"
 
 export default function BadgeDemo() {
   return (

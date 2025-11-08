@@ -18,8 +18,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/registry/new-york-v4/ui/avatar"
-import { Badge } from "@/registry/new-york-v4/ui/badge"
+} from "@/registry/v1/ui/avatar"
+import { Badge } from "@/registry/v1/ui/badge"
 import {
   Command,
   CommandEmpty,
@@ -27,25 +27,25 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/new-york-v4/ui/command"
-import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
-import { Field, FieldLabel } from "@/registry/new-york-v4/ui/field"
+} from "@/registry/v1/ui/command"
+import { DialogTrigger } from "@/registry/v1/ui/dialog"
+import { Field, FieldLabel } from "@/registry/v1/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupTextarea,
-} from "@/registry/new-york-v4/ui/input-group"
+} from "@/registry/v1/ui/input-group"
 import {
   Menu,
   MenuItem,
   MenuSection,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/new-york-v4/ui/menu"
-import { Popover } from "@/registry/new-york-v4/ui/popover"
-import { Switch } from "@/registry/new-york-v4/ui/switch"
-import { Tooltip, TooltipTrigger } from "@/registry/new-york-v4/ui/tooltip"
+} from "@/registry/v1/ui/menu"
+import { Popover } from "@/registry/v1/ui/popover"
+import { Switch } from "@/registry/v1/ui/switch"
+import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
 
 const SAMPLE_DATA = {
   mentionable: [

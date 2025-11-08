@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ArrowRightIcon } from "lucide-react"
 
-import { badgeVariants } from "@/registry/new-york-v4/ui/badge"
+import { badgeVariants } from "@/registry/v1/ui/badge"
 
 export function Announcement() {
   return (

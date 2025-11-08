@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { parseDate } from "@internationalized/date"
 
-import { RangeCalendar } from "@/registry/new-york-v4/ui/range-calendar"
+import { RangeCalendar } from "@/registry/v1/ui/range-calendar"
 
 export default function RangeCalendarControlled() {
   const [value, setValue] = useState({

@@ -1,6 +1,6 @@
 import { BoldIcon } from "lucide-react"
 
-import { ToggleButton } from "@/registry/new-york-v4/ui/toggle-button"
+import { ToggleButton } from "@/registry/v1/ui/toggle-button"
 
 export default function ToggleButtonDefault() {
   return (

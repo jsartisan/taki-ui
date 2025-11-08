@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { Button } from "@/registry/new-york-v4/ui/button"
+import { Button } from "@/registry/v1/ui/button"
 import {
   Command,
   CommandEmpty,
@@ -10,9 +10,9 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/new-york-v4/ui/command"
-import { DialogTrigger } from "@/registry/new-york-v4/ui/dialog"
-import { Popover } from "@/registry/new-york-v4/ui/popover"
+} from "@/registry/v1/ui/command"
+import { DialogTrigger } from "@/registry/v1/ui/dialog"
+import { Popover } from "@/registry/v1/ui/popover"
 
 type Status = {
   value: string

@@ -5,7 +5,7 @@ import {
   ContextContent,
   ContextContentHeader,
   ContextTrigger,
-} from "@/registry/new-york-v4/ai-elements/context"
+} from "@/registry/v1/ai-elements/context"
 
 export default function ContextDemo() {
   const usage = {

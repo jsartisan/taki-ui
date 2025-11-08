@@ -3,8 +3,8 @@ import {
   FieldDescription,
   FieldLabel,
   FieldSet,
-} from "@/registry/new-york-v4/ui/field"
-import { Radio, RadioGroup } from "@/registry/new-york-v4/ui/radio-group"
+} from "@/registry/v1/ui/field"
+import { Radio, RadioGroup } from "@/registry/v1/ui/radio-group"
 
 export default function FieldRadio() {
   return (

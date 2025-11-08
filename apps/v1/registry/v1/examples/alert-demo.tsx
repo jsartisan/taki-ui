@@ -4,7 +4,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry/new-york-v4/ui/alert"
+} from "@/registry/v1/ui/alert"
 
 export default function AlertDemo() {
   return (

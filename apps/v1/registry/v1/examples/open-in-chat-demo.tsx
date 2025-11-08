@@ -7,7 +7,7 @@ import {
   OpenInSeparator,
   OpenInTrigger,
   OpenInv0,
-} from "@/registry/new-york-v4/ai-elements/open-in-chat"
+} from "@/registry/v1/ai-elements/open-in-chat"
 
 export default function OpenInChatDemo() {
   const query = "How do I build a responsive layout with CSS Grid?"
