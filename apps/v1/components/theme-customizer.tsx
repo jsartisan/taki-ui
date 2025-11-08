@@ -8,6 +8,11 @@ import { cn } from "@/lib/utils"
 import { useThemeConfig } from "@/components/active-theme"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
 import { Icons } from "@/components/icons"
+import {
+  BaseColor,
+  baseColors,
+  baseColorsOKLCH,
+} from "@/registry/registry-base-colors"
 import { Button } from "@/registry/v1/ui/button"
 import {
   Dialog,
@@ -26,17 +31,7 @@ import {
 } from "@/registry/v1/ui/drawer"
 import { Modal } from "@/registry/v1/ui/modal"
 import { Select, SelectItem } from "@/registry/v1/ui/select"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/registry/v1/ui/tabs"
-import {
-  BaseColor,
-  baseColors,
-  baseColorsOKLCH,
-} from "@/registry/registry-base-colors"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/v1/ui/tabs"
 
 interface BaseColorOKLCH {
   light: Record<string, string>
@@ -160,15 +155,15 @@ function CustomizerCode({ themeName }: { themeName: string }) {
   return (
     <>
       <Tabs
-        value={tailwindVersion}
-        onValueChange={setTailwindVersion}
+        id={tailwindVersion}
+        onSelectionChange={(key) => setTailwindVersion(key as string)}
         className="min-w-0 px-4 pb-4 md:p-0"
       >
         <TabsList>
-          <TabsTrigger value="v4">Tailwind v4</TabsTrigger>
-          <TabsTrigger value="v3">Tailwind v3</TabsTrigger>
+          <TabsTrigger id="v4">Tailwind v4</TabsTrigger>
+          <TabsTrigger id="v3">Tailwind v3</TabsTrigger>
         </TabsList>
-        <TabsContent value="v4">
+        <TabsContent id="v4">
           <figure
             data-rehype-pretty-code-figure
             className="!mx-0 mt-0 rounded-lg"
@@ -248,7 +243,7 @@ function CustomizerCode({ themeName }: { themeName: string }) {
             </pre>
           </figure>
         </TabsContent>
-        <TabsContent value="v3">
+        <TabsContent id="v3">
           <figure
             data-rehype-pretty-code-figure
             className="!mx-0 mt-0 rounded-lg"
