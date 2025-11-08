@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-picker-unavailable-dates",
+  "type": "registry:example",
+  "dependencies": [
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "date-picker"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/date-picker-unavailable-dates.tsx",
+      "content": "\"use client\"\n\nimport { DateValue, getLocalTimeZone, today } from \"@internationalized/date\"\n\nimport { DatePicker } from \"@/registry/new-york-v4/ui/date-picker\"\n\nexport default function DatePickerUnavailableDates() {\n  const now = today(getLocalTimeZone())\n\n  const isDateUnavailable = (date: DateValue) => {\n    const day = date.toDate(getLocalTimeZone()).getDay()\n    return day === 0 || day === 6 // Disable weekends\n  }\n\n  return (\n    <DatePicker\n      label=\"Meeting date\"\n      description=\"Weekends are unavailable.\"\n      minValue={now}\n      isDateUnavailable={isDateUnavailable}\n    />\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-delay",
+  "type": "registry:example",
+  "registryDependencies": [
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/tooltip-delay.tsx",
+      "content": "import { Button } from \"@/registry/new-york-v4/ui/button\"\nimport { Tooltip, TooltipTrigger } from \"@/registry/new-york-v4/ui/tooltip\"\n\nexport default function TooltipDelay() {\n  return (\n    <div className=\"flex flex-wrap items-center justify-center gap-4\">\n      <TooltipTrigger delay={0}>\n        <Button variant=\"outline\">No delay</Button>\n        <Tooltip>Appears immediately</Tooltip>\n      </TooltipTrigger>\n\n      <TooltipTrigger delay={500}>\n        <Button variant=\"outline\">500ms delay</Button>\n        <Tooltip>Appears after 500ms</Tooltip>\n      </TooltipTrigger>\n\n      <TooltipTrigger delay={1000}>\n        <Button variant=\"outline\">1000ms delay</Button>\n        <Tooltip>Appears after 1 second</Tooltip>\n      </TooltipTrigger>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

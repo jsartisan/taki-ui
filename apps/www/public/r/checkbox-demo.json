@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/checkbox-demo.tsx",
+      "content": "\"use client\"\n\nimport { Checkbox } from \"@/registry/new-york-v4/ui/checkbox\"\nimport { Label } from \"@/registry/new-york-v4/ui/label\"\n\nexport default function CheckboxDemo() {\n  return (\n    <div className=\"flex flex-col gap-6\">\n      <Checkbox id=\"terms\">Accept terms and conditions</Checkbox>\n      <div className=\"flex items-start gap-3\">\n        <Checkbox id=\"terms-2\" defaultSelected />\n        <div className=\"grid gap-2\">\n          <Label htmlFor=\"terms-2\">Accept terms and conditions</Label>\n          <p className=\"text-muted-foreground text-sm\">\n            By clicking this checkbox, you agree to the terms and conditions.\n          </p>\n        </div>\n      </div>\n      <Checkbox id=\"toggle\" isDisabled>\n        Enable notifications\n      </Checkbox>\n      <Label className=\"hover:bg-accent/50 flex items-start gap-3 rounded-lg border p-3 has-[[data-selected=true]]:border-blue-600 has-[[data-selected=true]]:bg-blue-50 dark:has-[[data-selected=true]]:border-blue-900 dark:has-[[data-selected=true]]:bg-blue-950\">\n        <Checkbox\n          id=\"toggle-2\"\n          defaultSelected\n          className=\"[&[data-selected=true]>[data-slot=checkbox-indicator]]:border-blue-600 [&[data-selected=true]>[data-slot=checkbox-indicator]]:bg-blue-600 [&[data-selected=true]>[data-slot=checkbox-indicator]]:text-white dark:[&[data-selected=true]>[data-slot=checkbox-indicator]]:border-blue-700 dark:[&[data-selected=true]>[data-slot=checkbox-indicator]]:bg-blue-700\"\n        />\n        <div className=\"grid gap-1.5 font-normal\">\n          <p className=\"text-sm leading-none font-medium\">\n            Enable notifications\n          </p>\n          <p className=\"text-muted-foreground text-sm\">\n            You can enable or disable notifications at any time.\n          </p>\n        </div>\n      </Label>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "combobox-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "combobox"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/combobox-demo.tsx",
+      "content": "\"use client\"\n\nimport { ComboBox, ComboBoxItem } from \"@/registry/new-york-v4/ui/combobox\"\n\nconst frameworks = [\n  { id: \"next.js\", name: \"Next.js\" },\n  { id: \"sveltekit\", name: \"SvelteKit\" },\n  { id: \"nuxt.js\", name: \"Nuxt.js\" },\n  { id: \"remix\", name: \"Remix\" },\n  { id: \"astro\", name: \"Astro\" },\n  { id: \"vue\", name: \"Vue\" },\n  { id: \"angular\", name: \"Angular\" },\n]\n\nexport default function ComboboxDemo() {\n  return (\n    <ComboBox\n      label=\"Favorite Framework\"\n      placeholder=\"Search framework...\"\n      className=\"w-full max-w-xs\"\n    >\n      {frameworks.map((framework) => (\n        <ComboBoxItem\n          key={framework.id}\n          id={framework.id}\n          textValue={framework.name}\n        >\n          {framework.name}\n        </ComboBoxItem>\n      ))}\n    </ComboBox>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

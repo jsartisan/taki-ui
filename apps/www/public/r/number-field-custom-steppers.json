@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-custom-steppers",
+  "type": "registry:example",
+  "registryDependencies": [
+    "number-field",
+    "button-group",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/number-field-custom-steppers.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { MinusIcon, PlusIcon } from \"lucide-react\"\nimport { NumberField as AriaNumberField } from \"react-aria-components\"\n\nimport { Button } from \"@/registry/new-york-v4/ui/button\"\nimport { ButtonGroup } from \"@/registry/new-york-v4/ui/button-group\"\nimport {\n  FieldDescription,\n  FieldLabel,\n  fieldVariants,\n} from \"@/registry/new-york-v4/ui/field\"\n\nimport { Input } from \"../ui/input\"\n\nexport default function NumberFieldCustomSteppers() {\n  const [value, setValue] = useState(10)\n\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <AriaNumberField\n        value={value}\n        onChange={setValue}\n        minValue={0}\n        maxValue={100}\n        className={fieldVariants()}\n      >\n        <FieldLabel>Quantity</FieldLabel>\n        <ButtonGroup>\n          <Button slot=\"decrement\" aria-label=\"Decrease\" variant=\"outline\">\n            <MinusIcon className=\"h-4 w-4\" />\n          </Button>\n          <Input />\n          <Button slot=\"increment\" aria-label=\"Increase\" variant=\"outline\">\n            <PlusIcon className=\"h-4 w-4\" />\n          </Button>\n        </ButtonGroup>\n        <FieldDescription>\n          Use the buttons to adjust the quantity\n        </FieldDescription>\n      </AriaNumberField>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

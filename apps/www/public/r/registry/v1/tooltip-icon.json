@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-icon",
+  "type": "registry:example",
+  "registryDependencies": [
+    "tooltip"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/tooltip-icon.tsx",
+      "content": "import { InfoIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/new-york-v4/ui/button\"\nimport { Tooltip, TooltipTrigger } from \"@/registry/new-york-v4/ui/tooltip\"\n\nexport default function TooltipIcon() {\n  return (\n    <TooltipTrigger>\n      <Button size=\"icon\" variant=\"outline\" aria-label=\"Information\">\n        <InfoIcon className=\"size-4\" />\n      </Button>\n      <Tooltip>Get more information</Tooltip>\n    </TooltipTrigger>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

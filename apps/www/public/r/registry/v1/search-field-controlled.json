@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "search-field-controlled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "search-field"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/search-field-controlled.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { SearchField } from \"@/registry/new-york-v4/ui/search-field\"\n\nexport default function SearchFieldControlled() {\n  const [value, setValue] = useState(\"\")\n\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <SearchField\n        label=\"Search\"\n        description={\n          value ? `Searching for: \"${value}\"` : \"Enter a search term\"\n        }\n        placeholder=\"Search...\"\n        value={value}\n        onChange={setValue}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

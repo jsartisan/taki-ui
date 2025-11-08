@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "combobox-disabled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "combobox"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/combobox-disabled.tsx",
+      "content": "import { ComboBox, ComboBoxItem } from \"@/registry/new-york-v4/ui/combobox\"\n\nconst options = [\n  { id: \"option1\", name: \"Option 1\" },\n  { id: \"option2\", name: \"Option 2\" },\n  { id: \"option3\", name: \"Option 3\" },\n]\n\nexport default function ComboboxDisabled() {\n  return (\n    <ComboBox\n      label=\"Disabled ComboBox\"\n      placeholder=\"Cannot interact...\"\n      className=\"w-full max-w-xs\"\n      isDisabled\n    >\n      {options.map((option) => (\n        <ComboBoxItem key={option.id} id={option.id} textValue={option.name}>\n          {option.name}\n        </ComboBoxItem>\n      ))}\n    </ComboBox>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

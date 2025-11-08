@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-demo",
+  "type": "registry:example",
+  "dependencies": [
+    "ai"
+  ],
+  "registryDependencies": [
+    "image"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/image-demo.tsx",
+      "content": "import { Image } from \"@/registry/new-york-v4/ai-elements/image\"\n\nexport default function ImageDemo() {\n  // Example base64 image (1x1 transparent PNG)\n  const base64Data =\n    \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==\"\n\n  return (\n    <div className=\"w-full max-w-md space-y-4\">\n      <div className=\"flex flex-col gap-2\">\n        <p className=\"text-muted-foreground text-sm\">\n          Generated image placeholder:\n        </p>\n        <Image\n          alt=\"AI Generated Placeholder\"\n          base64={base64Data}\n          mediaType=\"image/png\"\n          className=\"bg-muted h-40 w-40\"\n        />\n      </div>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

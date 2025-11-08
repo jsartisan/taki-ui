@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer",
+  "type": "registry:ui",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/ai-elements/shimmer.tsx",
+      "content": "\"use client\"\n\nimport {\n  memo,\n  useMemo,\n  type CSSProperties,\n  type ElementType,\n  type JSX,\n} from \"react\"\nimport { motion } from \"motion/react\"\n\nimport { cn } from \"@/lib/utils\"\n\nexport type TextShimmerProps = {\n  children: string\n  as?: ElementType\n  className?: string\n  duration?: number\n  spread?: number\n}\n\nconst ShimmerComponent = ({\n  children,\n  as: Component = \"p\",\n  className,\n  duration = 2,\n  spread = 2,\n}: TextShimmerProps) => {\n  const MotionComponent = motion.create(\n    Component as keyof JSX.IntrinsicElements\n  )\n\n  const dynamicSpread = useMemo(\n    () => (children?.length ?? 0) * spread,\n    [children, spread]\n  )\n\n  return (\n    <MotionComponent\n      animate={{ backgroundPosition: \"0% center\" }}\n      className={cn(\n        \"relative inline-block bg-[length:250%_100%,auto] bg-clip-text text-transparent\",\n        \"[background-repeat:no-repeat,padding-box] [--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--color-background),#0000_calc(50%+var(--spread)))]\",\n        className\n      )}\n      initial={{ backgroundPosition: \"100% center\" }}\n      style={\n        {\n          \"--spread\": `${dynamicSpread}px`,\n          backgroundImage:\n            \"var(--bg), linear-gradient(var(--color-muted-foreground), var(--color-muted-foreground))\",\n        } as CSSProperties\n      }\n      transition={{\n        repeat: Number.POSITIVE_INFINITY,\n        duration,\n        ease: \"linear\",\n      }}\n    >\n      {children}\n    </MotionComponent>\n  )\n}\n\nexport const Shimmer = memo(ShimmerComponent)\n",
+      "type": "registry:ui"
+    }
+  ]
+}

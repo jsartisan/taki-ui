@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-picker",
+  "type": "registry:ui",
+  "dependencies": [
+    "react-aria-components",
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "button",
+    "calendar",
+    "date-field",
+    "dialog",
+    "field",
+    "input-group",
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/ui/date-picker.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\nimport { ChevronDown, ChevronLeft, ChevronRight } from \"lucide-react\"\nimport {\n  DatePicker as AriaDatePicker,\n  DatePickerProps as AriaDatePickerProps,\n  DateValue,\n  Group,\n  ValidationResult,\n} from \"react-aria-components\"\nimport { tv } from \"tailwind-variants\"\n\nimport { composeTailwindRenderProps } from \"../lib/utils\"\nimport { Button } from \"./button\"\nimport { Calendar } from \"./calendar\"\nimport { DateInput } from \"./date-field\"\nimport { Dialog } from \"./dialog\"\nimport { FieldDescription, FieldError, FieldLabel } from \"./field\"\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupButton,\n  inputGroupInputStyles,\n} from \"./input-group\"\nimport { Popover } from \"./popover\"\n\nexport interface DatePickerProps<T extends DateValue>\n  extends AriaDatePickerProps<T> {\n  label?: string\n  description?: string\n  errorMessage?: string | ((validation: ValidationResult) => string)\n}\n\nexport function DatePicker<T extends DateValue>({\n  label,\n  description,\n  errorMessage,\n  ...props\n}: DatePickerProps<T>) {\n  return (\n    <AriaDatePicker\n      {...props}\n      className={composeTailwindRenderProps(\n        props.className,\n        \"flex flex-col gap-1\"\n      )}\n    >\n      {({ isInvalid }) => (\n        <>\n          {label && <FieldLabel>{label}</FieldLabel>}\n          <InputGroup>\n            <DateInput\n              data-slot=\"input-group-control\"\n              className={inputGroupInputStyles}\n            />\n            <InputGroupAddon align=\"inline-end\">\n              <InputGroupButton size=\"icon-xs\" variant=\"ghost\">\n                <ChevronDown className=\"size-4\" aria-hidden=\"true\" />\n              </InputGroupButton>\n            </InputGroupAddon>\n          </InputGroup>\n          {description && <FieldDescription>{description}</FieldDescription>}\n          <FieldError>{errorMessage}</FieldError>\n          <Popover>\n            <Dialog>\n              <Calendar className=\"p-0\" />\n            </Dialog>\n          </Popover>\n        </>\n      )}\n    </AriaDatePicker>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

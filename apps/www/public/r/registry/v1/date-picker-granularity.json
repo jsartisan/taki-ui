@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-picker-granularity",
+  "type": "registry:example",
+  "dependencies": [
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "date-picker"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/date-picker-granularity.tsx",
+      "content": "import { DatePicker } from \"@/registry/new-york-v4/ui/date-picker\"\n\nexport default function DatePickerGranularity() {\n  return (\n    <div className=\"space-y-4\">\n      <DatePicker\n        label=\"Date only\"\n        description=\"Year, month, and day.\"\n        granularity=\"day\"\n      />\n      <DatePicker\n        label=\"Month and year\"\n        description=\"Month and year only.\"\n        granularity=\"month\"\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

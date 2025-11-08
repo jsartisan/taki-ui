@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog",
+  "type": "registry:ui",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/ui/dialog.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\nimport {\n  DialogProps,\n  Heading,\n  Dialog as RACDialog,\n  DialogTrigger as RACDialogTrigger,\n  Text,\n} from \"react-aria-components\"\n\nimport { cn } from \"../lib/utils\"\n\nexport function DialogTrigger(\n  props: React.ComponentProps<typeof RACDialogTrigger>\n) {\n  return <RACDialogTrigger {...props} />\n}\n\nexport function Dialog(props: DialogProps) {\n  return (\n    <RACDialog\n      {...props}\n      className={cn(\n        \"relative max-h-[inherit] overflow-auto p-6 outline outline-0 [[data-placement]>&]:p-4\",\n        props.className\n      )}\n    />\n  )\n}\n\nexport function DialogHeader({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"dialog-header\"\n      className={cn(\"flex flex-col gap-2 text-center sm:text-left\", className)}\n      {...props}\n    />\n  )\n}\n\nexport function DialogTitle({\n  className,\n  ...props\n}: React.ComponentProps<typeof Heading>) {\n  return (\n    <Heading\n      data-slot=\"dialog-title\"\n      className={cn(\"text-lg leading-none font-semibold\", className)}\n      {...props}\n    />\n  )\n}\n\nexport function DialogDescription({\n  className,\n  ...props\n}: React.ComponentProps<typeof Text>) {\n  return (\n    <Text\n      data-slot=\"dialog-description\"\n      className={cn(\"text-muted-foreground text-sm\", className)}\n      {...props}\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-group-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/button-group-demo.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  ArchiveIcon,\n  ArrowLeftIcon,\n  CalendarPlusIcon,\n  ClockIcon,\n  ListFilterPlusIcon,\n  MailCheckIcon,\n  MoreHorizontalIcon,\n  TagIcon,\n  Trash2Icon,\n} from \"lucide-react\"\nimport { SubmenuTrigger } from \"react-aria-components\"\n\nimport { Button } from \"@/registry/new-york-v4/ui/button\"\nimport { ButtonGroup } from \"@/registry/new-york-v4/ui/button-group\"\nimport {\n  Menu,\n  MenuItem,\n  MenuSeparator,\n  MenuTrigger,\n} from \"@/registry/new-york-v4/ui/menu\"\n\nexport default function ButtonGroupDemo() {\n  return (\n    <ButtonGroup>\n      <ButtonGroup className=\"hidden sm:flex\">\n        <Button variant=\"outline\" size=\"icon\" aria-label=\"Go Back\">\n          <ArrowLeftIcon />\n        </Button>\n      </ButtonGroup>\n      <ButtonGroup>\n        <Button variant=\"outline\">Archive</Button>\n        <Button variant=\"outline\">Report</Button>\n      </ButtonGroup>\n      <ButtonGroup>\n        <Button variant=\"outline\">Snooze</Button>\n        <MenuTrigger>\n          <Button variant=\"outline\" size=\"icon\" aria-label=\"More Options\">\n            <MoreHorizontalIcon />\n          </Button>\n          <Menu placement=\"bottom end\" className=\"w-52\" selectionMode=\"single\">\n            <MenuItem>\n              <MailCheckIcon />\n              Mark as Read\n            </MenuItem>\n            <MenuItem>\n              <ArchiveIcon />\n              Archive\n            </MenuItem>\n            <MenuSeparator />\n            <MenuItem>\n              <ClockIcon />\n              Snooze\n            </MenuItem>\n            <MenuItem>\n              <CalendarPlusIcon />\n              Add to Calendar\n            </MenuItem>\n            <MenuItem>\n              <ListFilterPlusIcon />\n              Add to List\n            </MenuItem>\n            <SubmenuTrigger>\n              <MenuItem>\n                <TagIcon />\n                Label As...\n              </MenuItem>\n              <Menu selectionMode=\"single\" defaultSelectedKeys={[\"personal\"]}>\n                <MenuItem id=\"personal\">Personal</MenuItem>\n                <MenuItem id=\"work\">Work</MenuItem>\n                <MenuItem id=\"other\">Other</MenuItem>\n              </Menu>\n            </SubmenuTrigger>\n            <MenuSeparator />\n            <MenuItem className=\"text-destructive focus:bg-destructive/10 dark:focus:bg-destructive/20 focus:text-destructive\">\n              <Trash2Icon />\n              Trash\n            </MenuItem>\n          </Menu>\n        </MenuTrigger>\n      </ButtonGroup>\n    </ButtonGroup>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

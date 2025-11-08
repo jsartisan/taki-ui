@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "combobox-sections",
+  "type": "registry:example",
+  "registryDependencies": [
+    "combobox"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/combobox-sections.tsx",
+      "content": "import {\n  ComboBox,\n  ComboBoxItem,\n  ComboBoxSection,\n} from \"@/registry/new-york-v4/ui/combobox\"\n\nexport default function ComboboxSections() {\n  return (\n    <ComboBox\n      label=\"Select Language\"\n      placeholder=\"Search languages...\"\n      className=\"w-full max-w-xs\"\n    >\n      <ComboBoxSection title=\"Popular\">\n        <ComboBoxItem id=\"js\" textValue=\"JavaScript\">\n          JavaScript\n        </ComboBoxItem>\n        <ComboBoxItem id=\"ts\" textValue=\"TypeScript\">\n          TypeScript\n        </ComboBoxItem>\n        <ComboBoxItem id=\"python\" textValue=\"Python\">\n          Python\n        </ComboBoxItem>\n      </ComboBoxSection>\n      <ComboBoxSection title=\"Web\">\n        <ComboBoxItem id=\"html\" textValue=\"HTML\">\n          HTML\n        </ComboBoxItem>\n        <ComboBoxItem id=\"css\" textValue=\"CSS\">\n          CSS\n        </ComboBoxItem>\n        <ComboBoxItem id=\"php\" textValue=\"PHP\">\n          PHP\n        </ComboBoxItem>\n      </ComboBoxSection>\n      <ComboBoxSection title=\"Systems\">\n        <ComboBoxItem id=\"rust\" textValue=\"Rust\">\n          Rust\n        </ComboBoxItem>\n        <ComboBoxItem id=\"go\" textValue=\"Go\">\n          Go\n        </ComboBoxItem>\n        <ComboBoxItem id=\"c\" textValue=\"C\">\n          C\n        </ComboBoxItem>\n        <ComboBoxItem id=\"cpp\" textValue=\"C++\">\n          C++\n        </ComboBoxItem>\n      </ComboBoxSection>\n    </ComboBox>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

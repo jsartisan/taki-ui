@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-field-disabled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "text-field"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/text-field-disabled.tsx",
+      "content": "import { TextField } from \"@/registry/new-york-v4/ui/text-field\"\n\nexport default function TextFieldDisabled() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <TextField label=\"Username\" defaultValue=\"johndoe\" isDisabled />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

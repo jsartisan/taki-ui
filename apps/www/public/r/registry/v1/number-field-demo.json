@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "number-field-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "number-field"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/number-field-demo.tsx",
+      "content": "import { NumberField } from \"@/registry/new-york-v4/ui/number-field\"\n\nexport default function NumberFieldDemo() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <NumberField\n        label=\"Quantity\"\n        defaultValue={5}\n        minValue={0}\n        maxValue={100}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

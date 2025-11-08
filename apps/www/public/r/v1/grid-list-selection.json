@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grid-list-selection",
+  "type": "registry:example",
+  "registryDependencies": [
+    "grid-list",
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/grid-list-selection.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { Checkbox } from \"@/registry/new-york-v4/ui/checkbox\"\nimport { GridList, GridListItem } from \"@/registry/new-york-v4/ui/grid-list\"\n\nexport default function GridListSelection() {\n  const [selected, setSelected] = useState<Set<string>>(new Set())\n\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <GridList\n        aria-label=\"Favorite pokemon\"\n        selectionMode=\"multiple\"\n        selectedKeys={selected}\n        onSelectionChange={(keys) => setSelected(keys as Set<string>)}\n        className=\"w-64\"\n      >\n        <GridListItem id=\"charizard\" textValue=\"Charizard\">\n          <Checkbox slot=\"selection\" />\n          Charizard\n        </GridListItem>\n        <GridListItem id=\"blastoise\" textValue=\"Blastoise\">\n          <Checkbox slot=\"selection\" />\n          Blastoise\n        </GridListItem>\n        <GridListItem id=\"venusaur\" textValue=\"Venusaur\">\n          <Checkbox slot=\"selection\" />\n          Venusaur\n        </GridListItem>\n        <GridListItem id=\"pikachu\" textValue=\"Pikachu\">\n          <Checkbox slot=\"selection\" />\n          Pikachu\n        </GridListItem>\n      </GridList>\n      <p className=\"text-muted-foreground text-sm\">\n        Selected: {selected.size > 0 ? Array.from(selected).join(\", \") : \"None\"}\n      </p>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "search-field-disabled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "search-field"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/search-field-disabled.tsx",
+      "content": "import { SearchField } from \"@/registry/new-york-v4/ui/search-field\"\n\nexport default function SearchFieldDisabled() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <SearchField\n        label=\"Search\"\n        placeholder=\"Search...\"\n        defaultValue=\"Disabled search\"\n        isDisabled\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

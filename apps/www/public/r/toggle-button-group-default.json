@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-button-group-default",
+  "type": "registry:example",
+  "registryDependencies": [
+    "toggle-button-group"
+  ],
+  "files": [
+    {
+      "path": "registry/v1/examples/toggle-button-group-default.tsx",
+      "content": "import { BoldIcon, ItalicIcon, UnderlineIcon } from \"lucide-react\"\n\nimport {\n  ToggleButtonGroup,\n  ToggleButtonGroupItem,\n} from \"@/registry/new-york-v4/ui/toggle-button-group\"\n\nexport default function ToggleButtonGroupDefault() {\n  return (\n    <ToggleButtonGroup aria-label=\"Text formatting\">\n      <ToggleButtonGroupItem aria-label=\"Toggle bold\">\n        <BoldIcon />\n      </ToggleButtonGroupItem>\n      <ToggleButtonGroupItem aria-label=\"Toggle italic\">\n        <ItalicIcon />\n      </ToggleButtonGroupItem>\n      <ToggleButtonGroupItem aria-label=\"Toggle underline\">\n        <UnderlineIcon />\n      </ToggleButtonGroupItem>\n    </ToggleButtonGroup>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}
