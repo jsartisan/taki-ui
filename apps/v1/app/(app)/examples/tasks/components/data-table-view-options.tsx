@@ -4,12 +4,7 @@ import { Table, VisibilityState } from "@tanstack/react-table"
 import { Settings2 } from "lucide-react"
 
 import { Button } from "@/registry/v1/ui/button"
-import {
-  Menu,
-  MenuItem,
-  MenuSection,
-  MenuTrigger,
-} from "@/registry/v1/ui/menu"
+import { Menu, MenuItem, MenuSection, MenuTrigger } from "@/registry/v1/ui/menu"
 
 export function DataTableViewOptions<TData>({
   table,

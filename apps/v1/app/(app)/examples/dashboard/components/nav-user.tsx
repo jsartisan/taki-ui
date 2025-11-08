@@ -8,11 +8,7 @@ import {
   IconUserCircle,
 } from "@tabler/icons-react"
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/registry/v1/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
 import {
   Menu,
   MenuItem,

@@ -2,11 +2,7 @@
 
 import { useState } from "react"
 
-import {
-  Field,
-  FieldDescription,
-  FieldTitle,
-} from "@/registry/v1/ui/field"
+import { Field, FieldDescription, FieldTitle } from "@/registry/v1/ui/field"
 import { Slider } from "@/registry/v1/ui/slider"
 
 export function FieldSlider() {

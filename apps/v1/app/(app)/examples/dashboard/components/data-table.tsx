@@ -92,12 +92,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/registry/v1/ui/table"
-import {
-  TabPanel,
-  Tabs,
-  TabsList,
-  TabsTrigger,
-} from "@/registry/v1/ui/tabs"
+import { TabPanel, Tabs, TabsList, TabsTrigger } from "@/registry/v1/ui/tabs"
 
 export const schema = z.object({
   id: z.number(),

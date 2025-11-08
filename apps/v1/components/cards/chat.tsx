@@ -4,11 +4,7 @@ import * as React from "react"
 import { ArrowUpIcon, CheckIcon, PlusIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/registry/v1/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
 import { Button } from "@/registry/v1/ui/button"
 import {
   Card,

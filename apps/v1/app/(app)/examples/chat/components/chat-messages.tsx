@@ -13,10 +13,7 @@ import {
   Conversation,
   ConversationContent,
 } from "@/registry/v1/ai-elements/conversation"
-import {
-  Message,
-  MessageContent,
-} from "@/registry/v1/ai-elements/message"
+import { Message, MessageContent } from "@/registry/v1/ai-elements/message"
 import { Response } from "@/registry/v1/ai-elements/response"
 
 import { assistantMessage } from "./chat-data"

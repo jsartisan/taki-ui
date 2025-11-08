@@ -11,10 +11,7 @@ import {
 } from "@/registry/v1/ui/card"
 import { Input } from "@/registry/v1/ui/input"
 import { Label } from "@/registry/v1/ui/label"
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/v1/ui/radio-group"
+import { RadioGroup, RadioGroupItem } from "@/registry/v1/ui/radio-group"
 import { Select, SelectItem } from "@/registry/v1/ui/select"
 
 const plans = [

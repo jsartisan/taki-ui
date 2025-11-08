@@ -14,11 +14,7 @@ import {
 } from "@tabler/icons-react"
 import { SubmenuTrigger } from "react-aria-components"
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/registry/v1/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
 import { Badge } from "@/registry/v1/ui/badge"
 import {
   Command,
