@@ -13,11 +13,7 @@ import {
   CommandList,
 } from "@/registry/v1/ui/command"
 import { DialogTrigger } from "@/registry/v1/ui/dialog"
-import {
-  Drawer,
-  DrawerContent,
-  DrawerTrigger,
-} from "@/registry/v1/ui/drawer"
+import { Drawer, DrawerContent, DrawerTrigger } from "@/registry/v1/ui/drawer"
 import { Popover } from "@/registry/v1/ui/popover"
 
 type Status = {

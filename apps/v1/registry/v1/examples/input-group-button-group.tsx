@@ -1,9 +1,6 @@
 import { Link2Icon } from "lucide-react"
 
-import {
-  ButtonGroup,
-  ButtonGroupText,
-} from "@/registry/v1/ui/button-group"
+import { ButtonGroup, ButtonGroupText } from "@/registry/v1/ui/button-group"
 import {
   InputGroup,
   InputGroupAddon,

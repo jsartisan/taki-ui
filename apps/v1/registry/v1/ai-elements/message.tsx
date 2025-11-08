@@ -2,11 +2,7 @@ import type { ComponentProps, HTMLAttributes } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/registry/v1/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
 
 export type MessageProps = HTMLAttributes<HTMLDivElement> & {
   from: "user" | "assistant" | "system"

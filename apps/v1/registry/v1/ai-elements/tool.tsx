@@ -15,10 +15,7 @@ import { Button } from "react-aria-components"
 
 import { cn } from "@/lib/utils"
 import { Badge } from "@/registry/v1/ui/badge"
-import {
-  Disclosure,
-  DisclosurePanel,
-} from "@/registry/v1/ui/disclosure"
+import { Disclosure, DisclosurePanel } from "@/registry/v1/ui/disclosure"
 
 import {
   CodeBlock,

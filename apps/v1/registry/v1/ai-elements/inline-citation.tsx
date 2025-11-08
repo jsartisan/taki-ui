@@ -19,10 +19,7 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/registry/v1/ui/carousel"
-import {
-  HoverCard,
-  HoverCardContent,
-} from "@/registry/v1/ui/hover-card"
+import { HoverCard, HoverCardContent } from "@/registry/v1/ui/hover-card"
 
 export type InlineCitationProps = ComponentProps<"span">
 

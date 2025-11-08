@@ -1,10 +1,6 @@
 import { AlertCircleIcon, CheckCircle2Icon, PopcornIcon } from "lucide-react"
 
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-} from "@/registry/v1/ui/alert"
+import { Alert, AlertDescription, AlertTitle } from "@/registry/v1/ui/alert"
 
 export default function AlertDemo() {
   return (

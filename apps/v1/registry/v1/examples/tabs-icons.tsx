@@ -1,11 +1,6 @@
 import { BellIcon, LockIcon, UserIcon } from "lucide-react"
 
-import {
-  TabPanel,
-  Tabs,
-  TabsList,
-  TabsTrigger,
-} from "@/registry/v1/ui/tabs"
+import { TabPanel, Tabs, TabsList, TabsTrigger } from "@/registry/v1/ui/tabs"
 
 export default function TabsIcons() {
   return (

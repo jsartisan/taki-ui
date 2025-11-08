@@ -1,8 +1,4 @@
-import {
-  Select,
-  SelectItem,
-  SelectSection,
-} from "@/registry/v1/ui/select"
+import { Select, SelectItem, SelectSection } from "@/registry/v1/ui/select"
 
 export default function SelectScrollable() {
   return (

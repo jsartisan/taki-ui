@@ -1,9 +1,4 @@
-import {
-  Item,
-  ItemContent,
-  ItemMedia,
-  ItemTitle,
-} from "@/registry/v1/ui/item"
+import { Item, ItemContent, ItemMedia, ItemTitle } from "@/registry/v1/ui/item"
 import { Spinner } from "@/registry/v1/ui/spinner"
 
 export default function SpinnerDemo() {

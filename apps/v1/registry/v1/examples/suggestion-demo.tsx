@@ -2,10 +2,7 @@
 
 import { useState } from "react"
 
-import {
-  Suggestion,
-  Suggestions,
-} from "@/registry/v1/ai-elements/suggestion"
+import { Suggestion, Suggestions } from "@/registry/v1/ai-elements/suggestion"
 
 export default function SuggestionDemo() {
   const [selected, setSelected] = useState<string | null>(null)

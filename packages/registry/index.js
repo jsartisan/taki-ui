@@ -32,16 +32,11 @@ const args = process.argv.slice(2);
 const component = args.length >= 2 ? args[1] : "all";
 
 // Get the target URL
-const targetUrl = new URL(
-  `/r/${component}.json`,
-  "https://taki-ui.com"
-).toString();
+const command = `${commandPrefix} shadcn@latest add @taki/${component}`
+const env = { ...process.env, REGISTRY_URL: "https://taki-ui.com/r" }
+spawnSync(command, { stdio: "inherit", shell: true, env })
 
-const fullCommand = `${commandPrefix} shadcn@latest add ${targetUrl}`;
-const result = spawnSync(fullCommand, {
-  stdio: "inherit",
-  shell: true,
-});
+const result = spawnSync(command, { stdio: "inherit", shell: true, env })
 
 if (result.error) {
   console.error("Failed to execute command:", result.error.message);

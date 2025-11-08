@@ -47,10 +47,7 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/registry/v1/ui/command"
-import {
-  HoverCard,
-  HoverCardContent,
-} from "@/registry/v1/ui/hover-card"
+import { HoverCard, HoverCardContent } from "@/registry/v1/ui/hover-card"
 import {
   InputGroup,
   InputGroupAddon,

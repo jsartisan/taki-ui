@@ -6,10 +6,7 @@ import { estimateCost, type ModelId } from "tokenlens"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/v1/ui/button"
-import {
-  HoverCard,
-  HoverCardContent,
-} from "@/registry/v1/ui/hover-card"
+import { HoverCard, HoverCardContent } from "@/registry/v1/ui/hover-card"
 import { ProgressBar } from "@/registry/v1/ui/progress-bar"
 
 const PERCENT_MAX = 100

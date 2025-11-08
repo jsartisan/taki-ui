@@ -6,10 +6,7 @@ import { ChevronDownIcon, ChevronRightIcon, SearchIcon } from "lucide-react"
 import { Button, DisclosureStateContext } from "react-aria-components"
 
 import { cn } from "@/lib/utils"
-import {
-  Disclosure,
-  DisclosurePanel,
-} from "@/registry/v1/ui/disclosure"
+import { Disclosure, DisclosurePanel } from "@/registry/v1/ui/disclosure"
 
 export type TaskItemFileProps = ComponentProps<"div">
 

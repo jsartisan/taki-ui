@@ -15,10 +15,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/registry/v1/ui/card"
-import {
-  Disclosure,
-  DisclosurePanel,
-} from "@/registry/v1/ui/disclosure"
+import { Disclosure, DisclosurePanel } from "@/registry/v1/ui/disclosure"
 
 import { Shimmer } from "./shimmer"
 

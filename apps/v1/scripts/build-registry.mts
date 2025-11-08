@@ -1,5 +1,5 @@
 import { exec } from "child_process"
-import { existsSync, promises as fs } from "fs"
+import { promises as fs } from "fs"
 import path from "path"
 import { promisify } from "util"
 import { rimraf } from "rimraf"
@@ -106,7 +106,7 @@ async function buildRegistryJsonFile() {
 async function buildRegistry() {
   return new Promise((resolve, reject) => {
     exec(
-      `pnpm dlx shadcn build registry.json --output ../www/public/r`,
+      `pnpm dlx shadcn build registry.json --output public/r`,
       (error, stdout, stderr) => {
         if (error) {
           console.error(stderr)
@@ -118,49 +118,6 @@ async function buildRegistry() {
       }
     )
   })
-}
-
-async function syncRegistry() {
-  // Store the current registry content
-  const registryDir = path.join(process.cwd(), "registry")
-  const registryIndexPath = path.join(registryDir, "__index__.tsx")
-  let registryContent = null
-
-  try {
-    registryContent = await fs.readFile(registryIndexPath, "utf8")
-  } catch {
-    // File might not exist yet, that's ok
-  }
-
-  // 0. Copy registries.json from v4 to www before building www registry.
-  const v4RegistriesPath = path.join(process.cwd(), "public/r/registries.json")
-  const wwwRegistriesPath = path.resolve(
-    process.cwd(),
-    "../www/public/r/registries.json"
-  )
-
-  if (existsSync(v4RegistriesPath)) {
-    // Ensure the www/public/r directory exists.
-    await fs.mkdir(path.dirname(wwwRegistriesPath), { recursive: true })
-    // Copy registries.json to www.
-    await fs.cp(v4RegistriesPath, wwwRegistriesPath)
-  }
-
-  // 1. Call pnpm registry:build for www.
-  await exec("pnpm --filter=www registry:build")
-
-  // 2. Copy the www/public/r directory to v4/public/r.
-  rimraf.sync(path.join(process.cwd(), "public/r"))
-  await fs.cp(
-    path.resolve(process.cwd(), "../www/public/r"),
-    path.resolve(process.cwd(), "public/r"),
-    { recursive: true }
-  )
-
-  // 3. Restore the registry content if we had it
-  if (registryContent) {
-    await fs.writeFile(registryIndexPath, registryContent, "utf8")
-  }
 }
 
 export async function buildBlocksIndex() {
@@ -190,9 +147,6 @@ try {
 
   console.log("🏗️ Building registry...")
   await buildRegistry()
-
-  console.log("🔄 Syncing registry...")
-  await syncRegistry()
 } catch (error) {
   console.error(error)
   process.exit(1)

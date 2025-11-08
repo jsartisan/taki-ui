@@ -6,10 +6,7 @@ import { BrainIcon, ChevronDownIcon } from "lucide-react"
 import { Button } from "react-aria-components"
 
 import { cn } from "@/lib/utils"
-import {
-  Disclosure,
-  DisclosurePanel,
-} from "@/registry/v1/ui/disclosure"
+import { Disclosure, DisclosurePanel } from "@/registry/v1/ui/disclosure"
 
 import { useControllableState } from "../hooks/use-controllable-state"
 import { Response } from "./response"

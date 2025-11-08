@@ -10,7 +10,7 @@
     "tw-animate-css"
   ],
   "registryDependencies": [
-    "utils"
+    "@/lib/utils"
   ],
   "files": [],
   "cssVars": {}

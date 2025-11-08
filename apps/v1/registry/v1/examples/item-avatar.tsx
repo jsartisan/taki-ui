@@ -1,10 +1,6 @@
 import { Plus } from "lucide-react"
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/registry/v1/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
 import { Button } from "@/registry/v1/ui/button"
 import {
   Item,

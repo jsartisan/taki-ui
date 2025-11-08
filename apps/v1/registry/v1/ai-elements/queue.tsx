@@ -5,10 +5,7 @@ import { ChevronDownIcon, PaperclipIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/registry/v1/ui/button"
-import {
-  Disclosure,
-  DisclosurePanel,
-} from "@/registry/v1/ui/disclosure"
+import { Disclosure, DisclosurePanel } from "@/registry/v1/ui/disclosure"
 
 export type QueueMessagePart = {
   type: string

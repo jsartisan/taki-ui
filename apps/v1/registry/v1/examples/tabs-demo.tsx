@@ -9,12 +9,7 @@ import {
 } from "@/registry/v1/ui/card"
 import { Input } from "@/registry/v1/ui/input"
 import { Label } from "@/registry/v1/ui/label"
-import {
-  TabPanel,
-  Tabs,
-  TabsList,
-  TabsTrigger,
-} from "@/registry/v1/ui/tabs"
+import { TabPanel, Tabs, TabsList, TabsTrigger } from "@/registry/v1/ui/tabs"
 
 export default function TabsDemo() {
   return (

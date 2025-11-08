@@ -14,10 +14,7 @@ import {
   Conversation,
   ConversationContent,
 } from "@/registry/v1/ai-elements/conversation"
-import {
-  Message,
-  MessageContent,
-} from "@/registry/v1/ai-elements/message"
+import { Message, MessageContent } from "@/registry/v1/ai-elements/message"
 
 const messages = [
   {
