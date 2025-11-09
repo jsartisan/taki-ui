@@ -28,7 +28,6 @@
 
 ### Form & Input
 
-- [Form](https://ui.shadcn.com/docs/components/form): Building forms with React Hook Form and Zod validation.
 - [Field](https://ui.shadcn.com/docs/components/field): Field component for form inputs with labels and error messages.
 - [Button](https://ui.shadcn.com/docs/components/button): Button component with multiple variants.
 - [Button Group](https://ui.shadcn.com/docs/components/button-group): Group multiple buttons together.

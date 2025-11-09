@@ -10,8 +10,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/date-range-picker-disabled.tsx",
-      "content": "import { DateRangePicker } from \"@/registry/v1/ui/date-range-picker\"\n\nexport default function DateRangePickerDisabled() {\n  return (\n    <DateRangePicker\n      label=\"Trip dates\"\n      description=\"This field is disabled.\"\n      isDisabled\n    />\n  )\n}\n",
+      "path": "registry/new-york/examples/date-range-picker-disabled.tsx",
+      "content": "import { DateRangePicker } from \"@/registry/new-york/ui/date-range-picker\"\n\nexport default function DateRangePickerDisabled() {\n  return (\n    <DateRangePicker\n      label=\"Trip dates\"\n      description=\"This field is disabled.\"\n      isDisabled\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

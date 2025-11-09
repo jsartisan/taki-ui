@@ -4,7 +4,7 @@
   "type": "registry:example",
   "files": [
     {
-      "path": "registry/v1/examples/typography-muted.tsx",
+      "path": "registry/new-york/examples/typography-muted.tsx",
       "content": "export default function TypographyMuted() {\n  return (\n    <p className=\"text-muted-foreground text-sm\">Enter your email address.</p>\n  )\n}\n",
       "type": "registry:example"
     }

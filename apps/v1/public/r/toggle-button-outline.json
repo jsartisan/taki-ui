@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/toggle-button-outline.tsx",
-      "content": "import { BoldIcon } from \"lucide-react\"\n\nimport { ToggleButton } from \"@/registry/v1/ui/toggle-button\"\n\nexport default function ToggleButtonOutline() {\n  return (\n    <ToggleButton variant=\"outline\" aria-label=\"Toggle bold\">\n      <BoldIcon />\n    </ToggleButton>\n  )\n}\n",
+      "path": "registry/new-york/examples/toggle-button-outline.tsx",
+      "content": "import { BoldIcon } from \"lucide-react\"\n\nimport { ToggleButton } from \"@/registry/new-york/ui/toggle-button\"\n\nexport default function ToggleButtonOutline() {\n  return (\n    <ToggleButton variant=\"outline\" aria-label=\"Toggle bold\">\n      <BoldIcon />\n    </ToggleButton>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

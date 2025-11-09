@@ -2,8 +2,12 @@
 
 import { useState } from "react"
 
-import { Field, FieldDescription, FieldTitle } from "@/registry/v1/ui/field"
-import { Slider } from "@/registry/v1/ui/slider"
+import {
+  Field,
+  FieldDescription,
+  FieldTitle,
+} from "@/registry/new-york/ui/field"
+import { Slider } from "@/registry/new-york/ui/slider"
 
 export function FieldSlider() {
   const [value, setValue] = useState([200, 800])

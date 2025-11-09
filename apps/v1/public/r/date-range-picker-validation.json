@@ -10,8 +10,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/date-range-picker-validation.tsx",
-      "content": "\"use client\"\n\nimport { DateRangePicker } from \"@/registry/v1/ui/date-range-picker\"\n\nexport default function DateRangePickerValidation() {\n  return (\n    <DateRangePicker\n      label=\"Vacation dates\"\n      description=\"Select your vacation start and end dates.\"\n      isRequired\n      errorMessage=\"Please select a valid date range.\"\n    />\n  )\n}\n",
+      "path": "registry/new-york/examples/date-range-picker-validation.tsx",
+      "content": "\"use client\"\n\nimport { DateRangePicker } from \"@/registry/new-york/ui/date-range-picker\"\n\nexport default function DateRangePickerValidation() {\n  return (\n    <DateRangePicker\n      label=\"Vacation dates\"\n      description=\"Select your vacation start and end dates.\"\n      isRequired\n      errorMessage=\"Please select a valid date range.\"\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

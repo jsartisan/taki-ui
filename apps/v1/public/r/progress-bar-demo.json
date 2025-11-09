@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/progress-bar-demo.tsx",
-      "content": "import { ProgressBar } from \"@/registry/v1/ui/progress-bar\"\n\nexport default function ProgressBarDemo() {\n  return <ProgressBar label=\"Loading…\" value={60} />\n}\n",
+      "path": "registry/new-york/examples/progress-bar-demo.tsx",
+      "content": "import { ProgressBar } from \"@/registry/new-york/ui/progress-bar\"\n\nexport default function ProgressBarDemo() {\n  return <ProgressBar label=\"Loading…\" value={60} />\n}\n",
       "type": "registry:example"
     }
   ]

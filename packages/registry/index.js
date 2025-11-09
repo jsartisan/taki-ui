@@ -37,7 +37,7 @@ const targetUrl = new URL(
   "https://taki-ui.com"
 ).toString();
 
-const fullCommand = `${commandPrefix} shadcn@latest add ${targetUrl}`;
+const fullCommand = `${commandPrefix} taki-ui@latest add ${targetUrl}`;
 const result = spawnSync(fullCommand, {
   stdio: "inherit",
   shell: true,

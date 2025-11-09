@@ -2,13 +2,13 @@ import { Column } from "@tanstack/react-table"
 import { ArrowDown, ArrowUp, ChevronsUpDown, EyeOff } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/v1/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Menu,
   MenuItem,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/v1/ui/menu"
+} from "@/registry/new-york/ui/menu"
 
 interface DataTableColumnHeaderProps<TData, TValue>
   extends React.HTMLAttributes<HTMLDivElement> {

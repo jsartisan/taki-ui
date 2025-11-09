@@ -2,8 +2,8 @@ import * as React from "react"
 
 import { siteConfig } from "@/lib/config"
 import { Icons } from "@/components/icons"
-import { LinkButton } from "@/registry/v1/ui/link-button"
-import { Skeleton } from "@/registry/v1/ui/skeleton"
+import { LinkButton } from "@/registry/new-york/ui/link-button"
+import { Skeleton } from "@/registry/new-york/ui/skeleton"
 
 export function GitHubLink() {
   return (

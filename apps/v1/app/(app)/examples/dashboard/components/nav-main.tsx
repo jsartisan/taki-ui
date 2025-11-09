@@ -9,7 +9,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/registry/v1/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar"
 
 export function NavMain({
   items,

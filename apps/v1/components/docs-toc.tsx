@@ -4,8 +4,8 @@ import * as React from "react"
 import { IconMenu3 } from "@tabler/icons-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/v1/ui/button"
-import { Menu, MenuItem, MenuTrigger } from "@/registry/v1/ui/menu"
+import { Button } from "@/registry/new-york/ui/button"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york/ui/menu"
 
 function useActiveItem(itemIds: string[]) {
   const [activeId, setActiveId] = React.useState<string | null>(null)

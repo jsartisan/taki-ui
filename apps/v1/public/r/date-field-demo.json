@@ -10,8 +10,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/date-field-demo.tsx",
-      "content": "import { DateField } from \"@/registry/v1/ui/date-field\"\n\nexport default function DateFieldDemo() {\n  return (\n    <DateField label=\"Event date\" description=\"Select a date for your event.\" />\n  )\n}\n",
+      "path": "registry/new-york/examples/date-field-demo.tsx",
+      "content": "import { DateField } from \"@/registry/new-york/ui/date-field\"\n\nexport default function DateFieldDemo() {\n  return (\n    <DateField label=\"Event date\" description=\"Select a date for your event.\" />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

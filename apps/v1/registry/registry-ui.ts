@@ -4,6 +4,7 @@ export const ui: Registry["items"] = [
   {
     name: "alert",
     type: "registry:ui",
+    dependencies: ["tailwind-variants"],
     files: [
       {
         path: "ui/alert.tsx",
@@ -14,7 +15,6 @@ export const ui: Registry["items"] = [
   {
     name: "avatar",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-avatar"],
     files: [
       {
         path: "ui/avatar.tsx",
@@ -25,7 +25,7 @@ export const ui: Registry["items"] = [
   {
     name: "badge",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-slot"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
     files: [
       {
         path: "ui/badge.tsx",
@@ -36,7 +36,7 @@ export const ui: Registry["items"] = [
   {
     name: "breadcrumb",
     type: "registry:ui",
-    dependencies: ["react-aria-components"],
+    dependencies: ["lucide-react", "react-aria-components"],
     files: [
       {
         path: "ui/breadcrumb.tsx",
@@ -47,7 +47,7 @@ export const ui: Registry["items"] = [
   {
     name: "button",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-slot"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
     files: [
       {
         path: "ui/button.tsx",
@@ -58,7 +58,8 @@ export const ui: Registry["items"] = [
   {
     name: "button-group",
     type: "registry:ui",
-    registryDependencies: ["button", "separator"],
+    dependencies: ["tailwind-variants"],
+    registryDependencies: ["label", "separator"],
     files: [
       {
         path: "ui/button-group.tsx",
@@ -69,7 +70,11 @@ export const ui: Registry["items"] = [
   {
     name: "calendar",
     type: "registry:ui",
-    dependencies: ["react-day-picker@latest", "date-fns"],
+    dependencies: [
+      "lucide-react",
+      "react-aria-components",
+      "tailwind-variants",
+    ],
     registryDependencies: ["button"],
     files: [
       {
@@ -98,7 +103,7 @@ export const ui: Registry["items"] = [
       },
     ],
     registryDependencies: ["button"],
-    dependencies: ["embla-carousel-react"],
+    dependencies: ["embla-carousel-react", "lucide-react"],
   },
   {
     name: "chart",
@@ -110,12 +115,17 @@ export const ui: Registry["items"] = [
       },
     ],
     registryDependencies: ["card"],
-    dependencies: ["recharts@2.15.4", "lucide-react"],
+    dependencies: ["recharts"],
   },
   {
     name: "checkbox",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-checkbox"],
+    dependencies: [
+      "lucide-react",
+      "react-aria-components",
+      "tailwind-variants",
+    ],
+    registryDependencies: ["field"],
     files: [
       {
         path: "ui/checkbox.tsx",
@@ -126,7 +136,11 @@ export const ui: Registry["items"] = [
   {
     name: "combobox",
     type: "registry:ui",
-    dependencies: ["react-aria-components"],
+    dependencies: [
+      "lucide-react",
+      "react-aria-components",
+      "tailwind-variants",
+    ],
     registryDependencies: ["field", "list-box", "popover"],
     files: [
       {
@@ -138,8 +152,8 @@ export const ui: Registry["items"] = [
   {
     name: "command",
     type: "registry:ui",
-    dependencies: ["cmdk"],
-    registryDependencies: ["dialog"],
+    dependencies: ["lucide-react", "react-aria-components"],
+    registryDependencies: ["dialog", "list-box", "modal"],
     files: [
       {
         path: "ui/command.tsx",
@@ -150,7 +164,7 @@ export const ui: Registry["items"] = [
   {
     name: "date-field",
     type: "registry:ui",
-    dependencies: ["react-aria-components", "@internationalized/date"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
     registryDependencies: ["field", "input"],
     files: [
       {
@@ -162,7 +176,11 @@ export const ui: Registry["items"] = [
   {
     name: "date-picker",
     type: "registry:ui",
-    dependencies: ["react-aria-components", "@internationalized/date"],
+    dependencies: [
+      "lucide-react",
+      "react-aria-components",
+      "tailwind-variants",
+    ],
     registryDependencies: [
       "button",
       "calendar",
@@ -182,9 +200,8 @@ export const ui: Registry["items"] = [
   {
     name: "date-range-picker",
     type: "registry:ui",
-    dependencies: ["react-aria-components", "@internationalized/date"],
+    dependencies: ["lucide-react", "react-aria-components"],
     registryDependencies: [
-      "button",
       "date-field",
       "dialog",
       "field",
@@ -213,7 +230,7 @@ export const ui: Registry["items"] = [
   {
     name: "modal",
     type: "registry:ui",
-    dependencies: ["react-aria-components"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
     files: [
       {
         path: "ui/modal.tsx",
@@ -239,7 +256,7 @@ export const ui: Registry["items"] = [
   {
     name: "drawer",
     type: "registry:ui",
-    dependencies: ["vaul", "@radix-ui/react-dialog"],
+    dependencies: ["vaul"],
     files: [
       {
         path: "ui/drawer.tsx",
@@ -250,6 +267,7 @@ export const ui: Registry["items"] = [
   {
     name: "empty",
     type: "registry:ui",
+    dependencies: ["tailwind-variants"],
     files: [
       {
         path: "ui/empty.tsx",
@@ -260,7 +278,8 @@ export const ui: Registry["items"] = [
   {
     name: "field",
     type: "registry:ui",
-    registryDependencies: ["label", "separator"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
+    registryDependencies: ["description", "label", "separator"],
     files: [
       {
         path: "ui/field.tsx",
@@ -280,24 +299,6 @@ export const ui: Registry["items"] = [
     ],
   },
   {
-    name: "form",
-    type: "registry:ui",
-    dependencies: [
-      "@radix-ui/react-label",
-      "@radix-ui/react-slot",
-      "@hookform/resolvers",
-      "zod",
-      "react-hook-form",
-    ],
-    registryDependencies: ["button", "label"],
-    files: [
-      {
-        path: "ui/form.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
     name: "grid-list",
     type: "registry:ui",
     dependencies: ["react-aria-components", "tailwind-variants"],
@@ -311,7 +312,7 @@ export const ui: Registry["items"] = [
   {
     name: "hover-card",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-hover-card"],
+    dependencies: ["react-aria-components"],
     files: [
       {
         path: "ui/hover-card.tsx",
@@ -322,6 +323,7 @@ export const ui: Registry["items"] = [
   {
     name: "input",
     type: "registry:ui",
+    dependencies: ["react-aria-components", "tailwind-variants"],
     files: [
       {
         path: "ui/input.tsx",
@@ -332,6 +334,7 @@ export const ui: Registry["items"] = [
   {
     name: "input-group",
     type: "registry:ui",
+    dependencies: ["react-aria-components", "tailwind-variants"],
     registryDependencies: ["button", "input", "textarea"],
     files: [
       {
@@ -343,7 +346,7 @@ export const ui: Registry["items"] = [
   {
     name: "input-otp",
     type: "registry:ui",
-    dependencies: ["input-otp"],
+    dependencies: ["input-otp", "lucide-react"],
     files: [
       {
         path: "ui/input-otp.tsx",
@@ -354,6 +357,7 @@ export const ui: Registry["items"] = [
   {
     name: "item",
     type: "registry:ui",
+    dependencies: ["tailwind-variants"],
     registryDependencies: ["separator"],
     files: [
       {
@@ -365,7 +369,7 @@ export const ui: Registry["items"] = [
   {
     name: "label",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-label"],
+    dependencies: ["react-aria-components"],
     files: [
       {
         path: "ui/label.tsx",
@@ -391,7 +395,11 @@ export const ui: Registry["items"] = [
   {
     name: "number-field",
     type: "registry:ui",
-    dependencies: ["react-aria-components"],
+    dependencies: [
+      "lucide-react",
+      "react-aria-components",
+      "tailwind-variants",
+    ],
     registryDependencies: ["field", "input", "input-group"],
     files: [
       {
@@ -403,6 +411,7 @@ export const ui: Registry["items"] = [
   {
     name: "pagination",
     type: "registry:ui",
+    dependencies: ["lucide-react"],
     registryDependencies: ["button"],
     files: [
       {
@@ -414,7 +423,7 @@ export const ui: Registry["items"] = [
   {
     name: "popover",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-popover"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
     files: [
       {
         path: "ui/popover.tsx",
@@ -437,7 +446,8 @@ export const ui: Registry["items"] = [
   {
     name: "radio-group",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-radio-group"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
+    registryDependencies: ["field"],
     files: [
       {
         path: "ui/radio-group.tsx",
@@ -448,8 +458,8 @@ export const ui: Registry["items"] = [
   {
     name: "range-calendar",
     type: "registry:ui",
-    dependencies: ["react-aria-components", "@internationalized/date"],
-    registryDependencies: ["button", "calendar"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
+    registryDependencies: ["calendar"],
     files: [
       {
         path: "ui/range-calendar.tsx",
@@ -460,7 +470,7 @@ export const ui: Registry["items"] = [
   {
     name: "resizable",
     type: "registry:ui",
-    dependencies: ["react-resizable-panels"],
+    dependencies: ["lucide-react", "react-resizable-panels"],
     files: [
       {
         path: "ui/resizable.tsx",
@@ -471,8 +481,13 @@ export const ui: Registry["items"] = [
   {
     name: "search-field",
     type: "registry:ui",
-    dependencies: ["react-aria-components", "lucide-react"],
-    registryDependencies: ["field", "input"],
+    dependencies: [
+      "lodash",
+      "lucide-react",
+      "react-aria-components",
+      "tailwind-variants",
+    ],
+    registryDependencies: ["field", "input", "input-group"],
     files: [
       {
         path: "ui/search-field.tsx",
@@ -483,7 +498,8 @@ export const ui: Registry["items"] = [
   {
     name: "select",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-select"],
+    dependencies: ["lucide-react", "react-aria-components"],
+    registryDependencies: ["button", "field", "list-box", "popover"],
     files: [
       {
         path: "ui/select.tsx",
@@ -494,7 +510,7 @@ export const ui: Registry["items"] = [
   {
     name: "separator",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-separator"],
+    dependencies: ["react-aria-components"],
     files: [
       {
         path: "ui/separator.tsx",
@@ -505,7 +521,7 @@ export const ui: Registry["items"] = [
   {
     name: "sheet",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-dialog"],
+    dependencies: ["react-aria-components"],
     files: [
       {
         path: "ui/sheet.tsx",
@@ -517,9 +533,9 @@ export const ui: Registry["items"] = [
     name: "sidebar",
     type: "registry:ui",
     dependencies: [
-      "@radix-ui/react-slot",
-      "class-variance-authority",
       "lucide-react",
+      "react-aria-components",
+      "tailwind-variants",
     ],
     registryDependencies: [
       "button",
@@ -592,7 +608,7 @@ export const ui: Registry["items"] = [
   {
     name: "slider",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-slider"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
     files: [
       {
         path: "ui/slider.tsx",
@@ -603,7 +619,7 @@ export const ui: Registry["items"] = [
   {
     name: "sonner",
     type: "registry:ui",
-    dependencies: ["sonner", "next-themes"],
+    dependencies: ["lucide-react", "next-themes", "sonner"],
     files: [
       {
         path: "ui/sonner.tsx",
@@ -614,7 +630,7 @@ export const ui: Registry["items"] = [
   {
     name: "spinner",
     type: "registry:ui",
-    dependencies: ["class-variance-authority"],
+    dependencies: ["lucide-react"],
     files: [
       {
         path: "ui/spinner.tsx",
@@ -625,7 +641,7 @@ export const ui: Registry["items"] = [
   {
     name: "switch",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-switch"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
     files: [
       {
         path: "ui/switch.tsx",
@@ -646,7 +662,12 @@ export const ui: Registry["items"] = [
   {
     name: "tag-group",
     type: "registry:ui",
-    dependencies: ["react-aria-components", "tailwind-variants"],
+    dependencies: [
+      "lucide-react",
+      "react-aria-components",
+      "tailwind-variants",
+    ],
+    registryDependencies: ["field"],
     files: [
       {
         path: "ui/tag-group.tsx",
@@ -669,6 +690,7 @@ export const ui: Registry["items"] = [
   {
     name: "textarea",
     type: "registry:ui",
+    dependencies: ["react-aria-components"],
     files: [
       {
         path: "ui/textarea.tsx",
@@ -679,7 +701,7 @@ export const ui: Registry["items"] = [
   {
     name: "text-field",
     type: "registry:ui",
-    dependencies: ["react-aria-components"],
+    dependencies: ["react-aria-components", "tailwind-variants"],
     registryDependencies: ["field", "input"],
     files: [
       {
@@ -691,8 +713,8 @@ export const ui: Registry["items"] = [
   {
     name: "time-field",
     type: "registry:ui",
-    dependencies: ["react-aria-components", "@internationalized/date"],
-    registryDependencies: ["date-field", "field", "input"],
+    dependencies: ["react-aria-components"],
+    registryDependencies: ["date-field", "field"],
     files: [
       {
         path: "ui/time-field.tsx",
@@ -756,8 +778,12 @@ export const ui: Registry["items"] = [
   {
     name: "tree",
     type: "registry:ui",
-    dependencies: ["react-aria-components", "tailwind-variants"],
-    registryDependencies: ["checkbox"],
+    dependencies: [
+      "lucide-react",
+      "react-aria-components",
+      "tailwind-variants",
+    ],
+    registryDependencies: ["button", "checkbox"],
     files: [
       {
         path: "ui/tree.tsx",

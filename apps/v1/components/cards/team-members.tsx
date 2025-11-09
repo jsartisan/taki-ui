@@ -2,15 +2,19 @@
 
 import { ChevronDown } from "lucide-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
-import { Button } from "@/registry/v1/ui/button"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/new-york/ui/avatar"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/v1/ui/card"
+} from "@/registry/new-york/ui/card"
 import {
   Command,
   CommandEmpty,
@@ -18,16 +22,16 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/v1/ui/command"
-import { DialogTrigger } from "@/registry/v1/ui/dialog"
+} from "@/registry/new-york/ui/command"
+import { DialogTrigger } from "@/registry/new-york/ui/dialog"
 import {
   Item,
   ItemActions,
   ItemContent,
   ItemDescription,
   ItemTitle,
-} from "@/registry/v1/ui/item"
-import { Popover } from "@/registry/v1/ui/popover"
+} from "@/registry/new-york/ui/item"
+import { Popover } from "@/registry/new-york/ui/popover"
 
 const teamMembers = [
   {

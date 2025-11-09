@@ -9,7 +9,17 @@ import {
   Sparkles,
 } from "lucide-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/new-york/ui/avatar"
+import {
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  useSidebar,
+} from "@/registry/new-york/ui/sidebar"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,12 +29,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/registry/v1/ui/dropdown-menu"
-import {
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  useSidebar,
-} from "@/registry/v1/ui/sidebar"
 
 export function NavUser({
   user,

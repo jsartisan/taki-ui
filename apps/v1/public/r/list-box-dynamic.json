@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/list-box-dynamic.tsx",
-      "content": "\"use client\"\n\nimport { ListBox, ListBoxItem } from \"@/registry/v1/ui/list-box\"\n\ninterface Animal {\n  id: string\n  name: string\n}\n\nconst animals: Animal[] = [\n  { id: \"aardvark\", name: \"Aardvark\" },\n  { id: \"cat\", name: \"Cat\" },\n  { id: \"dog\", name: \"Dog\" },\n  { id: \"kangaroo\", name: \"Kangaroo\" },\n  { id: \"panda\", name: \"Panda\" },\n  { id: \"snake\", name: \"Snake\" },\n]\n\nexport default function ListBoxDynamic() {\n  return (\n    <ListBox\n      aria-label=\"Favorite animal\"\n      selectionMode=\"single\"\n      items={animals}\n      className=\"w-64\"\n    >\n      {(item) => <ListBoxItem id={item.id}>{item.name}</ListBoxItem>}\n    </ListBox>\n  )\n}\n",
+      "path": "registry/new-york/examples/list-box-dynamic.tsx",
+      "content": "\"use client\"\n\nimport { ListBox, ListBoxItem } from \"@/registry/new-york/ui/list-box\"\n\ninterface Animal {\n  id: string\n  name: string\n}\n\nconst animals: Animal[] = [\n  { id: \"aardvark\", name: \"Aardvark\" },\n  { id: \"cat\", name: \"Cat\" },\n  { id: \"dog\", name: \"Dog\" },\n  { id: \"kangaroo\", name: \"Kangaroo\" },\n  { id: \"panda\", name: \"Panda\" },\n  { id: \"snake\", name: \"Snake\" },\n]\n\nexport default function ListBoxDynamic() {\n  return (\n    <ListBox\n      aria-label=\"Favorite animal\"\n      selectionMode=\"single\"\n      items={animals}\n      className=\"w-64\"\n    >\n      {(item) => <ListBoxItem id={item.id}>{item.name}</ListBoxItem>}\n    </ListBox>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

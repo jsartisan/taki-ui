@@ -9,15 +9,19 @@ import {
   Settings,
 } from "lucide-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
-import { Button } from "@/registry/v1/ui/button"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/new-york/ui/avatar"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Menu,
   MenuItem,
   MenuSection,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/v1/ui/menu"
+} from "@/registry/new-york/ui/menu"
 
 export function SiteHeader() {
   return (

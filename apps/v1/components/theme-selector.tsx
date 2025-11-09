@@ -3,8 +3,8 @@
 import { THEMES } from "@/lib/themes"
 import { cn } from "@/lib/utils"
 import { useThemeConfig } from "@/components/active-theme"
-import { Label } from "@/registry/v1/ui/label"
-import { Select, SelectItem } from "@/registry/v1/ui/select"
+import { Label } from "@/registry/new-york/ui/label"
+import { Select, SelectItem } from "@/registry/new-york/ui/select"
 
 export function ThemeSelector({ className }: React.ComponentProps<"div">) {
   const { activeTheme, setActiveTheme } = useThemeConfig()

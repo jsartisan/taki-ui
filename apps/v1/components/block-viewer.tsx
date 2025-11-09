@@ -26,14 +26,14 @@ import { cn } from "@/lib/utils"
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard"
 import { getIconForLanguageExtension } from "@/components/icons"
 import { OpenInV0Button } from "@/components/open-in-v0-button"
-import { Button } from "@/registry/v1/ui/button"
-import { Disclosure, DisclosurePanel } from "@/registry/v1/ui/disclosure"
+import { Button } from "@/registry/new-york/ui/button"
+import { Disclosure, DisclosurePanel } from "@/registry/new-york/ui/disclosure"
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/registry/v1/ui/resizable"
-import { Separator } from "@/registry/v1/ui/separator"
+} from "@/registry/new-york/ui/resizable"
+import { Separator } from "@/registry/new-york/ui/separator"
 import {
   Sidebar,
   SidebarGroup,
@@ -44,12 +44,12 @@ import {
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarProvider,
-} from "@/registry/v1/ui/sidebar"
-import { Tabs, TabsList, TabsTrigger } from "@/registry/v1/ui/tabs"
+} from "@/registry/new-york/ui/sidebar"
+import { Tabs, TabsList, TabsTrigger } from "@/registry/new-york/ui/tabs"
 import {
   ToggleButtonGroup,
   ToggleButtonGroupItem,
-} from "@/registry/v1/ui/toggle-button-group"
+} from "@/registry/new-york/ui/toggle-button-group"
 
 type BlockViewerContext = {
   item: z.infer<typeof registryItemSchema>
@@ -226,7 +226,7 @@ function BlockViewerToolbar() {
           className="w-fit gap-1 px-2 shadow-none"
           size="sm"
           onClick={() => {
-            copyToClipboard(`npx shadcn@latest add ${item.name}`)
+            copyToClipboard(`npx taki-ui@latest add ${item.name}`)
           }}
         >
           {isCopied ? <Check /> : <Terminal />}

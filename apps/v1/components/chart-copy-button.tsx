@@ -5,8 +5,8 @@ import { CheckIcon, ClipboardIcon } from "lucide-react"
 
 import { Event, trackEvent } from "@/lib/events"
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/v1/ui/button"
-import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
+import { Button } from "@/registry/new-york/ui/button"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york/ui/tooltip"
 
 export function ChartCopyButton({
   event,

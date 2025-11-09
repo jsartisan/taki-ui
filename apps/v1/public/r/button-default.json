@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/button-default.tsx",
-      "content": "import { Button } from \"@/registry/v1/ui/button\"\n\nexport default function ButtonDefault() {\n  return <Button>Button</Button>\n}\n",
+      "path": "registry/new-york/examples/button-default.tsx",
+      "content": "import { Button } from \"@/registry/new-york/ui/button\"\n\nexport default function ButtonDefault() {\n  return <Button>Button</Button>\n}\n",
       "type": "registry:example"
     }
   ]

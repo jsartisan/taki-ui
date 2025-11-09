@@ -4,7 +4,7 @@
   "type": "registry:example",
   "files": [
     {
-      "path": "registry/v1/examples/typography-p.tsx",
+      "path": "registry/new-york/examples/typography-p.tsx",
       "content": "export default function TypographyP() {\n  return (\n    <p className=\"leading-7 [&:not(:first-child)]:mt-6\">\n      The king, seeing how much happier his subjects were, realized the error of\n      his ways and repealed the joke tax.\n    </p>\n  )\n}\n",
       "type": "registry:example"
     }

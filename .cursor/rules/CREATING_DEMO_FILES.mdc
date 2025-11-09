@@ -17,7 +17,7 @@ Demo files showcase how to use components and are essential for documentation. T
 
 ## Step 1: Create the Demo Component File
 
-Demo files are located in the `apps/v4/registry/v1/examples/` directory.
+Demo files are located in the `apps/v1/registry/new-york/examples/` directory.
 
 ### File Naming Convention
 
@@ -32,7 +32,7 @@ Follow this pattern: `{component-name}-{variant}.tsx`
 ### Demo File Structure
 
 ```tsx
-import { ComponentName } from "@/registry/v1/ui/component-name"
+import { ComponentName } from "@/registry/new-york/ui/component-name"
 
 export default function ComponentDemo() {
   return (
@@ -52,11 +52,11 @@ export default function ComponentDemo() {
 
 ### Example: Creating a Checkbox Demo
 
-**File:** `apps/v4/registry/v1/examples/checkbox-demo.tsx`
+**File:** `apps/v1/registry/new-york/examples/checkbox-demo.tsx`
 
 ```tsx
-import { Checkbox } from "@/registry/v1/ui/checkbox"
-import { Label } from "@/registry/v1/ui/label"
+import { Checkbox } from "@/registry/new-york/ui/checkbox"
+import { Label } from "@/registry/new-york/ui/label"
 
 export default function CheckboxDemo() {
   return (
@@ -70,7 +70,7 @@ export default function CheckboxDemo() {
 
 ## Step 2: Register in registry-examples.ts
 
-After creating your demo file, register it in `apps/v4/registry/registry-examples.ts`.
+After creating your demo file, register it in `apps/v1/registry/registry-examples.ts`.
 
 ### Basic Registry Entry
 
@@ -189,10 +189,10 @@ After creating the demo file and adding the registry entry, build the registry t
 
 ### Command
 
-Navigate to the `apps/v4` directory and run:
+Navigate to the `apps/v1` directory and run:
 
 ```bash
-cd apps/v4
+cd apps/v1
 pnpm run registry:build
 ```
 
@@ -233,10 +233,10 @@ Let's create a complete example: a button loading demo.
 
 ### 1. Create the Demo File
 
-**File:** `apps/v4/registry/v1/examples/button-loading.tsx`
+**File:** `apps/v1/registry/new-york/examples/button-loading.tsx`
 
 ```tsx
-import { Button } from "@/registry/v1/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import { Loader2 } from "lucide-react"
 
 export default function ButtonLoading() {
@@ -251,7 +251,7 @@ export default function ButtonLoading() {
 
 ### 2. Add Registry Entry
 
-**File:** `apps/v4/registry/registry-examples.ts`
+**File:** `apps/v1/registry/registry-examples.ts`
 
 Find the appropriate location in the array (alphabetically) and add:
 
@@ -272,7 +272,7 @@ Find the appropriate location in the array (alphabetically) and add:
 ### 3. Build the Registry
 
 ```bash
-cd apps/v4
+cd apps/v1
 pnpm run registry:build
 ```
 
@@ -409,7 +409,7 @@ Include state when relevant:
 "use client"
 
 import { useState } from "react"
-import { Checkbox } from "@/registry/v1/ui/checkbox"
+import { Checkbox } from "@/registry/new-york/ui/checkbox"
 
 export default function CheckboxControlled() {
   const [checked, setChecked] = useState(false)
@@ -436,7 +436,7 @@ export default function CheckboxControlled() {
 
 Before submitting your demo:
 
-- [ ] Demo file created in `apps/v4/registry/v1/examples/`
+- [ ] Demo file created in `apps/v1/registry/new-york/examples/`
 - [ ] File follows naming convention: `{component}-{variant}.tsx`
 - [ ] Demo uses default export
 - [ ] Registry entry added to `registry-examples.ts` in alphabetical order
@@ -449,10 +449,10 @@ Before submitting your demo:
 
 ## Additional Resources
 
-- Component definitions: `apps/v4/registry/v1/ui/`
-- Existing demos: `apps/v4/registry/v1/examples/`
+- Component definitions: `apps/v1/registry/new-york/ui/`
+- Existing demos: `apps/v1/registry/new-york/examples/`
 - Registry schema: `packages/shadcn/src/schema.ts`
-- Build scripts: `apps/v4/scripts/build-registry.mts`
+- Build scripts: `apps/v1/scripts/build-registry.mts`
 
 ## Getting Help
 

@@ -8,8 +8,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/spinner-basic.tsx",
-      "content": "import { Spinner } from \"@/registry/v1/ui/spinner\"\n\nexport default function SpinnerBasic() {\n  return (\n    <div className=\"flex flex-col items-center justify-center gap-8\">\n      <Spinner />\n    </div>\n  )\n}\n",
+      "path": "registry/new-york/examples/spinner-basic.tsx",
+      "content": "import { Spinner } from \"@/registry/new-york/ui/spinner\"\n\nexport default function SpinnerBasic() {\n  return (\n    <div className=\"flex flex-col items-center justify-center gap-8\">\n      <Spinner />\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

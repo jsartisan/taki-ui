@@ -4,7 +4,7 @@
   "type": "registry:example",
   "files": [
     {
-      "path": "registry/v1/examples/typography-lead.tsx",
+      "path": "registry/new-york/examples/typography-lead.tsx",
       "content": "export default function TypographyLead() {\n  return (\n    <p className=\"text-muted-foreground text-xl\">\n      A modal dialog that interrupts the user with important content and expects\n      a response.\n    </p>\n  )\n}\n",
       "type": "registry:example"
     }

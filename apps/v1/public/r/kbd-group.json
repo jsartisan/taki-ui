@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/kbd-group.tsx",
-      "content": "import { Kbd, KbdGroup } from \"@/registry/v1/ui/kbd\"\n\nexport default function KbdGroupExample() {\n  return (\n    <div className=\"flex flex-col items-center gap-4\">\n      <p className=\"text-muted-foreground text-sm\">\n        Use{\" \"}\n        <KbdGroup>\n          <Kbd>Ctrl + B</Kbd>\n          <Kbd>Ctrl + K</Kbd>\n        </KbdGroup>{\" \"}\n        to open the command palette\n      </p>\n    </div>\n  )\n}\n",
+      "path": "registry/new-york/examples/kbd-group.tsx",
+      "content": "import { Kbd, KbdGroup } from \"@/registry/new-york/ui/kbd\"\n\nexport default function KbdGroupExample() {\n  return (\n    <div className=\"flex flex-col items-center gap-4\">\n      <p className=\"text-muted-foreground text-sm\">\n        Use{\" \"}\n        <KbdGroup>\n          <Kbd>Ctrl + B</Kbd>\n          <Kbd>Ctrl + K</Kbd>\n        </KbdGroup>{\" \"}\n        to open the command palette\n      </p>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

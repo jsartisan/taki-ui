@@ -4,13 +4,13 @@ import { Row } from "@tanstack/react-table"
 import { MoreHorizontal } from "lucide-react"
 import { SubmenuTrigger } from "react-aria-components"
 
-import { Button } from "@/registry/v1/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Menu,
   MenuItem,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/v1/ui/menu"
+} from "@/registry/new-york/ui/menu"
 
 import { labels } from "../data/data"
 import { taskSchema } from "../data/schema"

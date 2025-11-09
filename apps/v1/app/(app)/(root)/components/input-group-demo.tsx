@@ -8,10 +8,10 @@ import {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
-} from "@/registry/v1/ui/input-group"
-import { Menu, MenuItem, MenuTrigger } from "@/registry/v1/ui/menu"
-import { Separator } from "@/registry/v1/ui/separator"
-import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
+} from "@/registry/new-york/ui/input-group"
+import { Menu, MenuItem, MenuTrigger } from "@/registry/new-york/ui/menu"
+import { Separator } from "@/registry/new-york/ui/separator"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york/ui/tooltip"
 
 export function InputGroupDemo() {
   return (

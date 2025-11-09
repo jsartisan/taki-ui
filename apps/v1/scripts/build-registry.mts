@@ -9,7 +9,7 @@ import { registry } from "@/registry/index"
 
 const execAsync = promisify(exec)
 
-const PATH_PREFIX = "registry/v1"
+const PATH_PREFIX = "registry/new-york"
 
 async function buildRegistryIndex() {
   let index = `/* eslint-disable @typescript-eslint/ban-ts-comment */

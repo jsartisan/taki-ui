@@ -10,8 +10,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/date-range-picker-demo.tsx",
-      "content": "import { DateRangePicker } from \"@/registry/v1/ui/date-range-picker\"\n\nexport default function DateRangePickerDemo() {\n  return (\n    <DateRangePicker\n      label=\"Trip dates\"\n      description=\"Select your trip start and end dates.\"\n    />\n  )\n}\n",
+      "path": "registry/new-york/examples/date-range-picker-demo.tsx",
+      "content": "import { DateRangePicker } from \"@/registry/new-york/ui/date-range-picker\"\n\nexport default function DateRangePickerDemo() {\n  return (\n    <DateRangePicker\n      label=\"Trip dates\"\n      description=\"Select your trip start and end dates.\"\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

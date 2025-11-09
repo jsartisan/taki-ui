@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/registry/v1/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Card,
   CardContent,
@@ -8,11 +8,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/v1/ui/card"
-import { Input } from "@/registry/v1/ui/input"
-import { Label } from "@/registry/v1/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/registry/v1/ui/radio-group"
-import { Select, SelectItem } from "@/registry/v1/ui/select"
+} from "@/registry/new-york/ui/card"
+import { Input } from "@/registry/new-york/ui/input"
+import { Label } from "@/registry/new-york/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/registry/new-york/ui/radio-group"
+import { Select, SelectItem } from "@/registry/new-york/ui/select"
 
 const plans = [
   {

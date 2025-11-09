@@ -8,8 +8,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/message-flat.tsx",
-      "content": "import {\n  Message,\n  MessageAvatar,\n  MessageContent,\n} from \"@/registry/v1/ai-elements/message\"\n\nexport default function MessageFlat() {\n  return (\n    <div className=\"space-y-4\">\n      <Message from=\"user\">\n        <MessageAvatar src=\"https://github.com/shadcn.png\" name=\"User\" />\n        <MessageContent variant=\"flat\">\n          This is a message with flat variant.\n        </MessageContent>\n      </Message>\n\n      <Message from=\"assistant\">\n        <MessageAvatar src=\"/avatars/shadcn.jpg\" name=\"AI\" />\n        <MessageContent variant=\"flat\">\n          The flat variant provides a different visual style for messages.\n        </MessageContent>\n      </Message>\n    </div>\n  )\n}\n",
+      "path": "registry/new-york/examples/message-flat.tsx",
+      "content": "import {\n  Message,\n  MessageAvatar,\n  MessageContent,\n} from \"@/registry/new-york/ai-elements/message\"\n\nexport default function MessageFlat() {\n  return (\n    <div className=\"space-y-4\">\n      <Message from=\"user\">\n        <MessageAvatar src=\"https://github.com/shadcn.png\" name=\"User\" />\n        <MessageContent variant=\"flat\">\n          This is a message with flat variant.\n        </MessageContent>\n      </Message>\n\n      <Message from=\"assistant\">\n        <MessageAvatar src=\"/avatars/shadcn.jpg\" name=\"AI\" />\n        <MessageContent variant=\"flat\">\n          The flat variant provides a different visual style for messages.\n        </MessageContent>\n      </Message>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

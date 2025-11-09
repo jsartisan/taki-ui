@@ -8,8 +8,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/textarea-with-button.tsx",
-      "content": "import { Button } from \"@/registry/v1/ui/button\"\nimport { Textarea } from \"@/registry/v1/ui/textarea\"\n\nexport default function TextareaWithButton() {\n  return (\n    <div className=\"grid w-full gap-2\">\n      <Textarea placeholder=\"Type your message here.\" />\n      <Button>Send message</Button>\n    </div>\n  )\n}\n",
+      "path": "registry/new-york/examples/textarea-with-button.tsx",
+      "content": "import { Button } from \"@/registry/new-york/ui/button\"\nimport { Textarea } from \"@/registry/new-york/ui/textarea\"\n\nexport default function TextareaWithButton() {\n  return (\n    <div className=\"grid w-full gap-2\">\n      <Textarea placeholder=\"Type your message here.\" />\n      <Button>Send message</Button>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

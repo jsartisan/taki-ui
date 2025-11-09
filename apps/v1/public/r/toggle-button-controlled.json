@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/toggle-button-controlled.tsx",
-      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { StarIcon } from \"lucide-react\"\n\nimport { ToggleButton } from \"@/registry/v1/ui/toggle-button\"\n\nexport default function ToggleButtonControlled() {\n  const [isSelected, setSelected] = useState(false)\n\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <ToggleButton\n        variant=\"outline\"\n        isSelected={isSelected}\n        onChange={setSelected}\n        aria-label=\"Toggle favorite\"\n      >\n        <StarIcon className={isSelected ? \"fill-current\" : \"\"} />\n        Favorite\n      </ToggleButton>\n      <p className=\"text-muted-foreground text-sm\">\n        Status: {isSelected ? \"Favorited\" : \"Not favorited\"}\n      </p>\n    </div>\n  )\n}\n",
+      "path": "registry/new-york/examples/toggle-button-controlled.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { StarIcon } from \"lucide-react\"\n\nimport { ToggleButton } from \"@/registry/new-york/ui/toggle-button\"\n\nexport default function ToggleButtonControlled() {\n  const [isSelected, setSelected] = useState(false)\n\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <ToggleButton\n        variant=\"outline\"\n        isSelected={isSelected}\n        onChange={setSelected}\n        aria-label=\"Toggle favorite\"\n      >\n        <StarIcon className={isSelected ? \"fill-current\" : \"\"} />\n        Favorite\n      </ToggleButton>\n      <p className=\"text-muted-foreground text-sm\">\n        Status: {isSelected ? \"Favorited\" : \"Not favorited\"}\n      </p>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

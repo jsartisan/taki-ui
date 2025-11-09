@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/grid-list-links.tsx",
-      "content": "import Link from \"next/link\"\n\nimport { GridList, GridListItem } from \"@/registry/v1/ui/grid-list\"\n\nexport default function GridListLinks() {\n  return (\n    <GridList aria-label=\"Navigation\" className=\"w-64\">\n      <GridListItem href=\"/docs\" textValue=\"Documentation\">\n        <Link href=\"/docs\">Documentation</Link>\n      </GridListItem>\n      <GridListItem href=\"/docs/components\" textValue=\"Components\">\n        <Link href=\"/docs/components\">Components</Link>\n      </GridListItem>\n      <GridListItem href=\"/examples\" textValue=\"Examples\">\n        <Link href=\"/examples\">Examples</Link>\n      </GridListItem>\n      <GridListItem href=\"/blocks\" textValue=\"Blocks\">\n        <Link href=\"/blocks\">Blocks</Link>\n      </GridListItem>\n    </GridList>\n  )\n}\n",
+      "path": "registry/new-york/examples/grid-list-links.tsx",
+      "content": "import Link from \"next/link\"\n\nimport { GridList, GridListItem } from \"@/registry/new-york/ui/grid-list\"\n\nexport default function GridListLinks() {\n  return (\n    <GridList aria-label=\"Navigation\" className=\"w-64\">\n      <GridListItem href=\"/docs\" textValue=\"Documentation\">\n        <Link href=\"/docs\">Documentation</Link>\n      </GridListItem>\n      <GridListItem href=\"/docs/components\" textValue=\"Components\">\n        <Link href=\"/docs/components\">Components</Link>\n      </GridListItem>\n      <GridListItem href=\"/examples\" textValue=\"Examples\">\n        <Link href=\"/examples\">Examples</Link>\n      </GridListItem>\n      <GridListItem href=\"/blocks\" textValue=\"Blocks\">\n        <Link href=\"/blocks\">Blocks</Link>\n      </GridListItem>\n    </GridList>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

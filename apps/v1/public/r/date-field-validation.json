@@ -10,8 +10,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/date-field-validation.tsx",
-      "content": "\"use client\"\n\nimport { DateField } from \"@/registry/v1/ui/date-field\"\n\nexport default function DateFieldValidation() {\n  return (\n    <DateField\n      label=\"Birth date\"\n      description=\"Enter your birth date.\"\n      isRequired\n      errorMessage=\"Please enter a valid date.\"\n    />\n  )\n}\n",
+      "path": "registry/new-york/examples/date-field-validation.tsx",
+      "content": "\"use client\"\n\nimport { DateField } from \"@/registry/new-york/ui/date-field\"\n\nexport default function DateFieldValidation() {\n  return (\n    <DateField\n      label=\"Birth date\"\n      description=\"Enter your birth date.\"\n      isRequired\n      errorMessage=\"Please enter a valid date.\"\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

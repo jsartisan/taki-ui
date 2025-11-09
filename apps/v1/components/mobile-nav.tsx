@@ -8,9 +8,9 @@ import { PAGES_NEW } from "@/lib/docs"
 import { showMcpDocs } from "@/lib/flags"
 import { source } from "@/lib/source"
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/v1/ui/button"
-import { DialogTrigger } from "@/registry/v1/ui/dialog"
-import { Popover } from "@/registry/v1/ui/popover"
+import { Button } from "@/registry/new-york/ui/button"
+import { DialogTrigger } from "@/registry/new-york/ui/dialog"
+import { Popover } from "@/registry/new-york/ui/popover"
 
 const TOP_LEVEL_SECTIONS = [
   { name: "Get Started", href: "/docs" },

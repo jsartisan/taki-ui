@@ -46,7 +46,7 @@ jobs:
             if (wwwFiles.length > 0) {
               const comment = `Looks like this PR modifies files in \`apps/www\`, which is deprecated.
 
-              Consider applying the change to \`apps/v4\` if relevant.`;
+              Consider applying the change to \`apps/v1\` if relevant.`;
 
               await github.rest.issues.createComment({
                 owner: context.repo.owner,

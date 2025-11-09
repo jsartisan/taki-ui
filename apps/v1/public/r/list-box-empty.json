@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/list-box-empty.tsx",
-      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { ListBox } from \"@/registry/v1/ui/list-box\"\n\nexport default function ListBoxEmpty() {\n  return (\n    <ListBox\n      aria-label=\"Search results\"\n      renderEmptyState={() => (\n        <div className=\"flex min-h-[150px] items-center justify-center\">\n          <p className=\"text-muted-foreground text-sm\">No results found</p>\n        </div>\n      )}\n      className=\"w-64\"\n    >\n      {[]}\n    </ListBox>\n  )\n}\n",
+      "path": "registry/new-york/examples/list-box-empty.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { ListBox } from \"@/registry/new-york/ui/list-box\"\n\nexport default function ListBoxEmpty() {\n  return (\n    <ListBox\n      aria-label=\"Search results\"\n      renderEmptyState={() => (\n        <div className=\"flex min-h-[150px] items-center justify-center\">\n          <p className=\"text-muted-foreground text-sm\">No results found</p>\n        </div>\n      )}\n      className=\"w-64\"\n    >\n      {[]}\n    </ListBox>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

@@ -15,7 +15,7 @@ import {
 } from "@tanstack/react-table"
 import { MoreHorizontalIcon } from "lucide-react"
 
-import { Button } from "@/registry/v1/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Card,
   CardAction,
@@ -23,14 +23,14 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/v1/ui/card"
-import { Checkbox } from "@/registry/v1/ui/checkbox"
+} from "@/registry/new-york/ui/card"
+import { Checkbox } from "@/registry/new-york/ui/checkbox"
 import {
   Menu,
   MenuItem,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/v1/ui/menu"
+} from "@/registry/new-york/ui/menu"
 import {
   Table,
   TableBody,
@@ -38,7 +38,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/registry/v1/ui/table"
+} from "@/registry/new-york/ui/table"
 
 const data: Payment[] = [
   {

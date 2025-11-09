@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/tooltip-demo.tsx",
-      "content": "import { Button } from \"@/registry/v1/ui/button\"\nimport { Tooltip, TooltipTrigger } from \"@/registry/v1/ui/tooltip\"\n\nexport default function TooltipDemo() {\n  return (\n    <TooltipTrigger>\n      <Button variant=\"outline\">Hover</Button>\n      <Tooltip>Add to library</Tooltip>\n    </TooltipTrigger>\n  )\n}\n",
+      "path": "registry/new-york/examples/tooltip-demo.tsx",
+      "content": "import { Button } from \"@/registry/new-york/ui/button\"\nimport { Tooltip, TooltipTrigger } from \"@/registry/new-york/ui/tooltip\"\n\nexport default function TooltipDemo() {\n  return (\n    <TooltipTrigger>\n      <Button variant=\"outline\">Hover</Button>\n      <Tooltip>Add to library</Tooltip>\n    </TooltipTrigger>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

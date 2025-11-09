@@ -355,45 +355,12 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "button-group-nested",
+    name: "button-group-dropdown",
     type: "registry:example",
     registryDependencies: ["button-group"],
     files: [
       {
-        path: "examples/button-group-nested.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "button-group-size",
-    type: "registry:example",
-    registryDependencies: ["button-group"],
-    files: [
-      {
-        path: "examples/button-group-size.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "button-group-separator",
-    type: "registry:example",
-    registryDependencies: ["button-group"],
-    files: [
-      {
-        path: "examples/button-group-separator.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "button-group-split",
-    type: "registry:example",
-    registryDependencies: ["button-group"],
-    files: [
-      {
-        path: "examples/button-group-split.tsx",
+        path: "examples/button-group-dropdown.tsx",
         type: "registry:example",
       },
     ],
@@ -410,23 +377,45 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "button-group-dropdown",
+    name: "button-group-input-group",
     type: "registry:example",
     registryDependencies: ["button-group"],
     files: [
       {
-        path: "examples/button-group-dropdown.tsx",
+        path: "examples/button-group-input-group.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "button-group-select",
+    name: "button-group-label",
+    type: "registry:example",
+    registryDependencies: ["button-group", "button", "input"],
+    files: [
+      {
+        path: "examples/button-group-label.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-group-nested",
     type: "registry:example",
     registryDependencies: ["button-group"],
     files: [
       {
-        path: "examples/button-group-select.tsx",
+        path: "examples/button-group-nested.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-group-orientation",
+    type: "registry:example",
+    registryDependencies: ["button-group"],
+    files: [
+      {
+        path: "examples/button-group-orientation.tsx",
         type: "registry:example",
       },
     ],
@@ -443,23 +432,45 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "button-group-input-group",
+    name: "button-group-select",
     type: "registry:example",
     registryDependencies: ["button-group"],
     files: [
       {
-        path: "examples/button-group-input-group.tsx",
+        path: "examples/button-group-select.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "button-group-orientation",
+    name: "button-group-separator",
     type: "registry:example",
     registryDependencies: ["button-group"],
     files: [
       {
-        path: "examples/button-group-orientation.tsx",
+        path: "examples/button-group-separator.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-group-size",
+    type: "registry:example",
+    registryDependencies: ["button-group"],
+    files: [
+      {
+        path: "examples/button-group-size.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-group-split",
+    type: "registry:example",
+    registryDependencies: ["button-group"],
+    files: [
+      {
+        path: "examples/button-group-split.tsx",
         type: "registry:example",
       },
     ],
@@ -478,7 +489,7 @@ export const examples: Registry["items"] = [
   {
     name: "calendar-form",
     type: "registry:example",
-    registryDependencies: ["calendar", "form", "popover"],
+    registryDependencies: ["button", "calendar", "dialog", "field", "popover"],
     files: [
       {
         path: "examples/calendar-form.tsx",
@@ -599,7 +610,7 @@ export const examples: Registry["items"] = [
   {
     name: "checkbox-form-multiple",
     type: "registry:example",
-    registryDependencies: ["checkbox", "form"],
+    registryDependencies: ["button", "checkbox", "field"],
     files: [
       {
         path: "examples/checkbox-form-multiple.tsx",
@@ -610,7 +621,7 @@ export const examples: Registry["items"] = [
   {
     name: "checkbox-form-single",
     type: "registry:example",
-    registryDependencies: ["checkbox", "form"],
+    registryDependencies: ["button", "checkbox", "field"],
     files: [
       {
         path: "examples/checkbox-form-single.tsx",
@@ -882,7 +893,7 @@ export const examples: Registry["items"] = [
   {
     name: "combobox-form",
     type: "registry:example",
-    registryDependencies: ["command", "form"],
+    registryDependencies: ["button", "command", "dialog", "field", "popover"],
     files: [
       {
         path: "examples/combobox-form.tsx",
@@ -1482,18 +1493,6 @@ export const examples: Registry["items"] = [
     ],
   },
   {
-    name: "form-rhf-demo",
-    type: "registry:example",
-    registryDependencies: ["field", "input", "input-group", "button", "card"],
-    files: [
-      {
-        path: "examples/form-rhf-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-    dependencies: ["react-hook-form", "@hookform/resolvers", "zod"],
-  },
-  {
     name: "form-rhf-input",
     type: "registry:example",
     registryDependencies: ["field", "input", "button", "card"],
@@ -1855,7 +1854,7 @@ export const examples: Registry["items"] = [
   {
     name: "input-form",
     type: "registry:example",
-    registryDependencies: ["input", "button", "form"],
+    registryDependencies: ["button", "field", "input"],
     files: [
       {
         path: "examples/input-form.tsx",
@@ -2070,7 +2069,7 @@ export const examples: Registry["items"] = [
   {
     name: "input-otp-form",
     type: "registry:example",
-    registryDependencies: ["input-otp", "form"],
+    registryDependencies: ["button", "field", "input-otp"],
     files: [
       {
         path: "examples/input-otp-form.tsx",
@@ -2630,7 +2629,7 @@ export const examples: Registry["items"] = [
   {
     name: "radio-group-form",
     type: "registry:example",
-    registryDependencies: ["radio-group", "form"],
+    registryDependencies: ["button", "field", "radio-group"],
     files: [
       {
         path: "examples/radio-group-form.tsx",
@@ -3076,7 +3075,7 @@ export const examples: Registry["items"] = [
   {
     name: "switch-form",
     type: "registry:example",
-    registryDependencies: ["switch", "form"],
+    registryDependencies: ["button", "field", "switch"],
     files: [
       {
         path: "examples/switch-form.tsx",
@@ -3252,7 +3251,7 @@ export const examples: Registry["items"] = [
   {
     name: "textarea-form",
     type: "registry:example",
-    registryDependencies: ["textarea", "form"],
+    registryDependencies: ["button", "field", "textarea"],
     files: [
       {
         path: "examples/textarea-form.tsx",

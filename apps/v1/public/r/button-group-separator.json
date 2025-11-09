@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/button-group-separator.tsx",
-      "content": "import { Button } from \"@/registry/v1/ui/button\"\nimport {\n  ButtonGroup,\n  ButtonGroupSeparator,\n} from \"@/registry/v1/ui/button-group\"\n\nexport default function ButtonGroupSeparatorDemo() {\n  return (\n    <ButtonGroup>\n      <Button variant=\"secondary\" size=\"sm\">\n        Copy\n      </Button>\n      <ButtonGroupSeparator />\n      <Button variant=\"secondary\" size=\"sm\">\n        Paste\n      </Button>\n    </ButtonGroup>\n  )\n}\n",
+      "path": "registry/new-york/examples/button-group-separator.tsx",
+      "content": "import { Button } from \"@/registry/new-york/ui/button\"\nimport {\n  ButtonGroup,\n  ButtonGroupSeparator,\n} from \"@/registry/new-york/ui/button-group\"\n\nexport default function ButtonGroupSeparatorDemo() {\n  return (\n    <ButtonGroup>\n      <Button variant=\"secondary\" size=\"sm\">\n        Copy\n      </Button>\n      <ButtonGroupSeparator />\n      <Button variant=\"secondary\" size=\"sm\">\n        Paste\n      </Button>\n    </ButtonGroup>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

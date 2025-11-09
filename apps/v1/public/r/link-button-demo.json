@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "link-button-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "link-button"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/link-button-demo.tsx",
+      "content": "\"use client\"\n\nimport { LinkButton } from \"@/registry/new-york/ui/link-button\"\n\nexport default function LinkButtonDemo() {\n  return (\n    <LinkButton href=\"/login\" variant=\"link\">\n      Login\n    </LinkButton>\n  )\n}\n\n",
+      "type": "registry:example"
+    }
+  ]
+}

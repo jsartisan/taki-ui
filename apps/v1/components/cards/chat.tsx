@@ -4,14 +4,18 @@ import * as React from "react"
 import { ArrowUpIcon, CheckIcon, PlusIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
-import { Button } from "@/registry/v1/ui/button"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/new-york/ui/avatar"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
-} from "@/registry/v1/ui/card"
+} from "@/registry/new-york/ui/card"
 import {
   Command,
   CommandEmpty,
@@ -19,22 +23,22 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/v1/ui/command"
+} from "@/registry/new-york/ui/command"
 import {
   Dialog,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/v1/ui/dialog"
+} from "@/registry/new-york/ui/dialog"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/registry/v1/ui/input-group"
-import { Modal } from "@/registry/v1/ui/modal"
-import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
+} from "@/registry/new-york/ui/input-group"
+import { Modal } from "@/registry/new-york/ui/modal"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york/ui/tooltip"
 
 const users = [
   {

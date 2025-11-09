@@ -8,13 +8,13 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/v1/ui/card"
+} from "@/registry/new-york/ui/card"
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/registry/v1/ui/chart"
+} from "@/registry/new-york/ui/chart"
 
 const data = [
   {

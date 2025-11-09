@@ -12,9 +12,14 @@ import {
   CodeBlockFilename,
   CodeBlockHeader,
   CodeBlockItem,
-} from "@/registry/v1/ai-elements/code-block"
-import { TabPanel, Tabs, TabsList, TabsTrigger } from "@/registry/v1/ui/tabs"
-import { Tree, TreeItem } from "@/registry/v1/ui/tree"
+} from "@/registry/new-york/ai-elements/code-block"
+import {
+  TabPanel,
+  Tabs,
+  TabsList,
+  TabsTrigger,
+} from "@/registry/new-york/ui/tabs"
+import { Tree, TreeItem } from "@/registry/new-york/ui/tree"
 
 const codeData = [
   {

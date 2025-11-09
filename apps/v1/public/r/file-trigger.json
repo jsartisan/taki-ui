@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "registry/v1/ui/file-trigger.tsx",
+      "path": "registry/new-york/ui/file-trigger.tsx",
       "content": "\"use client\"\n\nimport React from \"react\"\nimport {\n  FileTrigger as AriaFileTrigger,\n  FileTriggerProps as AriaFileTriggerProps,\n} from \"react-aria-components\"\n\nexport interface FileTriggerProps extends AriaFileTriggerProps {}\n\nexport function FileTrigger(props: FileTriggerProps) {\n  return <AriaFileTrigger {...props} />\n}\n",
       "type": "registry:ui"
     }

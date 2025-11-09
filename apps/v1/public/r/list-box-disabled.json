@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/list-box-disabled.tsx",
-      "content": "import { ListBox, ListBoxItem } from \"@/registry/v1/ui/list-box\"\n\nexport default function ListBoxDisabled() {\n  return (\n    <ListBox\n      aria-label=\"Favorite animal\"\n      selectionMode=\"single\"\n      disabledKeys={[\"cat\", \"kangaroo\"]}\n      className=\"w-64\"\n    >\n      <ListBoxItem id=\"aardvark\">Aardvark</ListBoxItem>\n      <ListBoxItem id=\"cat\">Cat</ListBoxItem>\n      <ListBoxItem id=\"dog\">Dog</ListBoxItem>\n      <ListBoxItem id=\"kangaroo\">Kangaroo</ListBoxItem>\n      <ListBoxItem id=\"panda\">Panda</ListBoxItem>\n      <ListBoxItem id=\"snake\">Snake</ListBoxItem>\n    </ListBox>\n  )\n}\n",
+      "path": "registry/new-york/examples/list-box-disabled.tsx",
+      "content": "import { ListBox, ListBoxItem } from \"@/registry/new-york/ui/list-box\"\n\nexport default function ListBoxDisabled() {\n  return (\n    <ListBox\n      aria-label=\"Favorite animal\"\n      selectionMode=\"single\"\n      disabledKeys={[\"cat\", \"kangaroo\"]}\n      className=\"w-64\"\n    >\n      <ListBoxItem id=\"aardvark\">Aardvark</ListBoxItem>\n      <ListBoxItem id=\"cat\">Cat</ListBoxItem>\n      <ListBoxItem id=\"dog\">Dog</ListBoxItem>\n      <ListBoxItem id=\"kangaroo\">Kangaroo</ListBoxItem>\n      <ListBoxItem id=\"panda\">Panda</ListBoxItem>\n      <ListBoxItem id=\"snake\">Snake</ListBoxItem>\n    </ListBox>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

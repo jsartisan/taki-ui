@@ -21,7 +21,7 @@ component: true
 <TabsContent id="cli">
 
 ```bash
-npx shadcn@latest add badge
+npx taki-ui@latest add badge
 ```
 
 </TabsContent>
@@ -56,24 +56,13 @@ import { Badge } from "@/components/ui/badge"
 
 ### Link
 
-You can use the `badgeVariants` helper to apply badge styling to other elements like links.
+If you want to use badge as a link, you can use the `BadgeLink` component. It is a wrapper around the `Link` component from `react-aria-components` and applies the same styling as the `Badge` component to it.
 
 <ComponentPreview
   name="badge-link"
-  description="Badge styled links using badgeVariants"
+  title="Badge Link"
+  description="A badge styled link"
 />
 
 
-```tsx showLineNumbers
-import Link from "next/link"
-
-import { badgeVariants } from "@/components/ui/badge"
-
-export function LinkAsBadge() {
-  return (
-    <Link href="/" className={badgeVariants({ variant: "default" })}>
-      Badge Link
-    </Link>
-  )
-}
 ```

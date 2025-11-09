@@ -10,8 +10,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/range-calendar-disabled.tsx",
-      "content": "import { RangeCalendar } from \"@/registry/v1/ui/range-calendar\"\n\nexport default function RangeCalendarDisabled() {\n  return <RangeCalendar aria-label=\"Select a date range\" isDisabled />\n}\n",
+      "path": "registry/new-york/examples/range-calendar-disabled.tsx",
+      "content": "import { RangeCalendar } from \"@/registry/new-york/ui/range-calendar\"\n\nexport default function RangeCalendarDisabled() {\n  return <RangeCalendar aria-label=\"Select a date range\" isDisabled />\n}\n",
       "type": "registry:example"
     }
   ]

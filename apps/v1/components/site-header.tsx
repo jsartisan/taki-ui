@@ -8,8 +8,8 @@ import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
 import { ModeSwitcher } from "@/components/mode-switcher"
-import { Button } from "@/registry/v1/ui/button"
-import { Separator } from "@/registry/v1/ui/separator"
+import { Button } from "@/registry/new-york/ui/button"
+import { Separator } from "@/registry/new-york/ui/separator"
 
 export function SiteHeader() {
   const colors = getColors()

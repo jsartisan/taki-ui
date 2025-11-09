@@ -10,8 +10,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/time-field-description.tsx",
-      "content": "import { TimeField } from \"@/registry/v1/ui/time-field\"\n\nexport default function TimeFieldDescriptionDemo() {\n  return (\n    <TimeField\n      label=\"Meeting time\"\n      description=\"Enter the time for your meeting.\"\n    />\n  )\n}\n",
+      "path": "registry/new-york/examples/time-field-description.tsx",
+      "content": "import { TimeField } from \"@/registry/new-york/ui/time-field\"\n\nexport default function TimeFieldDescriptionDemo() {\n  return (\n    <TimeField\n      label=\"Meeting time\"\n      description=\"Enter the time for your meeting.\"\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

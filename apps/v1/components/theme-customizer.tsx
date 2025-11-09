@@ -8,19 +8,14 @@ import { cn } from "@/lib/utils"
 import { useThemeConfig } from "@/components/active-theme"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
 import { Icons } from "@/components/icons"
-import {
-  BaseColor,
-  baseColors,
-  baseColorsOKLCH,
-} from "@/registry/registry-base-colors"
-import { Button } from "@/registry/v1/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Dialog,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/v1/ui/dialog"
+} from "@/registry/new-york/ui/dialog"
 import {
   Drawer,
   DrawerContent,
@@ -28,10 +23,20 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/registry/v1/ui/drawer"
-import { Modal } from "@/registry/v1/ui/modal"
-import { Select, SelectItem } from "@/registry/v1/ui/select"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/registry/v1/ui/tabs"
+} from "@/registry/new-york/ui/drawer"
+import { Modal } from "@/registry/new-york/ui/modal"
+import { Select, SelectItem } from "@/registry/new-york/ui/select"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/registry/new-york/ui/tabs"
+import {
+  BaseColor,
+  baseColors,
+  baseColorsOKLCH,
+} from "@/registry/registry-base-colors"
 
 interface BaseColorOKLCH {
   light: Record<string, string>

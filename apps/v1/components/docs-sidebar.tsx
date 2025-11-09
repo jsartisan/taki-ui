@@ -14,7 +14,7 @@ import {
   SidebarMenu,
   SidebarMenuButtonLink,
   SidebarMenuItem,
-} from "@/registry/v1/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar"
 
 const TOP_LEVEL_SECTIONS = [
   { name: "Get Started", href: "/docs" },
@@ -42,7 +42,7 @@ export function DocsSidebar({
 
   return (
     <Sidebar
-      className="sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--footer-height)+2rem)] bg-transparent lg:flex"
+      className="sticky top-[calc(var(--header-height)+1px)] z-30 hidden h-[calc(100svh-var(--footer-height)+2rem)] border-r bg-transparent lg:flex"
       collapsible="none"
       {...props}
     >

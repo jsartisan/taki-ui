@@ -3,8 +3,8 @@
 import { Table } from "@tanstack/react-table"
 import { X } from "lucide-react"
 
-import { Button } from "@/registry/v1/ui/button"
-import { Input } from "@/registry/v1/ui/input"
+import { Button } from "@/registry/new-york/ui/button"
+import { Input } from "@/registry/new-york/ui/input"
 import { DataTableViewOptions } from "@/app/(app)/examples/tasks/components/data-table-view-options"
 
 import { priorities, statuses } from "../data/data"

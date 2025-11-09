@@ -8,20 +8,24 @@ import {
   IconUserCircle,
 } from "@tabler/icons-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/new-york/ui/avatar"
 import {
   Menu,
   MenuItem,
   MenuSection,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/v1/ui/menu"
+} from "@/registry/new-york/ui/menu"
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/registry/v1/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar"
 
 export function NavUser({
   user,

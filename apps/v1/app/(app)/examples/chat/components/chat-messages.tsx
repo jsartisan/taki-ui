@@ -8,13 +8,16 @@ import {
   ThumbsUpIcon,
 } from "lucide-react"
 
-import { Action, Actions } from "@/registry/v1/ai-elements/actions"
+import { Action, Actions } from "@/registry/new-york/ai-elements/actions"
 import {
   Conversation,
   ConversationContent,
-} from "@/registry/v1/ai-elements/conversation"
-import { Message, MessageContent } from "@/registry/v1/ai-elements/message"
-import { Response } from "@/registry/v1/ai-elements/response"
+} from "@/registry/new-york/ai-elements/conversation"
+import {
+  Message,
+  MessageContent,
+} from "@/registry/new-york/ai-elements/message"
+import { Response } from "@/registry/new-york/ai-elements/response"
 
 import { assistantMessage } from "./chat-data"
 

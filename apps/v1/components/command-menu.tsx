@@ -13,7 +13,7 @@ import { useConfig } from "@/hooks/use-config"
 import { useIsMac } from "@/hooks/use-is-mac"
 import { useMutationObserver } from "@/hooks/use-mutation-observer"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
-import { Button } from "@/registry/v1/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Command,
   CommandDialog,
@@ -21,9 +21,9 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/v1/ui/command"
-import { Kbd, KbdGroup } from "@/registry/v1/ui/kbd"
-import { Separator } from "@/registry/v1/ui/separator"
+} from "@/registry/new-york/ui/command"
+import { Kbd, KbdGroup } from "@/registry/new-york/ui/kbd"
+import { Separator } from "@/registry/new-york/ui/separator"
 
 export function CommandMenu({
   tree,
@@ -53,7 +53,7 @@ export function CommandMenu({
         const componentName = item.url.split("/").pop()
         setSelectedType("component")
         setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${componentName}`
+          `${packageManager} dlx taki-ui@latest add ${componentName}`
         )
       } else {
         setSelectedType("page")
@@ -74,7 +74,7 @@ export function CommandMenu({
   const handleBlockHighlight = React.useCallback(
     (block: { name: string; description: string; categories: string[] }) => {
       setSelectedType("block")
-      setCopyPayload(`${packageManager} dlx shadcn@latest add ${block.name}`)
+      setCopyPayload(`${packageManager} dlx taki-ui@latest add ${block.name}`)
     },
     [setSelectedType, setCopyPayload, packageManager]
   )

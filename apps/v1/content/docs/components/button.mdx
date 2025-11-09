@@ -23,7 +23,7 @@ import { InfoIcon } from "lucide-react"
 <TabsContent id="cli">
 
 ```bash
-npx shadcn@latest add button
+npx taki-ui@latest add button
 ```
 
 </TabsContent>
@@ -31,12 +31,6 @@ npx shadcn@latest add button
 <TabsContent id="manual">
 
 <Steps>
-
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install @radix-ui/react-slot
-```
 
 <Step>Copy and paste the following code into your project.</Step>
 
@@ -89,10 +83,6 @@ If you want to keep the `cursor: pointer` behavior, add the following code to yo
   className="mb-4"
 />
 
-```tsx
-<Button>Button</Button>
-```
-
 ### Outline
 
 <ComponentPreview
@@ -100,10 +90,6 @@ If you want to keep the `cursor: pointer` behavior, add the following code to yo
   description="A button using the outline variant."
   className="mb-4"
 />
-
-```tsx
-<Button variant="outline">Outline</Button>
-```
 
 ### Secondary
 
@@ -176,9 +162,11 @@ To create a button group, use the `ButtonGroup` component. See the [Button Group
 
 `react-aria-components` don't support `asChild` for the `Button` component. You can use the `LinkButton` component instead for.
 
-```tsx
-<LinkButton href="/login">Login</LinkButton>
-```
+<ComponentPreview
+  name="link-button-demo"
+  description="A button styled link for navigation."
+  className="mb-4"
+/>
 
 ## API Reference
 

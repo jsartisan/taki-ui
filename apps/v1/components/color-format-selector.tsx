@@ -5,8 +5,8 @@ import * as React from "react"
 import { getColorFormat, type Color } from "@/lib/colors"
 import { cn } from "@/lib/utils"
 import { useColors } from "@/hooks/use-colors"
-import { Select, SelectItem } from "@/registry/v1/ui/select"
-import { Skeleton } from "@/registry/v1/ui/skeleton"
+import { Select, SelectItem } from "@/registry/new-york/ui/select"
+import { Skeleton } from "@/registry/new-york/ui/skeleton"
 
 export function ColorFormatSelector({
   color,

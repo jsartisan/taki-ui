@@ -8,8 +8,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/spinner-button.tsx",
-      "content": "import { Button } from \"@/registry/v1/ui/button\"\nimport { Spinner } from \"@/registry/v1/ui/spinner\"\n\nexport default function SpinnerButton() {\n  return (\n    <div className=\"flex flex-col items-center gap-4\">\n      <Button disabled size=\"sm\">\n        <Spinner />\n        Loading...\n      </Button>\n      <Button variant=\"outline\" disabled size=\"sm\">\n        <Spinner />\n        Please wait\n      </Button>\n      <Button variant=\"secondary\" disabled size=\"sm\">\n        <Spinner />\n        Processing\n      </Button>\n    </div>\n  )\n}\n",
+      "path": "registry/new-york/examples/spinner-button.tsx",
+      "content": "import { Button } from \"@/registry/new-york/ui/button\"\nimport { Spinner } from \"@/registry/new-york/ui/spinner\"\n\nexport default function SpinnerButton() {\n  return (\n    <div className=\"flex flex-col items-center gap-4\">\n      <Button disabled size=\"sm\">\n        <Spinner />\n        Loading...\n      </Button>\n      <Button variant=\"outline\" disabled size=\"sm\">\n        <Spinner />\n        Please wait\n      </Button>\n      <Button variant=\"secondary\" disabled size=\"sm\">\n        <Spinner />\n        Processing\n      </Button>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/text-field-readonly.tsx",
-      "content": "import { TextField } from \"@/registry/v1/ui/text-field\"\n\nexport default function TextFieldReadOnly() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <TextField\n        label=\"User ID\"\n        defaultValue=\"12345\"\n        isReadOnly\n        description=\"This field is read-only and cannot be edited.\"\n      />\n    </div>\n  )\n}\n",
+      "path": "registry/new-york/examples/text-field-readonly.tsx",
+      "content": "import { TextField } from \"@/registry/new-york/ui/text-field\"\n\nexport default function TextFieldReadOnly() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <TextField\n        label=\"User ID\"\n        defaultValue=\"12345\"\n        isReadOnly\n        description=\"This field is read-only and cannot be edited.\"\n      />\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

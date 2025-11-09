@@ -11,7 +11,7 @@ import {
   InputGroupButton,
   InputGroupText,
   InputGroupTextarea,
-} from "@/registry/v1/ui/input-group"
+} from "@/registry/new-york/ui/input-group"
 
 export function InputGroupTextareaExample() {
   return (

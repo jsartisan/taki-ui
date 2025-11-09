@@ -3,14 +3,14 @@
 import { PlusIcon, SparklesIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/v1/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/registry/v1/ui/sheet"
+} from "@/registry/new-york/ui/sheet"
 
 type ConversationType = {
   id: string

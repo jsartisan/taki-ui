@@ -12,8 +12,8 @@ import { absoluteUrl } from "@/lib/utils"
 import { DocsCopyPage } from "@/components/docs-copy-page"
 import { DocsTableOfContents } from "@/components/docs-toc"
 import { LinePattern } from "@/components/line-pattern"
-import { badgeVariants } from "@/registry/v1/ui/badge"
-import { LinkButton } from "@/registry/v1/ui/link-button"
+import { BadgeLink } from "@/registry/new-york/ui/badge"
+import { LinkButton } from "@/registry/new-york/ui/link-button"
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -93,7 +93,7 @@ export default async function Page(props: {
       data-slot="docs"
       className="flex items-stretch text-[1.05rem] sm:text-[15px] xl:w-full"
     >
-      <div className="flex min-w-0 flex-1 flex-col border-x">
+      <div className="flex min-w-0 flex-1 flex-col border-r-0 xl:border-r">
         <div className="h-(--top-spacing) shrink-0" />
         <div className="bg-background mx-auto flex w-full min-w-0 flex-1 flex-col gap-8 p-8 px-4 py-6 pb-8 text-neutral-800 md:px-8 lg:py-8 lg:pb-12 dark:text-neutral-300">
           <div className="flex flex-col gap-2">
@@ -141,24 +141,24 @@ export default async function Page(props: {
             {links ? (
               <div className="flex items-center gap-2 pt-4">
                 {links?.doc && (
-                  <a
+                  <BadgeLink
                     href={links.doc}
                     target="_blank"
                     rel="noreferrer"
-                    className={badgeVariants({ variant: "secondary" })}
+                    variant="secondary"
                   >
                     Docs <IconArrowUpRight />
-                  </a>
+                  </BadgeLink>
                 )}
                 {links?.api && (
-                  <a
+                  <BadgeLink
                     href={links.api}
                     target="_blank"
                     rel="noreferrer"
-                    className={badgeVariants({ variant: "secondary" })}
+                    variant="secondary"
                   >
                     API Reference <IconArrowUpRight />
-                  </a>
+                  </BadgeLink>
                 )}
               </div>
             ) : null}

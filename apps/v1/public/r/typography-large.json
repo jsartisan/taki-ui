@@ -4,7 +4,7 @@
   "type": "registry:example",
   "files": [
     {
-      "path": "registry/v1/examples/typography-large.tsx",
+      "path": "registry/new-york/examples/typography-large.tsx",
       "content": "export default function TypographyLarge() {\n  return <div className=\"text-lg font-semibold\">Are you absolutely sure?</div>\n}\n",
       "type": "registry:example"
     }

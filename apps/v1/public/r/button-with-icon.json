@@ -7,8 +7,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/button-with-icon.tsx",
-      "content": "import { IconGitBranch } from \"@tabler/icons-react\"\n\nimport { Button } from \"@/registry/v1/ui/button\"\n\nexport default function ButtonWithIcon() {\n  return (\n    <Button variant=\"outline\" size=\"sm\">\n      <IconGitBranch /> New Branch\n    </Button>\n  )\n}\n",
+      "path": "registry/new-york/examples/button-with-icon.tsx",
+      "content": "import { IconGitBranch } from \"@tabler/icons-react\"\n\nimport { Button } from \"@/registry/new-york/ui/button\"\n\nexport default function ButtonWithIcon() {\n  return (\n    <Button variant=\"outline\" size=\"sm\">\n      <IconGitBranch /> New Branch\n    </Button>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

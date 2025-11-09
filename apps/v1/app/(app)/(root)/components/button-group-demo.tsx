@@ -14,14 +14,14 @@ import {
 } from "lucide-react"
 import { SubmenuTrigger } from "react-aria-components"
 
-import { Button } from "@/registry/v1/ui/button"
-import { ButtonGroup } from "@/registry/v1/ui/button-group"
+import { Button } from "@/registry/new-york/ui/button"
+import { ButtonGroup } from "@/registry/new-york/ui/button-group"
 import {
   Menu,
   MenuItem,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/v1/ui/menu"
+} from "@/registry/new-york/ui/menu"
 
 export function ButtonGroupDemo() {
   return (

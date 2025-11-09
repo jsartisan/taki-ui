@@ -9,7 +9,7 @@ This guide explains how to create MDX documentation files for components in the 
 
 ## Overview
 
-MDX files are located in `apps/v4/content/docs/components/` and serve as the main documentation for each component. They combine Markdown with JSX to create interactive, component-rich documentation.
+MDX files are located in `apps/v1/content/docs/components/` and serve as the main documentation for each component. They combine Markdown with JSX to create interactive, component-rich documentation.
 
 ## File Naming Convention
 
@@ -55,7 +55,7 @@ component: true
 <TabsContent id="cli">
 
 ```bash
-npx shadcn@latest add component-name
+npx taki-ui@latest add component-name
 ```
 
 </TabsContent>
@@ -215,7 +215,7 @@ The installation section provides two methods: CLI and manual installation.
 <TabsContent id="cli">
 
 ```bash
-npx shadcn@latest add component-name
+npx taki-ui@latest add component-name
 ```
 
 </TabsContent>
@@ -267,7 +267,7 @@ npm install package-name
 <TabsContent id="cli">
 
 ```bash
-npx shadcn@latest add button
+npx taki-ui@latest add button
 ```
 
 </TabsContent>
@@ -309,7 +309,7 @@ npm install @radix-ui/react-slot
 <TabsContent id="cli">
 
 ```bash
-npx shadcn@latest add input
+npx taki-ui@latest add input
 ```
 
 </TabsContent>
@@ -681,7 +681,7 @@ links:
 <TabsContent id="cli">
 
 ```bash
-npx shadcn@latest add checkbox
+npx taki-ui@latest add checkbox
 ```
 
 </TabsContent>
@@ -945,7 +945,7 @@ Before submitting your MDX file:
 - [ ] Usage section shows import and basic usage
 - [ ] Examples section demonstrates key use cases
 - [ ] Code blocks use appropriate syntax highlighting
-- [ ] All referenced demo files exist in `registry/v1/examples/`
+- [ ] All referenced demo files exist in `registry/new-york/examples/`
 - [ ] File is named in kebab-case matching the component name
 - [ ] No typos or grammatical errors
 - [ ] Links to related components work correctly
@@ -995,9 +995,9 @@ Each example should be independently understandable without needing to reference
 ## Additional Resources
 
 - MDX syntax: https://mdxjs.com/
-- Component previews: `apps/v4/components/component-preview.tsx`
-- Existing MDX files: `apps/v4/content/docs/components/`
-- Demo files: `apps/v4/registry/v1/examples/`
+- Component previews: `apps/v1/components/component-preview.tsx`
+- Existing MDX files: `apps/v1/content/docs/components/`
+- Demo files: `apps/v1/registry/new-york/examples/`
 
 ## Getting Help
 

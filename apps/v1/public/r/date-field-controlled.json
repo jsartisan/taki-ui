@@ -10,8 +10,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/date-field-controlled.tsx",
-      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { parseDate } from \"@internationalized/date\"\n\nimport { DateField } from \"@/registry/v1/ui/date-field\"\n\nexport default function DateFieldControlled() {\n  const [value, setValue] = useState(parseDate(\"2024-01-15\"))\n\n  return (\n    <div className=\"space-y-4\">\n      <DateField\n        label=\"Appointment date\"\n        description=\"Select your appointment date.\"\n        value={value}\n        onChange={setValue}\n      />\n      <p className=\"text-muted-foreground text-sm\">\n        Selected date: {value ? value.toString() : \"None\"}\n      </p>\n    </div>\n  )\n}\n",
+      "path": "registry/new-york/examples/date-field-controlled.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { parseDate } from \"@internationalized/date\"\n\nimport { DateField } from \"@/registry/new-york/ui/date-field\"\n\nexport default function DateFieldControlled() {\n  const [value, setValue] = useState(parseDate(\"2024-01-15\"))\n\n  return (\n    <div className=\"space-y-4\">\n      <DateField\n        label=\"Appointment date\"\n        description=\"Select your appointment date.\"\n        value={value}\n        onChange={setValue}\n      />\n      <p className=\"text-muted-foreground text-sm\">\n        Selected date: {value ? value.toString() : \"None\"}\n      </p>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
   ]

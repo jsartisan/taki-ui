@@ -7,7 +7,7 @@
   ],
   "files": [
     {
-      "path": "registry/v1/ui/spinner.tsx",
+      "path": "registry/new-york/ui/spinner.tsx",
       "content": "import { Loader2Icon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nfunction Spinner({ className, ...props }: React.ComponentProps<\"svg\">) {\n  return (\n    <Loader2Icon\n      role=\"status\"\n      aria-label=\"Loading\"\n      className={cn(\"size-4 animate-spin\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Spinner }\n",
       "type": "registry:ui"
     }

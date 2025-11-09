@@ -14,8 +14,12 @@ import {
 } from "@tabler/icons-react"
 import { SubmenuTrigger } from "react-aria-components"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
-import { Badge } from "@/registry/v1/ui/badge"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/new-york/ui/avatar"
+import { Badge } from "@/registry/new-york/ui/badge"
 import {
   Command,
   CommandEmpty,
@@ -23,25 +27,25 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/v1/ui/command"
-import { DialogTrigger } from "@/registry/v1/ui/dialog"
-import { Field, FieldLabel } from "@/registry/v1/ui/field"
+} from "@/registry/new-york/ui/command"
+import { DialogTrigger } from "@/registry/new-york/ui/dialog"
+import { Field, FieldLabel } from "@/registry/new-york/ui/field"
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
   InputGroupTextarea,
-} from "@/registry/v1/ui/input-group"
+} from "@/registry/new-york/ui/input-group"
 import {
   Menu,
   MenuItem,
   MenuSection,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/v1/ui/menu"
-import { Popover } from "@/registry/v1/ui/popover"
-import { Switch } from "@/registry/v1/ui/switch"
-import { Tooltip, TooltipTrigger } from "@/registry/v1/ui/tooltip"
+} from "@/registry/new-york/ui/menu"
+import { Popover } from "@/registry/new-york/ui/popover"
+import { Switch } from "@/registry/new-york/ui/switch"
+import { Tooltip, TooltipTrigger } from "@/registry/new-york/ui/tooltip"
 
 const SAMPLE_DATA = {
   mentionable: [

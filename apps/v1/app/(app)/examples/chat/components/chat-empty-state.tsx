@@ -2,7 +2,7 @@
 
 import { BotIcon } from "lucide-react"
 
-import { Button } from "@/registry/v1/ui/button"
+import { Button } from "@/registry/new-york/ui/button"
 
 interface ChatEmptyStateProps {
   suggestions: string[]

@@ -6,26 +6,29 @@ import {
   ThumbsUpIcon,
 } from "lucide-react"
 
-import { Action, Actions } from "@/registry/v1/ai-elements/actions"
+import { Action, Actions } from "@/registry/new-york/ai-elements/actions"
 import {
   ChainOfThought,
   ChainOfThoughtContent,
   ChainOfThoughtHeader,
   ChainOfThoughtStep,
-} from "@/registry/v1/ai-elements/chain-of-thought"
+} from "@/registry/new-york/ai-elements/chain-of-thought"
 import {
   Conversation,
   ConversationContent,
-} from "@/registry/v1/ai-elements/conversation"
-import { Message, MessageContent } from "@/registry/v1/ai-elements/message"
-import { Shimmer } from "@/registry/v1/ai-elements/shimmer"
+} from "@/registry/new-york/ai-elements/conversation"
+import {
+  Message,
+  MessageContent,
+} from "@/registry/new-york/ai-elements/message"
+import { Shimmer } from "@/registry/new-york/ai-elements/shimmer"
 import {
   Task,
   TaskContent,
   TaskItem,
   TaskItemFile,
   TaskTrigger,
-} from "@/registry/v1/ai-elements/task"
+} from "@/registry/new-york/ai-elements/task"
 
 export function ChatMessages() {
   return (

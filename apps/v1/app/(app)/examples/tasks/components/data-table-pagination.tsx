@@ -6,8 +6,8 @@ import {
   ChevronsRight,
 } from "lucide-react"
 
-import { Button } from "@/registry/v1/ui/button"
-import { Select, SelectItem } from "@/registry/v1/ui/select"
+import { Button } from "@/registry/new-york/ui/button"
+import { Select, SelectItem } from "@/registry/new-york/ui/select"
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>

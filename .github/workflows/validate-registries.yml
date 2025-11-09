@@ -3,12 +3,12 @@ name: Validate Registries
 on:
   pull_request:
     paths:
-      - "apps/v4/public/r/registries.json"
+      - "apps/v1/public/r/registries.json"
   push:
     branches:
       - main
     paths:
-      - "apps/v4/public/r/registries.json"
+      - "apps/v1/public/r/registries.json"
 
 jobs:
   validate:

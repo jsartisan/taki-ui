@@ -1,7 +1,11 @@
 import { Plus } from "lucide-react"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/v1/ui/avatar"
-import { Button } from "@/registry/v1/ui/button"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/new-york/ui/avatar"
+import { Button } from "@/registry/new-york/ui/button"
 import {
   Item,
   ItemActions,
@@ -9,7 +13,7 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@/registry/v1/ui/item"
+} from "@/registry/new-york/ui/item"
 
 export function ItemAvatar() {
   return (

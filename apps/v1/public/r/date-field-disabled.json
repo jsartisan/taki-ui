@@ -10,8 +10,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/date-field-disabled.tsx",
-      "content": "import { DateField } from \"@/registry/v1/ui/date-field\"\n\nexport default function DateFieldDisabled() {\n  return (\n    <DateField\n      label=\"Event date\"\n      description=\"This field is disabled.\"\n      isDisabled\n    />\n  )\n}\n",
+      "path": "registry/new-york/examples/date-field-disabled.tsx",
+      "content": "import { DateField } from \"@/registry/new-york/ui/date-field\"\n\nexport default function DateFieldDisabled() {\n  return (\n    <DateField\n      label=\"Event date\"\n      description=\"This field is disabled.\"\n      isDisabled\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ]

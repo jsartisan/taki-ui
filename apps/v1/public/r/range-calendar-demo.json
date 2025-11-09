@@ -10,8 +10,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/range-calendar-demo.tsx",
-      "content": "import { RangeCalendar } from \"@/registry/v1/ui/range-calendar\"\n\nexport default function RangeCalendarDemo() {\n  return <RangeCalendar aria-label=\"Select a date range\" />\n}\n",
+      "path": "registry/new-york/examples/range-calendar-demo.tsx",
+      "content": "import { RangeCalendar } from \"@/registry/new-york/ui/range-calendar\"\n\nexport default function RangeCalendarDemo() {\n  return <RangeCalendar aria-label=\"Select a date range\" />\n}\n",
       "type": "registry:example"
     }
   ]

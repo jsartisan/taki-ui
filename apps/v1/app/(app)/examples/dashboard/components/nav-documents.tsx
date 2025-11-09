@@ -13,7 +13,7 @@ import {
   MenuItem,
   MenuSeparator,
   MenuTrigger,
-} from "@/registry/v1/ui/menu"
+} from "@/registry/new-york/ui/menu"
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -22,7 +22,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/registry/v1/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar"
 
 export function NavDocuments({
   items,

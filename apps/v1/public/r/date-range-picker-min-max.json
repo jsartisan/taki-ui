@@ -10,8 +10,8 @@
   ],
   "files": [
     {
-      "path": "registry/v1/examples/date-range-picker-min-max.tsx",
-      "content": "\"use client\"\n\nimport { getLocalTimeZone, today } from \"@internationalized/date\"\n\nimport { DateRangePicker } from \"@/registry/v1/ui/date-range-picker\"\n\nexport default function DateRangePickerMinMax() {\n  const now = today(getLocalTimeZone())\n\n  return (\n    <DateRangePicker\n      label=\"Rental period\"\n      description=\"Select a date range within the next 90 days.\"\n      minValue={now}\n      maxValue={now.add({ days: 90 })}\n    />\n  )\n}\n",
+      "path": "registry/new-york/examples/date-range-picker-min-max.tsx",
+      "content": "\"use client\"\n\nimport { getLocalTimeZone, today } from \"@internationalized/date\"\n\nimport { DateRangePicker } from \"@/registry/new-york/ui/date-range-picker\"\n\nexport default function DateRangePickerMinMax() {\n  const now = today(getLocalTimeZone())\n\n  return (\n    <DateRangePicker\n      label=\"Rental period\"\n      description=\"Select a date range within the next 90 days.\"\n      minValue={now}\n      maxValue={now.add({ days: 90 })}\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ]
