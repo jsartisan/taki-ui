@@ -1,12 +1,12 @@
 export const siteConfig = {
-  name: "shadcn/ui",
-  url: "https://ui.shadcn.com",
+  name: "taki-ui",
+  url: "https://taki-ui.com",
   ogImage: "https://ui.shadcn.com/og.jpg",
   description:
     "A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code.",
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn-ui/ui",
+    twitter: "https://x.com/pawankumar2901",
+    github: "https://github.com/jsartisan/taki-ui",
   },
   navItems: [
     {
