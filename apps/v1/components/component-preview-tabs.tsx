@@ -24,12 +24,12 @@ export function ComponentPreviewTabs({
   return (
     <div
       className={cn(
-        "group relative mt-4 mb-12 flex flex-col gap-2 rounded-lg border",
+        "group relative mt-4 mb-12 flex flex-col gap-2 overflow-hidden rounded-lg border",
         className
       )}
       {...props}
     >
-      <div data-slot="preview">
+      <div data-slot="preview" className="[&_div]:overflow-y-auto">
         <DotPattern
           data-align={align}
           className={cn(
