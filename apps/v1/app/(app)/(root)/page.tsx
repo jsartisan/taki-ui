@@ -13,7 +13,7 @@ import { PageNav } from "@/components/page-nav"
 import { ThemeSelector } from "@/components/theme-selector"
 import { LinkButton } from "@/registry/new-york/ui/link-button"
 
-import { AICodingPlatform } from "../examples/ai/components/ai-coding-platform"
+import { RootComponents } from "./components"
 
 const title = "AI-Ready. Accessible. Composable."
 const description =
@@ -95,8 +95,8 @@ export default function IndexPage() {
               priority
             />
           </section> */}
-          <section className="theme-container hidden md:block">
-            <AICodingPlatform />
+          <section className="theme-container block">
+            <RootComponents />
           </section>
         </div>
       </div>

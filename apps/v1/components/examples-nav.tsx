@@ -7,6 +7,12 @@ import { cn } from "@/lib/utils"
 
 const examples = [
   {
+    name: "Vibe Coding",
+    href: "/examples/ai",
+    code: "https://github.com/shadcn/ui/tree/main/apps/v1/app/(app)/examples/chat",
+    hidden: false,
+  },
+  {
     name: "Chat",
     href: "/examples/chat",
     code: "https://github.com/shadcn/ui/tree/main/apps/v1/app/(app)/examples/chat",
@@ -43,7 +49,7 @@ export function ExamplesNav({
       <div className="max-w-[96%] overflow-x-auto md:max-w-[600px] lg:max-w-none">
         <div className="flex items-center">
           <ExampleLink
-            example={{ name: "AI", href: "/", code: "", hidden: false }}
+            example={{ name: "Examples", href: "/", code: "", hidden: false }}
             isActive={pathname === "/"}
           />
           {examples.map((example) => (

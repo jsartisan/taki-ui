@@ -29,11 +29,11 @@ export function ComponentPreviewTabs({
       )}
       {...props}
     >
-      <div data-slot="preview" className="[&_div]:overflow-y-auto">
+      <div data-slot="preview" className="">
         <DotPattern
           data-align={align}
           className={cn(
-            "preview flex w-full justify-center data-[align=center]:items-center data-[align=end]:items-end data-[align=start]:items-start",
+            "preview flex w-full justify-center overflow-y-auto data-[align=center]:items-center data-[align=end]:items-end data-[align=start]:items-start",
             chromeLessOnMobile ? "sm:p-10" : "max-h-[480px] min-h-[250px] p-10"
           )}
         >

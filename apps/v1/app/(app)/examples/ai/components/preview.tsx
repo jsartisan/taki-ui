@@ -44,7 +44,8 @@ export function Preview() {
     <Tabs
       className="relative mr-4 mb-4 w-full overflow-hidden rounded-lg border"
       selectedKey={tab}
-      onSelectionChange={setTab}
+      onSelectionChange={(key) => setTab(key as string)}
+      defaultSelectedKey="code"
     >
       <div className="border-b px-2 py-1">
         <TabsList>

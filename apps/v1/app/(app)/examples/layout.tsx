@@ -1,8 +1,8 @@
 import { Metadata } from "next"
-import Link from "next/link"
 
 import { Announcement } from "@/components/announcement"
 import { ExamplesNav } from "@/components/examples-nav"
+import { LinePattern } from "@/components/line-pattern"
 import {
   PageActions,
   PageHeader,
@@ -12,6 +12,7 @@ import {
 import { PageNav } from "@/components/page-nav"
 import { ThemeSelector } from "@/components/theme-selector"
 import { Button } from "@/registry/new-york/ui/button"
+import { LinkButton } from "@/registry/new-york/ui/link-button"
 
 export const dynamic = "force-static"
 export const revalidate = false
@@ -59,23 +60,44 @@ export default function ExamplesLayout({
           Source. Open Code.
         </PageHeaderDescription>
         <PageActions>
-          <Button asChild size="sm">
-            <Link href="/docs">Get Started</Link>
-          </Button>
-          <Button asChild size="sm" variant="ghost">
-            <Link href="/blocks">Browse Blocks</Link>
-          </Button>
+          <LinkButton href="/docs" size="sm">
+            Get Started
+          </LinkButton>
+          <LinkButton href="/blocks" size="sm" variant="ghost">
+            Browse Blocks
+          </LinkButton>
         </PageActions>
       </PageHeader>
-      <PageNav id="examples">
-        <ExamplesNav className="[&>a:first-child]:text-primary flex-1 overflow-hidden" />
-        <ThemeSelector className="mr-4 hidden md:block" />
-      </PageNav>
-      <div className="container-wrapper section-soft flex flex-1 flex-col pb-0">
-        <div className="theme-container flex flex-1 scroll-mt-20 flex-col pb-6">
-          <div className="bg-background flex flex-col overflow-hidden rounded-lg border bg-clip-padding md:flex-1 xl:rounded-xl">
-            {children}
-          </div>
+      <LinePattern className="h-6 border-t">
+        <div className="container-wrapper h-full"></div>
+      </LinePattern>
+      <section className="border-t">
+        <PageNav className="hidden md:flex">
+          <ExamplesNav className="[&>a:first-child]:text-primary flex-1 overflow-hidden" />
+          <ThemeSelector className="mr-4 hidden md:flex" />
+        </PageNav>
+      </section>
+      <div className="border-t">
+        <div className="container-wrapper flex-1">
+          {/* <section className="border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]">
+            <Image
+              src="/r/styles/v1/dashboard-01-light.png"
+              width={1400}
+              height={875}
+              alt="Dashboard"
+              className="block dark:hidden"
+              priority
+            />
+            <Image
+              src="/r/styles/v1/dashboard-01-dark.png"
+              width={1400}
+              height={875}
+              alt="Dashboard"
+              className="hidden dark:block"
+              priority
+            />
+          </section> */}
+          <section className="theme-container block">{children}</section>
         </div>
       </div>
     </>

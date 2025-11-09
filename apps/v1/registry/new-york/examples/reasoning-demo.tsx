@@ -58,7 +58,7 @@ export default function ReasoningDemo() {
   }, [isStreaming, currentTokenIndex, tokens])
 
   return (
-    <div className="w-full p-4" style={{ height: "300px" }}>
+    <div className="h-full w-full">
       <Reasoning className="w-full" isStreaming={isStreaming}>
         <ReasoningTrigger />
         <ReasoningContent>{content}</ReasoningContent>
