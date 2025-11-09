@@ -11,7 +11,6 @@ import {
 } from "@/components/page-header"
 import { PageNav } from "@/components/page-nav"
 import { ThemeSelector } from "@/components/theme-selector"
-import { Button } from "@/registry/new-york/ui/button"
 import { LinkButton } from "@/registry/new-york/ui/link-button"
 
 export const dynamic = "force-static"
