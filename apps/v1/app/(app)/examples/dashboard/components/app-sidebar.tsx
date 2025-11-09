@@ -25,8 +25,8 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuButtonLink,
   SidebarMenuItem,
+  SidebarMenuLinkButton,
 } from "@/registry/new-york/ui/sidebar"
 import { NavDocuments } from "@/app/(app)/examples/dashboard/components/nav-documents"
 import { NavMain } from "@/app/(app)/examples/dashboard/components/nav-main"
@@ -156,13 +156,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader className="border-b">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButtonLink
+            <SidebarMenuLinkButton
               href="#"
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
               <IconInnerShadowTop className="!size-5" />
               <span className="text-base font-semibold">Acme Inc.</span>
-            </SidebarMenuButtonLink>
+            </SidebarMenuLinkButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>

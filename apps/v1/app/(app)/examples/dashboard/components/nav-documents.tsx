@@ -21,6 +21,7 @@ import {
   SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuLinkButton,
   useSidebar,
 } from "@/registry/new-york/ui/sidebar"
 
@@ -41,12 +42,10 @@ export function NavDocuments({
       <SidebarMenu>
         {items.map((item) => (
           <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton asChild>
-              <a href={item.url}>
-                <item.icon />
-                <span>{item.name}</span>
-              </a>
-            </SidebarMenuButton>
+            <SidebarMenuLinkButton href={item.url}>
+              <item.icon />
+              <span>{item.name}</span>
+            </SidebarMenuLinkButton>
             <MenuTrigger>
               <SidebarMenuAction
                 showOnHover

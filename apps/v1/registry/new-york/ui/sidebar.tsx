@@ -1,9 +1,13 @@
 "use client"
 
 import * as React from "react"
-import { tv, type VariantProps } from "tailwind-variants"
 import { PanelLeftIcon } from "lucide-react"
-import { Link as AriaLink, LinkProps } from "react-aria-components"
+import {
+  Link as AriaLink,
+  composeRenderProps,
+  LinkProps,
+} from "react-aria-components"
+import { tv, type VariantProps } from "tailwind-variants"
 
 import { useIsMobile } from "@/registry/new-york/hooks/use-mobile"
 import { cn } from "@/registry/new-york/lib/utils"
@@ -480,7 +484,7 @@ const sidebarMenuButtonVariants = tv({
   },
 })
 
-export function SidebarMenuButtonLink({
+export function SidebarMenuLinkButton({
   isActive = false,
   variant = "default",
   size = "default",
@@ -500,7 +504,9 @@ export function SidebarMenuButtonLink({
       data-sidebar="menu-button"
       data-size={size}
       data-active={Boolean(isActive) === true ? "true" : undefined}
-      className={sidebarMenuButtonVariants({ variant, size, className })}
+      className={composeRenderProps(className, (className) =>
+        sidebarMenuButtonVariants({ variant, size, className })
+      )}
       {...props}
     />
   )

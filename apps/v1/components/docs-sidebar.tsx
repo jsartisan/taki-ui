@@ -12,8 +12,8 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuButtonLink,
   SidebarMenuItem,
+  SidebarMenuLinkButton,
 } from "@/registry/new-york/ui/sidebar"
 
 const TOP_LEVEL_SECTIONS = [
@@ -60,7 +60,7 @@ export function DocsSidebar({
                 }
                 return (
                   <SidebarMenuItem key={name}>
-                    <SidebarMenuButtonLink
+                    <SidebarMenuLinkButton
                       href={href}
                       isActive={
                         href === "/docs"
@@ -71,7 +71,7 @@ export function DocsSidebar({
                     >
                       <span className="absolute inset-0 flex w-(--sidebar-width) bg-transparent" />
                       {name}
-                    </SidebarMenuButtonLink>
+                    </SidebarMenuLinkButton>
                   </SidebarMenuItem>
                 )
               })}
@@ -104,7 +104,7 @@ export function DocsSidebar({
                         item.type === "page" &&
                         !EXCLUDED_PAGES.includes(item.url) && (
                           <SidebarMenuItem key={item.url}>
-                            <SidebarMenuButtonLink
+                            <SidebarMenuLinkButton
                               href={item.url}
                               isActive={item.url === pathname}
                               className="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
@@ -117,7 +117,7 @@ export function DocsSidebar({
                                   title="New"
                                 />
                               )}
-                            </SidebarMenuButtonLink>
+                            </SidebarMenuLinkButton>
                           </SidebarMenuItem>
                         )
                       )

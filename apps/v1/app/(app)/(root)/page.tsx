@@ -15,9 +15,9 @@ import { LinkButton } from "@/registry/new-york/ui/link-button"
 
 import { RootComponents } from "./components"
 
-const title = "AI-Ready. Accessible. Composable."
+const title = "It's Shadcn but with React Aria"
 const description =
-  "A set of accessible, beautifully designed components powered by React Aria. AI-ready out of the box. Start here, then make it your own. Open Source. Open Code."
+  "Beautifully designed, accessible components that you can copy and paste into your apps. Made with React Aria Components and Shadcn tokens."
 
 export const dynamic = "force-static"
 export const revalidate = false

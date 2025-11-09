@@ -7,8 +7,8 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuLinkButton,
 } from "@/registry/new-york/ui/sidebar"
 
 export function NavSecondary({
@@ -27,12 +27,10 @@ export function NavSecondary({
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton asChild>
-                <a href={item.url}>
-                  <item.icon />
-                  <span>{item.title}</span>
-                </a>
-              </SidebarMenuButton>
+              <SidebarMenuLinkButton href={item.url}>
+                <item.icon />
+                <span>{item.title}</span>
+              </SidebarMenuLinkButton>
             </SidebarMenuItem>
           ))}
         </SidebarMenu>
