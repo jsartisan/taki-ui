@@ -1,0 +1,150 @@
+---
+title: Task
+description: Display task progress with collapsible details and file references.
+component: true
+---
+
+<ComponentPreview name="task-demo" description="Collapsible task items" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add task
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="task" title="ai-elements/task.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Task,
+  TaskTrigger,
+  TaskContent,
+  TaskItem,
+  TaskItemFile,
+} from "@/components/ai-elements/task"
+```
+
+```tsx showLineNumbers
+<Task>
+  <TaskTrigger title="Searching codebase" />
+  <TaskContent>
+    <TaskItem>
+      Found in <TaskItemFile>components/ui/button.tsx</TaskItemFile>
+    </TaskItem>
+  </TaskContent>
+</Task>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="task-demo" description="Task with file references" />
+
+```tsx showLineNumbers
+export default function Example() {
+  return (
+    <div className="space-y-4">
+      <Task>
+        <TaskTrigger title="Searching codebase for Button component" />
+        <TaskContent>
+          <TaskItem>
+            Found in <TaskItemFile>components/ui/button.tsx</TaskItemFile>
+          </TaskItem>
+          <TaskItem>
+            Used in <TaskItemFile>pages/home.tsx</TaskItemFile>
+          </TaskItem>
+          <TaskItem>
+            Referenced in <TaskItemFile>components/header.tsx</TaskItemFile>
+          </TaskItem>
+        </TaskContent>
+      </Task>
+
+      <Task>
+        <TaskTrigger title="Analyzing dependencies" />
+        <TaskContent>
+          <TaskItem>
+            Found 3 direct dependencies in <TaskItemFile>package.json</TaskItemFile>
+          </TaskItem>
+          <TaskItem>All dependencies are up to date</TaskItem>
+        </TaskContent>
+      </Task>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### Task
+
+Collapsible task container.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `defaultOpen` | `boolean` | `true` | Initial open state |
+| `className` | `string` | - | Custom CSS classes |
+
+### TaskTrigger
+
+Trigger button to expand task.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `title` | `string` | - | Task title |
+| `children` | `ReactNode` | - | Custom trigger content |
+| `className` | `string` | - | Custom CSS classes |
+
+### TaskContent
+
+Container for task details.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `ReactNode` | - | Task items |
+| `className` | `string` | - | Custom CSS classes |
+
+### TaskItem
+
+Individual task detail item.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `ReactNode` | - | Item content |
+| `className` | `string` | - | Custom CSS classes |
+
+### TaskItemFile
+
+File reference badge.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `ReactNode` | - | File name |
+| `className` | `string` | - | Custom CSS classes |
+

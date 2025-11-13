@@ -1,0 +1,153 @@
+---
+title: Progress Bar
+description: Progress bars show either determinate or indeterminate progress of an operation over time.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/ProgressBar.html
+  api: https://react-spectrum.adobe.com/react-aria/ProgressBar.html#props
+---
+
+<ComponentPreview name="progress-bar-demo" description="A progress bar showing loading progress." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add progress-bar
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="progress-bar" title="components/ui/progress-bar.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProgressBar } from "@/components/ui/progress-bar"
+```
+
+```tsx
+<ProgressBar label="Loading…" value={60} />
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="progress-bar-demo" description="A basic progress bar showing determinate progress." />
+
+```tsx
+<ProgressBar label="Loading…" value={60} />
+```
+
+### Indeterminate
+
+<ComponentPreview name="progress-bar-indeterminate" description="A progress bar showing indeterminate progress." />
+
+Use the `isIndeterminate` prop when the exact progress is unknown.
+
+```tsx
+<ProgressBar label="Loading…" isIndeterminate />
+```
+
+### Custom Value Label
+
+<ComponentPreview name="progress-bar-label" description="A progress bar with a custom value label." />
+
+You can provide a custom value label using the `valueLabel` prop to show custom progress text.
+
+```tsx
+<ProgressBar
+  label="Processing files"
+  value={45}
+  formatOptions={{ style: "decimal" }}
+  valueLabel="15 of 60 files"
+/>
+```
+
+### Custom Value Scale
+
+<ComponentPreview name="progress-bar-value-scale" description="Progress bars with custom min and max values." />
+
+By default, the `minValue` is 0 and `maxValue` is 100. You can customize these to use different scales.
+
+```tsx
+<ProgressBar
+  label="Storage space"
+  formatOptions={{ style: "unit", unit: "gigabyte" }}
+  value={450}
+  maxValue={1000}
+/>
+```
+
+## Accessibility
+
+The progress bar follows the [ARIA progressbar pattern](https://www.w3.org/WAI/ARIA/apg/patterns/progressbar/), supporting both determinate and indeterminate progress states. The label is automatically associated with the progress bar semantically.
+
+If there is no visible label, you must provide an `aria-label` or `aria-labelledby` prop to identify the element to screen readers.
+
+```tsx
+<ProgressBar aria-label="Loading" value={60} />
+```
+
+## Value Formatting
+
+Values are formatted as a percentage by default, but you can customize this using the `formatOptions` prop. This prop is compatible with the option parameter of [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
+
+```tsx
+<ProgressBar
+  label="Currency"
+  formatOptions={{ style: "currency", currency: "USD" }}
+  value={25}
+/>
+```
+
+## API Reference
+
+### ProgressBar
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `label` | `string` | - | Label text for the progress bar |
+| `value` | `number` | `0` | The current value (controlled) |
+| `minValue` | `number` | `0` | The smallest value allowed |
+| `maxValue` | `number` | `100` | The largest value allowed |
+| `isIndeterminate` | `boolean` | `false` | Whether the progress is indeterminate |
+| `valueLabel` | `ReactNode` | - | Custom content to display as the value label |
+| `formatOptions` | `Intl.NumberFormatOptions` | `{style: 'percent'}` | The display format of the value |
+| `aria-label` | `string` | - | Defines a label for screen readers when no visible label is present |
+
+The `ProgressBar` component also supports all props from the `react-aria-components` ProgressBar component.
+
+## Related
+
+- [Progress](/docs/components/progress) - Radix UI-based progress component
+- [Meter](/docs/components/meter) - For showing a measurement within a known range
+

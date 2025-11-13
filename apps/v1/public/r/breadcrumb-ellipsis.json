@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-ellipsis",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/breadcrumb.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/breadcrumb-ellipsis.tsx",
+      "content": "import {\n  Breadcrumb,\n  BreadcrumbEllipsis,\n  BreadcrumbLink,\n  Breadcrumbs,\n  BreadcrumbSeparator,\n} from \"@/registry/new-york/ui/breadcrumb\"\n\nexport default function BreadcrumbCollapsed() {\n  return (\n    <Breadcrumbs>\n      <Breadcrumb>\n        <BreadcrumbLink href=\"/\">Home</BreadcrumbLink>\n        <BreadcrumbSeparator />\n      </Breadcrumb>\n      <Breadcrumb>\n        <BreadcrumbEllipsis />\n        <BreadcrumbSeparator />\n      </Breadcrumb>\n      <Breadcrumb>\n        <BreadcrumbLink href=\"/docs/components\">Components</BreadcrumbLink>\n        <BreadcrumbSeparator />\n      </Breadcrumb>\n      <Breadcrumb>\n        <BreadcrumbLink>Breadcrumb</BreadcrumbLink>\n      </Breadcrumb>\n    </Breadcrumbs>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

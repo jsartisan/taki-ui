@@ -1,0 +1,255 @@
+---
+title: ComboBox
+description: A combo box combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/ComboBox.html
+  api: https://react-spectrum.adobe.com/react-aria/ComboBox.html#props
+---
+
+<ComponentPreview
+  name="combobox-demo"
+  description="A combobox with a list of frameworks."
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add combobox
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="combobox" title="components/ui/combobox.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { ComboBox, ComboBoxItem } from "@/components/ui/combobox"
+```
+
+```tsx showLineNumbers
+<ComboBox
+  label="Favorite Framework"
+  placeholder="Search framework..."
+  className="w-full max-w-xs"
+>
+  <ComboBoxItem id="next.js" textValue="Next.js">
+    Next.js
+  </ComboBoxItem>
+  <ComboBoxItem id="sveltekit" textValue="SvelteKit">
+    SvelteKit
+  </ComboBoxItem>
+  <ComboBoxItem id="nuxt.js" textValue="Nuxt.js">
+    Nuxt.js
+  </ComboBoxItem>
+  <ComboBoxItem id="remix" textValue="Remix">
+    Remix
+  </ComboBoxItem>
+  <ComboBoxItem id="astro" textValue="Astro">
+    Astro
+  </ComboBoxItem>
+</ComboBox>
+```
+
+## Examples
+
+### With Sections
+
+<ComponentPreview
+  name="combobox-sections"
+  description="A combobox with grouped sections of options."
+/>
+
+```tsx showLineNumbers
+<ComboBox
+  label="Select Language"
+  placeholder="Search languages..."
+  className="w-full max-w-xs"
+>
+  <ComboBoxSection title="Popular">
+    <ComboBoxItem id="js" textValue="JavaScript">
+      JavaScript
+    </ComboBoxItem>
+    <ComboBoxItem id="ts" textValue="TypeScript">
+      TypeScript
+    </ComboBoxItem>
+  </ComboBoxSection>
+  <ComboBoxSection title="Web">
+    <ComboBoxItem id="html" textValue="HTML">
+      HTML
+    </ComboBoxItem>
+    <ComboBoxItem id="css" textValue="CSS">
+      CSS
+    </ComboBoxItem>
+  </ComboBoxSection>
+</ComboBox>
+```
+
+### Controlled
+
+<ComponentPreview
+  name="combobox-controlled"
+  description="A controlled combobox with external state management."
+/>
+
+```tsx showLineNumbers
+const [selectedKey, setSelectedKey] = useState<string | null>(null)
+
+<ComboBox
+  label="Select Country"
+  placeholder="Search countries..."
+  selectedKey={selectedKey}
+  onSelectionChange={(key) => setSelectedKey(key as string)}
+>
+  <ComboBoxItem id="us" textValue="United States">
+    United States
+  </ComboBoxItem>
+  <ComboBoxItem id="uk" textValue="United Kingdom">
+    United Kingdom
+  </ComboBoxItem>
+  <ComboBoxItem id="ca" textValue="Canada">
+    Canada
+  </ComboBoxItem>
+</ComboBox>
+```
+
+### With Description
+
+<ComponentPreview
+  name="combobox-description"
+  description="A combobox with a helper description."
+/>
+
+```tsx showLineNumbers
+<ComboBox
+  label="Code Editor"
+  description="Choose your preferred code editor for development."
+  placeholder="Search editors..."
+>
+  <ComboBoxItem id="vscode" textValue="Visual Studio Code">
+    Visual Studio Code
+  </ComboBoxItem>
+  <ComboBoxItem id="sublime" textValue="Sublime Text">
+    Sublime Text
+  </ComboBoxItem>
+  <ComboBoxItem id="vim" textValue="Vim">
+    Vim
+  </ComboBoxItem>
+</ComboBox>
+```
+
+### Disabled
+
+<ComponentPreview
+  name="combobox-disabled"
+  description="A disabled combobox."
+/>
+
+```tsx showLineNumbers
+<ComboBox
+  label="Disabled ComboBox"
+  placeholder="Cannot interact..."
+  isDisabled
+>
+  <ComboBoxItem id="option1">Option 1</ComboBoxItem>
+  <ComboBoxItem id="option2">Option 2</ComboBoxItem>
+</ComboBox>
+```
+
+### Validation
+
+<ComponentPreview
+  name="combobox-validation"
+  description="A combobox with validation."
+/>
+
+```tsx showLineNumbers
+<ComboBox
+  label="Priority"
+  placeholder="Select priority..."
+  isRequired
+  errorMessage="Please select a priority level."
+>
+  <ComboBoxItem id="low">Low</ComboBoxItem>
+  <ComboBoxItem id="medium">Medium</ComboBoxItem>
+  <ComboBoxItem id="high">High</ComboBoxItem>
+</ComboBox>
+```
+
+## API Reference
+
+### ComboBox
+
+The `ComboBox` component combines a text input with a listbox, providing autocomplete and filtering functionality.
+
+| Prop           | Type                                                      | Default     | Description                                          |
+| -------------- | --------------------------------------------------------- | ----------- | ---------------------------------------------------- |
+| `label`        | `string`                                                  | -           | Label text for the combobox                          |
+| `placeholder`  | `string`                                                  | -           | Placeholder text for the input                       |
+| `description`  | `string`                                                  | -           | Help text displayed below the combobox               |
+| `errorMessage` | `string \| ((validation: ValidationResult) => string)`    | -           | Error message for validation                         |
+| `isDisabled`   | `boolean`                                                 | `false`     | Whether the combobox is disabled                     |
+| `isRequired`   | `boolean`                                                 | `false`     | Whether the combobox is required                     |
+| `size`         | `"default" \| "sm"`                                       | `"default"` | Size variant of the combobox                         |
+| `selectedKey`  | `string \| null`                                          | -           | Controlled selected key                              |
+| `defaultSelectedKey` | `string \| null`                                    | -           | Default selected key (uncontrolled)                  |
+| `onSelectionChange` | `(key: string \| null) => void`                      | -           | Callback when selection changes                      |
+| `items`        | `Iterable<T>`                                             | -           | Collection of items for dynamic rendering            |
+
+### ComboBoxItem
+
+The `ComboBoxItem` component represents an option in the combobox list.
+
+| Prop         | Type            | Default | Description                              |
+| ------------ | --------------- | ------- | ---------------------------------------- |
+| `id`         | `string`        | -       | Unique identifier for the item           |
+| `textValue`  | `string`        | -       | Text value used for filtering/searching  |
+| `isDisabled` | `boolean`       | `false` | Whether the item is disabled             |
+
+### ComboBoxSection
+
+The `ComboBoxSection` component groups related items together.
+
+| Prop    | Type            | Default | Description                       |
+| ------- | --------------- | ------- | --------------------------------- |
+| `title` | `string`        | -       | Section header text               |
+| `items` | `Iterable<T>`   | -       | Collection of items in the section|
+
+## Features
+
+- **Autocomplete**: Filter options as you type
+- **Keyboard Navigation**: Full keyboard support with arrow keys and Enter
+- **Accessibility**: Built on react-aria with ARIA best practices
+- **Custom Values**: Support for user-entered custom values (when enabled)
+- **Sections**: Organize options into labeled groups
+- **Validation**: Built-in support for required fields and error messages
+- **Responsive**: Works on mobile and desktop devices

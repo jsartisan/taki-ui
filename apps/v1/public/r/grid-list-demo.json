@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grid-list-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/grid-list.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/grid-list-demo.tsx",
+      "content": "import { GridList, GridListItem } from \"@/registry/new-york/ui/grid-list\"\n\nexport default function GridListDemo() {\n  return (\n    <GridList aria-label=\"Favorite pokemon\" className=\"w-64\">\n      <GridListItem>Charizard</GridListItem>\n      <GridListItem>Blastoise</GridListItem>\n      <GridListItem>Venusaur</GridListItem>\n      <GridListItem>Pikachu</GridListItem>\n    </GridList>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

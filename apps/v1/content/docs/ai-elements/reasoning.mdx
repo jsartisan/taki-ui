@@ -1,0 +1,142 @@
+---
+title: Reasoning
+description: Display AI reasoning process with expandable content and duration tracking.
+component: true
+---
+
+<ComponentPreview name="reasoning-demo" description="Collapsible reasoning display" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add reasoning
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="reasoning" title="ai-elements/reasoning.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Reasoning,
+  ReasoningTrigger,
+  ReasoningContent,
+} from "@/components/ai-elements/reasoning"
+```
+
+```tsx showLineNumbers
+<Reasoning isStreaming={false} duration={3}>
+  <ReasoningTrigger />
+  <ReasoningContent>
+    {reasoningText}
+  </ReasoningContent>
+</Reasoning>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="reasoning-demo" description="Reasoning with duration tracking" />
+
+```tsx showLineNumbers
+const reasoningText = `To solve this problem, I need to:
+
+1. Understand the user's question
+2. Consider the best approaches
+3. Think about edge cases
+4. Provide a clear solution
+
+Based on this analysis, I recommend...`
+
+export default function Example() {
+  return (
+    <Reasoning isStreaming={false} duration={3} defaultOpen={false}>
+      <ReasoningTrigger />
+      <ReasoningContent>{reasoningText}</ReasoningContent>
+    </Reasoning>
+  )
+}
+```
+
+### Streaming
+
+```tsx showLineNumbers
+const [isStreaming, setIsStreaming] = useState(true)
+const [content, setContent] = useState("")
+
+// Simulate streaming
+useEffect(() => {
+  // ... streaming logic
+}, [])
+
+<Reasoning isStreaming={isStreaming}>
+  <ReasoningTrigger />
+  <ReasoningContent>{content}</ReasoningContent>
+</Reasoning>
+```
+
+## Features
+
+- **Duration Tracking**: Automatically tracks and displays thinking time
+- **Auto-expand/collapse**: Opens during streaming, closes after completion
+- **Streaming Support**: Shows animated loading state while streaming
+- **Formatted Content**: Renders markdown content
+
+## API Reference
+
+### Reasoning
+
+Main reasoning container.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `isStreaming` | `boolean` | `false` | Whether content is currently streaming |
+| `duration` | `number` | - | Thinking duration in seconds |
+| `open` | `boolean` | - | Controlled open state |
+| `defaultOpen` | `boolean` | `true` | Initial open state |
+| `onOpenChange` | `(open: boolean) => void` | - | Callback when open state changes |
+| `className` | `string` | - | Custom CSS classes |
+
+### ReasoningTrigger
+
+Button to toggle reasoning visibility.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `ReactNode` | - | Custom trigger content |
+| `className` | `string` | - | Custom CSS classes |
+
+### ReasoningContent
+
+Container for reasoning text.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `string` | - | Reasoning text content |
+| `className` | `string` | - | Custom CSS classes |
+

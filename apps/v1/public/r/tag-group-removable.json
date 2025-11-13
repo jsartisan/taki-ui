@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag-group-removable",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/tag-group.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/tag-group-removable.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { Tag, TagGroup } from \"@/registry/new-york/ui/tag-group\"\n\nexport default function TagGroupRemovableDemo() {\n  const [tags, setTags] = useState([\n    { id: 1, name: \"React\" },\n    { id: 2, name: \"TypeScript\" },\n    { id: 3, name: \"Tailwind CSS\" },\n    { id: 4, name: \"Next.js\" },\n  ])\n\n  return (\n    <TagGroup<{ id: number; name: string }>\n      label=\"Tech Stack\"\n      description=\"Select your tech stack\"\n      items={tags}\n      onRemove={(keys) => setTags(tags.filter((tag) => !keys.has(tag.id)))}\n    >\n      {(item) => <Tag id={item.id}>{item.name}</Tag>}\n    </TagGroup>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+---
+title: Disclosure
+description: A disclosure is a collapsible section of content. It is composed of a a header with a heading and trigger button, and a panel that contains the content.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/Disclosure.html
+  api: https://react-spectrum.adobe.com/react-aria/Disclosure.html#props
+---
+
+<ComponentPreview
+  name="disclosure-demo"
+  description="A disclosure component with a form."
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add disclosure
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-disclosure
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="disclosure" title="components/ui/disclosure.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Disclosure,
+  DisclosureHeader,
+  DisclosurePanel,
+} from "@/components/ui/disclosure"
+```
+
+```tsx showLineNumbers
+<Disclosure>
+  <DisclosureHeader>Open</DisclosureHeader>
+  <DisclosurePanel>Place content for the disclosure here.</DisclosurePanel>
+</Disclosure>
+```

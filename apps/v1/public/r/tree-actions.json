@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tree-actions",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/tree.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/tree-actions.tsx",
+      "content": "\"use client\"\n\nimport { InfoIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { Tree, TreeItem } from \"@/registry/new-york/ui/tree\"\n\nexport default function TreeActionsDemo() {\n  return (\n    <Tree\n      aria-label=\"Files\"\n      className=\"w-80\"\n      defaultExpandedKeys={[\"documents\", \"photos\"]}\n    >\n      <TreeItem id=\"documents\" title=\"Documents\">\n        <TreeItem id=\"project\" title=\"Project\">\n          <TreeItem id=\"report\" title=\"Weekly Report\" />\n        </TreeItem>\n      </TreeItem>\n      <TreeItem id=\"photos\" title=\"Photos\">\n        <TreeItem id=\"vacation\" title=\"Vacation\" />\n      </TreeItem>\n    </Tree>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

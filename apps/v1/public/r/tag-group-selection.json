@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag-group-selection",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/tag-group.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/tag-group-selection.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { Tag, TagGroup } from \"@/registry/new-york/ui/tag-group\"\n\nexport default function TagGroupSelectionDemo() {\n  const [selected, setSelected] = useState<Set<string>>(\n    new Set([\"sports\", \"music\"])\n  )\n\n  return (\n    <TagGroup\n      selectionMode=\"multiple\"\n      selectedKeys={selected}\n      onSelectionChange={(keys) => setSelected(keys as Set<string>)}\n      label=\"Interests\"\n      description=\"Select your interests\"\n    >\n      <Tag id=\"sports\">Sports</Tag>\n      <Tag id=\"music\">Music</Tag>\n      <Tag id=\"travel\">Travel</Tag>\n      <Tag id=\"gaming\">Gaming</Tag>\n      <Tag id=\"technology\">Technology</Tag>\n    </TagGroup>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "search-field-with-description",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/search-field.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/search-field-with-description.tsx",
+      "content": "import { SearchField } from \"@/registry/new-york/ui/search-field\"\n\nexport default function SearchFieldWithDescription() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <SearchField\n        label=\"Search\"\n        description=\"Search for products by name or category.\"\n        placeholder=\"Search...\"\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

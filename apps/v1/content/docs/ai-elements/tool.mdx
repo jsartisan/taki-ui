@@ -1,0 +1,167 @@
+---
+title: Tool
+description: Display tool calls and their results in AI interfaces.
+component: true
+links:
+  doc: https://sdk.vercel.ai/docs/ai-sdk-ui/tool-calling
+---
+
+<ComponentPreview name="tool-demo" description="Tool call display" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add tool
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ai
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="tool" title="ai-elements/tool.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Tool,
+  ToolHeader,
+  ToolContent,
+  ToolInput,
+  ToolOutput,
+} from "@/components/ai-elements/tool"
+```
+
+```tsx showLineNumbers
+<Tool>
+  <ToolHeader 
+    title="Search Web" 
+    type="tool-search-web" 
+    state="output-available" 
+  />
+  <ToolContent>
+    <ToolInput input={input} />
+    <ToolOutput output={output} errorText={undefined} />
+  </ToolContent>
+</Tool>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="tool-demo" description="Tool with input and output" />
+
+```tsx showLineNumbers
+const toolData = {
+  type: "tool-search-web",
+  state: "output-available" as const,
+  input: {
+    query: "latest AI developments",
+    maxResults: 5,
+  },
+  output: {
+    results: [
+      {
+        title: "New AI Model Released",
+        url: "https://example.com/ai-news",
+        snippet: "A groundbreaking AI model...",
+      },
+    ],
+  },
+  errorText: undefined,
+}
+
+export default function Example() {
+  return (
+    <Tool defaultOpen>
+      <ToolHeader
+        title="Search Web"
+        type={toolData.type}
+        state={toolData.state}
+      />
+      <ToolContent>
+        <ToolInput input={toolData.input} />
+        <ToolOutput output={toolData.output} errorText={toolData.errorText} />
+      </ToolContent>
+    </Tool>
+  )
+}
+```
+
+## Tool States
+
+The component supports different states:
+
+- `input-streaming`: Tool input is being received
+- `input-available`: Input received, waiting to run
+- `output-available`: Tool has completed successfully
+- `output-error`: Tool execution failed
+
+## API Reference
+
+### Tool
+
+Collapsible container for tool call.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `defaultOpen` | `boolean` | `false` | Initial open state |
+| `className` | `string` | - | Custom CSS classes |
+
+### ToolHeader
+
+Header showing tool name and status.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `title` | `string` | - | Tool display name |
+| `type` | `string` | - | Tool type identifier |
+| `state` | `"input-streaming" \| "input-available" \| "output-available" \| "output-error"` | - | Current state |
+| `className` | `string` | - | Custom CSS classes |
+
+### ToolInput
+
+Display tool input parameters.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `input` | `any` | - | Tool input data |
+| `className` | `string` | - | Custom CSS classes |
+
+### ToolOutput
+
+Display tool output or error.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `output` | `any` | - | Tool output data |
+| `errorText` | `string` | - | Error message if failed |
+| `className` | `string` | - | Custom CSS classes |
+

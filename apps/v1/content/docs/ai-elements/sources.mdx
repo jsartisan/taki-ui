@@ -1,0 +1,127 @@
+---
+title: Sources
+description: Display sources and citations used by the AI in a collapsible format.
+component: true
+---
+
+<ComponentPreview name="sources-demo" description="Collapsible sources list" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add sources
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="sources" title="ai-elements/sources.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Sources,
+  SourcesTrigger,
+  SourcesContent,
+  Source,
+} from "@/components/ai-elements/sources"
+```
+
+```tsx showLineNumbers
+<Sources>
+  <SourcesTrigger count={3} />
+  <SourcesContent>
+    <Source href="https://example.com" title="Example Source" />
+    <Source href="https://example.org" title="Another Source" />
+  </SourcesContent>
+</Sources>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="sources-demo" description="Sources with count indicator" />
+
+```tsx showLineNumbers
+const sources = [
+  { id: "1", title: "React Documentation", href: "https://react.dev" },
+  { id: "2", title: "MDN Web Docs", href: "https://developer.mozilla.org" },
+  { id: "3", title: "TypeScript Handbook", href: "https://www.typescriptlang.org/docs" },
+]
+
+export default function Example() {
+  return (
+    <Sources>
+      <SourcesTrigger count={sources.length} />
+      <SourcesContent>
+        {sources.map((source) => (
+          <Source key={source.id} href={source.href} title={source.title} />
+        ))}
+      </SourcesContent>
+    </Sources>
+  )
+}
+```
+
+## API Reference
+
+### Sources
+
+Container for sources.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### SourcesTrigger
+
+Trigger button to expand sources.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `count` | `number` | - | Number of sources |
+| `children` | `ReactNode` | - | Custom trigger content |
+| `className` | `string` | - | Custom CSS classes |
+
+### SourcesContent
+
+Container for source list.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### Source
+
+Individual source link.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `href` | `string` | - | Source URL |
+| `title` | `string` | - | Source title |
+| `children` | `ReactNode` | - | Custom content |
+| `className` | `string` | - | Custom CSS classes |
+

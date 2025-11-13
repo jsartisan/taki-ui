@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-link",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/badge.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/badge-link.tsx",
+      "content": "import { BadgeLink } from \"@/registry/new-york/ui/badge\"\n\nexport default function BadgeLinkDemo() {\n  return (\n    <div className=\"flex flex-wrap gap-2\">\n      <BadgeLink href=\"#\" variant=\"default\">\n        Default Link\n      </BadgeLink>\n      <BadgeLink href=\"#\" variant=\"secondary\">\n        Secondary Link\n      </BadgeLink>\n      <BadgeLink href=\"#\" variant=\"outline\">\n        Outline Link\n      </BadgeLink>\n      <BadgeLink href=\"#\" variant=\"destructive\">\n        Destructive Link\n      </BadgeLink>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

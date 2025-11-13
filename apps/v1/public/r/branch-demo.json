@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "branch-demo",
+  "type": "registry:example",
+  "dependencies": [
+    "ai"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/branch.json",
+    "https://taki-ui.com/r/message.json",
+    "https://taki-ui.com/r/avatar.json",
+    "https://taki-ui.com/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/branch-demo.tsx",
+      "content": "\"use client\"\n\nimport { nanoid } from \"nanoid\"\n\nimport {\n  Branch,\n  BranchMessages,\n  BranchNext,\n  BranchPage,\n  BranchPrevious,\n  BranchSelector,\n} from \"@/registry/new-york/ai-elements/branch\"\nimport {\n  Message,\n  MessageAvatar,\n  MessageContent,\n} from \"@/registry/new-york/ai-elements/message\"\n\nconst userMessages = [\n  {\n    id: nanoid(),\n    content: \"What are the key strategies for optimizing React performance?\",\n  },\n  {\n    id: nanoid(),\n    content: \"How can I improve the performance of my React application?\",\n  },\n  {\n    id: nanoid(),\n    content: \"What performance optimization techniques should I use in React?\",\n  },\n]\n\nconst assistantMessages = [\n  {\n    id: nanoid(),\n    content:\n      \"Here's the first response to your question. This approach focuses on performance optimization.\",\n  },\n  {\n    id: nanoid(),\n    content:\n      \"Here's an alternative response. This approach emphasizes code readability and maintainability over pure performance.\",\n  },\n  {\n    id: nanoid(),\n    content:\n      \"And here's a third option. This balanced approach considers both performance and maintainability, making it suitable for most use cases.\",\n  },\n]\n\nexport default function BranchDemo() {\n  const handleBranchChange = (branchIndex: number) => {\n    console.log(\"Branch changed to:\", branchIndex)\n  }\n\n  return (\n    <div style={{ height: \"300px\" }}>\n      <Branch defaultBranch={0} onBranchChange={handleBranchChange}>\n        <BranchMessages>\n          {userMessages.map((message) => (\n            <Message from=\"user\" key={message.id}>\n              <MessageContent>{message.content}</MessageContent>\n              <MessageAvatar\n                name=\"Hayden Bleasel\"\n                src=\"https://github.com/haydenbleasel.png\"\n              />\n            </Message>\n          ))}\n        </BranchMessages>\n        <BranchSelector from=\"user\">\n          <BranchPrevious />\n          <BranchPage />\n          <BranchNext />\n        </BranchSelector>\n      </Branch>\n\n      <Branch defaultBranch={0} onBranchChange={handleBranchChange}>\n        <BranchMessages>\n          {assistantMessages.map((message) => (\n            <Message from=\"assistant\" key={message.id}>\n              <MessageContent>{message.content}</MessageContent>\n              <MessageAvatar name=\"AI\" src=\"https://github.com/openai.png\" />\n            </Message>\n          ))}\n        </BranchMessages>\n        <BranchSelector from=\"assistant\">\n          <BranchPrevious />\n          <BranchPage />\n          <BranchNext />\n        </BranchSelector>\n      </Branch>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

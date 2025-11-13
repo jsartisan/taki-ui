@@ -1,0 +1,319 @@
+---
+title: Prompt Input
+description: A comprehensive input component for AI chat interfaces with file attachments, speech input, model selection, and more.
+component: true
+---
+
+<ComponentPreview name="prompt-input-demo" description="Chat input with file attachments, speech input, and model selection" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add prompt-input
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ai nanoid
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="prompt-input" title="ai-elements/prompt-input.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  PromptInput,
+  PromptInputActionAddAttachments,
+  PromptInputActionMenu,
+  PromptInputActionMenuContent,
+  PromptInputActionMenuTrigger,
+  PromptInputAttachment,
+  PromptInputAttachments,
+  PromptInputBody,
+  PromptInputButton,
+  PromptInputFooter,
+  PromptInputModelSelect,
+  PromptInputModelSelectItem,
+  PromptInputSpeechButton,
+  PromptInputSubmit,
+  PromptInputTextarea,
+  PromptInputTools,
+} from "@/components/ai-elements/prompt-input"
+```
+
+```tsx showLineNumbers
+const [text, setText] = useState("")
+const [model, setModel] = useState("gpt-4o")
+
+const models = [
+  { id: "gpt-4o", name: "GPT-4o" },
+  { id: "claude-opus-4-20250514", name: "Claude 4 Opus" },
+]
+
+<PromptInput onSubmit={(message) => console.log(message)}>
+  <PromptInputBody>
+    <PromptInputAttachments>
+      {(attachment) => <PromptInputAttachment data={attachment} />}
+    </PromptInputAttachments>
+    <PromptInputTextarea
+      onChange={(e) => setText(e.target.value)}
+      value={text}
+    />
+  </PromptInputBody>
+  <PromptInputFooter>
+    <PromptInputTools>
+      <PromptInputActionMenu>
+        <PromptInputActionMenuTrigger />
+        <PromptInputActionMenuContent>
+          <PromptInputActionAddAttachments />
+        </PromptInputActionMenuContent>
+      </PromptInputActionMenu>
+      <PromptInputModelSelect 
+        selectedKey={model} 
+        onSelectionChange={(key) => setModel(key as string)}
+        items={models}
+      >
+        {(item) => (
+          <PromptInputModelSelectItem id={item.id}>
+            {item.name}
+          </PromptInputModelSelectItem>
+        )}
+      </PromptInputModelSelect>
+    </PromptInputTools>
+    <PromptInputSubmit />
+  </PromptInputFooter>
+</PromptInput>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="prompt-input-demo" description="Full-featured chat input with file attachments, speech input, and model selection" />
+
+## Features
+
+- **File Attachments**: Support for multiple file uploads with drag & drop
+- **Image Preview**: Preview images before sending with automatic detection
+- **Auto-resize**: Textarea automatically grows with content
+- **Keyboard Shortcuts**: Submit with Enter (Shift+Enter for new line)
+- **Paste Support**: Paste images directly from clipboard
+- **Speech Input**: Built-in voice transcription using Web Speech API
+- **Model Selection**: Dropdown to select AI models
+- **Custom Actions**: Add custom buttons and tools
+- **Stop Button**: Automatically shows stop button during streaming
+- **Global Drop**: Optional document-wide drag & drop support
+
+## Anatomy
+
+The `PromptInput` component is composed of several sub-components that work together:
+
+```tsx showLineNumbers
+<PromptInput>
+  <PromptInputBody>
+    <PromptInputAttachments>
+      {(attachment) => <PromptInputAttachment data={attachment} />}
+    </PromptInputAttachments>
+    <PromptInputTextarea />
+  </PromptInputBody>
+  <PromptInputFooter>
+    <PromptInputTools>
+      {/* Action menu, buttons, model select */}
+    </PromptInputTools>
+    <PromptInputSubmit />
+  </PromptInputFooter>
+</PromptInput>
+```
+
+## API Reference
+
+### PromptInput
+
+Main container that handles form submission and file management.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `onSubmit` | `(message: PromptInputMessage, event: FormEvent) => void \| Promise<void>` | - | Called when form is submitted |
+| `accept` | `string` | - | File types to accept (e.g., "image/*") |
+| `multiple` | `boolean` | `false` | Allow multiple file uploads |
+| `globalDrop` | `boolean` | `false` | Enable document-wide drag & drop |
+| `syncHiddenInput` | `boolean` | `false` | Keep hidden input synced for native forms |
+| `maxFiles` | `number` | - | Maximum number of files allowed |
+| `maxFileSize` | `number` | - | Maximum file size in bytes |
+| `onError` | `(err: { code: string, message: string }) => void` | - | Error handler for file validation |
+
+### PromptInputBody
+
+Container for the textarea and attachments display.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### PromptInputTextarea
+
+Auto-resizing textarea that handles keyboard shortcuts.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `placeholder` | `string` | `"What would you like to know?"` | Placeholder text |
+| `value` | `string` | - | Input value (controlled) |
+| `onChange` | `(e: ChangeEvent<HTMLTextAreaElement>) => void` | - | Change handler |
+| `className` | `string` | - | Custom CSS classes |
+
+### PromptInputAttachments
+
+Displays file attachments using a render prop pattern.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `(attachment: FileUIPart & { id: string }) => ReactNode` | - | Render function for each attachment |
+| `className` | `string` | - | Custom CSS classes |
+
+### PromptInputAttachment
+
+Renders a single attachment with preview and remove button.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `data` | `FileUIPart & { id: string }` | - | Attachment data to display |
+| `className` | `string` | - | Custom CSS classes |
+
+### PromptInputFooter
+
+Container for tools and submit button.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### PromptInputTools
+
+Container for action buttons and controls.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### PromptInputButton
+
+Base button component for tools.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `variant` | `string` | `"ghost"` | Button variant |
+| `size` | `string` | Auto-calculated | Button size |
+| `className` | `string` | - | Custom CSS classes |
+
+### PromptInputActionMenu
+
+Dropdown menu for additional actions.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| Inherits props from `DropdownMenu` | | | |
+
+### PromptInputActionAddAttachments
+
+Pre-built menu item to trigger file dialog.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `label` | `string` | `"Add photos or files"` | Menu item label |
+
+### PromptInputSubmit
+
+Submit button that changes based on status.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `status` | `ChatStatus` | - | Current chat status (shows loading/stop icon) |
+| `disabled` | `boolean` | - | Disable button |
+| `variant` | `string` | `"default"` | Button variant |
+| `size` | `string` | `"icon-sm"` | Button size |
+
+### PromptInputSpeechButton
+
+Button with built-in speech recognition.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `textareaRef` | `RefObject<HTMLTextAreaElement>` | - | Ref to textarea for inserting text |
+| `onTranscriptionChange` | `(text: string) => void` | - | Called when transcription changes |
+
+### PromptInputModelSelect
+
+Dropdown for selecting AI models. Built on react-aria-components Select.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `selectedKey` | `string` | - | Selected model key |
+| `onSelectionChange` | `(key: Key) => void` | - | Called when selection changes |
+| `items` | `Iterable<T>` | - | List of model objects |
+| `children` | `(item: T) => ReactNode` | - | Render function for items |
+| `placeholder` | `string` | - | Placeholder text when no selection |
+
+### PromptInputModelSelectItem
+
+Individual item in the model select dropdown.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `id` | `string` | - | Unique identifier for the item |
+| `children` | `ReactNode` | - | Item content |
+
+### PromptInputProvider
+
+Optional provider for global state management. When used, allows controlling input state from outside the component.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `initialInput` | `string` | `""` | Initial text value |
+| `children` | `ReactNode` | - | Child components |
+
+## Hooks
+
+### usePromptInputAttachments
+
+Access attachments context from within a `PromptInput` or `PromptInputProvider`.
+
+```tsx showLineNumbers
+const attachments = usePromptInputAttachments()
+// attachments.files, attachments.add(), attachments.remove(), attachments.clear()
+```
+
+### usePromptInputController
+
+Access the full controller from a `PromptInputProvider`.
+
+```tsx showLineNumbers
+const controller = usePromptInputController()
+// controller.textInput, controller.attachments
+```
+

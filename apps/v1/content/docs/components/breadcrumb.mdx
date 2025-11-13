@@ -1,0 +1,207 @@
+---
+title: Breadcrumb
+description: Displays the path to the current resource using a hierarchy of links.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/Breadcrumbs.html
+  api: https://react-spectrum.adobe.com/react-aria/Breadcrumbs.html#props
+---
+
+<ComponentPreview
+  name="breadcrumb-demo"
+  className="[&_.preview]:p-2"
+  description="A breadcrumb with a collapsible dropdown."
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add breadcrumb
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="breadcrumb" title="components/ui/breadcrumb.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Breadcrumb,
+  BreadcrumbLink,
+  Breadcrumbs,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+```
+
+```tsx showLineNumbers
+<Breadcrumbs>
+  <Breadcrumb>
+    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    <BreadcrumbSeparator />
+  </Breadcrumb>
+  <Breadcrumb>
+    <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+    <BreadcrumbSeparator />
+  </Breadcrumb>
+  <Breadcrumb>
+    <BreadcrumbLink>Breadcrumb</BreadcrumbLink>
+  </Breadcrumb>
+</Breadcrumbs>
+```
+
+## Examples
+
+### Custom separator
+
+Use a custom component as `children` for `<BreadcrumbSeparator />` to create a custom separator.
+
+<ComponentPreview
+  name="breadcrumb-separator"
+  description="A breadcrumb with a custom separator"
+/>
+
+```tsx showLineNumbers {1,8-10}
+import { SlashIcon } from "lucide-react"
+
+...
+
+<Breadcrumbs>
+  <Breadcrumb>
+    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    <BreadcrumbSeparator>
+      <SlashIcon />
+    </BreadcrumbSeparator>
+  </Breadcrumb>
+  <Breadcrumb>
+    <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+    <BreadcrumbSeparator>
+      <SlashIcon />
+    </BreadcrumbSeparator>
+  </Breadcrumb>
+  <Breadcrumb>
+    <BreadcrumbLink>Breadcrumb</BreadcrumbLink>
+  </Breadcrumb>
+</Breadcrumbs>
+```
+
+---
+
+### Menu
+
+You can compose `<Breadcrumb />` with a `<Menu />` to create a dropdown menu in the breadcrumb.
+
+<ComponentPreview
+  name="breadcrumb-dropdown"
+  className="[&_.preview]:p-2"
+  description="A breadcrumb with a menu."
+/>
+
+```tsx showLineNumbers {1-3,6-17}
+import { Button } from "@/components/ui/button"
+import { Menu, MenuItem, MenuTrigger } from "@/components/ui/menu"
+
+...
+
+<Breadcrumb>
+  <MenuTrigger>
+    <Button variant="ghost" className="h-auto p-0">
+      Components
+    </Button>
+    <Menu placement="bottom start">
+      <MenuItem>Documentation</MenuItem>
+      <MenuItem>Themes</MenuItem>
+      <MenuItem>GitHub</MenuItem>
+    </Menu>
+  </MenuTrigger>
+  <BreadcrumbSeparator />
+</Breadcrumb>
+```
+
+---
+
+### Collapsed
+
+We provide a `<BreadcrumbEllipsis />` component to show a collapsed state when the breadcrumb is too long.
+
+<ComponentPreview
+  name="breadcrumb-ellipsis"
+  className="[&_.preview]:p-2"
+  description="A breadcrumb showing a collapsed state."
+/>
+
+```tsx showLineNumbers {1,7-9}
+import { BreadcrumbEllipsis } from "@/components/ui/breadcrumb"
+
+...
+
+<Breadcrumbs>
+  <Breadcrumb>
+    <BreadcrumbEllipsis />
+    <BreadcrumbSeparator />
+  </Breadcrumb>
+</Breadcrumbs>
+```
+
+---
+
+### Link component
+
+The `<BreadcrumbLink />` component from react-aria-components supports both standard `href` attributes and client-side routing.
+
+<ComponentPreview
+  name="breadcrumb-link"
+  description="A breadcrumb with links"
+/>
+
+```tsx showLineNumbers
+<Breadcrumbs>
+  <Breadcrumb>
+    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    <BreadcrumbSeparator />
+  </Breadcrumb>
+  <Breadcrumb>
+    <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+    <BreadcrumbSeparator />
+  </Breadcrumb>
+  <Breadcrumb>
+    <BreadcrumbLink>Breadcrumb</BreadcrumbLink>
+  </Breadcrumb>
+</Breadcrumbs>
+```
+
+---
+
+### Responsive
+
+Here's an example of a responsive breadcrumb that composes `<Breadcrumb />` with `<BreadcrumbEllipsis />`, `<Menu />`, and `<Drawer />`.
+
+It displays a menu on desktop and a drawer on mobile.
+
+<ComponentPreview
+  name="breadcrumb-responsive"
+  className="[&_.preview]:p-2"
+  description="A responsive breadcrumb. It displays a dropdown on desktop and a drawer on mobile."
+/>

@@ -1,0 +1,182 @@
+---
+title: Button
+description: Displays a button or a component that looks like a button.
+featured: true
+component: truea
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/Button.html
+  api: https://react-spectrum.adobe.com/react-aria/Button.html#props
+---
+
+import { InfoIcon } from "lucide-react"
+
+<ComponentPreview name="button-demo" description="A button" className="mb-4" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add button
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="button" title="components/ui/button.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Button } from "@/components/ui/button"
+```
+
+```tsx
+<Button variant="outline">Button</Button>
+```
+
+## Cursor
+
+Tailwind v4 [switched](https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor) from `cursor: pointer` to `cursor: default` for the button component.
+
+If you want to keep the `cursor: pointer` behavior, add the following code to your CSS file:
+
+```css showLineNumbers title="globals.css"
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+```
+
+## Examples
+
+### Size
+
+<ComponentPreview name="button-size" className="mb-4" />
+
+### Default
+
+<ComponentPreview
+  name="button-default"
+  description="A primary button"
+  className="mb-4"
+/>
+
+### Outline
+
+<ComponentPreview
+  name="button-outline"
+  description="A button using the outline variant."
+  className="mb-4"
+/>
+
+### Secondary
+
+<ComponentPreview
+  name="button-secondary"
+  description="A secondary button"
+  className="mb-4"
+/>
+
+### Ghost
+
+<ComponentPreview
+  name="button-ghost"
+  description="A button using the ghost variant"
+  className="mb-4"
+/>
+
+### Destructive
+
+<ComponentPreview
+  name="button-destructive"
+  description="A destructive button"
+  className="mb-4"
+/>
+
+### Link
+
+<ComponentPreview name="button-link" className="mb-4" />
+
+### Icon
+
+<ComponentPreview
+  name="button-icon"
+  description="An icon button"
+  className="mb-4"
+/>
+
+### With Icon
+
+The spacing between the icon and the text is automatically adjusted
+based on the size of the button. You do not need any margin on the icon.
+
+<ComponentPreview
+  name="button-with-icon"
+  description="A button with an icon"
+  className="mb-4"
+/>
+
+### Rounded
+
+Use the `rounded-full` class to make the button rounded.
+
+<ComponentPreview name="button-rounded" className="mb-4" />
+
+### Spinner
+
+<ComponentPreview
+  name="button-loading"
+  description="A button with a loading state."
+  className="mb-4"
+/>
+
+### Button Group
+
+To create a button group, use the `ButtonGroup` component. See the [Button Group](/docs/components/button-group) documentation for more details.
+
+<ComponentPreview name="button-group-demo" className="mb-4" />
+
+### Link Button
+
+`react-aria-components` don't support `asChild` for the `Button` component. You can use the `LinkButton` component instead for.
+
+<ComponentPreview
+  name="link-button-demo"
+  description="A button styled link for navigation."
+  className="mb-4"
+/>
+
+## API Reference
+
+### Button
+
+The `Button` component is a wrapper around the `button` element that adds a variety of styles and functionality.
+
+| Prop      | Type                                                                          | Default     |
+| --------- | ----------------------------------------------------------------------------- | ----------- |
+| `variant` | `"default" \| "outline" \| "ghost" \| "destructive" \| "secondary" \| "link"` | `"default"` |
+| `size`    | `"default" \| "sm" \| "lg" \| "icon" \| "icon-sm" \| "icon-lg"`               | `"default"` |
+
+Apart from the props above, the `Button` component also supports the props from the `react-aria-components` `Button` component. Check the [react-aria-components](https://react-spectrum.adobe.com/react-aria/Button.html#props) documentation for more details.

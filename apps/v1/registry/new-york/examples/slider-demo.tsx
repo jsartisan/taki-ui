@@ -1,0 +1,17 @@
+import { cn } from "@/lib/utils"
+import { Slider } from "@/registry/new-york/ui/slider"
+
+type SliderProps = React.ComponentProps<typeof Slider>
+
+export default function SliderDemo({ className, ...props }: SliderProps) {
+  return (
+    <Slider
+      defaultValue={[50]}
+      maxValue={100}
+      minValue={0}
+      step={1}
+      className={cn("w-[60%]", className)}
+      {...props}
+    />
+  )
+}

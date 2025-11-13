@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-form",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/button.json",
+    "https://taki-ui.com/r/field.json",
+    "https://taki-ui.com/r/input.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/input-form.tsx",
+      "content": "\"use client\"\n\nimport { zodResolver } from \"@hookform/resolvers/zod\"\nimport { Controller, useForm } from \"react-hook-form\"\nimport { toast } from \"sonner\"\nimport { z } from \"zod\"\n\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from \"@/registry/new-york/ui/field\"\nimport { Input } from \"@/registry/new-york/ui/input\"\n\nconst FormSchema = z.object({\n  username: z.string().min(2, {\n    message: \"Username must be at least 2 characters.\",\n  }),\n})\n\nexport default function InputForm() {\n  const form = useForm<z.infer<typeof FormSchema>>({\n    resolver: zodResolver(FormSchema),\n    defaultValues: {\n      username: \"\",\n    },\n  })\n\n  function onSubmit(data: z.infer<typeof FormSchema>) {\n    toast(\"You submitted the following values\", {\n      description: (\n        <pre className=\"mt-2 w-[320px] rounded-md bg-neutral-950 p-4\">\n          <code className=\"text-white\">{JSON.stringify(data, null, 2)}</code>\n        </pre>\n      ),\n    })\n  }\n\n  return (\n    <form onSubmit={form.handleSubmit(onSubmit)} className=\"w-2/3 space-y-6\">\n      <Controller\n        control={form.control}\n        name=\"username\"\n        render={({ field, fieldState }) => {\n          const inputId = \"input-form-username\"\n          return (\n            <Field data-invalid={fieldState.invalid} className=\"flex flex-col\">\n              <FieldLabel htmlFor={inputId}>Username</FieldLabel>\n              <Input\n                id={inputId}\n                placeholder=\"shadcn\"\n                aria-invalid={fieldState.invalid}\n                {...field}\n              />\n              <FieldDescription>\n                This is your public display name.\n              </FieldDescription>\n              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}\n            </Field>\n          )\n        }}\n      />\n      <Button type=\"submit\">Submit</Button>\n    </form>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

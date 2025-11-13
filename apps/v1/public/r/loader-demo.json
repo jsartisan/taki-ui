@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "loader-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/loader.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/loader-demo.tsx",
+      "content": "import { Loader } from \"@/registry/new-york/ai-elements/loader\"\n\nexport default function LoaderDemo() {\n  return (\n    <div className=\"flex items-center justify-center p-8\">\n      <Loader size={24} />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

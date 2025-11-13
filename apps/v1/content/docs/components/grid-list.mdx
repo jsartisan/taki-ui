@@ -1,0 +1,272 @@
+---
+title: Grid List
+description: A grid list displays a list of interactive items, with support for keyboard navigation, single or multiple selection, and row actions.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/GridList.html
+  api: https://react-spectrum.adobe.com/react-aria/GridList.html#props
+---
+
+<ComponentPreview name="grid-list-demo" description="A basic grid list." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add grid-list
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components tailwind-variants
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="grid-list" title="components/ui/grid-list.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GridList, GridListItem } from "@/components/ui/grid-list"
+```
+
+```tsx
+<GridList aria-label="Favorite pokemon">
+  <GridListItem>Charizard</GridListItem>
+  <GridListItem>Blastoise</GridListItem>
+  <GridListItem>Venusaur</GridListItem>
+  <GridListItem>Pikachu</GridListItem>
+</GridList>
+```
+
+## Features
+
+A grid list displays data in a single column list format. It provides built-in support for keyboard navigation, selection, and row actions, making it an ideal component for displaying lists of interactive content.
+
+- **Keyboard navigation** – Navigate items with arrow keys, Home, End, Page Up, Page Down, etc.
+- **Single or multiple selection** – Support for both single and multiple item selection with keyboard and mouse interactions.
+- **Row actions** – Perform actions on items via buttons or links.
+- **Accessible** – Follows the [ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/), with support for keyboard navigation, selection announcement, and focus management.
+- **Styleable** – Hover, keyboard focus, and selection states are provided for easy styling.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="grid-list-demo" description="A simple list of items." />
+
+```tsx showLineNumbers
+<GridList aria-label="Favorite pokemon" className="w-64">
+  <GridListItem>Charizard</GridListItem>
+  <GridListItem>Blastoise</GridListItem>
+  <GridListItem>Venusaur</GridListItem>
+  <GridListItem>Pikachu</GridListItem>
+</GridList>
+```
+
+### Selection
+
+<ComponentPreview name="grid-list-selection" description="A list with multiple selection support." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { Checkbox } from "@/components/ui/checkbox"
+import { GridList, GridListItem } from "@/components/ui/grid-list"
+
+export default function Example() {
+  const [selected, setSelected] = useState<Set<string>>(new Set())
+
+  return (
+    <GridList
+      aria-label="Favorite pokemon"
+      selectionMode="multiple"
+      selectedKeys={selected}
+      onSelectionChange={(keys) => setSelected(keys as Set<string>)}
+      className="w-64"
+    >
+      <GridListItem id="charizard" textValue="Charizard">
+        <Checkbox slot="selection" />
+        Charizard
+      </GridListItem>
+      <GridListItem id="blastoise" textValue="Blastoise">
+        <Checkbox slot="selection" />
+        Blastoise
+      </GridListItem>
+      <GridListItem id="venusaur" textValue="Venusaur">
+        <Checkbox slot="selection" />
+        Venusaur
+      </GridListItem>
+      <GridListItem id="pikachu" textValue="Pikachu">
+        <Checkbox slot="selection" />
+        Pikachu
+      </GridListItem>
+    </GridList>
+  )
+}
+```
+
+Set `selectionMode` to `"multiple"` to enable multiple selection, or `"single"` for single selection. Use `selectedKeys` and `onSelectionChange` props to control the selected state.
+
+### Row Actions
+
+<ComponentPreview name="grid-list-actions" description="A list with action buttons." />
+
+```tsx showLineNumbers
+<GridList aria-label="Favorite pokemon" className="w-64">
+  <GridListItem textValue="Charizard">
+    Charizard
+    <Button
+      variant="ghost"
+      size="icon-sm"
+      aria-label="Info"
+      className="ml-auto"
+    >
+      <InfoIcon />
+    </Button>
+  </GridListItem>
+  {/* More items... */}
+</GridList>
+```
+
+You can add action buttons to list items. Use `className="ml-auto"` to push the button to the right side.
+
+### Links
+
+<ComponentPreview name="grid-list-links" description="A list of navigation links." />
+
+```tsx showLineNumbers
+import Link from "next/link"
+
+<GridList aria-label="Navigation" className="w-64">
+  <GridListItem href="/docs" textValue="Documentation">
+    <Link href="/docs">Documentation</Link>
+  </GridListItem>
+  <GridListItem href="/docs/components" textValue="Components">
+    <Link href="/docs/components">Components</Link>
+  </GridListItem>
+  <GridListItem href="/examples" textValue="Examples">
+    <Link href="/examples">Examples</Link>
+  </GridListItem>
+  <GridListItem href="/blocks" textValue="Blocks">
+    <Link href="/blocks">Blocks</Link>
+  </GridListItem>
+</GridList>
+```
+
+Grid list items can contain links for navigation. Pass the `href` prop to `GridListItem` and wrap the content with a Next.js `Link` component.
+
+### Disabled Items
+
+<ComponentPreview name="grid-list-disabled" description="A list with disabled items." />
+
+```tsx showLineNumbers
+<GridList
+  aria-label="Favorite pokemon"
+  disabledKeys={["blastoise", "venusaur"]}
+  selectionMode="multiple"
+  className="w-64"
+>
+  <GridListItem id="charizard">Charizard</GridListItem>
+  <GridListItem id="blastoise">Blastoise</GridListItem>
+  <GridListItem id="venusaur">Venusaur</GridListItem>
+  <GridListItem id="pikachu">Pikachu</GridListItem>
+</GridList>
+```
+
+Use the `disabledKeys` prop to disable specific items in the list.
+
+### Empty State
+
+<ComponentPreview name="grid-list-empty" description="A list showing an empty state." />
+
+```tsx showLineNumbers
+<GridList
+  aria-label="Search results"
+  renderEmptyState={() => (
+    <div className="flex min-h-[200px] items-center justify-center">
+      <p className="text-muted-foreground text-sm">No results found</p>
+    </div>
+  )}
+  className="w-64"
+>
+  {[]}
+</GridList>
+```
+
+Use the `renderEmptyState` prop to display a custom message when the list is empty.
+
+## API Reference
+
+### GridList
+
+The `GridList` component displays a list of items with support for selection and keyboard navigation.
+
+| Prop              | Type                                            | Default | Description                                                     |
+| ----------------- | ----------------------------------------------- | ------- | --------------------------------------------------------------- |
+| `selectionMode`   | `"none" \| "single" \| "multiple"`              | `"none"` | Whether the list supports selection and what mode.              |
+| `selectedKeys`    | `Iterable<Key>`                                 | -       | The currently selected keys (controlled).                       |
+| `defaultSelectedKeys` | `Iterable<Key>`                             | -       | The initial selected keys (uncontrolled).                       |
+| `onSelectionChange` | `(keys: Selection) => void`                   | -       | Handler called when the selection changes.                      |
+| `disabledKeys`    | `Iterable<Key>`                                 | -       | A list of keys for items that are disabled.                     |
+| `renderEmptyState` | `() => React.ReactNode`                        | -       | Function to render when the list is empty.                      |
+| `aria-label`      | `string`                                        | -       | An accessibility label for the list.                            |
+
+### GridListItem
+
+Individual items within a grid list.
+
+| Prop        | Type      | Default | Description                                                                    |
+| ----------- | --------- | ------- | ------------------------------------------------------------------------------ |
+| `id`        | `Key`     | -       | A unique key for the item (required for selection).                            |
+| `textValue` | `string`  | -       | A string representation of the item for typeahead.                             |
+| `href`      | `string`  | -       | A URL to navigate to when the item is pressed (makes the item a link).         |
+
+Apart from the props above, the components also support all props from the `react-aria-components` library. Check the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/GridList.html#props) for more details.
+
+## Accessibility
+
+Grid lists follow the [ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/). This provides support for keyboard navigation, selection, and focus management.
+
+- **Keyboard Navigation** – Arrow keys, Home, End, Page Up, and Page Down navigate through items
+- **Selection** – Space and Enter keys select items when selection is enabled  
+- **Screen Readers** – Proper ARIA attributes announce selection state and item count
+
+Always provide an `aria-label` or `aria-labelledby` to identify the list to assistive technology:
+
+```tsx
+<GridList aria-label="Favorite pokemon">
+  {/* items */}
+</GridList>
+```
+
+## Related
+
+- [ListBox](/docs/components/list-box) - For dropdown list selections
+- [Menu](/docs/components/menu) - For action menus
+- [Table](/docs/components/table) - For tabular data
+

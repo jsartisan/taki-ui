@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "combobox-dropdown-menu",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/command.json",
+    "https://taki-ui.com/r/menu.json",
+    "https://taki-ui.com/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/combobox-dropdown-menu.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { MoreHorizontal } from \"lucide-react\"\nimport { SubmenuTrigger } from \"react-aria-components\"\n\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport {\n  Command,\n  CommandEmpty,\n  CommandGroup,\n  CommandInput,\n  CommandItem,\n  CommandList,\n} from \"@/registry/new-york/ui/command\"\nimport {\n  Menu,\n  MenuItem,\n  MenuSeparator,\n  MenuTrigger,\n} from \"@/registry/new-york/ui/menu\"\n\nconst labels = [\n  \"feature\",\n  \"bug\",\n  \"enhancement\",\n  \"documentation\",\n  \"design\",\n  \"question\",\n  \"maintenance\",\n]\n\nexport default function ComboboxDropdownMenu() {\n  const [label, setLabel] = React.useState(\"feature\")\n  const [open, setOpen] = React.useState(false)\n\n  return (\n    <div className=\"flex w-full flex-col items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center\">\n      <p className=\"text-sm leading-none font-medium\">\n        <span className=\"bg-primary text-primary-foreground mr-2 rounded-lg px-2 py-1 text-xs\">\n          {label}\n        </span>\n        <span className=\"text-muted-foreground\">Create a new project</span>\n      </p>\n      <MenuTrigger isOpen={open} onOpenChange={setOpen}>\n        <Button variant=\"ghost\" size=\"sm\">\n          <MoreHorizontal />\n        </Button>\n        <Menu placement=\"bottom end\" className=\"w-[200px]\">\n          <MenuItem>Assign to...</MenuItem>\n          <MenuItem>Set due date...</MenuItem>\n          <MenuSeparator />\n          <SubmenuTrigger>\n            <MenuItem>Apply label</MenuItem>\n            <Menu className=\"p-0\">\n              <Command>\n                <CommandInput\n                  placeholder=\"Filter label...\"\n                  autoFocus={true}\n                  className=\"h-9\"\n                />\n                <CommandList>\n                  <CommandEmpty>No label found.</CommandEmpty>\n                  <CommandGroup>\n                    {labels.map((labelItem) => (\n                      <CommandItem\n                        key={labelItem}\n                        value={labelItem}\n                        onSelect={(value) => {\n                          setLabel(value)\n                          setOpen(false)\n                        }}\n                      >\n                        {labelItem}\n                      </CommandItem>\n                    ))}\n                  </CommandGroup>\n                </CommandList>\n              </Command>\n            </Menu>\n          </SubmenuTrigger>\n          <MenuSeparator />\n          <MenuItem className=\"text-destructive focus:bg-destructive/10 dark:focus:bg-destructive/20 focus:text-destructive\">\n            Delete\n          </MenuItem>\n        </Menu>\n      </MenuTrigger>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

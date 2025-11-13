@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tag-group-disabled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/tag-group.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/tag-group-disabled.tsx",
+      "content": "import { Tag, TagGroup } from \"@/registry/new-york/ui/tag-group\"\n\nexport default function TagGroupDisabledDemo() {\n  return (\n    <TagGroup label=\"Categories\" description=\"Select your categories\">\n      <Tag id=\"active\">Active</Tag>\n      <Tag id=\"disabled\" isDisabled>\n        Disabled\n      </Tag>\n    </TagGroup>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-range-picker",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react",
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/date-field.json",
+    "https://taki-ui.com/r/dialog.json",
+    "https://taki-ui.com/r/field.json",
+    "https://taki-ui.com/r/input-group.json",
+    "https://taki-ui.com/r/popover.json",
+    "https://taki-ui.com/r/range-calendar.json",
+    "https://taki-ui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/ui/date-range-picker.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\nimport { CalendarIcon } from \"lucide-react\"\nimport {\n  DateRangePicker as AriaDateRangePicker,\n  DateRangePickerProps as AriaDateRangePickerProps,\n  composeRenderProps,\n  DateValue,\n  ValidationResult,\n} from \"react-aria-components\"\n\nimport { cn } from \"../lib/utils\"\nimport { DateInput } from \"./date-field\"\nimport { Dialog } from \"./dialog\"\nimport { FieldDescription, FieldError, FieldLabel } from \"./field\"\nimport {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupButton,\n  inputGroupInputStyles,\n} from \"./input-group\"\nimport { Popover } from \"./popover\"\nimport { RangeCalendar } from \"./range-calendar\"\n\nexport interface DateRangePickerProps<T extends DateValue>\n  extends AriaDateRangePickerProps<T> {\n  label?: string\n  description?: string\n  errorMessage?: string | ((validation: ValidationResult) => string)\n}\n\nexport function DateRangePicker<T extends DateValue>({\n  label,\n  description,\n  errorMessage,\n  ...props\n}: DateRangePickerProps<T>) {\n  return (\n    <AriaDateRangePicker\n      {...props}\n      className={composeRenderProps(props.className, (className) =>\n        cn(\"flex flex-col gap-1\", className)\n      )}\n    >\n      {label && <FieldLabel>{label}</FieldLabel>}\n      <InputGroup>\n        <DateInput\n          slot=\"start\"\n          data-slot=\"input-group-control\"\n          className={inputGroupInputStyles}\n        />\n        <span className=\"text-foreground\" aria-hidden=\"true\">\n          –\n        </span>\n        <DateInput\n          slot=\"end\"\n          data-slot=\"input-group-control\"\n          className={inputGroupInputStyles}\n        />\n        <InputGroupAddon align=\"inline-end\">\n          <InputGroupButton size=\"icon-xs\" variant=\"ghost\">\n            <CalendarIcon className=\"size-4\" aria-hidden=\"true\" />\n          </InputGroupButton>\n        </InputGroupAddon>\n      </InputGroup>\n      {description && <FieldDescription>{description}</FieldDescription>}\n      <FieldError>{errorMessage}</FieldError>\n      <Popover>\n        <Dialog>\n          <RangeCalendar className=\"p-0\" />\n        </Dialog>\n      </Popover>\n    </AriaDateRangePicker>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

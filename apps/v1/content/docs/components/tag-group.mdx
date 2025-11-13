@@ -1,0 +1,313 @@
+---
+title: Tag Group
+description: A tag group is a focusable list of labels, categories, keywords, filters, or other items, with support for keyboard navigation, selection, and removal.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/TagGroup.html
+  api: https://react-spectrum.adobe.com/react-aria/TagGroup.html#props
+---
+
+<ComponentPreview name="tag-group-demo" description="A basic tag group." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add tag-group
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components tailwind-variants
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="tag-group" title="components/ui/tag-group.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Tag, TagGroup } from "@/components/ui/tag-group"
+```
+
+```tsx
+<TagGroup label="Categories">
+  <Tag id="news">News</Tag>
+  <Tag id="travel">Travel</Tag>
+  <Tag id="gaming">Gaming</Tag>
+  <Tag id="shopping">Shopping</Tag>
+</TagGroup>
+```
+
+## Features
+
+A tag group displays a collection of tags with rich user interactions. Tags can be static labels, or they can support removal and selection based on your use case.
+
+- **Keyboard navigation** – Navigate tags using arrow keys, along with page up/down, home/end, and more.
+- **Removable** – Tags can be removed from the group by clicking a remove button or pressing the backspace key.
+- **Item selection** – Support for single or multiple selection with keyboard and mouse interactions.
+- **Accessible** – Follows the [ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/), with selection announcements via ARIA live region.
+- **Styleable** – Hover, focus, selection, and disabled states are provided for styling.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="tag-group-demo" description="A simple tag group." />
+
+```tsx showLineNumbers
+<TagGroup
+  label="Categories"
+  description="Select your categories"
+  selectionMode="single"
+>
+  <Tag id="news">News</Tag>
+  <Tag id="travel">Travel</Tag>
+  <Tag id="gaming">Gaming</Tag>
+  <Tag id="shopping">Shopping</Tag>
+</TagGroup>
+```
+
+### Variants
+
+<ComponentPreview name="tag-group-variants" description="Tags with different style variants." />
+
+```tsx showLineNumbers
+<TagGroup label="Primary" description="Primary variant tags">
+  <Tag id="react" variant="primary">React</Tag>
+  <Tag id="vue" variant="primary">Vue</Tag>
+  <Tag id="angular" variant="primary">Angular</Tag>
+</TagGroup>
+
+<TagGroup label="Secondary" description="Secondary variant tags">
+  <Tag id="react" variant="secondary">React</Tag>
+  <Tag id="vue" variant="secondary">Vue</Tag>
+  <Tag id="angular" variant="secondary">Angular</Tag>
+</TagGroup>
+
+<TagGroup label="Destructive" description="Destructive variant tags">
+  <Tag id="bug" variant="destructive">Bug</Tag>
+  <Tag id="error" variant="destructive">Error</Tag>
+  <Tag id="critical" variant="destructive">Critical</Tag>
+</TagGroup>
+
+<TagGroup label="Outline" description="Outline variant tags">
+  <Tag id="react" variant="outline">React</Tag>
+  <Tag id="vue" variant="outline">Vue</Tag>
+  <Tag id="angular" variant="outline">Angular</Tag>
+</TagGroup>
+```
+
+Available variants: `default`, `primary`, `secondary`, `destructive`, `outline`.
+
+### Removable Tags
+
+<ComponentPreview name="tag-group-removable" description="Tags that can be removed." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { Tag, TagGroup } from "@/components/ui/tag-group"
+
+export default function Example() {
+  const [tags, setTags] = useState([
+    { id: 1, name: "React" },
+    { id: 2, name: "TypeScript" },
+    { id: 3, name: "Tailwind CSS" },
+    { id: 4, name: "Next.js" },
+  ])
+
+  return (
+    <TagGroup
+      label="Tech Stack"
+      description="Click × or press backspace to remove"
+      onRemove={(keys) =>
+        setTags(tags.filter((tag) => !keys.has(tag.id)))
+      }
+      items={tags}
+    >
+      {(item) => <Tag id={item.id}>{item.name}</Tag>}
+    </TagGroup>
+  )
+}
+```
+
+Use the `onRemove` prop to handle tag removal. The remove button appears automatically when this prop is provided. Users can click the `×` button or press backspace to remove tags.
+
+### Selection
+
+<ComponentPreview name="tag-group-selection" description="Tags with multiple selection." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { Tag, TagGroup } from "@/components/ui/tag-group"
+
+export default function Example() {
+  const [selected, setSelected] = useState<Set<string>>(
+    new Set(["sports", "music"])
+  )
+
+  return (
+    <TagGroup
+      selectionMode="multiple"
+      selectedKeys={selected}
+      onSelectionChange={(keys) => setSelected(keys as Set<string>)}
+      label="Interests"
+      description="Select your interests"
+    >
+      <Tag id="sports">Sports</Tag>
+      <Tag id="music">Music</Tag>
+      <Tag id="travel">Travel</Tag>
+      <Tag id="gaming">Gaming</Tag>
+      <Tag id="technology">Technology</Tag>
+    </TagGroup>
+  )
+}
+```
+
+Set `selectionMode` to `"multiple"` to enable multiple selection, or `"single"` for single selection. Use the `selectedKeys` and `onSelectionChange` props to manage the selection state.
+
+### Links
+
+<ComponentPreview name="tag-group-links" description="Tags as navigation links." />
+
+```tsx showLineNumbers
+import Link from "next/link"
+import { Tag, TagGroup } from "@/components/ui/tag-group"
+
+<TagGroup label="Quick Links" description="Navigate to different pages">
+  <Tag id="docs" href="/docs">
+    <Link href="/docs">Documentation</Link>
+  </Tag>
+  <Tag id="components" href="/docs/components">
+    <Link href="/docs/components">Components</Link>
+  </Tag>
+  <Tag id="examples" href="/examples">
+    <Link href="/examples">Examples</Link>
+  </Tag>
+  <Tag id="blocks" href="/blocks">
+    <Link href="/blocks">Blocks</Link>
+  </Tag>
+</TagGroup>
+```
+
+Tags can be used as navigation links by providing an `href` prop and wrapping the content with a Next.js `Link` component.
+
+### Disabled Tags
+
+<ComponentPreview name="tag-group-disabled" description="Tags with disabled state." />
+
+```tsx showLineNumbers
+<TagGroup label="Categories" description="Select your categories">
+  <Tag id="active1">Active</Tag>
+  <Tag id="disabled1" isDisabled>Disabled</Tag>
+  <Tag id="active2">Active</Tag>
+  <Tag id="disabled2" isDisabled>Disabled</Tag>
+</TagGroup>
+```
+
+Use the `isDisabled` prop on individual tags to disable them. Disabled tags cannot be selected, removed, or interacted with.
+
+### Empty State
+
+<ComponentPreview name="tag-group-empty" description="Tag group showing tags." />
+
+```tsx showLineNumbers
+<TagGroup
+  label="Tags"
+  description="Available tags"
+  renderEmptyState={() => (
+    <div className="flex min-h-[100px] items-center justify-center rounded-md border border-dashed">
+      <p className="text-sm text-muted-foreground">No tags available</p>
+    </div>
+  )}
+>
+  {/* Empty - will show renderEmptyState */}
+</TagGroup>
+```
+
+Use the `renderEmptyState` prop to show a custom empty state when there are no tags.
+
+## API Reference
+
+### TagGroup
+
+The `TagGroup` component is the container for a collection of tags.
+
+| Prop                | Type                                  | Default  | Description                                                   |
+| ------------------- | ------------------------------------- | -------- | ------------------------------------------------------------- |
+| `label`             | `string`                              | -        | Label text for the tag group.                                 |
+| `description`       | `string`                              | -        | Description text displayed below the label.                   |
+| `errorMessage`      | `string`                              | -        | Error message to display.                                     |
+| `selectionMode`     | `"none" \| "single" \| "multiple"`    | `"none"` | Whether tags can be selected and what selection mode to use.  |
+| `selectedKeys`      | `Iterable<Key>`                       | -        | The currently selected keys (controlled).                     |
+| `onSelectionChange` | `(keys: Selection) => void`           | -        | Handler called when the selection changes.                    |
+| `disabledKeys`      | `Iterable<Key>`                       | -        | Keys of tags that are disabled.                               |
+| `onRemove`          | `(keys: Set<Key>) => void`            | -        | Handler called when tags are removed. Enables remove buttons. |
+| `items`             | `Iterable<T>`                         | -        | Item objects for dynamic collections.                         |
+| `renderEmptyState`  | `() => React.ReactNode`               | -        | Renders when the list is empty.                               |
+
+### Tag
+
+Individual tag items within a tag group.
+
+| Prop         | Type                                                                        | Default     | Description                                                       |
+| ------------ | --------------------------------------------------------------------------- | ----------- | ----------------------------------------------------------------- |
+| `id`         | `Key`                                                                       | -           | A unique identifier for the tag (required for selection/removal). |
+| `variant`    | `"default" \| "primary" \| "secondary" \| "destructive" \| "outline"`       | `"default"` | The visual style variant of the tag.                              |
+| `textValue`  | `string`                                                                    | -           | A string representation for accessibility and typeahead.          |
+| `href`       | `string`                                                                    | -           | URL to navigate to (makes the tag a link).                        |
+| `isDisabled` | `boolean`                                                                   | `false`     | Whether the tag is disabled.                                      |
+
+Apart from the props above, the components support all props from the `react-aria-components` library. Check the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/TagGroup.html#props) for more details.
+
+## Accessibility
+
+Tag groups follow the [ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/), which provides keyboard navigation, selection announcements, and focus management.
+
+- **Keyboard Navigation** – Arrow keys navigate between tags. Home/End move to first/last tag.
+- **Removal** – Press backspace when focused on a tag to remove it (if `onRemove` is provided).
+- **Selection** – Space or Enter keys select tags when selection is enabled.
+- **Screen Readers** – Selection state and removal actions are announced via ARIA live regions.
+
+Always provide a `label` prop or use `aria-label` to identify the tag group:
+
+```tsx
+<TagGroup label="Categories">
+  <Tag id="news">News</Tag>
+  <Tag id="travel">Travel</Tag>
+</TagGroup>
+```
+
+## Related
+
+- [Badge](/docs/components/badge) - For static status indicators
+- [Checkbox Group](/docs/components/checkbox-group) - For selecting multiple options
+- [Button](/docs/components/button) - For clickable actions
+

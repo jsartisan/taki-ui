@@ -1,0 +1,106 @@
+---
+title: Search Field
+description: A search field allows a user to enter and clear a search query with built-in keyboard navigation.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/SearchField.html
+  api: https://react-spectrum.adobe.com/react-aria/SearchField.html#props
+---
+
+<ComponentPreview name="search-field-demo" description="A search field component." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add search-field
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components lucide-react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="search-field" title="components/ui/search-field.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { SearchField } from "@/components/ui/search-field"
+```
+
+```tsx showLineNumbers
+<SearchField
+  label="Search"
+  placeholder="Search products..."
+/>
+```
+
+## API Reference
+
+### SearchField
+
+The `SearchField` component extends the React Aria `SearchField` component with consistent styling and built-in label, description, and error message support.
+
+| Prop           | Type                                                    | Default        | Description                                      |
+| -------------- | ------------------------------------------------------- | -------------- | ------------------------------------------------ |
+| `label`        | `string`                                                | -              | Label text for the search field                  |
+| `description`  | `string`                                                | -              | Helper text displayed below the label            |
+| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | -              | Error message for validation failures            |
+| `placeholder`  | `string`                                                | `"Search..."` | Placeholder text                                 |
+| `defaultValue` | `string`                                                | -              | Default value (uncontrolled)                     |
+| `value`        | `string`                                                | -              | Current value (controlled)                       |
+| `onChange`     | `(value: string) => void`                               | -              | Callback when value changes                      |
+| `onSubmit`     | `(value: string) => void`                               | -              | Callback when Enter key is pressed               |
+| `onClear`      | `() => void`                                            | -              | Callback when clear button is pressed            |
+| `isDisabled`   | `boolean`                                               | `false`        | Whether the search field is disabled             |
+| `isRequired`   | `boolean`                                               | `false`        | Whether the search field is required             |
+| `isReadOnly`   | `boolean`                                               | `false`        | Whether the search field is read-only            |
+
+Apart from the props above, the `SearchField` component also supports all props from the `react-aria-components` `SearchField` component. See the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/SearchField.html#props) for more details.
+
+## Features
+
+- **Accessible** - Built on React Aria Components with full keyboard navigation and screen reader support
+- **Clearable** - Automatically shows a clear button when text is entered
+- **Keyboard Navigation** - Press Enter to submit, Escape to clear
+- **Validation** - Built-in validation with custom error messages
+- **Customizable** - Full control over styling and behavior
+
+## Keyboard Interactions
+
+| Key      | Description                                    |
+| -------- | ---------------------------------------------- |
+| `Enter`  | Triggers the `onSubmit` event with the current value |
+| `Escape` | Clears the search field and triggers `onClear` |
+
+## Related
+
+- [Input](/docs/components/input) - For standard text input
+- [Field](/docs/components/field) - For custom form field composition
+- [Input Group](/docs/components/input-group) - For adding additional context to inputs
+

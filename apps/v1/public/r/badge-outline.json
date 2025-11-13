@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge-outline",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/badge.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/badge-outline.tsx",
+      "content": "import { Badge } from \"@/registry/new-york/ui/badge\"\n\nexport default function BadgeOutline() {\n  return <Badge variant=\"outline\">Outline</Badge>\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

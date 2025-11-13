@@ -1,0 +1,158 @@
+---
+title: Chain of Thought
+description: Display step-by-step reasoning process with progress indicators.
+component: true
+---
+
+<ComponentPreview name="chain-of-thought-demo" description="Step-by-step reasoning" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add chain-of-thought
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="chain-of-thought" title="ai-elements/chain-of-thought.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  ChainOfThought,
+  ChainOfThoughtHeader,
+  ChainOfThoughtContent,
+  ChainOfThoughtStep,
+} from "@/components/ai-elements/chain-of-thought"
+```
+
+```tsx showLineNumbers
+<ChainOfThought>
+  <ChainOfThoughtHeader>Reasoning Process</ChainOfThoughtHeader>
+  <ChainOfThoughtContent>
+    <ChainOfThoughtStep number={1} title="Step 1" isCompleted>
+      Step content...
+    </ChainOfThoughtStep>
+  </ChainOfThoughtContent>
+</ChainOfThought>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="chain-of-thought-demo" description="Multi-step reasoning process" />
+
+```tsx showLineNumbers
+const steps = [
+  {
+    id: "1",
+    title: "Understand the problem",
+    content: "The user wants to build a responsive layout...",
+  },
+  {
+    id: "2",
+    title: "Consider solutions",
+    content: "Options include CSS Grid, Flexbox, or a combination...",
+  },
+  {
+    id: "3",
+    title: "Plan implementation",
+    content: "Use CSS Grid with media queries...",
+  },
+]
+
+export default function Example() {
+  return (
+    <ChainOfThought>
+      <ChainOfThoughtHeader>Reasoning Process</ChainOfThoughtHeader>
+      <ChainOfThoughtContent>
+        {steps.map((step, index) => (
+          <ChainOfThoughtStep
+            key={step.id}
+            number={index + 1}
+            title={step.title}
+            isCompleted={index < steps.length - 1}
+            isActive={index === steps.length - 1}
+          >
+            {step.content}
+          </ChainOfThoughtStep>
+        ))}
+      </ChainOfThoughtContent>
+    </ChainOfThought>
+  )
+}
+```
+
+## Features
+
+- **Step Tracking**: Visual progress through reasoning steps
+- **Collapsible**: Expandable/collapsible content
+- **Status Indicators**: Shows completed, active, and pending steps
+- **Badges**: Status badges for each step
+
+## API Reference
+
+### ChainOfThought
+
+Container for chain of thought.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `open` | `boolean` | - | Controlled open state |
+| `defaultOpen` | `boolean` | `false` | Initial open state |
+| `onOpenChange` | `(open: boolean) => void` | - | Callback when state changes |
+| `className` | `string` | - | Custom CSS classes |
+
+### ChainOfThoughtHeader
+
+Collapsible header/trigger.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `ReactNode` | - | Header content |
+| `className` | `string` | - | Custom CSS classes |
+
+### ChainOfThoughtContent
+
+Container for steps.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `ReactNode` | - | Step components |
+
+### ChainOfThoughtStep
+
+Individual reasoning step.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `number` | `number` | - | Step number |
+| `title` | `string` | - | Step title |
+| `isCompleted` | `boolean` | `false` | Whether step is completed |
+| `isActive` | `boolean` | `false` | Whether step is currently active |
+| `children` | `ReactNode` | - | Step content |
+

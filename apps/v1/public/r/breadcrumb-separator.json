@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb-separator",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/breadcrumb.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/breadcrumb-separator.tsx",
+      "content": "import { SlashIcon } from \"lucide-react\"\n\nimport {\n  Breadcrumb,\n  BreadcrumbLink,\n  Breadcrumbs,\n  BreadcrumbSeparator,\n} from \"@/registry/new-york/ui/breadcrumb\"\n\nexport default function BreadcrumbWithCustomSeparator() {\n  return (\n    <Breadcrumbs>\n      <Breadcrumb>\n        <BreadcrumbLink href=\"/\">Home</BreadcrumbLink>\n        <BreadcrumbSeparator>\n          <SlashIcon />\n        </BreadcrumbSeparator>\n      </Breadcrumb>\n      <Breadcrumb>\n        <BreadcrumbLink href=\"/components\">Components</BreadcrumbLink>\n        <BreadcrumbSeparator>\n          <SlashIcon />\n        </BreadcrumbSeparator>\n      </Breadcrumb>\n      <Breadcrumb>\n        <BreadcrumbLink>Breadcrumb</BreadcrumbLink>\n      </Breadcrumb>\n    </Breadcrumbs>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

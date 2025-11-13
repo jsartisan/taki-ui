@@ -1,0 +1,31 @@
+import { siteConfig } from "@/lib/config"
+
+import { LinePattern } from "./line-pattern"
+
+export function SiteFooter() {
+  return (
+    <>
+      <LinePattern className="h-5 border-t">
+        <div className="container-wrapper h-full"></div>
+      </LinePattern>
+      <footer className="group-has-[.section-soft]/body:bg-surface/40 3xl:fixed:bg-transparent border-t group-has-[.docs-nav]/body:pb-20 group-has-[.docs-nav]/body:sm:pb-0 dark:bg-transparent">
+        <div className="container-wrapper px-4 xl:px-6">
+          <div className="flex h-(--footer-height) items-center justify-between">
+            <div className="text-muted-foreground w-full px-1 text-center text-xs leading-loose sm:text-sm">
+              Built by{" "}
+              <a
+                href={siteConfig.links.twitter}
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium underline underline-offset-4"
+              >
+                jsartisan
+              </a>{" "}
+              .
+            </div>
+          </div>
+        </div>
+      </footer>
+    </>
+  )
+}

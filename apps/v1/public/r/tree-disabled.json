@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tree-disabled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/tree.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/tree-disabled.tsx",
+      "content": "import { Tree, TreeItem } from \"@/registry/new-york/ui/tree\"\n\nexport default function TreeDisabledDemo() {\n  return (\n    <Tree\n      aria-label=\"Files\"\n      className=\"w-64\"\n      selectionMode=\"multiple\"\n      disabledKeys={[\"budget\", \"family\"]}\n      defaultExpandedKeys={[\"documents\", \"photos\"]}\n    >\n      <TreeItem id=\"documents\" title=\"Documents\">\n        <TreeItem id=\"project\" title=\"Project\">\n          <TreeItem id=\"report\" title=\"Weekly Report\" />\n        </TreeItem>\n        <TreeItem id=\"budget\" title=\"Budget (Disabled)\" />\n      </TreeItem>\n      <TreeItem id=\"photos\" title=\"Photos\">\n        <TreeItem id=\"vacation\" title=\"Vacation\" />\n        <TreeItem id=\"family\" title=\"Family (Disabled)\" />\n      </TreeItem>\n    </Tree>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

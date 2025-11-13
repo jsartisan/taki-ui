@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "queue-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/queue.json",
+    "https://taki-ui.com/r/button.json",
+    "https://taki-ui.com/r/disclosure.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/queue-demo.tsx",
+      "content": "import { CheckIcon, ClockIcon } from \"lucide-react\"\n\nimport {\n  Queue,\n  QueueItem,\n  QueueItemContent,\n  QueueItemDescription,\n  QueueItemIndicator,\n  QueueList,\n  QueueSection,\n  QueueSectionContent,\n  QueueSectionLabel,\n  QueueSectionTrigger,\n} from \"@/registry/new-york/ai-elements/queue\"\n\nexport default function QueueDemo() {\n  return (\n    <div className=\"w-full max-w-md\">\n      <Queue>\n        <QueueSection>\n          <QueueSectionTrigger>\n            <QueueSectionLabel\n              count={2}\n              label=\"Completed\"\n              icon={<CheckIcon className=\"size-4\" />}\n            />\n          </QueueSectionTrigger>\n          <QueueSectionContent>\n            <QueueList>\n              <QueueItem>\n                <div className=\"flex items-start gap-2\">\n                  <QueueItemIndicator completed />\n                  <QueueItemContent completed>\n                    Analyze user requirements\n                  </QueueItemContent>\n                </div>\n                <QueueItemDescription completed>\n                  Reviewed and documented all feature requests\n                </QueueItemDescription>\n              </QueueItem>\n              <QueueItem>\n                <div className=\"flex items-start gap-2\">\n                  <QueueItemIndicator completed />\n                  <QueueItemContent completed>\n                    Create project structure\n                  </QueueItemContent>\n                </div>\n              </QueueItem>\n            </QueueList>\n          </QueueSectionContent>\n        </QueueSection>\n\n        <QueueSection>\n          <QueueSectionTrigger>\n            <QueueSectionLabel\n              count={3}\n              label=\"Pending\"\n              icon={<ClockIcon className=\"size-4\" />}\n            />\n          </QueueSectionTrigger>\n          <QueueSectionContent>\n            <QueueList>\n              <QueueItem>\n                <div className=\"flex items-start gap-2\">\n                  <QueueItemIndicator />\n                  <QueueItemContent>Implement authentication</QueueItemContent>\n                </div>\n              </QueueItem>\n              <QueueItem>\n                <div className=\"flex items-start gap-2\">\n                  <QueueItemIndicator />\n                  <QueueItemContent>Design database schema</QueueItemContent>\n                </div>\n              </QueueItem>\n              <QueueItem>\n                <div className=\"flex items-start gap-2\">\n                  <QueueItemIndicator />\n                  <QueueItemContent>Set up API routes</QueueItemContent>\n                </div>\n              </QueueItem>\n            </QueueList>\n          </QueueSectionContent>\n        </QueueSection>\n      </Queue>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

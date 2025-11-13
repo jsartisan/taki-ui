@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-link",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/button-link.tsx",
+      "content": "import { Button } from \"@/registry/new-york/ui/button\"\n\nexport default function ButtonLink() {\n  return <Button variant=\"link\">Link</Button>\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

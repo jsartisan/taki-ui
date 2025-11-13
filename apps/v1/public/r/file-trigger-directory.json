@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "file-trigger-directory",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/file-trigger.json",
+    "https://taki-ui.com/r/button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/file-trigger-directory.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { FolderIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { FileTrigger } from \"@/registry/new-york/ui/file-trigger\"\n\nexport default function FileTriggerDirectory() {\n  const [files, setFiles] = useState<string[]>([])\n\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <FileTrigger\n        acceptDirectory\n        onSelect={(e) => {\n          if (e) {\n            const fileList = Array.from(e).map((file) =>\n              file.webkitRelativePath !== \"\"\n                ? file.webkitRelativePath\n                : file.name\n            )\n            setFiles(fileList)\n          }\n        }}\n      >\n        <Button variant=\"outline\">\n          <FolderIcon />\n          Select a directory\n        </Button>\n      </FileTrigger>\n      {files.length > 0 && (\n        <div className=\"text-muted-foreground text-sm\">\n          <p className=\"font-medium\">\n            Directory contents ({files.length} files):\n          </p>\n          <ul className=\"mt-2 max-h-32 space-y-1 overflow-y-auto\">\n            {files.slice(0, 10).map((file, index) => (\n              <li key={index} className=\"truncate text-xs\">\n                {file}\n              </li>\n            ))}\n            {files.length > 10 && (\n              <li className=\"text-xs italic\">\n                ...and {files.length - 10} more files\n              </li>\n            )}\n          </ul>\n        </div>\n      )}\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

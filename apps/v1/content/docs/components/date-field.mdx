@@ -1,0 +1,233 @@
+---
+title: Date Field
+description: A date field allows users to enter and edit date values using a keyboard.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/DateField.html
+  api: https://react-spectrum.adobe.com/react-aria/DateField.html#props
+---
+
+<ComponentPreview name="date-field-demo" description="A date field with label and description." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add date-field
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components @internationalized/date
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="date-field" title="components/ui/date-field.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { DateField } from "@/components/ui/date-field"
+```
+
+```tsx showLineNumbers
+<DateField
+  label="Event date"
+  description="Select a date for your event."
+/>
+```
+
+## About
+
+The `DateField` component is built on top of [React Aria Components](https://react-spectrum.adobe.com/react-aria/DateField.html) and uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) library for date manipulation.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="date-field-demo" description="A basic date field with label and description." />
+
+```tsx showLineNumbers
+<DateField
+  label="Event date"
+  description="Select a date for your event."
+/>
+```
+
+### Disabled
+
+<ComponentPreview name="date-field-disabled" description="A disabled date field." />
+
+```tsx showLineNumbers
+<DateField
+  label="Event date"
+  description="This field is disabled."
+  isDisabled
+/>
+```
+
+### Validation
+
+<ComponentPreview name="date-field-validation" description="A date field with validation." />
+
+```tsx showLineNumbers
+<DateField
+  label="Birth date"
+  description="Enter your birth date."
+  isRequired
+  errorMessage="Please enter a valid date."
+/>
+```
+
+### Controlled
+
+<ComponentPreview name="date-field-controlled" description="A controlled date field." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { parseDate } from "@internationalized/date"
+
+import { DateField } from "@/components/ui/date-field"
+
+export default function DateFieldControlled() {
+  const [value, setValue] = useState(parseDate("2024-01-15"))
+
+  return (
+    <div className="space-y-4">
+      <DateField
+        label="Appointment date"
+        description="Select your appointment date."
+        value={value}
+        onChange={setValue}
+      />
+      <p className="text-sm text-muted-foreground">
+        Selected date: {value ? value.toString() : "None"}
+      </p>
+    </div>
+  )
+}
+```
+
+### Min and Max Values
+
+<ComponentPreview name="date-field-min-max" description="A date field with minimum and maximum values." />
+
+```tsx showLineNumbers
+"use client"
+
+import { today, getLocalTimeZone } from "@internationalized/date"
+
+import { DateField } from "@/components/ui/date-field"
+
+export default function DateFieldMinMax() {
+  const now = today(getLocalTimeZone())
+
+  return (
+    <DateField
+      label="Meeting date"
+      description="Select a date within the next 7 days."
+      minValue={now}
+      maxValue={now.add({ days: 7 })}
+    />
+  )
+}
+```
+
+### Granularity
+
+<ComponentPreview name="date-field-granularity" description="Date fields with different granularities." />
+
+```tsx showLineNumbers
+<div className="space-y-4">
+  <DateField
+    label="Date only"
+    description="Year, month, and day."
+    granularity="day"
+  />
+  <DateField
+    label="Month and year"
+    description="Month and year only."
+    granularity="month"
+  />
+</div>
+```
+
+## API Reference
+
+### DateField
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `label` | `string` | - | Label text for the date field |
+| `description` | `string` | - | Help text displayed below the input |
+| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | - | Error message for validation |
+| `value` | `DateValue` | - | The current value (controlled) |
+| `defaultValue` | `DateValue` | - | The default value (uncontrolled) |
+| `onChange` | `(value: DateValue) => void` | - | Handler called when the value changes |
+| `minValue` | `DateValue` | - | The minimum allowed date |
+| `maxValue` | `DateValue` | - | The maximum allowed date |
+| `granularity` | `"day" \| "hour" \| "minute" \| "second"` | `"day"` | Determines the smallest unit editable |
+| `isDisabled` | `boolean` | `false` | Whether the date field is disabled |
+| `isReadOnly` | `boolean` | `false` | Whether the date field is read-only |
+| `isRequired` | `boolean` | `false` | Whether the date field is required |
+| `placeholderValue` | `DateValue` | - | A placeholder date that controls the default values of segments |
+
+See the [React Aria DateField documentation](https://react-spectrum.adobe.com/react-aria/DateField.html#props) for more props and detailed information.
+
+## Internationalization
+
+The `DateField` component automatically formats dates based on the user's locale. The `@internationalized/date` library handles calendar systems and localization.
+
+```tsx showLineNumbers
+import { parseDate } from "@internationalized/date"
+
+// ISO 8601 format
+const date = parseDate("2024-12-25")
+```
+
+## Calendar Systems
+
+The date field supports multiple calendar systems through the `@internationalized/date` library:
+
+- Gregorian
+- Buddhist
+- Hebrew
+- Indian
+- Islamic (Hijri)
+- Japanese
+- Persian
+- Taiwan
+
+See the [@internationalized/date documentation](https://react-spectrum.adobe.com/internationalized/date/) for more information.
+
+## Related Components
+
+- [Calendar](/docs/components/calendar) - For visual date selection
+- [Date Picker](/docs/components/date-picker) - Combines a date field with a calendar popover
+- [Field](/docs/components/field) - For composing accessible form fields
+

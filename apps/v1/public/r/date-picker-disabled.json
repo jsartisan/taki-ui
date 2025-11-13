@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-picker-disabled",
+  "type": "registry:example",
+  "dependencies": [
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/date-picker.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/date-picker-disabled.tsx",
+      "content": "import { DatePicker } from \"@/registry/new-york/ui/date-picker\"\n\nexport default function DatePickerDisabled() {\n  return (\n    <DatePicker\n      label=\"Event date\"\n      description=\"This field is disabled.\"\n      isDisabled\n    />\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

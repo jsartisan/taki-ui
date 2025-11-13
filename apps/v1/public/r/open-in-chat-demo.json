@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "open-in-chat-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/open-in-chat.json",
+    "https://taki-ui.com/r/button.json",
+    "https://taki-ui.com/r/menu.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/open-in-chat-demo.tsx",
+      "content": "import {\n  OpenIn,\n  OpenInChatGPT,\n  OpenInClaude,\n  OpenInContent,\n  OpenInCursor,\n  OpenInSeparator,\n  OpenInTrigger,\n  OpenInv0,\n} from \"@/registry/new-york/ai-elements/open-in-chat\"\n\nexport default function OpenInChatDemo() {\n  const query = \"How do I build a responsive layout with CSS Grid?\"\n\n  return (\n    <div className=\"flex items-center gap-2\">\n      <OpenIn query={query}>\n        <OpenInTrigger />\n        <OpenInContent>\n          <OpenInChatGPT />\n          <OpenInClaude />\n          <OpenInCursor />\n          <OpenInSeparator />\n          <OpenInv0 />\n        </OpenInContent>\n      </OpenIn>\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

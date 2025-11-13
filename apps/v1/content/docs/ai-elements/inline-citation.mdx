@@ -1,0 +1,136 @@
+---
+title: Inline Citation
+description: Display inline citations with source previews in AI responses.
+component: true
+---
+
+<ComponentPreview name="inline-citation-demo" description="Inline citations with hover preview" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add inline-citation
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ai
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="inline-citation" title="ai-elements/inline-citation.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  InlineCitation,
+  InlineCitationText,
+  InlineCitationCard,
+  InlineCitationCardTrigger,
+  InlineCitationCardBody,
+} from "@/components/ai-elements/inline-citation"
+```
+
+```tsx showLineNumbers
+<InlineCitation>
+  <InlineCitationText>Referenced text</InlineCitationText>
+  <InlineCitationCard>
+    <InlineCitationCardTrigger sources={["https://example.com"]} />
+    <InlineCitationCardBody>
+      {/* Citation content */}
+    </InlineCitationCardBody>
+  </InlineCitationCard>
+</InlineCitation>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="inline-citation-demo" description="Citations with carousel preview" />
+
+```tsx showLineNumbers
+const sources = [
+  "https://react.dev",
+  "https://developer.mozilla.org",
+  "https://www.typescriptlang.org",
+]
+
+export default function Example() {
+  return (
+    <p>
+      <InlineCitation>
+        <InlineCitationText>
+          React is a JavaScript library for building user interfaces
+        </InlineCitationText>
+        <InlineCitationCard>
+          <InlineCitationCardTrigger sources={sources} />
+          <InlineCitationCardBody>
+            {/* Source previews */}
+          </InlineCitationCardBody>
+        </InlineCitationCard>
+      </InlineCitation>
+    </p>
+  )
+}
+```
+
+## Features
+
+- **Hover Preview**: Shows source details on hover
+- **Multiple Sources**: Support for multiple citation sources
+- **Carousel**: Navigate between sources
+- **Source Count**: Displays number of sources
+
+## API Reference
+
+### InlineCitation
+
+Container for inline citation.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### InlineCitationText
+
+Cited text content.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### InlineCitationCardTrigger
+
+Trigger badge showing sources.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `sources` | `string[]` | - | Array of source URLs |
+| `className` | `string` | - | Custom CSS classes |
+

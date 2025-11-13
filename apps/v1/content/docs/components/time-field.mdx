@@ -1,0 +1,297 @@
+---
+title: Time Field
+description: A time field allows users to enter and edit time values using a keyboard.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/TimeField.html
+  api: https://react-spectrum.adobe.com/react-aria/TimeField.html#props
+---
+
+<ComponentPreview name="time-field-demo" description="A time field with label." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add time-field
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components @internationalized/date
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="time-field" title="components/ui/time-field.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { TimeField } from "@/components/ui/time-field"
+```
+
+```tsx showLineNumbers
+<TimeField
+  label="Event time"
+  description="Select a time for your event."
+/>
+```
+
+## About
+
+The `TimeField` component is built on top of [React Aria Components](https://react-spectrum.adobe.com/react-aria/TimeField.html) and uses the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) library for time manipulation and formatting.
+
+## Examples
+
+### Default
+
+<ComponentPreview name="time-field-demo" description="A basic time field with label." />
+
+```tsx showLineNumbers
+<TimeField label="Event time" />
+```
+
+### With Description
+
+<ComponentPreview name="time-field-description" description="A time field with a description." />
+
+```tsx showLineNumbers
+<TimeField
+  label="Meeting time"
+  description="Enter the time for your meeting."
+/>
+```
+
+### Disabled
+
+<ComponentPreview name="time-field-disabled" description="A disabled time field." />
+
+```tsx showLineNumbers
+<TimeField label="Event time" isDisabled />
+```
+
+### Granularity
+
+<ComponentPreview name="time-field-granularity" description="Time fields with different granularities." />
+
+```tsx showLineNumbers
+<div className="flex flex-col gap-4">
+  <TimeField label="Hour and minute" granularity="minute" />
+  <TimeField label="Hour, minute, and second" granularity="second" />
+</div>
+```
+
+The `granularity` prop determines which time segments are displayed:
+- `hour` - Only hour segment
+- `minute` - Hour and minute segments (default)
+- `second` - Hour, minute, and second segments
+
+### Hour Cycle
+
+<ComponentPreview name="time-field-hour-cycle" description="Time fields with different hour cycles." />
+
+```tsx showLineNumbers
+<div className="flex flex-col gap-4">
+  <TimeField label="12-hour format" hourCycle={12} />
+  <TimeField label="24-hour format" hourCycle={24} />
+</div>
+```
+
+The `hourCycle` prop controls whether the time field uses 12-hour or 24-hour format:
+- `12` - 12-hour format with AM/PM
+- `24` - 24-hour format
+
+### Validation
+
+<ComponentPreview name="time-field-validation" description="A time field with validation." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { Time } from "@internationalized/date"
+
+import { Button } from "@/components/ui/button"
+import { TimeField } from "@/components/ui/time-field"
+
+export default function TimeFieldValidation() {
+  const [time, setTime] = useState<Time | null>(null)
+
+  return (
+    <form
+      className="flex flex-col gap-4"
+      onSubmit={(e) => {
+        e.preventDefault()
+        alert(`Time submitted: ${time?.toString()}`)
+      }}
+    >
+      <TimeField
+        label="Meeting time"
+        description="Select a time between 9 AM and 5 PM."
+        isRequired
+        value={time}
+        onChange={setTime}
+        minValue={new Time(9)}
+        maxValue={new Time(17)}
+        errorMessage="Please select a time between 9 AM and 5 PM."
+      />
+      <Button type="submit" className="w-fit">
+        Submit
+      </Button>
+    </form>
+  )
+}
+```
+
+### Controlled
+
+<ComponentPreview name="time-field-controlled" description="A controlled time field." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { Time } from "@internationalized/date"
+
+import { TimeField } from "@/components/ui/time-field"
+
+export default function TimeFieldControlled() {
+  const [time, setTime] = useState(new Time(9, 0))
+
+  return (
+    <div className="flex flex-col gap-4">
+      <TimeField label="Appointment time" value={time} onChange={setTime} />
+      <p className="text-sm text-muted-foreground">
+        Selected time: {time.toString()}
+      </p>
+    </div>
+  )
+}
+```
+
+## API Reference
+
+### TimeField
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `label` | `string` | - | Label text for the time field |
+| `description` | `string` | - | Help text displayed below the input |
+| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | - | Error message for validation |
+| `value` | `TimeValue` | - | The current value (controlled) |
+| `defaultValue` | `TimeValue` | - | The default value (uncontrolled) |
+| `onChange` | `(value: TimeValue) => void` | - | Handler called when the value changes |
+| `minValue` | `TimeValue` | - | The minimum allowed time |
+| `maxValue` | `TimeValue` | - | The maximum allowed time |
+| `granularity` | `"hour" \| "minute" \| "second"` | `"minute"` | Determines the smallest unit editable |
+| `hourCycle` | `12 \| 24` | - | Whether to use 12 or 24 hour time |
+| `isDisabled` | `boolean` | `false` | Whether the time field is disabled |
+| `isReadOnly` | `boolean` | `false` | Whether the time field is read-only |
+| `isRequired` | `boolean` | `false` | Whether the time field is required |
+| `placeholderValue` | `TimeValue` | - | A placeholder time that controls the default values of segments |
+
+See the [React Aria TimeField documentation](https://react-spectrum.adobe.com/react-aria/TimeField.html#props) for more props and detailed information.
+
+## Internationalization
+
+The `TimeField` component automatically formats times based on the user's locale. The `@internationalized/date` library handles time formatting and localization.
+
+```tsx showLineNumbers
+import { Time } from "@internationalized/date"
+
+// Create a time object (24-hour format)
+const time = new Time(14, 30) // 2:30 PM
+
+// With seconds
+const timeWithSeconds = new Time(14, 30, 45) // 2:30:45 PM
+```
+
+## Time Zones
+
+The `Time` type represents a clock time without a date or time zone. For date and time with time zones, use `ZonedDateTime`:
+
+```tsx showLineNumbers
+import { parseZonedDateTime } from "@internationalized/date"
+
+const zonedTime = parseZonedDateTime("2024-12-25T14:30[America/New_York]")
+```
+
+See the [@internationalized/date documentation](https://react-spectrum.adobe.com/internationalized/date/) for more information on time zones.
+
+## Common Use Cases
+
+### Business Hours
+
+Restrict time selection to business hours:
+
+```tsx showLineNumbers
+import { Time } from "@internationalized/date"
+import { TimeField } from "@/components/ui/time-field"
+
+<TimeField
+  label="Meeting time"
+  description="Select a time between 9 AM and 5 PM."
+  minValue={new Time(9)}
+  maxValue={new Time(17)}
+/>
+```
+
+### Appointment Scheduling
+
+Show time in 30-minute increments by using a controlled component:
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { Time } from "@internationalized/date"
+import { TimeField } from "@/components/ui/time-field"
+
+export default function AppointmentTime() {
+  const [time, setTime] = useState(new Time(9, 0))
+
+  const handleChange = (newTime: Time) => {
+    // Round to nearest 30 minutes
+    const minutes = Math.round(newTime.minute / 30) * 30
+    setTime(new Time(newTime.hour, minutes))
+  }
+
+  return (
+    <TimeField
+      label="Appointment time"
+      value={time}
+      onChange={handleChange}
+    />
+  )
+}
+```
+
+## Related Components
+
+- [Date Field](/docs/components/date-field) - For entering dates
+- [Date Picker](/docs/components/date-picker) - Combines a date field with a calendar
+- [Field](/docs/components/field) - For composing accessible form fields
+

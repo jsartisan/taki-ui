@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-range-picker-validation",
+  "type": "registry:example",
+  "dependencies": [
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/date-range-picker.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/date-range-picker-validation.tsx",
+      "content": "\"use client\"\n\nimport { DateRangePicker } from \"@/registry/new-york/ui/date-range-picker\"\n\nexport default function DateRangePickerValidation() {\n  return (\n    <DateRangePicker\n      label=\"Vacation dates\"\n      description=\"Select your vacation start and end dates.\"\n      isRequired\n      errorMessage=\"Please select a valid date range.\"\n    />\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

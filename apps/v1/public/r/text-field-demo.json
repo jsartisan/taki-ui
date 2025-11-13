@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-field-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/text-field.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/text-field-demo.tsx",
+      "content": "import { TextField } from \"@/registry/new-york/ui/text-field\"\n\nexport default function TextFieldDemo() {\n  return (\n    <TextField\n      label=\"Name\"\n      placeholder=\"Enter your name\"\n      defaultValue=\"John Doe\"\n    />\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-bar-label",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/progress-bar.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/progress-bar-label.tsx",
+      "content": "import { ProgressBar } from \"@/registry/new-york/ui/progress-bar\"\n\nexport default function ProgressBarLabel() {\n  return (\n    <ProgressBar\n      label=\"Processing files\"\n      value={45}\n      formatOptions={{ style: \"decimal\" }}\n      valueLabel=\"15 of 60 files\"\n    />\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

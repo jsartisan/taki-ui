@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-bar",
+  "type": "registry:ui",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/field.json",
+    "https://taki-ui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/ui/progress-bar.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\nimport {\n  ProgressBar as AriaProgressBar,\n  ProgressBarProps as AriaProgressBarProps,\n  composeRenderProps,\n} from \"react-aria-components\"\n\nimport { cn } from \"../lib/utils\"\nimport { FieldLabel } from \"./field\"\n\nexport interface ProgressBarProps extends AriaProgressBarProps {\n  label?: string\n}\n\nexport function ProgressBar({ label, ...props }: ProgressBarProps) {\n  return (\n    <AriaProgressBar\n      {...props}\n      className={composeRenderProps(props.className, (className) =>\n        cn(\"flex flex-col gap-1\", className)\n      )}\n    >\n      {({ percentage, valueText, isIndeterminate }) => (\n        <>\n          <div className=\"flex justify-between gap-2\">\n            <FieldLabel>{label}</FieldLabel>\n            <span className=\"text-muted-foreground text-sm\">{valueText}</span>\n          </div>\n          <div className=\"bg-muted relative h-2 w-64 overflow-hidden rounded-full outline outline-1 -outline-offset-1 outline-transparent\">\n            <div\n              className={`bg-primary absolute top-0 h-full rounded-full forced-colors:bg-[Highlight] ${isIndeterminate ? \"animate-in slide-in-from-left-[20rem] repeat-infinite left-full duration-1000 ease-out\" : \"left-0\"}`}\n              style={{ width: (isIndeterminate ? 40 : percentage) + \"%\" }}\n            />\n          </div>\n        </>\n      )}\n    </AriaProgressBar>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

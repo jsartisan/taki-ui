@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/tooltip.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/tooltip-demo.tsx",
+      "content": "import { Button } from \"@/registry/new-york/ui/button\"\nimport { Tooltip, TooltipTrigger } from \"@/registry/new-york/ui/tooltip\"\n\nexport default function TooltipDemo() {\n  return (\n    <TooltipTrigger>\n      <Button variant=\"outline\">Hover</Button>\n      <Tooltip>Add to library</Tooltip>\n    </TooltipTrigger>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

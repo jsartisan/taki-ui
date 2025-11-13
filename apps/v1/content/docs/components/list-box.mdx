@@ -1,0 +1,320 @@
+---
+title: ListBox
+description: A listbox displays a list of options and allows a user to select one or more of them.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/ListBox.html
+  api: https://react-spectrum.adobe.com/react-aria/ListBox.html#props
+---
+
+<ComponentPreview name="list-box-demo" description="A basic listbox with single selection." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add list-box
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components tailwind-variants lucide-react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="list-box" title="components/ui/list-box.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ListBox, ListBoxItem } from "@/components/ui/list-box"
+```
+
+```tsx
+<ListBox aria-label="Favorite animal" selectionMode="single">
+  <ListBoxItem>Aardvark</ListBoxItem>
+  <ListBoxItem>Cat</ListBoxItem>
+  <ListBoxItem>Dog</ListBoxItem>
+  <ListBoxItem>Kangaroo</ListBoxItem>
+  <ListBoxItem>Panda</ListBoxItem>
+  <ListBoxItem>Snake</ListBoxItem>
+</ListBox>
+```
+
+## Features
+
+A listbox can be built using the `<select>` and `<option>` HTML elements, but this is not possible to style consistently cross browser. `ListBox` helps you build accessible listbox components that can be styled as needed.
+
+- **Item selection** – Single or multiple selection, with both `toggle` and `replace` selection behaviors
+- **Keyboard navigation** – Arrow keys, page up/down, home/end, and typeahead search
+- **Touch friendly** – Selection behavior adapts based on device (mouse down vs touch up)
+- **Accessible** – Follows the [ARIA listbox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/) with proper keyboard and screen reader support
+- **Styleable** – Hover, press, focus, selected, and disabled states for easy styling
+
+Note: `ListBox` only handles the list itself. For a dropdown, see [Select](/docs/components/select) or [ComboBox](/docs/components/combobox).
+
+## Examples
+
+### Default
+
+<ComponentPreview name="list-box-demo" description="A simple listbox with single selection." />
+
+```tsx showLineNumbers
+<ListBox aria-label="Favorite animal" selectionMode="single" className="w-64">
+  <ListBoxItem>Aardvark</ListBoxItem>
+  <ListBoxItem>Cat</ListBoxItem>
+  <ListBoxItem>Dog</ListBoxItem>
+  <ListBoxItem>Kangaroo</ListBoxItem>
+  <ListBoxItem>Panda</ListBoxItem>
+  <ListBoxItem>Snake</ListBoxItem>
+</ListBox>
+```
+
+### Multiple Selection
+
+<ComponentPreview name="list-box-multiple" description="A listbox with multiple selection enabled." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { ListBox, ListBoxItem } from "@/components/ui/list-box"
+
+export default function Example() {
+  const [selected, setSelected] = useState<Set<string>>(new Set())
+
+  return (
+    <ListBox
+      aria-label="Favorite animals"
+      selectionMode="multiple"
+      selectedKeys={selected}
+      onSelectionChange={(keys) => setSelected(keys as Set<string>)}
+      className="w-64"
+    >
+      <ListBoxItem id="aardvark">Aardvark</ListBoxItem>
+      <ListBoxItem id="cat">Cat</ListBoxItem>
+      <ListBoxItem id="dog">Dog</ListBoxItem>
+      <ListBoxItem id="kangaroo">Kangaroo</ListBoxItem>
+      <ListBoxItem id="panda">Panda</ListBoxItem>
+      <ListBoxItem id="snake">Snake</ListBoxItem>
+    </ListBox>
+  )
+}
+```
+
+Set `selectionMode="multiple"` to allow selecting multiple items. Use `selectedKeys` and `onSelectionChange` to control the selection state.
+
+### Sections
+
+<ComponentPreview name="list-box-sections" description="A listbox organized into sections." />
+
+```tsx showLineNumbers
+import { Header, ListBoxSection } from "react-aria-components"
+import { ListBox, ListBoxItem } from "@/components/ui/list-box"
+
+<ListBox aria-label="Choose a pet" selectionMode="single" className="w-64">
+  <ListBoxSection>
+    <Header className="px-2 py-1 text-xs font-semibold text-muted-foreground">
+      Mammals
+    </Header>
+    <ListBoxItem>Aardvark</ListBoxItem>
+    <ListBoxItem>Cat</ListBoxItem>
+    <ListBoxItem>Dog</ListBoxItem>
+    <ListBoxItem>Kangaroo</ListBoxItem>
+    <ListBoxItem>Panda</ListBoxItem>
+  </ListBoxSection>
+  <ListBoxSection>
+    <Header className="px-2 py-1 text-xs font-semibold text-muted-foreground">
+      Reptiles
+    </Header>
+    <ListBoxItem>Snake</ListBoxItem>
+    <ListBoxItem>Turtle</ListBoxItem>
+    <ListBoxItem>Lizard</ListBoxItem>
+  </ListBoxSection>
+</ListBox>
+```
+
+Use `ListBoxSection` and `Header` to organize items into groups with section headers.
+
+### Disabled Items
+
+<ComponentPreview name="list-box-disabled" description="A listbox with some disabled items." />
+
+```tsx showLineNumbers
+<ListBox
+  aria-label="Favorite animal"
+  selectionMode="single"
+  disabledKeys={["cat", "kangaroo"]}
+  className="w-64"
+>
+  <ListBoxItem id="aardvark">Aardvark</ListBoxItem>
+  <ListBoxItem id="cat">Cat</ListBoxItem>
+  <ListBoxItem id="dog">Dog</ListBoxItem>
+  <ListBoxItem id="kangaroo">Kangaroo</ListBoxItem>
+  <ListBoxItem id="panda">Panda</ListBoxItem>
+  <ListBoxItem id="snake">Snake</ListBoxItem>
+</ListBox>
+```
+
+Use the `disabledKeys` prop to disable specific items.
+
+### Empty State
+
+<ComponentPreview name="list-box-empty" description="A listbox showing an empty state." />
+
+```tsx showLineNumbers
+<ListBox
+  aria-label="Search results"
+  renderEmptyState={() => (
+    <div className="flex min-h-[150px] items-center justify-center">
+      <p className="text-muted-foreground text-sm">No results found</p>
+    </div>
+  )}
+  className="w-64"
+>
+  {[]}
+</ListBox>
+```
+
+Use `renderEmptyState` to display a custom message when the list is empty.
+
+### Links
+
+<ComponentPreview name="list-box-links" description="A listbox containing navigation links." />
+
+```tsx showLineNumbers
+import Link from "next/link"
+import { ListBox, ListBoxItem } from "@/components/ui/list-box"
+
+<ListBox aria-label="Navigation" className="w-64">
+  <ListBoxItem href="/docs" textValue="Documentation">
+    <Link href="/docs">Documentation</Link>
+  </ListBoxItem>
+  <ListBoxItem href="/docs/components" textValue="Components">
+    <Link href="/docs/components">Components</Link>
+  </ListBoxItem>
+  <ListBoxItem href="/examples" textValue="Examples">
+    <Link href="/examples">Examples</Link>
+  </ListBoxItem>
+  <ListBoxItem href="/blocks" textValue="Blocks">
+    <Link href="/blocks">Blocks</Link>
+  </ListBoxItem>
+</ListBox>
+```
+
+List items can contain links for navigation. Pass the `href` prop to `ListBoxItem` and wrap content with a Next.js `Link`.
+
+### Dynamic Collections
+
+<ComponentPreview name="list-box-dynamic" description="A listbox with dynamically rendered items." />
+
+```tsx showLineNumbers
+"use client"
+
+import { ListBox, ListBoxItem } from "@/components/ui/list-box"
+
+interface Animal {
+  id: string
+  name: string
+}
+
+const animals: Animal[] = [
+  { id: "aardvark", name: "Aardvark" },
+  { id: "cat", name: "Cat" },
+  { id: "dog", name: "Dog" },
+  { id: "kangaroo", name: "Kangaroo" },
+  { id: "panda", name: "Panda" },
+  { id: "snake", name: "Snake" },
+]
+
+export default function Example() {
+  return (
+    <ListBox
+      aria-label="Favorite animal"
+      selectionMode="single"
+      items={animals}
+      className="w-64"
+    >
+      {(item) => <ListBoxItem id={item.id}>{item.name}</ListBoxItem>}
+    </ListBox>
+  )
+}
+```
+
+Use the `items` prop with a render function to dynamically generate list items from data.
+
+## API Reference
+
+### ListBox
+
+The `ListBox` component displays a list of items with support for selection and keyboard navigation.
+
+| Prop                  | Type                                   | Default  | Description                                                |
+| --------------------- | -------------------------------------- | -------- | ---------------------------------------------------------- |
+| `selectionMode`       | `"none" \| "single" \| "multiple"`     | `"none"` | Whether and how selection is enabled.                      |
+| `selectedKeys`        | `Iterable<Key>`                        | -        | The currently selected keys (controlled).                  |
+| `defaultSelectedKeys` | `Iterable<Key>`                        | -        | The initial selected keys (uncontrolled).                  |
+| `onSelectionChange`   | `(keys: Selection) => void`            | -        | Handler called when the selection changes.                 |
+| `disabledKeys`        | `Iterable<Key>`                        | -        | A list of keys for items that are disabled.                |
+| `items`               | `Iterable<T>`                          | -        | Item objects in the collection for dynamic rendering.      |
+| `renderEmptyState`    | `() => React.ReactNode`                | -        | Function to render when the list is empty.                 |
+| `aria-label`          | `string`                               | -        | An accessibility label for the listbox.                    |
+
+### ListBoxItem
+
+Individual items within a listbox.
+
+| Prop        | Type     | Default | Description                                                 |
+| ----------- | -------- | ------- | ----------------------------------------------------------- |
+| `id`        | `Key`    | -       | A unique key for the item (required for selection).         |
+| `textValue` | `string` | -       | A string representation of the item for typeahead.          |
+| `href`      | `string` | -       | A URL to navigate to (makes the item a link).               |
+
+Apart from the props above, the components also support all props from the `react-aria-components` library. Check the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/ListBox.html#props) for more details.
+
+## Accessibility
+
+ListBoxes follow the [ARIA listbox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/). This provides support for:
+
+- **Keyboard Navigation** – Arrow keys, Home, End, Page Up/Down, and typeahead search
+- **Selection** – Space key selects/deselects items
+- **Screen Readers** – Proper ARIA attributes announce selection state and item count
+
+Always provide an `aria-label` or `aria-labelledby` to identify the listbox:
+
+```tsx
+<ListBox aria-label="Favorite animal">
+  {/* items */}
+</ListBox>
+```
+
+## Related
+
+- [Select](/docs/components/select) - For dropdown selections
+- [ComboBox](/docs/components/combobox) - For searchable dropdowns
+- [GridList](/docs/components/grid-list) - For lists with row actions
+- [Menu](/docs/components/menu) - For action menus
+

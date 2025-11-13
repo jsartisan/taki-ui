@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs-icons",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/tabs.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/tabs-icons.tsx",
+      "content": "import { BellIcon, LockIcon, UserIcon } from \"lucide-react\"\n\nimport {\n  TabPanel,\n  Tabs,\n  TabsList,\n  TabsTrigger,\n} from \"@/registry/new-york/ui/tabs\"\n\nexport default function TabsIcons() {\n  return (\n    <Tabs defaultSelectedKey=\"account\">\n      <TabsList aria-label=\"Settings\">\n        <TabsTrigger id=\"account\">\n          <UserIcon />\n          Account\n        </TabsTrigger>\n        <TabsTrigger id=\"security\">\n          <LockIcon />\n          Security\n        </TabsTrigger>\n        <TabsTrigger id=\"notifications\">\n          <BellIcon />\n          Notifications\n        </TabsTrigger>\n      </TabsList>\n      <TabPanel id=\"account\">\n        <p className=\"text-muted-foreground text-sm\">\n          Manage your account settings and preferences.\n        </p>\n      </TabPanel>\n      <TabPanel id=\"security\">\n        <p className=\"text-muted-foreground text-sm\">\n          Configure your security and privacy settings.\n        </p>\n      </TabPanel>\n      <TabPanel id=\"notifications\">\n        <p className=\"text-muted-foreground text-sm\">\n          Choose how you want to receive notifications.\n        </p>\n      </TabPanel>\n    </Tabs>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+---
+title: Number Field
+description: A number input field that allows users to enter and adjust numeric values with optional formatting.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/NumberField.html
+  api: https://react-spectrum.adobe.com/react-aria/NumberField.html#props
+---
+
+<ComponentPreview name="number-field-demo" description="A number field component." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add number-field
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="number-field" title="components/ui/number-field.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { NumberField } from "@/components/ui/number-field"
+```
+
+```tsx showLineNumbers
+<NumberField
+  label="Quantity"
+  placeholder="Enter quantity"
+  defaultValue={5}
+  minValue={0}
+  maxValue={100}
+/>
+```
+
+## Examples
+
+### Default
+
+A basic number field with a label and default value.
+
+<ComponentPreview name="number-field-demo" description="A number field component." />
+
+### With Description
+
+Add helpful context with a description below the label.
+
+<ComponentPreview name="number-field-with-description" description="A number field with a description." />
+
+```tsx showLineNumbers
+<NumberField
+  label="Price"
+  description="Enter the product price in dollars."
+  placeholder="0.00"
+  defaultValue={29.99}
+  minValue={0}
+  formatOptions={{
+    style: "currency",
+    currency: "USD",
+  }}
+/>
+```
+
+### Disabled
+
+Disable the number field to prevent user interaction.
+
+<ComponentPreview name="number-field-disabled" description="A disabled number field." />
+
+```tsx showLineNumbers
+<NumberField
+  label="Items in stock"
+  defaultValue={42}
+  isDisabled
+/>
+```
+
+### With Validation
+
+Use validation to ensure values meet your requirements.
+
+<ComponentPreview name="number-field-validation" description="A number field with validation." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { NumberField } from "@/components/ui/number-field"
+
+export default function Example() {
+  const [value, setValue] = useState(150)
+
+  return (
+    <NumberField
+      label="Age"
+      description="Enter your age (must be between 18 and 100)"
+      value={value}
+      onChange={setValue}
+      minValue={18}
+      maxValue={100}
+      isRequired
+      errorMessage={(validation) => {
+        if (validation.validationErrors.includes("rangeUnderflow")) {
+          return "You must be at least 18 years old"
+        }
+        if (validation.validationErrors.includes("rangeOverflow")) {
+          return "Age must be 100 or less"
+        }
+        if (validation.validationErrors.includes("valueMissing")) {
+          return "Age is required"
+        }
+        return "Invalid age"
+      }}
+    />
+  )
+}
+```
+
+### Percentage Format
+
+Format numbers as percentages with custom fraction digits.
+
+<ComponentPreview name="number-field-percentage" description="A number field formatted as percentage." />
+
+```tsx showLineNumbers
+<NumberField
+  label="Discount"
+  description="Enter the discount percentage"
+  defaultValue={15}
+  minValue={0}
+  maxValue={100}
+  formatOptions={{
+    style: "percent",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }}
+/>
+```
+
+### Custom Steppers with Button Group
+
+Use the `ButtonGroup` component to create custom steppers.
+
+<ComponentPreview name="number-field-custom-steppers" description="A number field with custom steppers." />
+
+## API Reference
+
+### NumberField
+
+The `NumberField` component extends the React Aria `NumberField` component with consistent styling and built-in label, description, and error message support.
+
+| Prop           | Type                                                    | Default | Description                                      |
+| -------------- | ------------------------------------------------------- | ------- | ------------------------------------------------ |
+| `label`        | `string`                                                | -       | Label text for the number field                  |
+| `description`  | `string`                                                | -       | Helper text displayed below the label            |
+| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | -       | Error message for validation failures            |
+| `defaultValue` | `number`                                                | -       | Default value (uncontrolled)                     |
+| `value`        | `number`                                                | -       | Current value (controlled)                       |
+| `onChange`     | `(value: number) => void`                               | -       | Callback when value changes                      |
+| `minValue`     | `number`                                                | -       | Minimum allowed value                            |
+| `maxValue`     | `number`                                                | -       | Maximum allowed value                            |
+| `step`         | `number`                                                | `1`     | Amount to increment/decrement                    |
+| `isDisabled`   | `boolean`                                               | `false` | Whether the number field is disabled             |
+| `isRequired`   | `boolean`                                               | `false` | Whether the number field is required             |
+| `isReadOnly`   | `boolean`                                               | `false` | Whether the number field is read-only            |
+| `formatOptions` | `Intl.NumberFormatOptions`                             | -       | Options for number formatting (currency, percent, etc.) |
+
+Apart from the props above, the `NumberField` component also supports all props from the `react-aria-components` `NumberField` component. See the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/NumberField.html#props) for more details.
+
+## Features
+
+- **Accessible** - Built on React Aria Components with full keyboard navigation and screen reader support
+- **Validation** - Built-in validation with custom error messages
+- **Formatting** - Support for currency, percentage, and custom number formats using `Intl.NumberFormat`
+- **Range Constraints** - Enforce minimum and maximum values
+- **Step Increment** - Customize increment/decrement step values
+- **Localization** - Automatic locale-aware number formatting
+
+## Related
+
+- [Input](/docs/components/input) - For text input
+- [Field](/docs/components/field) - For custom form field composition
+- [Input Group](/docs/components/input-group) - For adding additional context to inputs
+

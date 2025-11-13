@@ -1,0 +1,284 @@
+---
+title: Code Block
+description: Display code with syntax highlighting and copy functionality.
+component: true
+---
+
+<ComponentPreview name="code-block-demo" description="A code block with syntax highlighting and copy button." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add code-block
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install shiki @shikijs/transformers react-icons
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="code-block" title="ai-elements/code-block.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  CodeBlock,
+  CodeBlockBody,
+  CodeBlockContent,
+  CodeBlockCopyButton,
+  CodeBlockFilename,
+  CodeBlockHeader,
+  CodeBlockItem,
+} from "@/ai-elements/code-block"
+```
+
+```tsx showLineNumbers
+const codeData = [
+  {
+    language: "typescript",
+    filename: "example.ts",
+    code: `function greet(name: string) {
+  return \`Hello, \${name}!\`;
+}`,
+  },
+]
+
+<CodeBlock data={codeData} defaultValue="typescript">
+  <CodeBlockHeader>
+    <CodeBlockFilename value="typescript">
+      {codeData[0].filename}
+    </CodeBlockFilename>
+    <CodeBlockCopyButton />
+  </CodeBlockHeader>
+  <CodeBlockBody>
+    {(item) => (
+      <CodeBlockItem key={item.language} value={item.language}>
+        <CodeBlockContent language={item.language}>
+          {item.code}
+        </CodeBlockContent>
+      </CodeBlockItem>
+    )}
+  </CodeBlockBody>
+</CodeBlock>
+```
+
+## Features
+
+- Syntax highlighting powered by Shiki
+- Line numbers
+- Copy to clipboard functionality
+- Support for filenames with auto-detected icons
+- Highlighted lines and words
+- Focused lines
+- Diff annotations
+- Language detection
+- Theme support
+- Customizable styles
+
+## Examples
+
+### No Header
+
+<ComponentPreview name="code-block-no-header" description="A code block without a header." />
+
+```tsx showLineNumbers
+<CodeBlock data={codeData} defaultValue="jsx">
+  <CodeBlockBody>
+    {(item) => (
+      <CodeBlockItem key={item.language} value={item.language}>
+        <CodeBlockContent language={item.language}>
+          {item.code}
+        </CodeBlockContent>
+      </CodeBlockItem>
+    )}
+  </CodeBlockBody>
+</CodeBlock>
+```
+
+### Highlighted Lines
+
+<ComponentPreview name="code-block-highlight" description="Code block with highlighted lines using [!code highlight] notation." />
+
+Add `// [!code highlight]` at the end of lines you want to highlight.
+
+```tsx showLineNumbers
+const code = `function MyComponent(props) { // [!code highlight]
+  return (
+    <div>
+      <h1>Hello, {props.name}!</h1> // [!code highlight]
+      <p>This is an example React component.</p>
+    </div>
+  );
+}`
+```
+
+### Highlighted Words
+
+<ComponentPreview name="code-block-highlight-word" description="Code block with highlighted words using [!code word:text] notation." />
+
+Add `// [!code word:text]` to highlight specific words in your code.
+
+```tsx showLineNumbers
+const code = `function MyComponent(props) {
+  return (
+    <div>
+      // [!code word:props.name]
+      <h1>Hello, {props.name}!</h1>
+      <p>This is an example React component.</p>
+    </div>
+  );
+}`
+```
+
+### Diff
+
+<ComponentPreview name="code-block-diff" description="Code block showing diff with additions and deletions." />
+
+Use `// [!code --]` for deletions and `// [!code ++]` for additions.
+
+```tsx showLineNumbers
+const code = `function calculateTotal(items) {
+  let total = 0;
+  for (let i = 0; i < items.length; i++) {
+    total += items[i].price * items[i].quantity; // [!code --]
+    const itemTotal = items[i].price * items[i].quantity; // [!code ++]
+    total += itemTotal; // [!code ++]
+  }
+  return total;
+}`
+```
+
+### Focus
+
+<ComponentPreview name="code-block-focus" description="Code block with focused lines, blurring other lines." />
+
+Use `// [!code focus]` to focus on specific lines while blurring the rest.
+
+```tsx showLineNumbers
+const code = `function calculateDiscount(price, percentage) {
+  const discount = price * (percentage / 100); // [!code focus]
+  return price - discount;
+}
+
+// Example usage
+const finalPrice = calculateDiscount(100, 20);
+console.log(finalPrice); // 80`
+```
+
+### Hidden Line Numbers
+
+<ComponentPreview name="code-block-no-line-numbers" description="Code block without line numbers." />
+
+Set `lineNumbers={false}` on the `CodeBlockItem` component.
+
+```tsx showLineNumbers
+<CodeBlockItem key={item.language} value={item.language} lineNumbers={false}>
+  <CodeBlockContent language={item.language}>
+    {item.code}
+  </CodeBlockContent>
+</CodeBlockItem>
+```
+
+### No Syntax Highlighting
+
+<ComponentPreview name="code-block-no-syntax" description="Code block without syntax highlighting." />
+
+Set `syntaxHighlighting={false}` on the `CodeBlockContent` component.
+
+```tsx showLineNumbers
+<CodeBlockContent language={item.language} syntaxHighlighting={false}>
+  {item.code}
+</CodeBlockContent>
+```
+
+### Custom Theme
+
+<ComponentPreview name="code-block-custom-theme" description="Code block with custom Shiki themes." />
+
+Pass custom themes to the `CodeBlockContent` component using the `themes` prop.
+
+```tsx showLineNumbers
+<CodeBlockContent
+  language={item.language}
+  themes={{
+    light: "vitesse-light",
+    dark: "vitesse-dark",
+  }}
+>
+  {item.code}
+</CodeBlockContent>
+```
+
+### Multiple Files
+
+<ComponentPreview name="code-block-multiple-files" description="Code block with multiple files using a select dropdown." />
+
+Use `CodeBlockSelect` to switch between multiple files.
+
+```tsx showLineNumbers
+const codeData = [
+  {
+    language: "typescript",
+    filename: "Button.tsx",
+    code: `...`,
+  },
+  {
+    language: "typescript",
+    filename: "Input.tsx",
+    code: `...`,
+  },
+  {
+    language: "css",
+    filename: "styles.css",
+    code: `...`,
+  },
+]
+
+<CodeBlock data={codeData} defaultValue="typescript">
+  <CodeBlockHeader>
+    <CodeBlockSelect>
+      {(item) => (
+        <CodeBlockSelectItem key={item.language} id={item.language}>
+          {item.filename}
+        </CodeBlockSelectItem>
+      )}
+    </CodeBlockSelect>
+    <CodeBlockCopyButton />
+  </CodeBlockHeader>
+  <CodeBlockBody>
+    {(item) => (
+      <CodeBlockItem key={item.language} value={item.language}>
+        <CodeBlockContent language={item.language}>
+          {item.code}
+        </CodeBlockContent>
+      </CodeBlockItem>
+    )}
+  </CodeBlockBody>
+</CodeBlock>
+```

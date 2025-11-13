@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-button-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/toggle-button.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/toggle-button-demo.tsx",
+      "content": "import { BoldIcon } from \"lucide-react\"\n\nimport { ToggleButton } from \"@/registry/new-york/ui/toggle-button\"\n\nexport default function ToggleButtonDemo() {\n  return (\n    <ToggleButton variant=\"outline\" aria-label=\"Toggle bold\">\n      <BoldIcon />\n      Bold\n    </ToggleButton>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

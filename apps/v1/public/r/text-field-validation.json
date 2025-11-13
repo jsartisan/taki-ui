@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-field-validation",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/text-field.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/text-field-validation.tsx",
+      "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport { TextField } from \"@/registry/new-york/ui/text-field\"\n\nexport default function TextFieldValidation() {\n  const [value, setValue] = useState(\"\")\n\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <TextField\n        label=\"Username\"\n        description=\"Username must be at least 3 characters long\"\n        placeholder=\"Enter username\"\n        value={value}\n        onChange={setValue}\n        minLength={3}\n        maxLength={20}\n        isRequired\n        errorMessage={(validation) => {\n          if (validation.validationErrors.includes(\"tooShort\")) {\n            return \"Username must be at least 3 characters\"\n          }\n          if (validation.validationErrors.includes(\"tooLong\")) {\n            return \"Username must be 20 characters or less\"\n          }\n          if (validation.validationErrors.includes(\"valueMissing\")) {\n            return \"Username is required\"\n          }\n          return \"Invalid username\"\n        }}\n      />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

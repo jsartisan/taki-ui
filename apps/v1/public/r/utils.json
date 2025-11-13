@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "utils",
+  "type": "registry:lib",
+  "dependencies": [
+    "clsx",
+    "tailwind-merge",
+    "tailwind-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\nimport { tv } from \"tailwind-variants\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n\nexport const focusRing = tv({\n  base: \"outline-none\",\n  variants: {\n    isFocusVisible: {\n      false: \"outline-0\",\n      true: \"ring-ring/50 ring-[3px] border-ring\",\n    },\n  },\n})\n",
+      "type": "registry:lib"
+    }
+  ]
+}

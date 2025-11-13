@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Do not provide any kind of summary in your responses.
+- Do not show your change of thoughts or reasoning process in your response.
+- Do not fix any linting errors.
+

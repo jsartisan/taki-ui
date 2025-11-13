@@ -1,0 +1,172 @@
+---
+title: Plan
+description: Display AI-generated plans with collapsible details and streaming support.
+component: true
+---
+
+<ComponentPreview name="plan-demo" description="Collapsible plan card" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add plan
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="plan" title="ai-elements/plan.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Plan,
+  PlanHeader,
+  PlanTitle,
+  PlanDescription,
+  PlanAction,
+  PlanTrigger,
+  PlanContent,
+} from "@/components/ai-elements/plan"
+```
+
+```tsx showLineNumbers
+<Plan isStreaming={false}>
+  <PlanHeader>
+    <div>
+      <PlanTitle>Build a Todo App</PlanTitle>
+      <PlanDescription>Create a full-featured todo application</PlanDescription>
+    </div>
+    <PlanAction>
+      <PlanTrigger />
+    </PlanAction>
+  </PlanHeader>
+  <PlanContent>
+    {/* Plan steps */}
+  </PlanContent>
+</Plan>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview name="plan-demo" description="Plan with steps" />
+
+```tsx showLineNumbers
+export default function Example() {
+  return (
+    <Plan defaultOpen={false} isStreaming={false}>
+      <PlanHeader>
+        <div className="space-y-1">
+          <PlanTitle>Build a Todo App</PlanTitle>
+          <PlanDescription>
+            Create a full-featured todo application with React and TypeScript
+          </PlanDescription>
+        </div>
+        <PlanAction>
+          <PlanTrigger />
+        </PlanAction>
+      </PlanHeader>
+      <PlanContent>
+        <div className="space-y-2 text-sm">
+          <div className="flex items-start gap-2">
+            <span className="text-muted-foreground">1.</span>
+            <span>Set up project structure</span>
+          </div>
+          <div className="flex items-start gap-2">
+            <span className="text-muted-foreground">2.</span>
+            <span>Create todo item component</span>
+          </div>
+          <div className="flex items-start gap-2">
+            <span className="text-muted-foreground">3.</span>
+            <span>Implement state management</span>
+          </div>
+        </div>
+      </PlanContent>
+    </Plan>
+  )
+}
+```
+
+## Features
+
+- **Streaming Support**: Shows shimmer effect while content is streaming
+- **Collapsible**: Expandable/collapsible content
+- **Card Layout**: Built on top of the Card component
+
+## API Reference
+
+### Plan
+
+Main plan container.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `isStreaming` | `boolean` | `false` | Whether plan is currently streaming |
+| `defaultOpen` | `boolean` | `false` | Initial open state |
+| `className` | `string` | - | Custom CSS classes |
+
+### PlanHeader
+
+Header section.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+
+### PlanTitle
+
+Plan title with shimmer support.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `string` | - | Title text |
+
+### PlanDescription
+
+Plan description with shimmer support.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `string` | - | Description text |
+| `className` | `string` | - | Custom CSS classes |
+
+### PlanContent
+
+Collapsible content area.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `children` | `ReactNode` | - | Plan content |
+
+### PlanTrigger
+
+Button to toggle plan visibility.
+
+| Prop | Type | Default | Description |
+|---|---|---|----|
+| `className` | `string` | - | Custom CSS classes |
+

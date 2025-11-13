@@ -1,0 +1,13 @@
+{
+  "root": true,
+  "pages": [
+    "(root)",
+    "changelog",
+    "components",
+    "ai-elements",
+    "forms",
+    "installation",
+    "dark-mode",
+    "registry"
+  ]
+}

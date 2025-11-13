@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-field-demo",
+  "type": "registry:example",
+  "dependencies": [
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/date-field.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/date-field-demo.tsx",
+      "content": "import { DateField } from \"@/registry/new-york/ui/date-field\"\n\nexport default function DateFieldDemo() {\n  return (\n    <DateField label=\"Event date\" description=\"Select a date for your event.\" />\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

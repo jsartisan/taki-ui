@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "combobox-validation",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/combobox.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/combobox-validation.tsx",
+      "content": "\"use client\"\n\nimport { ComboBox, ComboBoxItem } from \"@/registry/new-york/ui/combobox\"\n\nconst priorities = [\n  { id: \"low\", name: \"Low\" },\n  { id: \"medium\", name: \"Medium\" },\n  { id: \"high\", name: \"High\" },\n  { id: \"urgent\", name: \"Urgent\" },\n]\n\nexport default function ComboboxValidation() {\n  return (\n    <ComboBox\n      label=\"Priority\"\n      placeholder=\"Select priority...\"\n      className=\"w-full max-w-xs\"\n      isRequired\n      errorMessage=\"Please select a priority level.\"\n    >\n      {priorities.map((priority) => (\n        <ComboBoxItem\n          key={priority.id}\n          id={priority.id}\n          textValue={priority.name}\n        >\n          {priority.name}\n        </ComboBoxItem>\n      ))}\n    </ComboBox>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

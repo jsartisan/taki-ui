@@ -1,0 +1,232 @@
+---
+title: Text Field
+description: A text input field that allows users to enter and edit text with optional validation.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/TextField.html
+  api: https://react-spectrum.adobe.com/react-aria/TextField.html#props
+---
+
+<ComponentPreview name="text-field-demo" description="A text field component." />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add text-field
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="text-field" title="components/ui/text-field.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { TextField } from "@/components/ui/text-field"
+```
+
+```tsx showLineNumbers
+<TextField
+  label="Name"
+  placeholder="Enter your name"
+  defaultValue="John Doe"
+/>
+```
+
+## Examples
+
+### Default
+
+A basic text field with a label and default value.
+
+<ComponentPreview name="text-field-demo" description="A text field component." />
+
+### With Description
+
+Add helpful context with a description below the label.
+
+<ComponentPreview name="text-field-with-description" description="A text field with a description." />
+
+```tsx showLineNumbers
+<TextField
+  label="Email"
+  description="We'll never share your email with anyone else."
+  placeholder="you@example.com"
+  type="email"
+/>
+```
+
+### Disabled
+
+Disable the text field to prevent user interaction.
+
+<ComponentPreview name="text-field-disabled" description="A disabled text field." />
+
+```tsx showLineNumbers
+<TextField
+  label="Username"
+  defaultValue="johndoe"
+  isDisabled
+/>
+```
+
+### Read Only
+
+Make the text field read-only to display data that cannot be edited.
+
+<ComponentPreview name="text-field-readonly" description="A read-only text field." />
+
+```tsx showLineNumbers
+<TextField
+  label="User ID"
+  defaultValue="12345"
+  isReadOnly
+  description="This field is read-only and cannot be edited."
+/>
+```
+
+### With Validation
+
+Use validation to ensure values meet your requirements.
+
+<ComponentPreview name="text-field-validation" description="A text field with validation." />
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+import { TextField } from "@/components/ui/text-field"
+
+export default function Example() {
+  const [value, setValue] = useState("")
+
+  return (
+    <TextField
+      label="Username"
+      description="Username must be at least 3 characters long"
+      placeholder="Enter username"
+      value={value}
+      onChange={setValue}
+      minLength={3}
+      maxLength={20}
+      isRequired
+      errorMessage={(validation) => {
+        if (validation.validationErrors.includes("tooShort")) {
+          return "Username must be at least 3 characters"
+        }
+        if (validation.validationErrors.includes("tooLong")) {
+          return "Username must be 20 characters or less"
+        }
+        if (validation.validationErrors.includes("valueMissing")) {
+          return "Username is required"
+        }
+        return "Invalid username"
+      }}
+    />
+  )
+}
+```
+
+### Different Input Types
+
+The TextField component supports various HTML input types for different use cases.
+
+<ComponentPreview name="text-field-types" description="Text fields with different input types." />
+
+```tsx showLineNumbers
+<TextField
+  label="Email"
+  type="email"
+  placeholder="you@example.com"
+/>
+
+<TextField
+  label="Password"
+  type="password"
+  placeholder="••••••••"
+/>
+
+<TextField
+  label="URL"
+  type="url"
+  placeholder="https://example.com"
+/>
+
+<TextField
+  label="Phone"
+  type="tel"
+  placeholder="+1 (555) 000-0000"
+/>
+```
+
+## API Reference
+
+### TextField
+
+The `TextField` component extends the React Aria `TextField` component with consistent styling and built-in label, description, and error message support.
+
+| Prop           | Type                                                    | Default | Description                                      |
+| -------------- | ------------------------------------------------------- | ------- | ------------------------------------------------ |
+| `label`        | `string`                                                | -       | Label text for the text field                    |
+| `description`  | `string`                                                | -       | Helper text displayed below the label            |
+| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | -       | Error message for validation failures            |
+| `placeholder`  | `string`                                                | -       | Placeholder text shown when empty                |
+| `defaultValue` | `string`                                                | -       | Default value (uncontrolled)                     |
+| `value`        | `string`                                                | -       | Current value (controlled)                       |
+| `onChange`     | `(value: string) => void`                               | -       | Callback when value changes                      |
+| `type`         | `string`                                                | `"text"`| HTML input type (text, email, password, etc.)    |
+| `minLength`    | `number`                                                | -       | Minimum length of input value                    |
+| `maxLength`    | `number`                                                | -       | Maximum length of input value                    |
+| `pattern`      | `string`                                                | -       | Regex pattern for validation                     |
+| `isDisabled`   | `boolean`                                               | `false` | Whether the text field is disabled               |
+| `isRequired`   | `boolean`                                               | `false` | Whether the text field is required               |
+| `isReadOnly`   | `boolean`                                               | `false` | Whether the text field is read-only              |
+| `autoComplete` | `string`                                                | -       | HTML autocomplete attribute                      |
+| `autoFocus`    | `boolean`                                               | `false` | Whether to auto-focus the input on mount         |
+
+Apart from the props above, the `TextField` component also supports all props from the `react-aria-components` `TextField` component. See the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/TextField.html#props) for more details.
+
+## Features
+
+- **Accessible** - Built on React Aria Components with full keyboard navigation and screen reader support
+- **Validation** - Built-in validation with custom error messages
+- **Input Types** - Support for various HTML input types (email, password, url, tel, etc.)
+- **Length Constraints** - Enforce minimum and maximum length
+- **Pattern Matching** - Validate input using regex patterns
+- **Flexible** - Works with controlled and uncontrolled patterns
+
+## Related
+
+- [Input](/docs/components/input) - For basic text input without field wrapper
+- [Field](/docs/components/field) - For custom form field composition
+- [Number Field](/docs/components/number-field) - For numeric input with steppers
+- [Search Field](/docs/components/search-field) - For search input with clear button
+

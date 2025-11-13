@@ -1,0 +1,151 @@
+---
+title: Menu
+description: A menu displays a list of actions or options that a user can choose.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/Menu.html
+  api: https://react-spectrum.adobe.com/react-aria/Menu.html#props
+---
+
+<ComponentPreview
+  name="menu-demo"
+  description="A menu with sections, keyboard shortcuts, and a submenu."
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add menu
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="menu" title="components/ui/menu.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import {
+  Menu,
+  MenuItem,
+  MenuSection,
+  MenuSeparator,
+  MenuTrigger,
+} from "@/components/ui/menu"
+```
+
+```tsx showLineNumbers
+<MenuTrigger>
+  <Button variant="outline">Open</Button>
+  <Menu>
+    <MenuItem onAction={() => console.log("New")}>New</MenuItem>
+    <MenuItem onAction={() => console.log("Open")}>Open</MenuItem>
+    <MenuSeparator />
+    <MenuItem onAction={() => console.log("Save")}>Save</MenuItem>
+  </Menu>
+</MenuTrigger>
+```
+
+## Examples
+
+### Submenu
+
+<ComponentPreview
+  name="menu-submenu"
+  description="A menu with nested submenus."
+/>
+
+Menus support nested submenus. Use the `SubmenuTrigger` component from `react-aria-components` to create a submenu.
+
+```tsx showLineNumbers
+import { SubmenuTrigger } from "react-aria-components"
+import { Menu, MenuItem, MenuTrigger } from "@/components/ui/menu"
+
+<MenuTrigger>
+  <Button variant="outline">Edit</Button>
+  <Menu>
+    <MenuItem>Cut</MenuItem>
+    <MenuItem>Copy</MenuItem>
+    <MenuItem>Paste</MenuItem>
+    <MenuSeparator />
+    <SubmenuTrigger>
+      <MenuItem>Share</MenuItem>
+      <Menu>
+        <MenuItem>Email</MenuItem>
+        <MenuItem>Copy Link</MenuItem>
+      </Menu>
+    </SubmenuTrigger>
+  </Menu>
+</MenuTrigger>
+```
+
+### With Command
+
+<ComponentPreview
+  name="menu-command"
+  description="A menu with searchable command lists in submenus."
+/>
+
+You can combine Menu with Command to create searchable submenus. This is useful when you have a large list of options that need to be filtered.
+
+```tsx showLineNumbers
+import { SubmenuTrigger } from "react-aria-components"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+import { Menu, MenuItem, MenuTrigger } from "@/components/ui/menu"
+
+<MenuTrigger>
+  <Button variant="outline">Assign Task</Button>
+  <Menu>
+    <MenuItem>Assign to me</MenuItem>
+    <SubmenuTrigger>
+      <MenuItem>Assign to team member</MenuItem>
+      <Menu className="w-72 p-0">
+        <Command>
+          <CommandInput placeholder="Search team members..." autoFocus />
+          <CommandList>
+            <CommandEmpty>No team member found</CommandEmpty>
+            <CommandGroup>
+              {/* Your command items here */}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </Menu>
+    </SubmenuTrigger>
+  </Menu>
+</MenuTrigger>
+```

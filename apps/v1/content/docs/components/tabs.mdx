@@ -1,0 +1,298 @@
+---
+title: Tabs
+description: Tabs organize content into multiple sections and allow users to navigate between them.
+component: true
+links:
+  doc: https://react-spectrum.adobe.com/react-aria/Tabs.html
+  api: https://react-spectrum.adobe.com/react-aria/Tabs.html#props
+---
+
+<ComponentPreview
+  name="tabs-demo"
+  description="A tabs component with two forms."
+/>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger id="cli">CLI</TabsTrigger>
+  <TabsTrigger id="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent id="cli">
+
+```bash
+npx taki-ui@latest add tabs
+```
+
+</TabsContent>
+
+<TabsContent id="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install react-aria-components tailwind-variants
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="tabs" title="components/ui/tabs.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx showLineNumbers
+import { Tabs, TabPanel, TabsList, TabsTrigger } from "@/components/ui/tabs"
+```
+
+```tsx showLineNumbers
+<Tabs defaultSelectedKey="account">
+  <TabsList aria-label="Account settings">
+    <TabsTrigger id="account">Account</TabsTrigger>
+    <TabsTrigger id="password">Password</TabsTrigger>
+  </TabsList>
+  <TabPanel id="account">
+    Make changes to your account here.
+  </TabPanel>
+  <TabPanel id="password">
+    Change your password here.
+  </TabPanel>
+</Tabs>
+```
+
+## Examples
+
+### Disabled
+
+<ComponentPreview
+  name="tabs-disabled"
+  description="Disable individual tabs to prevent user interaction."
+/>
+
+```tsx showLineNumbers
+<Tabs defaultSelectedKey="general">
+  <TabsList aria-label="Settings">
+    <TabsTrigger id="general">General</TabsTrigger>
+    <TabsTrigger id="billing" isDisabled>
+      Billing
+    </TabsTrigger>
+    <TabsTrigger id="team">Team</TabsTrigger>
+  </TabsList>
+  <TabPanel id="general">General settings</TabPanel>
+  <TabPanel id="billing">Billing information</TabPanel>
+  <TabPanel id="team">Team management</TabPanel>
+</Tabs>
+```
+
+### With Icons
+
+<ComponentPreview
+  name="tabs-icons"
+  description="Add icons to tabs for better visual hierarchy."
+/>
+
+```tsx showLineNumbers
+import { UserIcon, LockIcon, BellIcon } from "lucide-react"
+
+<Tabs defaultSelectedKey="account">
+  <TabsList aria-label="Settings">
+    <TabsTrigger id="account">
+      <UserIcon />
+      Account
+    </TabsTrigger>
+    <TabsTrigger id="security">
+      <LockIcon />
+      Security
+    </TabsTrigger>
+    <TabsTrigger id="notifications">
+      <BellIcon />
+      Notifications
+    </TabsTrigger>
+  </TabsList>
+  <TabPanel id="account">Account settings</TabPanel>
+  <TabPanel id="security">Security settings</TabPanel>
+  <TabPanel id="notifications">Notification preferences</TabPanel>
+</Tabs>
+```
+
+### Orientation
+
+<ComponentPreview
+  name="tabs-orientation"
+  description="Display tabs vertically instead of horizontally."
+/>
+
+```tsx showLineNumbers
+<Tabs defaultSelectedKey="profile" orientation="vertical">
+  <TabsList aria-label="User settings">
+    <TabsTrigger id="profile">Profile</TabsTrigger>
+    <TabsTrigger id="security">Security</TabsTrigger>
+    <TabsTrigger id="notifications">Notifications</TabsTrigger>
+  </TabsList>
+  <TabPanel id="profile">Profile information</TabPanel>
+  <TabPanel id="security">Security settings</TabPanel>
+  <TabPanel id="notifications">Notification settings</TabPanel>
+</Tabs>
+```
+
+### Controlled
+
+<ComponentPreview
+  name="tabs-controlled"
+  description="Control tab selection programmatically."
+/>
+
+```tsx showLineNumbers
+"use client"
+
+import { useState } from "react"
+
+export default function TabsControlled() {
+  const [selectedTab, setSelectedTab] = useState("overview")
+
+  return (
+    <Tabs
+      selectedKey={selectedTab}
+      onSelectionChange={(key) => setSelectedTab(key as string)}
+    >
+      <TabsList aria-label="Dashboard">
+        <TabsTrigger id="overview">Overview</TabsTrigger>
+        <TabsTrigger id="analytics">Analytics</TabsTrigger>
+        <TabsTrigger id="reports">Reports</TabsTrigger>
+      </TabsList>
+      <TabPanel id="overview">Overview content</TabPanel>
+      <TabPanel id="analytics">Analytics content</TabPanel>
+      <TabPanel id="reports">Reports content</TabPanel>
+    </Tabs>
+  )
+}
+```
+
+## Using Menu Components Inside Tabs
+
+When placing a `Menu` component as a sibling to `TabsList` (for example, in a toolbar), you need to use `createHideableComponent` to prevent React Aria's collection system from incorrectly treating the `MenuItem` components as part of the Tabs collection.
+
+### The Problem
+
+React Aria's Tabs component uses a collection system to manage its children (TabTriggers). When you place a Menu inside the Tabs tree, the collection system can incorrectly process MenuItems as if they were TabTriggers, causing errors like:
+
+```
+TypeError: Cannot read properties of null (reading 'isDisabled')
+```
+
+See the [related GitHub issue](https://github.com/adobe/react-spectrum/issues/9011) for more details.
+
+### The Solution
+
+Wrap your Menu component using `createHideableComponent` from `@react-aria/collections`:
+
+```tsx showLineNumbers
+"use client"
+
+import { useMemo } from "react"
+import { createHideableComponent } from "@react-aria/collections"
+import { MenuTrigger, Menu, MenuItem } from "@/components/ui/menu"
+import { Button } from "@/components/ui/button"
+import { Tabs, TabsList, TabsTrigger, TabPanel } from "@/components/ui/tabs"
+
+export function TabsWithMenu() {
+  // Create a hideable component to prevent Menu from being part of Tabs collection
+  const SafeMenu = useMemo(
+    () =>
+      createHideableComponent(function () {
+        return (
+          <MenuTrigger>
+            <Button variant="outline">Options</Button>
+            <Menu>
+              <MenuItem id="edit">Edit</MenuItem>
+              <MenuItem id="delete">Delete</MenuItem>
+            </Menu>
+          </MenuTrigger>
+        )
+      }),
+    []
+  )
+
+  return (
+    <Tabs defaultSelectedKey="account">
+      <div className="flex items-center justify-between">
+        <TabsList aria-label="Settings">
+          <TabsTrigger id="account">Account</TabsTrigger>
+          <TabsTrigger id="security">Security</TabsTrigger>
+        </TabsList>
+        <SafeMenu />
+      </div>
+      <TabPanel id="account">Account settings</TabPanel>
+      <TabPanel id="security">Security settings</TabPanel>
+    </Tabs>
+  )
+}
+```
+
+### Key Points
+
+- **Wrap a function**, not the component itself: `createHideableComponent(function () { ... })`
+- **Include dependencies** in `useMemo` if your Menu uses external state
+- This is only needed when Menu is a **sibling** to TabsList within the Tabs tree
+- The same pattern applies to other collection-based components like `Select`, `ComboBox`, etc.
+
+## API Reference
+
+### Tabs
+
+The root tabs component that manages the selection state.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultSelectedKey` | `Key` | - | The initial selected tab (uncontrolled) |
+| `selectedKey` | `Key` | - | The currently selected tab (controlled) |
+| `onSelectionChange` | `(key: Key) => void` | - | Handler called when tab selection changes |
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | The orientation of the tabs |
+| `isDisabled` | `boolean` | `false` | Whether all tabs are disabled |
+
+### TabsList
+
+Container for the tab triggers.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `aria-label` | `string` | - | Accessible label for the tab list |
+| `children` | `ReactNode` | - | The tab triggers to display |
+
+### TabsTrigger
+
+Individual tab trigger button.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `id` | `Key` | - | Unique identifier for the tab |
+| `isDisabled` | `boolean` | `false` | Whether the tab is disabled |
+| `children` | `ReactNode` | - | The content to display in the tab |
+
+### TabPanel
+
+The panel that displays the content for a selected tab.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `id` | `Key` | - | Must match the `id` of the corresponding trigger |
+| `children` | `ReactNode` | - | The content to display when tab is selected |
+
+## Accessibility
+
+- Uses the [ARIA tabs pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
+- Keyboard navigation with arrow keys
+- Tab key moves focus in and out of the tab list
+- Supports automatic and manual activation modes
+- Proper ARIA roles and attributes

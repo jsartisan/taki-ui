@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea-form",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://taki-ui.com/r/button.json",
+    "https://taki-ui.com/r/field.json",
+    "https://taki-ui.com/r/textarea.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/textarea-form.tsx",
+      "content": "\"use client\"\n\nimport { zodResolver } from \"@hookform/resolvers/zod\"\nimport { Controller, useForm } from \"react-hook-form\"\nimport { toast } from \"sonner\"\nimport { z } from \"zod\"\n\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport {\n  Field,\n  FieldDescription,\n  FieldError,\n  FieldLabel,\n} from \"@/registry/new-york/ui/field\"\nimport { Textarea } from \"@/registry/new-york/ui/textarea\"\n\nconst FormSchema = z.object({\n  bio: z\n    .string()\n    .min(10, {\n      message: \"Bio must be at least 10 characters.\",\n    })\n    .max(160, {\n      message: \"Bio must not be longer than 30 characters.\",\n    }),\n})\n\nexport default function TextareaForm() {\n  const form = useForm<z.infer<typeof FormSchema>>({\n    resolver: zodResolver(FormSchema),\n  })\n\n  function onSubmit(data: z.infer<typeof FormSchema>) {\n    toast(\"You submitted the following values\", {\n      description: (\n        <pre className=\"mt-2 w-[320px] rounded-md bg-neutral-950 p-4\">\n          <code className=\"text-white\">{JSON.stringify(data, null, 2)}</code>\n        </pre>\n      ),\n    })\n  }\n\n  return (\n    <form onSubmit={form.handleSubmit(onSubmit)} className=\"w-2/3 space-y-6\">\n      <Controller\n        control={form.control}\n        name=\"bio\"\n        render={({ field, fieldState }) => {\n          const textareaId = \"textarea-form-bio\"\n          const descriptionId = `${textareaId}-description`\n          const errorId = `${textareaId}-error`\n          return (\n            <Field data-invalid={fieldState.invalid} className=\"flex flex-col\">\n              <FieldLabel htmlFor={textareaId}>Bio</FieldLabel>\n              <Textarea\n                id={textareaId}\n                placeholder=\"Tell us a little bit about yourself\"\n                className=\"resize-none\"\n                aria-invalid={fieldState.invalid}\n                aria-describedby={\n                  fieldState.invalid\n                    ? `${descriptionId} ${errorId}`\n                    : descriptionId\n                }\n                {...field}\n              />\n              <FieldDescription id={descriptionId}>\n                You can <span>@mention</span> other users and organizations.\n              </FieldDescription>\n              {fieldState.invalid && (\n                <FieldError id={errorId} errors={[fieldState.error]} />\n              )}\n            </Field>\n          )\n        }}\n      />\n      <Button type=\"submit\">Submit</Button>\n    </form>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

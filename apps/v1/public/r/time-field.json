@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "time-field",
+  "type": "registry:ui",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/date-field.json",
+    "https://taki-ui.com/r/field.json",
+    "https://taki-ui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/ui/time-field.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\nimport {\n  TimeField as AriaTimeField,\n  TimeFieldProps as AriaTimeFieldProps,\n  composeRenderProps,\n  TimeValue,\n  ValidationResult,\n} from \"react-aria-components\"\n\nimport { cn } from \"../lib/utils\"\nimport { DateInput } from \"./date-field\"\nimport { FieldDescription, FieldError, FieldLabel } from \"./field\"\n\nexport interface TimeFieldProps<T extends TimeValue>\n  extends AriaTimeFieldProps<T> {\n  label?: string\n  description?: string\n  errorMessage?: string | ((validation: ValidationResult) => string)\n}\n\nexport function TimeField<T extends TimeValue>({\n  label,\n  description,\n  errorMessage,\n  ...props\n}: TimeFieldProps<T>) {\n  return (\n    <AriaTimeField\n      {...props}\n      className={composeRenderProps(props.className, (className) =>\n        cn(\"flex flex-col gap-1\", className)\n      )}\n    >\n      {label && <FieldLabel>{label}</FieldLabel>}\n      <DateInput />\n      {description && <FieldDescription>{description}</FieldDescription>}\n      <FieldError>{errorMessage}</FieldError>\n    </AriaTimeField>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

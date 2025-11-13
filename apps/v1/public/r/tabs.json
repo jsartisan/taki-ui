@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "type": "registry:ui",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/ui/tabs.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport {\n  composeRenderProps,\n  Tab as RACTab,\n  TabList as RACTabList,\n  TabPanel as RACTabPanel,\n  Tabs as RACTabs,\n  TabListProps,\n  TabPanelProps,\n  TabProps,\n  TabsProps,\n} from \"react-aria-components\"\nimport { tv } from \"tailwind-variants\"\n\nimport { focusRing } from \"../lib/utils\"\n\nconst tabsStyles = tv({\n  base: \"flex\",\n  variants: {\n    orientation: {\n      horizontal: \"flex-col\",\n      vertical: \"flex-row\",\n    },\n  },\n})\n\nfunction Tabs(props: TabsProps) {\n  return (\n    <RACTabs\n      data-slot=\"tabs\"\n      {...props}\n      className={composeRenderProps(props.className, (className, renderProps) =>\n        tabsStyles({ ...renderProps, className })\n      )}\n    />\n  )\n}\n\nconst tabListStyles = tv({\n  base: \"bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]\",\n  variants: {\n    orientation: {\n      horizontal: \"flex-row\",\n      vertical: \"flex-col items-start h-auto\",\n    },\n  },\n})\n\nfunction TabsList<T extends object>(props: TabListProps<T>) {\n  return (\n    <RACTabList\n      data-slot=\"tabs-list\"\n      {...props}\n      className={composeRenderProps(props.className, (className, renderProps) =>\n        tabListStyles({ ...renderProps, className })\n      )}\n    />\n  )\n}\n\nconst tabTriggerStyles = tv({\n  extend: focusRing,\n  base: [\n    \"text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] outline-none disabled:pointer-events-none disabled:opacity-50\",\n    \"[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",\n  ],\n  variants: {\n    isSelected: {\n      true: [\n        \"bg-background dark:text-foreground dark:border-input dark:bg-input/30\",\n      ],\n    },\n    isDisabled: {\n      true: \"opacity-50 pointer-events-none\",\n    },\n  },\n})\n\nfunction TabsTrigger(props: TabProps) {\n  return (\n    <RACTab\n      data-slot=\"tabs-trigger\"\n      {...props}\n      className={composeRenderProps(props.className, (className, renderProps) =>\n        tabTriggerStyles({ ...renderProps, className })\n      )}\n    />\n  )\n}\n\nconst tabPanelStyles = tv({\n  extend: focusRing,\n  base: \"flex-1 outline-none\",\n})\n\nfunction TabPanel(props: TabPanelProps) {\n  return (\n    <RACTabPanel\n      data-slot=\"tabs-content\"\n      {...props}\n      className={composeRenderProps(props.className, (className, renderProps) =>\n        tabPanelStyles({ ...renderProps, className })\n      )}\n    />\n  )\n}\n\n// Export both naming conventions for compatibility\nexport { Tabs, TabsList, TabsTrigger, TabPanel }\nexport { TabPanel as TabsContent }\n",
+      "type": "registry:ui"
+    }
+  ]
+}

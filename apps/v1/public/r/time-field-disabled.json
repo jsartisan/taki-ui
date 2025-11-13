@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "time-field-disabled",
+  "type": "registry:example",
+  "dependencies": [
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/time-field.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/time-field-disabled.tsx",
+      "content": "import { TimeField } from \"@/registry/new-york/ui/time-field\"\n\nexport default function TimeFieldDisabledDemo() {\n  return <TimeField label=\"Event time\" isDisabled />\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

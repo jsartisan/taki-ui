@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "time-field-granularity",
+  "type": "registry:example",
+  "dependencies": [
+    "@internationalized/date"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/time-field.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/examples/time-field-granularity.tsx",
+      "content": "import { TimeField } from \"@/registry/new-york/ui/time-field\"\n\nexport default function TimeFieldGranularityDemo() {\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <TimeField label=\"Hour and minute\" granularity=\"minute\" />\n      <TimeField label=\"Hour, minute, and second\" granularity=\"second\" />\n    </div>\n  )\n}\n",
+      "type": "registry:example"
+    }
+  ]
+}

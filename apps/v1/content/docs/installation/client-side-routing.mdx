@@ -1,0 +1,177 @@
+---
+title: Client-side routing
+description: Configure React Aria and React Spectrum components to navigate with client-side routers.
+---
+
+React Aria and React Spectrum components expose an `href` prop so they can render accessible links that respond to keyboard and pointer interactions. The default behavior triggers full page loads, but you can opt into client-side navigation by providing router helpers through `RouterProvider`. Once configured, every link-capable component beneath the provider reuses the shared navigation logic.
+
+> [React Aria’s client-side routing guide](https://react-spectrum.adobe.com/react-aria/routing.html#nextjs) includes additional context and frameworks; the Next.js examples are summarized below.
+
+## Next.js (App Router)
+
+```tsx title="app/provider.tsx"
+"use client"
+
+import { useRouter } from "next/navigation"
+import { RouterProvider } from "react-aria-components"
+
+declare module "react-aria-components" {
+  interface RouterConfig {
+    routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>["push"]>[1]>
+  }
+}
+
+export function ClientProviders({ children }: { children: React.ReactNode }) {
+  const router = useRouter()
+
+  return <RouterProvider navigate={router.push}>{children}</RouterProvider>
+}
+```
+
+```tsx title="app/layout.tsx"
+import { ClientProviders } from "./provider"
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <ClientProviders>{children}</ClientProviders>
+      </body>
+    </html>
+  )
+}
+```
+
+```js title="next.config.js"
+const basePath = "..."
+
+/** @type {import("next").NextConfig} */
+const nextConfig = {
+  basePath,
+  env: {
+    BASE_PATH: basePath,
+  },
+}
+
+export default nextConfig
+```
+
+```tsx title="app/provider.tsx"
+"use client"
+
+import { useRouter } from "next/navigation"
+import { RouterProvider } from "react-aria-components"
+
+declare module "react-aria-components" {
+  interface RouterConfig {
+    routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>["push"]>[1]>
+  }
+}
+
+export function ClientProviders({ children }: { children: React.ReactNode }) {
+  const router = useRouter()
+  const useHref = (href: string) => `${process.env.BASE_PATH}${href}`
+
+  return (
+    <RouterProvider navigate={router.push} useHref={useHref}>
+      {children}
+    </RouterProvider>
+  )
+}
+```
+
+## Next.js (Pages Router)
+
+```tsx title="pages/_app.tsx"
+import type { AppProps } from "next/app"
+import { type NextRouter, useRouter } from "next/router"
+import { RouterProvider } from "react-aria-components"
+
+declare module "react-aria-components" {
+  interface RouterConfig {
+    routerOptions: NonNullable<Parameters<NextRouter["push"]>[2]>
+  }
+}
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+
+  return (
+    <RouterProvider navigate={(href, opts) => router.push(href, undefined, opts)}>
+      <Component {...pageProps} />
+    </RouterProvider>
+  )
+}
+```
+
+```tsx title="pages/_app.tsx"
+import type { AppProps } from "next/app"
+import { type NextRouter, useRouter } from "next/router"
+import { RouterProvider } from "react-aria-components"
+
+declare module "react-aria-components" {
+  interface RouterConfig {
+    routerOptions: NonNullable<Parameters<NextRouter["push"]>[2]>
+  }
+}
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
+
+  return (
+    <RouterProvider
+      navigate={(href, opts) => router.push(href, undefined, opts)}
+      useHref={(href: string) => router.basePath + href}
+    >
+      <Component {...pageProps} />
+    </RouterProvider>
+  )
+}
+```
+---
+title: Client-side routing
+description: Configure React Aria and React Spectrum components to navigate with client-side routers.
+---
+
+React Aria and React Spectrum components expose an `href` prop so they can render accessible links that respond to keyboard and pointer interactions. By default those links trigger full page loads, but you can opt into client-side navigation by supplying router primitives through `RouterProvider`. The router configuration only needs to wrap your app once; every link-rendering component beneath it will reuse the shared navigate logic. [React Aria’s client-side routing guide](https://react-spectrum.adobe.com/react-aria/routing.html#nextjs) walks through framework-specific setups—mirrored below for convenience.
+
+## RouterProvider basics
+
+`RouterProvider` accepts two functions:
+
+- `navigate(href, options?)` is called when a component needs to push a new location.
+- `useHref(href)` is optional and lets you adapt router-specific URLs (for example, prepend a base path).
+
+```tsx title="router-provider.tsx"
+import { RouterProvider } from "react-aria-components"
+import { useNavigate, useHref } from "your-router"
+
+export function AppRouterProvider({ children }: { children: React.ReactNode }) {
+  const navigate = useNavigate()
+
+  return (
+    <RouterProvider navigate={navigate} useHref={useHref}>
+      {children}
+    </RouterProvider>
+  )
+}
+```
+
+TypeScript users can extend the `RouterConfig` interface to surface typed `routerOptions` across the component library:
+
+```tsx title="router-config.d.ts"
+import type { RouterOptions } from "your-router"
+
+declare module "react-aria-components" {
+  interface RouterConfig {
+    routerOptions: RouterOptions
+  }
+}
+```
+
+## Next.js (App Router)
+
+The `useRouter` hook from `next/navigation` returns the `push` function required by `RouterProvider`. Create a client component so you can call `useRouter` and wrap the rest of your app.
+
+```tsx title="app/provider.tsx"
+

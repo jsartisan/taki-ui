@@ -1,0 +1,144 @@
+---
+title: Introduction
+description: A fork of shadcn/ui rebuilt with React Aria Components. Beautifully designed, accessible components that you can copy and paste into your apps.
+---
+
+Beautifully designed components built with React Aria Components and Tailwind CSS.
+
+**Taki UI is a fork of [shadcn/ui](https://ui.shadcn.com/)** rebuilt with React Aria Components instead of Radix UI.
+
+**This is NOT a component library.** It's a collection of re-usable components that you can copy and paste into your apps.
+
+**What do you mean by not a component library?**
+
+I mean you do not install it as a dependency. It is not available or distributed via npm.
+
+Pick the components you need. Copy and paste the code into your project and customize to your needs. The code is yours.
+
+_Use this as a reference to build your own component libraries._
+
+## shadcn/ui
+
+[shadcn/ui](https://ui.shadcn.com/) offers beautifully designed components that you can copy and paste into your apps. Most components use Radix UI for their functionality.
+
+**Taki UI is a direct fork of the shadcn/ui codebase.** It maintains the same design system, styling approach, and CLI tooling, but replaces Radix UI components with React Aria Components as the underlying primitive library.
+
+This means you get:
+
+- The same beautiful design language and styling
+- The same familiar CLI commands and workflow  
+- The same component registry and distribution system
+- But with React Aria Components' superior accessibility and mobile support
+
+## React Aria Components
+
+React Aria Components is a library of unstyled React components built by Adobe. It provides production-ready components with built-in accessibility, internationalization, and interactions.
+
+**Key benefits:**
+
+- **Accessibility by Default:** WCAG compliant with full keyboard navigation and screen reader support
+- **Mobile Support:** Unlike many libraries, includes proper mobile screen reader support
+- **Unstyled:** No CSS to override or fight against
+- **Flexible:** Full control over markup and styling
+- **Type-Safe:** Comprehensive TypeScript support
+
+### Compared to Radix UI
+
+The biggest difference between React Aria and Radix UI is **mobile screen reader support**. React Aria provides comprehensive support for mobile screen readers, while Radix UI focuses primarily on desktop accessibility as defined in the ARIA Practices Guide.
+
+Additionally, React Aria offers:
+
+- Built-in internationalization (i18n) support
+- Adaptive interactions (automatically handles touch vs mouse vs keyboard)
+- Advanced features like virtualization for large lists
+- Built and maintained by Adobe, powering their Spectrum design system
+
+## FAQ
+
+<DisclosureGroup>
+  <Disclosure id="faq-1">
+    <DisclosureHeader>
+      Why copy/paste and not packaged as a dependency?
+    </DisclosureHeader>
+    <DisclosurePanel>
+      <p>
+        The idea behind this is to give you ownership and control of the code, allowing you to decide how the components are built and styled. 
+      </p>
+      <p className="mt-4">
+        Start with some sensible defaults, then customize the components to your needs.
+      </p>
+      <p className="mt-4">
+        One of the drawback of packaging the components in an npm package is that the style is coupled with the implementation. The design of your components should be separate from their implementation.
+      </p>
+    </DisclosurePanel>
+  </Disclosure>
+  <Disclosure id="faq-2">
+    <DisclosureHeader>
+      Do I need to use shadcn/ui with Taki UI?
+    </DisclosureHeader>
+    <DisclosurePanel>
+      <p>
+        No. Taki UI is a standalone collection of components. However, it shares the same design tokens and styling approach as shadcn/ui, so they work great together.
+      </p>
+      <p className="mt-4">
+        You can use Taki UI components alongside your existing shadcn/ui components, or use Taki UI entirely on its own.
+      </p>
+    </DisclosurePanel>
+  </Disclosure>
+  <Disclosure id="faq-3">
+    <DisclosureHeader>
+      How do I get updates?
+    </DisclosureHeader>
+    <DisclosurePanel>
+      <p>
+        Since the code lives in your project, you control when and how to update. You can re-run the CLI command to get the latest version of a component, or manually update the code yourself.
+      </p>
+      <p className="mt-4">
+        Core functionality updates come from updating the react-aria-components package in your package.json.
+      </p>
+    </DisclosurePanel>
+  </Disclosure>
+</DisclosureGroup>
+
+## Installation
+
+Get started by running the `init` command to set up your project:
+
+```bash
+npx shadcn@latest init
+```
+
+This will configure your project with the necessary dependencies and settings.
+
+Then you can start adding components:
+
+```bash
+npx taki-ui@latest add button
+```
+
+The component will be added to your project and you can start using it:
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export default function App() {
+  return <Button>Click me</Button>
+}
+```
+
+You can now edit the component code in your project at `components/ui/button.tsx` and customize it to your needs.
+
+## Credit
+
+- **[shadcn](https://twitter.com/shadcn)** - Taki UI is a fork of shadcn/ui. All design, styling, and architecture credit goes to the original project
+- **React Aria Components** - For the accessible component primitives that power Taki UI
+- **Adobe** - For building and maintaining React Aria Components
+- **[JollyUI](https://www.jollyui.dev/)** - For demonstrating the viability of React Aria + shadcn/ui integration
+
+## Alternatives
+
+Looking for other React Aria solutions? Check these out:
+
+- **[JollyUI](https://www.jollyui.dev/)** - Another excellent collection of React Aria components with shadcn/ui styling
+- **[React Aria Components Official Starter Kits](https://react-spectrum.adobe.com/react-aria/getting-started.html)** - Official starter kits with various styling solutions
+- **[shadcn/ui](https://ui.shadcn.com/)** - The original, built with Radix UI
