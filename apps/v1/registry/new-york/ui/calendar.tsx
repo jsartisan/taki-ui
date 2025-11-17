@@ -17,7 +17,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { cn, focusRing } from "@/registry/new-york/lib/utils"
+import { cn, focusRing } from "@/lib/utils"
 import { Button } from "@/registry/new-york/ui/button"
 
 export const cellStyles = tv({

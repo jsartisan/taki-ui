@@ -9,8 +9,8 @@ import {
 } from "react-aria-components"
 import { tv, type VariantProps } from "tailwind-variants"
 
+import { cn } from "@/lib/utils"
 import { useIsMobile } from "@/registry/new-york/hooks/use-mobile"
-import { cn } from "@/registry/new-york/lib/utils"
 import { Button } from "@/registry/new-york/ui/button"
 import { Input } from "@/registry/new-york/ui/input"
 import { Separator } from "@/registry/new-york/ui/separator"

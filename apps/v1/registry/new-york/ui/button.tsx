@@ -8,7 +8,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
-import { focusRing } from "@/registry/new-york/lib/utils"
+import { focusRing } from "@/lib/utils"
 
 export interface ButtonProps extends RACButtonProps {
   /** @default 'default' */
