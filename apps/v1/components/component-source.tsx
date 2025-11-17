@@ -45,7 +45,7 @@ export async function ComponentSource({
 
   // Fix imports.
   // Replace @/registry/v1/ with @/components/.
-  // code = code.replaceAll("@/registry/new-york/", "@/components/")
+  code = code.replaceAll("@/registry/new-york/", "@/components/")
 
   // Replace export default with export.
   code = code.replaceAll("export default", "export")

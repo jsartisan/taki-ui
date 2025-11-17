@@ -5,7 +5,7 @@ import { LinePattern } from "./line-pattern"
 export function SiteFooter() {
   return (
     <>
-      <LinePattern className="h-5 border-t">
+      <LinePattern className="h-6 border-t">
         <div className="container-wrapper h-full"></div>
       </LinePattern>
       <footer className="group-has-[.section-soft]/body:bg-surface/40 3xl:fixed:bg-transparent border-t group-has-[.docs-nav]/body:pb-20 group-has-[.docs-nav]/body:sm:pb-0 dark:bg-transparent">

@@ -1,6 +1,6 @@
 import { tv, type VariantProps } from "tailwind-variants"
 
-import { cn } from "@/registry/new-york/lib/utils"
+import { cn } from "@/lib/utils"
 import { Label } from "@/registry/new-york/ui/label"
 import { Separator } from "@/registry/new-york/ui/separator"
 

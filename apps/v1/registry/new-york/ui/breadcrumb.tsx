@@ -10,7 +10,7 @@ import {
   LinkProps,
 } from "react-aria-components"
 
-import { cn } from "@/registry/new-york/lib/utils"
+import { cn } from "@/lib/utils"
 
 function Breadcrumbs<T extends object>({
   className,
