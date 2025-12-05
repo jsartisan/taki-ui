@@ -1,3 +1,5 @@
+"use client"
+
 import { Text as RACText, TextProps } from "react-aria-components"
 
 import { cn } from "../lib/utils"
