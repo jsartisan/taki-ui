@@ -224,6 +224,18 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "description",
+    type: "registry:ui",
+    dependencies: ["react-aria-components"],
+    registryDependencies: ["utils"],
+    files: [
+      {
+        path: "ui/description.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "dialog",
     type: "registry:ui",
     dependencies: ["react-aria-components"],

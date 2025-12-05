@@ -273,6 +273,18 @@
       ]
     },
     {
+      "name": "description",
+      "type": "registry:ui",
+      "dependencies": ["react-aria-components"],
+      "registryDependencies": ["https://taki-ui.com/r/utils.json"],
+      "files": [
+        {
+          "path": "registry/new-york/ui/description.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "dialog",
       "type": "registry:ui",
       "dependencies": ["react-aria-components"],

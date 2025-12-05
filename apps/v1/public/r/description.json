@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "description",
+  "type": "registry:ui",
+  "dependencies": [
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/ui/description.tsx",
+      "content": "import { Text as RACText, TextProps } from \"react-aria-components\"\n\nimport { cn } from \"../lib/utils\"\n\nexport function Description(props: TextProps) {\n  return (\n    <RACText\n      {...props}\n      slot=\"description\"\n      className={cn(\"text-sm text-gray-600\", props.className)}\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}
