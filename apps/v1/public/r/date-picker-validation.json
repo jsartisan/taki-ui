@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "date-picker-validation",
-  "type": "registry:example",
   "dependencies": [
     "@internationalized/date"
   ],
@@ -14,5 +13,6 @@
       "content": "\"use client\"\n\nimport { DatePicker } from \"@/registry/new-york/ui/date-picker\"\n\nexport default function DatePickerValidation() {\n  return (\n    <DatePicker\n      label=\"Appointment date\"\n      description=\"Please select a date for your appointment.\"\n      isRequired\n      errorMessage=\"Please select a valid date.\"\n    />\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

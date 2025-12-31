@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "text-field-types",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/text-field.json"
   ],
@@ -11,5 +10,6 @@
       "content": "import { TextField } from \"@/registry/new-york/ui/text-field\"\n\nexport default function TextFieldTypes() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <TextField label=\"Email\" type=\"email\" placeholder=\"you@example.com\" />\n      <TextField label=\"Password\" type=\"password\" placeholder=\"••••••••\" />\n      <TextField label=\"URL\" type=\"url\" placeholder=\"https://example.com\" />\n      <TextField label=\"Phone\" type=\"tel\" placeholder=\"+1 (555) 000-0000\" />\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

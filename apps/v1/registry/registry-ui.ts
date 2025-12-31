@@ -405,6 +405,18 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "link-button",
+    type: "registry:ui",
+    dependencies: ["react-aria-components", "tailwind-variants"],
+    registryDependencies: ["button", "utils"],
+    files: [
+      {
+        path: "ui/link-button.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "list-box",
     type: "registry:ui",
     dependencies: [
@@ -416,6 +428,18 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/list-box.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "menu",
+    type: "registry:ui",
+    dependencies: ["lucide-react", "react-aria-components"],
+    registryDependencies: ["list-box", "popover", "utils"],
+    files: [
+      {
+        path: "ui/menu.tsx",
         type: "registry:ui",
       },
     ],

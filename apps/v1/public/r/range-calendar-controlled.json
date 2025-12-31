@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "range-calendar-controlled",
-  "type": "registry:example",
   "dependencies": [
     "@internationalized/date"
   ],
@@ -14,5 +13,6 @@
       "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { parseDate } from \"@internationalized/date\"\n\nimport { RangeCalendar } from \"@/registry/new-york/ui/range-calendar\"\n\nexport default function RangeCalendarControlled() {\n  const [value, setValue] = useState({\n    start: parseDate(\"2024-12-15\"),\n    end: parseDate(\"2024-12-22\"),\n  })\n\n  return (\n    <div className=\"space-y-4\">\n      <RangeCalendar\n        aria-label=\"Select a date range\"\n        value={value}\n        onChange={setValue}\n      />\n      <p className=\"text-muted-foreground text-sm\">\n        Selected range: {value.start.toString()} to {value.end.toString()}\n      </p>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

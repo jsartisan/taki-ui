@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "context-demo",
-  "type": "registry:example",
   "dependencies": [
     "ai",
     "tokenlens"
@@ -18,5 +17,6 @@
       "content": "\"use client\"\n\nimport {\n  Context,\n  ContextContent,\n  ContextContentHeader,\n  ContextTrigger,\n} from \"@/registry/new-york/ai-elements/context\"\n\nexport default function ContextDemo() {\n  const usage = {\n    promptTokens: 2500,\n    completionTokens: 1000,\n    totalTokens: 3500,\n  }\n\n  return (\n    <div className=\"flex items-center justify-center\">\n      <Context\n        maxTokens={128000}\n        modelId=\"gpt-4o-mini\"\n        usage={usage}\n        usedTokens={usage.totalTokens}\n      >\n        <ContextTrigger />\n        <ContextContent>\n          <ContextContentHeader />\n        </ContextContent>\n      </Context>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

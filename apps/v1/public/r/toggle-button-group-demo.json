@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "toggle-button-group-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/toggle-button-group.json"
   ],
@@ -11,5 +10,6 @@
       "content": "import { BoldIcon, ItalicIcon, UnderlineIcon } from \"lucide-react\"\n\nimport {\n  ToggleButtonGroup,\n  ToggleButtonGroupItem,\n} from \"@/registry/new-york/ui/toggle-button-group\"\n\nexport default function ToggleButtonGroupDemo() {\n  return (\n    <ToggleButtonGroup variant=\"outline\" aria-label=\"Text formatting\">\n      <ToggleButtonGroupItem aria-label=\"Toggle bold\">\n        <BoldIcon />\n      </ToggleButtonGroupItem>\n      <ToggleButtonGroupItem aria-label=\"Toggle italic\">\n        <ItalicIcon />\n      </ToggleButtonGroupItem>\n      <ToggleButtonGroupItem aria-label=\"Toggle underline\">\n        <UnderlineIcon />\n      </ToggleButtonGroupItem>\n    </ToggleButtonGroup>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

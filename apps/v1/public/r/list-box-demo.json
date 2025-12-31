@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "list-box-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/list-box.json"
   ],
@@ -11,5 +10,6 @@
       "content": "import { ListBox, ListBoxItem } from \"@/registry/new-york/ui/list-box\"\n\nexport default function ListBoxDemo() {\n  return (\n    <ListBox\n      aria-label=\"Favorite animal\"\n      selectionMode=\"single\"\n      className=\"w-64\"\n    >\n      <ListBoxItem>Aardvark</ListBoxItem>\n      <ListBoxItem>Cat</ListBoxItem>\n      <ListBoxItem>Dog</ListBoxItem>\n      <ListBoxItem>Kangaroo</ListBoxItem>\n      <ListBoxItem>Panda</ListBoxItem>\n      <ListBoxItem>Snake</ListBoxItem>\n    </ListBox>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

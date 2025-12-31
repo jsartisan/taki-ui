@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "time-field-description",
-  "type": "registry:example",
   "dependencies": [
     "@internationalized/date"
   ],
@@ -14,5 +13,6 @@
       "content": "import { TimeField } from \"@/registry/new-york/ui/time-field\"\n\nexport default function TimeFieldDescriptionDemo() {\n  return (\n    <TimeField\n      label=\"Meeting time\"\n      description=\"Enter the time for your meeting.\"\n    />\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

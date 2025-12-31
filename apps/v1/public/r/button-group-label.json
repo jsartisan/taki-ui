@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-group-label",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/button-group.json",
     "https://taki-ui.com/r/button.json",
@@ -13,5 +12,6 @@
       "content": "import {\n  ButtonGroup,\n  ButtonGroupLabel,\n} from \"@/registry/new-york/ui/button-group\"\nimport { Input } from \"@/registry/new-york/ui/input\"\n\nexport default function ButtonGroupLabelDemo() {\n  return (\n    <ButtonGroup>\n      <ButtonGroupLabel htmlFor=\"top-button\">Label</ButtonGroupLabel>\n      <Input id=\"top-button\" placeholder=\"Type something here...\" />\n    </ButtonGroup>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

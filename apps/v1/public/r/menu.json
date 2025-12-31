@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "menu",
+  "dependencies": [
+    "lucide-react",
+    "react-aria-components"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/list-box.json",
+    "https://taki-ui.com/r/popover.json",
+    "https://taki-ui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/ui/menu.tsx",
+      "content": "\"use client\"\n\nimport React from \"react\"\nimport { Check, ChevronRight } from \"lucide-react\"\nimport {\n  Menu as AriaMenu,\n  MenuItem as AriaMenuItem,\n  MenuProps as AriaMenuProps,\n  MenuSection as AriaMenuSection,\n  MenuSectionProps as AriaMenuSectionProps,\n  MenuTrigger as AriaMenuTrigger,\n  Collection,\n  composeRenderProps,\n  Header,\n  MenuItemProps,\n  Separator,\n  SeparatorProps,\n} from \"react-aria-components\"\n\nimport { cn } from \"../lib/utils\"\nimport { dropdownItemStyles } from \"./list-box\"\nimport { Popover, PopoverProps } from \"./popover\"\n\ninterface MenuProps<T> extends AriaMenuProps<T> {\n  placement?: PopoverProps[\"placement\"]\n}\n\nexport function MenuTrigger(\n  props: React.ComponentProps<typeof AriaMenuTrigger>\n) {\n  return <AriaMenuTrigger {...props} data-slot=\"menu-trigger\" />\n}\n\nexport function Menu<T extends object>(props: MenuProps<T>) {\n  return (\n    <Popover\n      placement={props.placement}\n      className={cn(\"w-56\", props.className)}\n    >\n      <AriaMenu\n        {...props}\n        className=\"max-h-[inherit] overflow-auto rounded-[inherit] p-1 outline-0\"\n      />\n    </Popover>\n  )\n}\n\nexport function MenuItem(props: MenuItemProps) {\n  const textValue =\n    props.textValue ||\n    (typeof props.children === \"string\" ? props.children : undefined)\n  return (\n    <AriaMenuItem\n      textValue={textValue}\n      {...props}\n      className={composeRenderProps(props.className, (className, renderProps) =>\n        dropdownItemStyles({ ...renderProps, className })\n      )}\n    >\n      {composeRenderProps(\n        props.children,\n        (children, { selectionMode, isSelected, hasSubmenu }) => (\n          <>\n            <span className=\"group-selected:font-semibold flex flex-1 items-center gap-2 truncate font-normal\">\n              {children}\n            </span>\n            {selectionMode !== \"none\" && isSelected && (\n              <Check aria-hidden className=\"h-4 w-4\" />\n            )}\n            {hasSubmenu && (\n              <ChevronRight aria-hidden className=\"absolute right-2 h-4 w-4\" />\n            )}\n          </>\n        )\n      )}\n    </AriaMenuItem>\n  )\n}\n\nexport function MenuSeparator(props: SeparatorProps) {\n  return <Separator {...props} className=\"bg-border -mx-1 my-1 h-px\" />\n}\n\nexport interface MenuSectionProps<T> extends AriaMenuSectionProps<T> {\n  title?: string\n  items?: Iterable<T>\n}\n\nexport function MenuSection<T extends object>(props: MenuSectionProps<T>) {\n  return (\n    <AriaMenuSection {...props}>\n      {props.title && (\n        <Header className=\"sticky -top-[5px] z-10 -mx-1 -mt-px truncate px-4 py-1 text-sm font-medium backdrop-blur-md [&+*]:mt-1\">\n          {props.title}\n        </Header>\n      )}\n      <Collection items={props.items}>{props.children}</Collection>\n    </AriaMenuSection>\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

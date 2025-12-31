@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-form-single",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/button.json",
     "https://taki-ui.com/r/checkbox.json",
@@ -13,5 +12,6 @@
       "content": "\"use client\"\n\nimport Link from \"next/link\"\nimport { zodResolver } from \"@hookform/resolvers/zod\"\nimport { Controller, useForm } from \"react-hook-form\"\nimport { toast } from \"sonner\"\nimport { z } from \"zod\"\n\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { Checkbox } from \"@/registry/new-york/ui/checkbox\"\nimport {\n  Field,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/new-york/ui/field\"\n\nconst FormSchema = z.object({\n  mobile: z.boolean().default(false).optional(),\n})\n\nexport default function CheckboxReactHookFormSingle() {\n  const form = useForm<z.infer<typeof FormSchema>>({\n    resolver: zodResolver(FormSchema),\n    defaultValues: {\n      mobile: true,\n    },\n  })\n\n  function onSubmit(data: z.infer<typeof FormSchema>) {\n    toast(\"You submitted the following values\", {\n      description: (\n        <pre className=\"mt-2 w-[320px] rounded-md bg-neutral-950 p-4\">\n          <code className=\"text-white\">{JSON.stringify(data, null, 2)}</code>\n        </pre>\n      ),\n    })\n  }\n\n  return (\n    <form\n      onSubmit={form.handleSubmit(onSubmit)}\n      className=\"flex flex-col items-start gap-4\"\n    >\n      <Controller\n        control={form.control}\n        name=\"mobile\"\n        render={({ field }) => {\n          const checkboxId = \"checkbox-form-single-mobile\"\n          return (\n            <Field\n              orientation=\"horizontal\"\n              className=\"items-start gap-2 rounded-md border p-4 shadow-sm\"\n            >\n              <Checkbox\n                id={checkboxId}\n                checked={field.value}\n                onCheckedChange={(checked) => field.onChange(checked === true)}\n              />\n              <div className=\"space-y-1 leading-none\">\n                <FieldLabel htmlFor={checkboxId}>\n                  Use different settings for my mobile devices\n                </FieldLabel>\n                <FieldDescription>\n                  You can manage your mobile notifications in the{\" \"}\n                  <Link href=\"/examples/forms\">mobile settings</Link> page.\n                </FieldDescription>\n              </div>\n            </Field>\n          )\n        }}\n      />\n      <Button type=\"submit\">Submit</Button>\n    </form>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

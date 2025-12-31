@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "time-field-validation",
-  "type": "registry:example",
   "dependencies": [
     "@internationalized/date"
   ],
@@ -15,5 +14,6 @@
       "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport { Time } from \"@internationalized/date\"\n\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { TimeField } from \"@/registry/new-york/ui/time-field\"\n\nexport default function TimeFieldValidationDemo() {\n  const [time, setTime] = useState<Time | null>(null)\n\n  return (\n    <form\n      className=\"flex flex-col gap-4\"\n      onSubmit={(e) => {\n        e.preventDefault()\n        alert(`Time submitted: ${time?.toString()}`)\n      }}\n    >\n      <TimeField\n        label=\"Meeting time\"\n        description=\"Select a time between 9 AM and 5 PM.\"\n        isRequired\n        value={time}\n        onChange={setTime}\n        minValue={new Time(9)}\n        maxValue={new Time(17)}\n        errorMessage=\"Please select a time between 9 AM and 5 PM.\"\n      />\n      <Button type=\"submit\" className=\"w-fit\">\n        Submit\n      </Button>\n    </form>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

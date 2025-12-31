@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "number-field-with-description",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/number-field.json"
   ],
@@ -11,5 +10,6 @@
       "content": "import { NumberField } from \"@/registry/new-york/ui/number-field\"\n\nexport default function NumberFieldWithDescription() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <NumberField\n        label=\"Price\"\n        description=\"Enter the product price in dollars.\"\n        defaultValue={29.99}\n        minValue={0}\n        formatOptions={{\n          style: \"currency\",\n          currency: \"USD\",\n        }}\n      />\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

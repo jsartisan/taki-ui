@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "date-picker-disabled",
-  "type": "registry:example",
   "dependencies": [
     "@internationalized/date"
   ],
@@ -14,5 +13,6 @@
       "content": "import { DatePicker } from \"@/registry/new-york/ui/date-picker\"\n\nexport default function DatePickerDisabled() {\n  return (\n    <DatePicker\n      label=\"Event date\"\n      description=\"This field is disabled.\"\n      isDisabled\n    />\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

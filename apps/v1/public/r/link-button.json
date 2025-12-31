@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "link-button",
+  "dependencies": [
+    "react-aria-components",
+    "tailwind-variants"
+  ],
+  "registryDependencies": [
+    "https://taki-ui.com/r/button.json",
+    "https://taki-ui.com/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/ui/link-button.tsx",
+      "content": "\"use client\"\n\nimport {\n  composeRenderProps,\n  Link as RACLink,\n  LinkProps as RACLinkProps,\n} from \"react-aria-components\"\nimport { VariantProps } from \"tailwind-variants\"\n\nimport { buttonVariants } from \"@/registry/new-york/ui/button\"\n\nexport interface LinButtonProps\n  extends RACLinkProps,\n    VariantProps<typeof buttonVariants> {}\n\nexport function LinkButton(props: LinButtonProps) {\n  return (\n    <RACLink\n      {...props}\n      className={composeRenderProps(props.className, (className, renderProps) =>\n        buttonVariants({ ...renderProps, className, variant: props.variant })\n      )}\n    />\n  )\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

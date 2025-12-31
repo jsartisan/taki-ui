@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field-select",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/field.json"
   ],
@@ -11,5 +10,6 @@
       "content": "import { Select, SelectItem } from \"@/registry/new-york/ui/select\"\n\nexport default function FieldSelect() {\n  return (\n    <div className=\"w-full max-w-md\">\n      <Select\n        label=\"Department\"\n        description=\"Select your department or area of work.\"\n      >\n        <SelectItem id=\"engineering\">Engineering</SelectItem>\n        <SelectItem id=\"design\">Design</SelectItem>\n        <SelectItem id=\"marketing\">Marketing</SelectItem>\n        <SelectItem id=\"sales\">Sales</SelectItem>\n        <SelectItem id=\"support\">Customer Support</SelectItem>\n        <SelectItem id=\"hr\">Human Resources</SelectItem>\n        <SelectItem id=\"finance\">Finance</SelectItem>\n        <SelectItem id=\"operations\">Operations</SelectItem>\n      </Select>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

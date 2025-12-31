@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tag-group-empty",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/tag-group.json"
   ],
@@ -11,5 +10,6 @@
       "content": "\"use client\"\n\nimport { TagGroup } from \"@/registry/new-york/ui/tag-group\"\n\nexport default function TagGroupEmptyDemo() {\n  return (\n    <TagGroup\n      label=\"Tags\"\n      description=\"Select your tags\"\n      renderEmptyState={() => <div>No tags available</div>}\n    ></TagGroup>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

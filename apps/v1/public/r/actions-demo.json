@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "actions-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/actions.json",
     "https://taki-ui.com/r/button.json",
@@ -13,5 +12,6 @@
       "content": "\"use client\"\n\nimport { useState } from \"react\"\nimport {\n  CopyIcon,\n  RefreshCwIcon,\n  ShareIcon,\n  ThumbsDownIcon,\n  ThumbsUpIcon,\n} from \"lucide-react\"\n\nimport { Action, Actions } from \"@/registry/new-york/ai-elements/actions\"\nimport {\n  Conversation,\n  ConversationContent,\n} from \"@/registry/new-york/ai-elements/conversation\"\nimport {\n  Message,\n  MessageContent,\n} from \"@/registry/new-york/ai-elements/message\"\n\nconst messages = [\n  {\n    id: \"1\",\n    from: \"user\" as const,\n    content: \"Hello, how are you?\",\n    avatar: \"https://github.com/haydenbleasel.png\",\n    name: \"Hayden Bleasel\",\n  },\n  {\n    id: \"2\",\n    from: \"assistant\" as const,\n    content: \"I am fine, thank you!\",\n    avatar: \"https://github.com/openai.png\",\n    name: \"OpenAI\",\n  },\n]\n\nexport default function ActionsDemo() {\n  const [liked, setLiked] = useState(false)\n  const [disliked, setDisliked] = useState(false)\n\n  const handleRetry = () => {\n    console.log(\"Retry clicked\")\n  }\n\n  const handleCopy = () => {\n    console.log(\"Copy clicked\")\n  }\n\n  const handleShare = () => {\n    console.log(\"Share clicked\")\n  }\n\n  const actions = [\n    {\n      icon: RefreshCwIcon,\n      label: \"Retry\",\n      onClick: handleRetry,\n    },\n    {\n      icon: ThumbsUpIcon,\n      label: \"Like\",\n      onClick: () => setLiked(!liked),\n    },\n    {\n      icon: ThumbsDownIcon,\n      label: \"Dislike\",\n      onClick: () => setDisliked(!disliked),\n    },\n    {\n      icon: CopyIcon,\n      label: \"Copy\",\n      onClick: handleCopy,\n    },\n    {\n      icon: ShareIcon,\n      label: \"Share\",\n      onClick: handleShare,\n    },\n  ]\n\n  return (\n    <Conversation className=\"relative w-full\">\n      <ConversationContent>\n        {messages.map((message) => (\n          <Message\n            className={`flex flex-col gap-2 ${message.from === \"assistant\" ? \"items-start\" : \"items-end\"}`}\n            from={message.from}\n            key={message.id}\n          >\n            <MessageContent>{message.content}</MessageContent>\n            {message.from === \"assistant\" && (\n              <Actions className=\"mt-2\">\n                {actions.map((action) => (\n                  <Action\n                    key={action.label}\n                    label={action.label}\n                    onClick={action.onClick}\n                    tooltip={action.label}\n                  >\n                    <action.icon className=\"size-4\" />\n                  </Action>\n                ))}\n              </Actions>\n            )}\n          </Message>\n        ))}\n      </ConversationContent>\n    </Conversation>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

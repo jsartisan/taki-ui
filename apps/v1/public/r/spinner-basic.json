@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "spinner-basic",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/spinner.json",
     "https://taki-ui.com/r/button.json"
@@ -12,5 +11,6 @@
       "content": "import { Spinner } from \"@/registry/new-york/ui/spinner\"\n\nexport default function SpinnerBasic() {\n  return (\n    <div className=\"flex flex-col items-center justify-center gap-8\">\n      <Spinner />\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

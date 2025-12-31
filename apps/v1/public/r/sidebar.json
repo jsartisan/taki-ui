@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "sidebar",
-  "type": "registry:ui",
   "dependencies": [
     "lucide-react",
     "react-aria-components",
@@ -65,5 +64,6 @@
       "sidebar-border": "240 3.7% 15.9%",
       "sidebar-ring": "217.2 91.2% 59.8%"
     }
-  }
+  },
+  "type": "registry:ui"
 }

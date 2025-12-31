@@ -30,12 +30,6 @@ const examples = [
     code: "https://github.com/shadcn/ui/tree/main/apps/v1/app/(app)/examples/tasks",
     hidden: false,
   },
-  {
-    name: "Playground",
-    href: "/examples/playground",
-    code: "https://github.com/shadcn/ui/tree/main/apps/v1/app/(app)/examples/playground",
-    hidden: false,
-  },
 ]
 
 export function ExamplesNav({

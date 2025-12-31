@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "number-field-percentage",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/number-field.json"
   ],
@@ -11,5 +10,6 @@
       "content": "import { NumberField } from \"@/registry/new-york/ui/number-field\"\n\nexport default function NumberFieldPercentage() {\n  return (\n    <div className=\"grid w-full max-w-md gap-4\">\n      <NumberField\n        label=\"Discount\"\n        description=\"Enter the discount percentage\"\n        defaultValue={15}\n        minValue={0}\n        maxValue={100}\n        formatOptions={{\n          style: \"percent\",\n          minimumFractionDigits: 0,\n          maximumFractionDigits: 2,\n        }}\n      />\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

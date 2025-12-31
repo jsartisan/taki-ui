@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "chart-tooltip-default",
-  "type": "registry:block",
   "registryDependencies": [
     "https://taki-ui.com/r/card.json",
     "https://taki-ui.com/r/chart.json"
@@ -16,5 +15,6 @@
   "categories": [
     "charts",
     "charts-tooltip"
-  ]
+  ],
+  "type": "registry:block"
 }

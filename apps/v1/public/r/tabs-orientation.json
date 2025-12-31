@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tabs-orientation",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/tabs.json"
   ],
@@ -11,5 +10,6 @@
       "content": "import {\n  TabPanel,\n  Tabs,\n  TabsList,\n  TabsTrigger,\n} from \"@/registry/new-york/ui/tabs\"\n\nexport default function TabsOrientation() {\n  return (\n    <Tabs defaultSelectedKey=\"profile\" orientation=\"vertical\">\n      <TabsList aria-label=\"User settings\">\n        <TabsTrigger id=\"profile\">Profile</TabsTrigger>\n        <TabsTrigger id=\"security\">Security</TabsTrigger>\n        <TabsTrigger id=\"notifications\">Notifications</TabsTrigger>\n      </TabsList>\n      <TabPanel id=\"profile\">\n        <div className=\"space-y-2\">\n          <h3 className=\"text-lg font-medium\">Profile</h3>\n          <p className=\"text-muted-foreground text-sm\">\n            Manage your profile information, avatar, and personal details.\n          </p>\n        </div>\n      </TabPanel>\n      <TabPanel id=\"security\">\n        <div className=\"space-y-2\">\n          <h3 className=\"text-lg font-medium\">Security</h3>\n          <p className=\"text-muted-foreground text-sm\">\n            Update your password, enable two-factor authentication, and manage\n            security settings.\n          </p>\n        </div>\n      </TabPanel>\n      <TabPanel id=\"notifications\">\n        <div className=\"space-y-2\">\n          <h3 className=\"text-lg font-medium\">Notifications</h3>\n          <p className=\"text-muted-foreground text-sm\">\n            Configure how you receive notifications and updates.\n          </p>\n        </div>\n      </TabPanel>\n    </Tabs>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

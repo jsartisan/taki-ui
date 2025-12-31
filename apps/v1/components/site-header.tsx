@@ -4,6 +4,7 @@ import { getColors } from "@/lib/colors"
 import { siteConfig } from "@/lib/config"
 import { source } from "@/lib/source"
 import { CommandMenu } from "@/components/command-menu"
+import { GitHubLink } from "@/components/github-link"
 import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
@@ -48,6 +49,7 @@ export function SiteHeader() {
               orientation="vertical"
               className="ml-2 hidden lg:block"
             />
+            <GitHubLink />
             <ModeSwitcher />
           </div>
         </div>

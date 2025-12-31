@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "grid-list-empty",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/grid-list.json"
   ],
@@ -11,5 +10,6 @@
       "content": "\"use client\"\n\nimport React from \"react\"\n\nimport { GridList } from \"@/registry/new-york/ui/grid-list\"\n\nexport default function GridListEmpty() {\n  return (\n    <GridList\n      aria-label=\"Search results\"\n      renderEmptyState={() => (\n        <div className=\"flex min-h-[200px] items-center justify-center\">\n          <p className=\"text-muted-foreground text-sm\">No results found</p>\n        </div>\n      )}\n      className=\"w-64\"\n    >\n      {[]}\n    </GridList>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

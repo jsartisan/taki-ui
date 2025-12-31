@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-controllable-state",
+  "files": [
+    {
+      "path": "registry/new-york/hooks/use-controllable-state.ts",
+      "content": "import * as React from \"react\"\n\ninterface UseControllableStateProps<T> {\n  value?: T\n  defaultValue?: T\n  onChange?: (value: T) => void\n}\n\nexport function useControllableState<T>({\n  value: controlledValue,\n  defaultValue,\n  onChange,\n}: UseControllableStateProps<T>): [T | undefined, (next: T) => void] {\n  const isControlled = controlledValue !== undefined\n  const [uncontrolledValue, setUncontrolledValue] = React.useState<\n    T | undefined\n  >(defaultValue)\n\n  const value = isControlled ? controlledValue : uncontrolledValue\n\n  const setValue = React.useCallback(\n    (next: T) => {\n      if (!isControlled) {\n        setUncontrolledValue(next)\n      }\n      onChange?.(next)\n    },\n    [isControlled, onChange]\n  )\n\n  return [value, setValue]\n}\n",
+      "type": "registry:hook"
+    }
+  ],
+  "type": "registry:hook"
+}

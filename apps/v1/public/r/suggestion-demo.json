@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "suggestion-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/suggestion.json",
     "https://taki-ui.com/r/button.json"
@@ -12,5 +11,6 @@
       "content": "\"use client\"\n\nimport { useState } from \"react\"\n\nimport {\n  Suggestion,\n  Suggestions,\n} from \"@/registry/new-york/ai-elements/suggestion\"\n\nexport default function SuggestionDemo() {\n  const [selected, setSelected] = useState<string | null>(null)\n\n  const suggestions = [\n    \"Explain quantum computing\",\n    \"Write a haiku\",\n    \"Debug my code\",\n    \"Plan a trip\",\n  ]\n\n  return (\n    <div className=\"space-y-4\">\n      <Suggestions>\n        {suggestions.map((suggestion) => (\n          <Suggestion\n            key={suggestion}\n            suggestion={suggestion}\n            onClick={(value) => setSelected(value)}\n          />\n        ))}\n      </Suggestions>\n      {selected && (\n        <p className=\"text-muted-foreground text-sm\">Selected: {selected}</p>\n      )}\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

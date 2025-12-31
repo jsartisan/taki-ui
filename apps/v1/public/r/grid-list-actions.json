@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "grid-list-actions",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/grid-list.json",
     "https://taki-ui.com/r/button.json"
@@ -12,5 +11,6 @@
       "content": "import { InfoIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { GridList, GridListItem } from \"@/registry/new-york/ui/grid-list\"\n\nexport default function GridListActions() {\n  return (\n    <GridList aria-label=\"Favorite pokemon\" className=\"w-64\">\n      <GridListItem textValue=\"Charizard\">\n        Charizard\n        <Button\n          variant=\"ghost\"\n          size=\"icon-sm\"\n          aria-label=\"Info\"\n          className=\"ml-auto\"\n        >\n          <InfoIcon />\n        </Button>\n      </GridListItem>\n      <GridListItem textValue=\"Blastoise\">\n        Blastoise\n        <Button\n          variant=\"ghost\"\n          size=\"icon-sm\"\n          aria-label=\"Info\"\n          className=\"ml-auto\"\n        >\n          <InfoIcon />\n        </Button>\n      </GridListItem>\n      <GridListItem textValue=\"Venusaur\">\n        Venusaur\n        <Button\n          variant=\"ghost\"\n          size=\"icon-sm\"\n          aria-label=\"Info\"\n          className=\"ml-auto\"\n        >\n          <InfoIcon />\n        </Button>\n      </GridListItem>\n      <GridListItem textValue=\"Pikachu\">\n        Pikachu\n        <Button\n          variant=\"ghost\"\n          size=\"icon-sm\"\n          aria-label=\"Info\"\n          className=\"ml-auto\"\n        >\n          <InfoIcon />\n        </Button>\n      </GridListItem>\n    </GridList>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

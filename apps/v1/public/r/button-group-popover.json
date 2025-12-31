@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-group-popover",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/button-group.json"
   ],
@@ -11,5 +10,6 @@
       "content": "import { BotIcon, ChevronDownIcon } from \"lucide-react\"\n\nimport { Button } from \"@/registry/new-york/ui/button\"\nimport { ButtonGroup } from \"@/registry/new-york/ui/button-group\"\nimport { DialogTrigger } from \"@/registry/new-york/ui/dialog\"\nimport { Popover } from \"@/registry/new-york/ui/popover\"\nimport { Separator } from \"@/registry/new-york/ui/separator\"\nimport { Textarea } from \"@/registry/new-york/ui/textarea\"\n\nexport default function ButtonGroupPopover() {\n  return (\n    <ButtonGroup>\n      <Button variant=\"outline\">\n        <BotIcon /> Copilot\n      </Button>\n      <DialogTrigger>\n        <Button variant=\"outline\" size=\"icon\" aria-label=\"Open Popover\">\n          <ChevronDownIcon />\n        </Button>\n        <Popover className=\"rounded-xl p-0 text-sm\">\n          <div className=\"px-4 py-3\">\n            <div className=\"text-sm font-medium\">Agent Tasks</div>\n          </div>\n          <Separator />\n          <div className=\"p-4 text-sm *:[p:not(:last-child)]:mb-2\">\n            <Textarea\n              placeholder=\"Describe your task in natural language.\"\n              className=\"mb-4 resize-none\"\n            />\n            <p className=\"font-medium\">Start a new task with Copilot</p>\n            <p className=\"text-muted-foreground\">\n              Describe your task in natural language. Copilot will work in the\n              background and open a pull request for your review.\n            </p>\n          </div>\n        </Popover>\n      </DialogTrigger>\n    </ButtonGroup>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

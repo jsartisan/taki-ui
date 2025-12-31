@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shimmer-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/shimmer.json"
   ],
@@ -11,5 +10,6 @@
       "content": "import { Shimmer } from \"@/registry/new-york/ai-elements/shimmer\"\n\nexport default function ShimmerDemo() {\n  return (\n    <div className=\"space-y-4\">\n      <Shimmer as=\"h2\" className=\"text-2xl font-bold\">\n        Loading content...\n      </Shimmer>\n      <Shimmer as=\"p\">\n        This text has a shimmer effect while content is being generated.\n      </Shimmer>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

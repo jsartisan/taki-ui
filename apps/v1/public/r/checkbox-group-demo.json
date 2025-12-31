@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-group-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/checkbox.json"
   ],
@@ -11,5 +10,6 @@
       "content": "\"use client\"\n\nimport { Checkbox, CheckboxGroup } from \"@/registry/new-york/ui/checkbox\"\n\nexport default function CheckboxGroupDemo() {\n  return (\n    <div className=\"flex flex-col gap-8\">\n      <CheckboxGroup\n        label=\"Notifications\"\n        description=\"Select which notifications you'd like to receive.\"\n      >\n        <Checkbox value=\"email\">Email notifications</Checkbox>\n        <Checkbox value=\"push\">Push notifications</Checkbox>\n        <Checkbox value=\"sms\">SMS notifications</Checkbox>\n      </CheckboxGroup>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "reasoning-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/reasoning.json",
     "https://taki-ui.com/r/disclosure.json",
@@ -14,5 +13,6 @@
       "content": "\"use client\"\n\nimport { useCallback, useEffect, useState } from \"react\"\n\nimport {\n  Reasoning,\n  ReasoningContent,\n  ReasoningTrigger,\n} from \"@/registry/new-york/ai-elements/reasoning\"\n\nconst reasoningSteps = [\n  \"Let me think about this problem step by step.\",\n  \"\\n\\nFirst, I need to understand what the user is asking for.\",\n  \"\\n\\nThey want a reasoning component that opens automatically when streaming begins and closes when streaming finishes. The component should be composable and follow existing patterns in the codebase.\",\n  \"\\n\\nThis seems like a collapsible component with state management would be the right approach.\",\n].join(\"\")\n\nexport default function ReasoningDemo() {\n  const [content, setContent] = useState(\"\")\n  const [isStreaming, setIsStreaming] = useState(false)\n  const [currentTokenIndex, setCurrentTokenIndex] = useState(0)\n  const [tokens, setTokens] = useState<string[]>([])\n\n  // Function to chunk text into fake tokens of 3-4 characters\n  const chunkIntoTokens = useCallback((text: string): string[] => {\n    const tokens: string[] = []\n    let i = 0\n    while (i < text.length) {\n      const chunkSize = Math.floor(Math.random() * 2) + 3 // Random size between 3-4\n      tokens.push(text.slice(i, i + chunkSize))\n      i += chunkSize\n    }\n    return tokens\n  }, [])\n\n  useEffect(() => {\n    const tokenizedSteps = chunkIntoTokens(reasoningSteps)\n    setTokens(tokenizedSteps)\n    setContent(\"\")\n    setCurrentTokenIndex(0)\n    setIsStreaming(true)\n  }, [chunkIntoTokens])\n\n  useEffect(() => {\n    if (!isStreaming || currentTokenIndex >= tokens.length) {\n      if (isStreaming) {\n        setIsStreaming(false)\n      }\n      return\n    }\n\n    const timer = setTimeout(() => {\n      setContent((prev) => prev + tokens[currentTokenIndex])\n      setCurrentTokenIndex((prev) => prev + 1)\n    }, 25) // Faster interval since we're streaming smaller chunks\n\n    return () => clearTimeout(timer)\n  }, [isStreaming, currentTokenIndex, tokens])\n\n  return (\n    <div className=\"h-full w-full\">\n      <Reasoning className=\"w-full\" isStreaming={isStreaming}>\n        <ReasoningTrigger />\n        <ReasoningContent>{content}</ReasoningContent>\n      </Reasoning>\n    </div>\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

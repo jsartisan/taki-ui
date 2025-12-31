@@ -467,6 +467,21 @@
       ]
     },
     {
+      "name": "link-button",
+      "type": "registry:ui",
+      "dependencies": ["react-aria-components", "tailwind-variants"],
+      "registryDependencies": [
+        "https://taki-ui.com/r/button.json",
+        "https://taki-ui.com/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/ui/link-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "list-box",
       "type": "registry:ui",
       "dependencies": [
@@ -478,6 +493,22 @@
       "files": [
         {
           "path": "registry/new-york/ui/list-box.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "dependencies": ["lucide-react", "react-aria-components"],
+      "registryDependencies": [
+        "https://taki-ui.com/r/list-box.json",
+        "https://taki-ui.com/r/popover.json",
+        "https://taki-ui.com/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "registry/new-york/ui/menu.tsx",
           "type": "registry:ui"
         }
       ]
@@ -2370,6 +2401,16 @@
         {
           "path": "registry/new-york/lib/utils.ts",
           "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "use-controllable-state",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/new-york/hooks/use-controllable-state.ts",
+          "type": "registry:hook"
         }
       ]
     },

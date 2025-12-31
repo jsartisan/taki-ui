@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slider-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "https://taki-ui.com/r/slider.json"
   ],
@@ -11,5 +10,6 @@
       "content": "import { cn } from \"@/lib/utils\"\nimport { Slider } from \"@/registry/new-york/ui/slider\"\n\ntype SliderProps = React.ComponentProps<typeof Slider>\n\nexport default function SliderDemo({ className, ...props }: SliderProps) {\n  return (\n    <Slider\n      defaultValue={[50]}\n      maxValue={100}\n      minValue={0}\n      step={1}\n      className={cn(\"w-[60%]\", className)}\n      {...props}\n    />\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

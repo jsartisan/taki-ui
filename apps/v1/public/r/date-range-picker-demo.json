@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "date-range-picker-demo",
-  "type": "registry:example",
   "dependencies": [
     "@internationalized/date"
   ],
@@ -14,5 +13,6 @@
       "content": "import { DateRangePicker } from \"@/registry/new-york/ui/date-range-picker\"\n\nexport default function DateRangePickerDemo() {\n  return (\n    <DateRangePicker\n      label=\"Trip dates\"\n      description=\"Select your trip start and end dates.\"\n    />\n  )\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }
