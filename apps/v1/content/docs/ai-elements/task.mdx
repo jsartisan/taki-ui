@@ -43,10 +43,10 @@ npx taki-ui@latest add task
 ```tsx showLineNumbers
 import {
   Task,
-  TaskTrigger,
   TaskContent,
   TaskItem,
   TaskItemFile,
+  TaskTrigger,
 } from "@/components/ai-elements/task"
 ```
 
@@ -90,7 +90,8 @@ export default function Example() {
         <TaskTrigger title="Analyzing dependencies" />
         <TaskContent>
           <TaskItem>
-            Found 3 direct dependencies in <TaskItemFile>package.json</TaskItemFile>
+            Found 3 direct dependencies in{" "}
+            <TaskItemFile>package.json</TaskItemFile>
           </TaskItem>
           <TaskItem>All dependencies are up to date</TaskItem>
         </TaskContent>
@@ -106,45 +107,44 @@ export default function Example() {
 
 Collapsible task container.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `defaultOpen` | `boolean` | `true` | Initial open state |
-| `className` | `string` | - | Custom CSS classes |
+| Prop          | Type      | Default | Description        |
+| ------------- | --------- | ------- | ------------------ |
+| `defaultOpen` | `boolean` | `true`  | Initial open state |
+| `className`   | `string`  | -       | Custom CSS classes |
 
 ### TaskTrigger
 
 Trigger button to expand task.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `title` | `string` | - | Task title |
-| `children` | `ReactNode` | - | Custom trigger content |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type        | Default | Description            |
+| ----------- | ----------- | ------- | ---------------------- |
+| `title`     | `string`    | -       | Task title             |
+| `children`  | `ReactNode` | -       | Custom trigger content |
+| `className` | `string`    | -       | Custom CSS classes     |
 
 ### TaskContent
 
 Container for task details.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `ReactNode` | - | Task items |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type        | Default | Description        |
+| ----------- | ----------- | ------- | ------------------ |
+| `children`  | `ReactNode` | -       | Task items         |
+| `className` | `string`    | -       | Custom CSS classes |
 
 ### TaskItem
 
 Individual task detail item.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `ReactNode` | - | Item content |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type        | Default | Description        |
+| ----------- | ----------- | ------- | ------------------ |
+| `children`  | `ReactNode` | -       | Item content       |
+| `className` | `string`    | -       | Custom CSS classes |
 
 ### TaskItemFile
 
 File reference badge.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `ReactNode` | - | File name |
-| `className` | `string` | - | Custom CSS classes |
-
+| Prop        | Type        | Default | Description        |
+| ----------- | ----------- | ------- | ------------------ |
+| `children`  | `ReactNode` | -       | File name          |
+| `className` | `string`    | -       | Custom CSS classes |

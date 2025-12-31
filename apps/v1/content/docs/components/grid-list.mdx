@@ -89,12 +89,16 @@ A grid list displays data in a single column list format. It provides built-in s
 
 ### Selection
 
-<ComponentPreview name="grid-list-selection" description="A list with multiple selection support." />
+<ComponentPreview
+  name="grid-list-selection"
+  description="A list with multiple selection support."
+/>
 
 ```tsx showLineNumbers
 "use client"
 
 import { useState } from "react"
+
 import { Checkbox } from "@/components/ui/checkbox"
 import { GridList, GridListItem } from "@/components/ui/grid-list"
 
@@ -134,7 +138,10 @@ Set `selectionMode` to `"multiple"` to enable multiple selection, or `"single"` 
 
 ### Row Actions
 
-<ComponentPreview name="grid-list-actions" description="A list with action buttons." />
+<ComponentPreview
+  name="grid-list-actions"
+  description="A list with action buttons."
+/>
 
 ```tsx showLineNumbers
 <GridList aria-label="Favorite pokemon" className="w-64">
@@ -157,12 +164,15 @@ You can add action buttons to list items. Use `className="ml-auto"` to push the 
 
 ### Links
 
-<ComponentPreview name="grid-list-links" description="A list of navigation links." />
+<ComponentPreview
+  name="grid-list-links"
+  description="A list of navigation links."
+/>
 
 ```tsx showLineNumbers
 import Link from "next/link"
 
-<GridList aria-label="Navigation" className="w-64">
+;<GridList aria-label="Navigation" className="w-64">
   <GridListItem href="/docs" textValue="Documentation">
     <Link href="/docs">Documentation</Link>
   </GridListItem>
@@ -182,7 +192,10 @@ Grid list items can contain links for navigation. Pass the `href` prop to `GridL
 
 ### Disabled Items
 
-<ComponentPreview name="grid-list-disabled" description="A list with disabled items." />
+<ComponentPreview
+  name="grid-list-disabled"
+  description="A list with disabled items."
+/>
 
 ```tsx showLineNumbers
 <GridList
@@ -202,7 +215,10 @@ Use the `disabledKeys` prop to disable specific items in the list.
 
 ### Empty State
 
-<ComponentPreview name="grid-list-empty" description="A list showing an empty state." />
+<ComponentPreview
+  name="grid-list-empty"
+  description="A list showing an empty state."
+/>
 
 ```tsx showLineNumbers
 <GridList
@@ -226,25 +242,25 @@ Use the `renderEmptyState` prop to display a custom message when the list is emp
 
 The `GridList` component displays a list of items with support for selection and keyboard navigation.
 
-| Prop              | Type                                            | Default | Description                                                     |
-| ----------------- | ----------------------------------------------- | ------- | --------------------------------------------------------------- |
-| `selectionMode`   | `"none" \| "single" \| "multiple"`              | `"none"` | Whether the list supports selection and what mode.              |
-| `selectedKeys`    | `Iterable<Key>`                                 | -       | The currently selected keys (controlled).                       |
-| `defaultSelectedKeys` | `Iterable<Key>`                             | -       | The initial selected keys (uncontrolled).                       |
-| `onSelectionChange` | `(keys: Selection) => void`                   | -       | Handler called when the selection changes.                      |
-| `disabledKeys`    | `Iterable<Key>`                                 | -       | A list of keys for items that are disabled.                     |
-| `renderEmptyState` | `() => React.ReactNode`                        | -       | Function to render when the list is empty.                      |
-| `aria-label`      | `string`                                        | -       | An accessibility label for the list.                            |
+| Prop                  | Type                               | Default  | Description                                        |
+| --------------------- | ---------------------------------- | -------- | -------------------------------------------------- |
+| `selectionMode`       | `"none" \| "single" \| "multiple"` | `"none"` | Whether the list supports selection and what mode. |
+| `selectedKeys`        | `Iterable<Key>`                    | -        | The currently selected keys (controlled).          |
+| `defaultSelectedKeys` | `Iterable<Key>`                    | -        | The initial selected keys (uncontrolled).          |
+| `onSelectionChange`   | `(keys: Selection) => void`        | -        | Handler called when the selection changes.         |
+| `disabledKeys`        | `Iterable<Key>`                    | -        | A list of keys for items that are disabled.        |
+| `renderEmptyState`    | `() => React.ReactNode`            | -        | Function to render when the list is empty.         |
+| `aria-label`          | `string`                           | -        | An accessibility label for the list.               |
 
 ### GridListItem
 
 Individual items within a grid list.
 
-| Prop        | Type      | Default | Description                                                                    |
-| ----------- | --------- | ------- | ------------------------------------------------------------------------------ |
-| `id`        | `Key`     | -       | A unique key for the item (required for selection).                            |
-| `textValue` | `string`  | -       | A string representation of the item for typeahead.                             |
-| `href`      | `string`  | -       | A URL to navigate to when the item is pressed (makes the item a link).         |
+| Prop        | Type     | Default | Description                                                            |
+| ----------- | -------- | ------- | ---------------------------------------------------------------------- |
+| `id`        | `Key`    | -       | A unique key for the item (required for selection).                    |
+| `textValue` | `string` | -       | A string representation of the item for typeahead.                     |
+| `href`      | `string` | -       | A URL to navigate to when the item is pressed (makes the item a link). |
 
 Apart from the props above, the components also support all props from the `react-aria-components` library. Check the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/GridList.html#props) for more details.
 
@@ -253,15 +269,13 @@ Apart from the props above, the components also support all props from the `reac
 Grid lists follow the [ARIA grid pattern](https://www.w3.org/WAI/ARIA/apg/patterns/grid/). This provides support for keyboard navigation, selection, and focus management.
 
 - **Keyboard Navigation** – Arrow keys, Home, End, Page Up, and Page Down navigate through items
-- **Selection** – Space and Enter keys select items when selection is enabled  
+- **Selection** – Space and Enter keys select items when selection is enabled
 - **Screen Readers** – Proper ARIA attributes announce selection state and item count
 
 Always provide an `aria-label` or `aria-labelledby` to identify the list to assistive technology:
 
 ```tsx
-<GridList aria-label="Favorite pokemon">
-  {/* items */}
-</GridList>
+<GridList aria-label="Favorite pokemon">{/* items */}</GridList>
 ```
 
 ## Related
@@ -269,4 +283,3 @@ Always provide an `aria-label` or `aria-labelledby` to identify the list to assi
 - [ListBox](/docs/components/list-box) - For dropdown list selections
 - [Menu](/docs/components/menu) - For action menus
 - [Table](/docs/components/table) - For tabular data
-

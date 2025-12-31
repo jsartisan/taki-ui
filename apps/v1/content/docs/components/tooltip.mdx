@@ -75,12 +75,15 @@ import { Tooltip, TooltipTrigger } from "@/components/ui/tooltip"
 
 ### With Icon Button
 
-<ComponentPreview name="tooltip-icon" description="A tooltip with an icon button." />
+<ComponentPreview
+  name="tooltip-icon"
+  description="A tooltip with an icon button."
+/>
 
 ```tsx showLineNumbers
 import { InfoIcon } from "lucide-react"
 
-<TooltipTrigger>
+;<TooltipTrigger>
   <Button size="icon" variant="outline" aria-label="Information">
     <InfoIcon className="size-4" />
   </Button>
@@ -90,7 +93,10 @@ import { InfoIcon } from "lucide-react"
 
 ### Placement
 
-<ComponentPreview name="tooltip-placement" description="Tooltips can be positioned in different directions." />
+<ComponentPreview
+  name="tooltip-placement"
+  description="Tooltips can be positioned in different directions."
+/>
 
 You can control the placement of the tooltip using the `placement` prop.
 
@@ -118,7 +124,10 @@ You can control the placement of the tooltip using the `placement` prop.
 
 ### Custom Delay
 
-<ComponentPreview name="tooltip-delay" description="Control when the tooltip appears using delay." />
+<ComponentPreview
+  name="tooltip-delay"
+  description="Control when the tooltip appears using delay."
+/>
 
 Control when the tooltip appears using the `delay` and `closeDelay` props.
 
@@ -145,22 +154,22 @@ Control when the tooltip appears using the `delay` and `closeDelay` props.
 
 `TooltipTrigger` wraps the element that triggers the tooltip and the tooltip itself.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `delay` | `number` | `500` | The delay time for the tooltip to show up in milliseconds |
-| `closeDelay` | `number` | `0` | The delay time for the tooltip to close in milliseconds |
-| `isDisabled` | `boolean` | `false` | Whether the tooltip is disabled |
-| `trigger` | `'focus'` | `null` | By default, opens for both focus and hover. Can be set to "focus" to only open on focus |
+| Prop         | Type      | Default | Description                                                                             |
+| ------------ | --------- | ------- | --------------------------------------------------------------------------------------- |
+| `delay`      | `number`  | `500`   | The delay time for the tooltip to show up in milliseconds                               |
+| `closeDelay` | `number`  | `0`     | The delay time for the tooltip to close in milliseconds                                 |
+| `isDisabled` | `boolean` | `false` | Whether the tooltip is disabled                                                         |
+| `trigger`    | `'focus'` | `null`  | By default, opens for both focus and hover. Can be set to "focus" to only open on focus |
 
 ### Tooltip
 
 `Tooltip` is the content component that displays the tooltip message.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `placement` | `Placement` | `'top'` | The placement of the tooltip relative to the trigger |
-| `offset` | `number` | `10` | The offset of the tooltip from the trigger |
-| `containerPadding` | `number` | `12` | The padding between the tooltip and the edge of the viewport |
+| Prop               | Type        | Default | Description                                                  |
+| ------------------ | ----------- | ------- | ------------------------------------------------------------ |
+| `placement`        | `Placement` | `'top'` | The placement of the tooltip relative to the trigger         |
+| `offset`           | `number`    | `10`    | The offset of the tooltip from the trigger                   |
+| `containerPadding` | `number`    | `12`    | The padding between the tooltip and the edge of the viewport |
 
 ---
 
@@ -175,6 +184,7 @@ We've migrated the tooltip component from Radix UI to React Aria Components for 
 1. **Component Structure**: The component structure has changed:
 
 **Old (Radix UI):**
+
 ```tsx
 <Tooltip>
   <TooltipTrigger>Hover</TooltipTrigger>
@@ -185,6 +195,7 @@ We've migrated the tooltip component from Radix UI to React Aria Components for 
 ```
 
 **New (React Aria):**
+
 ```tsx
 <TooltipTrigger>
   <Button>Hover</Button>

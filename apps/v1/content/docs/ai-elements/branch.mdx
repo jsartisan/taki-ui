@@ -6,7 +6,10 @@ links:
   doc: https://sdk.vercel.ai/docs/ai-sdk-ui/overview
 ---
 
-<ComponentPreview name="branch-demo" description="Navigate between response branches" />
+<ComponentPreview
+  name="branch-demo"
+  description="Navigate between response branches"
+/>
 
 ## Installation
 
@@ -51,8 +54,8 @@ npm install ai
 ```tsx showLineNumbers
 import {
   Branch,
-  BranchMessages,
   BranchActions,
+  BranchMessages,
 } from "@/components/ai-elements/branch"
 ```
 
@@ -73,13 +76,21 @@ import {
 
 ### Default
 
-<ComponentPreview name="branch-demo" description="Multiple response branches with navigation" />
+<ComponentPreview
+  name="branch-demo"
+  description="Multiple response branches with navigation"
+/>
 
 ```tsx showLineNumbers
 "use client"
 
 import { useState } from "react"
-import { Branch, BranchMessages, BranchActions } from "@/components/ai-elements/branch"
+
+import {
+  Branch,
+  BranchActions,
+  BranchMessages,
+} from "@/components/ai-elements/branch"
 import { Message, MessageContent } from "@/components/ai-elements/message"
 
 const branches = [
@@ -119,25 +130,24 @@ export default function Example() {
 
 Container for managing multiple response branches.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `defaultBranch` | `number` | `0` | Initial branch index |
-| `onBranchChange` | `(index: number) => void` | - | Callback when branch changes |
-| `className` | `string` | - | Custom CSS classes |
+| Prop             | Type                      | Default | Description                  |
+| ---------------- | ------------------------- | ------- | ---------------------------- |
+| `defaultBranch`  | `number`                  | `0`     | Initial branch index         |
+| `onBranchChange` | `(index: number) => void` | -       | Callback when branch changes |
+| `className`      | `string`                  | -       | Custom CSS classes           |
 
 ### BranchMessages
 
 Container for branch content.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `ReactNode` | - | Messages for each branch |
+| Prop       | Type        | Default | Description              |
+| ---------- | ----------- | ------- | ------------------------ |
+| `children` | `ReactNode` | -       | Messages for each branch |
 
 ### BranchActions
 
 Navigation controls for branches.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
-
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |

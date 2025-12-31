@@ -4,7 +4,10 @@ description: Container for chat message threads with auto-scroll behavior.
 component: true
 ---
 
-<ComponentPreview name="conversation-demo" description="A conversation container with messages." />
+<ComponentPreview
+  name="conversation-demo"
+  description="A conversation container with messages."
+/>
 
 ## Installation
 
@@ -94,9 +97,7 @@ The scroll button automatically appears when the user scrolls up:
 
 ```tsx
 <Conversation>
-  <ConversationContent>
-    {/* Messages */}
-  </ConversationContent>
+  <ConversationContent>{/* Messages */}</ConversationContent>
   <ConversationScrollButton />
 </Conversation>
 ```
@@ -105,9 +106,9 @@ The scroll button automatically appears when the user scrolls up:
 
 ### Conversation
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
 
 The Conversation component uses `use-stick-to-bottom` for auto-scroll behavior.
 
@@ -117,13 +118,12 @@ Container for conversation messages.
 
 ### ConversationEmptyState
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `title` | `string` | `"No messages yet"` | Empty state title |
-| `description` | `string` | `"Start a conversation to see messages here"` | Empty state description |
-| `icon` | `ReactNode` | - | Optional icon |
+| Prop          | Type        | Default                                       | Description             |
+| ------------- | ----------- | --------------------------------------------- | ----------------------- |
+| `title`       | `string`    | `"No messages yet"`                           | Empty state title       |
+| `description` | `string`    | `"Start a conversation to see messages here"` | Empty state description |
+| `icon`        | `ReactNode` | -                                             | Optional icon           |
 
 ### ConversationScrollButton
 
 Floating button that appears when not at bottom. Automatically manages its visibility.
-

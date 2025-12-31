@@ -43,13 +43,13 @@ npx taki-ui@latest add artifact
 ```tsx showLineNumbers
 import {
   Artifact,
+  ArtifactAction,
+  ArtifactActions,
+  ArtifactClose,
+  ArtifactContent,
+  ArtifactDescription,
   ArtifactHeader,
   ArtifactTitle,
-  ArtifactDescription,
-  ArtifactActions,
-  ArtifactAction,
-  ArtifactContent,
-  ArtifactClose,
 } from "@/components/ai-elements/artifact"
 ```
 
@@ -61,13 +61,13 @@ import {
       <ArtifactDescription>Description</ArtifactDescription>
     </div>
     <ArtifactActions>
-      <ArtifactAction tooltip="Copy"><CopyIcon /></ArtifactAction>
+      <ArtifactAction tooltip="Copy">
+        <CopyIcon />
+      </ArtifactAction>
       <ArtifactClose />
     </ArtifactActions>
   </ArtifactHeader>
-  <ArtifactContent>
-    {/* Your content here */}
-  </ArtifactContent>
+  <ArtifactContent>{/* Your content here */}</ArtifactContent>
 </Artifact>
 ```
 
@@ -75,7 +75,10 @@ import {
 
 ### Default
 
-<ComponentPreview name="artifact-demo" description="Artifact with code content" />
+<ComponentPreview
+  name="artifact-demo"
+  description="Artifact with code content"
+/>
 
 ```tsx showLineNumbers
 import { CopyIcon, DownloadIcon } from "lucide-react"
@@ -86,9 +89,7 @@ export default function Example() {
       <ArtifactHeader>
         <div className="space-y-1">
           <ArtifactTitle>React Component</ArtifactTitle>
-          <ArtifactDescription>
-            A simple counter component
-          </ArtifactDescription>
+          <ArtifactDescription>A simple counter component</ArtifactDescription>
         </div>
         <ArtifactActions>
           <ArtifactAction tooltip="Copy" label="Copy">
@@ -119,66 +120,65 @@ export default function Example() {
 
 Main container for the artifact.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### ArtifactHeader
 
 Header section with title and actions.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### ArtifactTitle
 
 Title of the artifact.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### ArtifactDescription
 
 Description text.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### ArtifactActions
 
 Container for action buttons.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### ArtifactAction
 
 Individual action button.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `tooltip` | `string` | - | Tooltip text |
-| `label` | `string` | - | Accessible label |
-| `icon` | `LucideIcon` | - | Icon component |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type         | Default | Description        |
+| ----------- | ------------ | ------- | ------------------ |
+| `tooltip`   | `string`     | -       | Tooltip text       |
+| `label`     | `string`     | -       | Accessible label   |
+| `icon`      | `LucideIcon` | -       | Icon component     |
+| `className` | `string`     | -       | Custom CSS classes |
 
 ### ArtifactContent
 
 Content area.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### ArtifactClose
 
 Close button.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
-
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |

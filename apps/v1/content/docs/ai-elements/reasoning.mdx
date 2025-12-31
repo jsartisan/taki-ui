@@ -4,7 +4,10 @@ description: Display AI reasoning process with expandable content and duration t
 component: true
 ---
 
-<ComponentPreview name="reasoning-demo" description="Collapsible reasoning display" />
+<ComponentPreview
+  name="reasoning-demo"
+  description="Collapsible reasoning display"
+/>
 
 ## Installation
 
@@ -43,17 +46,15 @@ npx taki-ui@latest add reasoning
 ```tsx showLineNumbers
 import {
   Reasoning,
-  ReasoningTrigger,
   ReasoningContent,
+  ReasoningTrigger,
 } from "@/components/ai-elements/reasoning"
 ```
 
 ```tsx showLineNumbers
 <Reasoning isStreaming={false} duration={3}>
   <ReasoningTrigger />
-  <ReasoningContent>
-    {reasoningText}
-  </ReasoningContent>
+  <ReasoningContent>{reasoningText}</ReasoningContent>
 </Reasoning>
 ```
 
@@ -61,7 +62,10 @@ import {
 
 ### Default
 
-<ComponentPreview name="reasoning-demo" description="Reasoning with duration tracking" />
+<ComponentPreview
+  name="reasoning-demo"
+  description="Reasoning with duration tracking"
+/>
 
 ```tsx showLineNumbers
 const reasoningText = `To solve this problem, I need to:
@@ -113,30 +117,29 @@ useEffect(() => {
 
 Main reasoning container.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `isStreaming` | `boolean` | `false` | Whether content is currently streaming |
-| `duration` | `number` | - | Thinking duration in seconds |
-| `open` | `boolean` | - | Controlled open state |
-| `defaultOpen` | `boolean` | `true` | Initial open state |
-| `onOpenChange` | `(open: boolean) => void` | - | Callback when open state changes |
-| `className` | `string` | - | Custom CSS classes |
+| Prop           | Type                      | Default | Description                            |
+| -------------- | ------------------------- | ------- | -------------------------------------- |
+| `isStreaming`  | `boolean`                 | `false` | Whether content is currently streaming |
+| `duration`     | `number`                  | -       | Thinking duration in seconds           |
+| `open`         | `boolean`                 | -       | Controlled open state                  |
+| `defaultOpen`  | `boolean`                 | `true`  | Initial open state                     |
+| `onOpenChange` | `(open: boolean) => void` | -       | Callback when open state changes       |
+| `className`    | `string`                  | -       | Custom CSS classes                     |
 
 ### ReasoningTrigger
 
 Button to toggle reasoning visibility.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `ReactNode` | - | Custom trigger content |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type        | Default | Description            |
+| ----------- | ----------- | ------- | ---------------------- |
+| `children`  | `ReactNode` | -       | Custom trigger content |
+| `className` | `string`    | -       | Custom CSS classes     |
 
 ### ReasoningContent
 
 Container for reasoning text.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `string` | - | Reasoning text content |
-| `className` | `string` | - | Custom CSS classes |
-
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `children`  | `string` | -       | Reasoning text content |
+| `className` | `string` | -       | Custom CSS classes     |

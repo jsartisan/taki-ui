@@ -43,12 +43,12 @@ npx taki-ui@latest add plan
 ```tsx showLineNumbers
 import {
   Plan,
+  PlanAction,
+  PlanContent,
+  PlanDescription,
   PlanHeader,
   PlanTitle,
-  PlanDescription,
-  PlanAction,
   PlanTrigger,
-  PlanContent,
 } from "@/components/ai-elements/plan"
 ```
 
@@ -63,9 +63,7 @@ import {
       <PlanTrigger />
     </PlanAction>
   </PlanHeader>
-  <PlanContent>
-    {/* Plan steps */}
-  </PlanContent>
+  <PlanContent>{/* Plan steps */}</PlanContent>
 </Plan>
 ```
 
@@ -123,50 +121,49 @@ export default function Example() {
 
 Main plan container.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
+| Prop          | Type      | Default | Description                         |
+| ------------- | --------- | ------- | ----------------------------------- |
 | `isStreaming` | `boolean` | `false` | Whether plan is currently streaming |
-| `defaultOpen` | `boolean` | `false` | Initial open state |
-| `className` | `string` | - | Custom CSS classes |
+| `defaultOpen` | `boolean` | `false` | Initial open state                  |
+| `className`   | `string`  | -       | Custom CSS classes                  |
 
 ### PlanHeader
 
 Header section.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### PlanTitle
 
 Plan title with shimmer support.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `string` | - | Title text |
+| Prop       | Type     | Default | Description |
+| ---------- | -------- | ------- | ----------- |
+| `children` | `string` | -       | Title text  |
 
 ### PlanDescription
 
 Plan description with shimmer support.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `string` | - | Description text |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `children`  | `string` | -       | Description text   |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### PlanContent
 
 Collapsible content area.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `ReactNode` | - | Plan content |
+| Prop       | Type        | Default | Description  |
+| ---------- | ----------- | ------- | ------------ |
+| `children` | `ReactNode` | -       | Plan content |
 
 ### PlanTrigger
 
 Button to toggle plan visibility.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
-
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |

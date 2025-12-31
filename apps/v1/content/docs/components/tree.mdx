@@ -80,7 +80,10 @@ A tree displays hierarchical data with parent and child relationships. It provid
 
 ### Default
 
-<ComponentPreview name="tree-demo" description="A basic tree with nested items." />
+<ComponentPreview
+  name="tree-demo"
+  description="A basic tree with nested items."
+/>
 
 ```tsx showLineNumbers
 <Tree
@@ -107,12 +110,16 @@ A tree displays hierarchical data with parent and child relationships. It provid
 
 ### Multiple Selection
 
-<ComponentPreview name="tree-selection" description="Tree with multiple selection support." />
+<ComponentPreview
+  name="tree-selection"
+  description="Tree with multiple selection support."
+/>
 
 ```tsx showLineNumbers
 "use client"
 
 import { useState } from "react"
+
 import { Tree, TreeItem } from "@/components/ui/tree"
 
 export default function Example() {
@@ -147,12 +154,16 @@ Set `selectionMode` to `"multiple"` to enable multiple selection. Selected items
 
 ### Single Selection
 
-<ComponentPreview name="tree-single-selection" description="Tree with single selection." />
+<ComponentPreview
+  name="tree-single-selection"
+  description="Tree with single selection."
+/>
 
 ```tsx showLineNumbers
 "use client"
 
 import { useState } from "react"
+
 import { Tree, TreeItem } from "@/components/ui/tree"
 
 export default function Example() {
@@ -184,7 +195,10 @@ Set `selectionMode` to `"single"` to allow only one item to be selected at a tim
 
 ### Disabled Items
 
-<ComponentPreview name="tree-disabled" description="Tree with disabled items." />
+<ComponentPreview
+  name="tree-disabled"
+  description="Tree with disabled items."
+/>
 
 ```tsx showLineNumbers
 <Tree
@@ -208,15 +222,15 @@ Use the `disabledKeys` prop to disable specific items in the tree. Disabled item
 
 ### Links
 
-<ComponentPreview name="tree-links" description="Tree items as navigation links." />
+<ComponentPreview
+  name="tree-links"
+  description="Tree items as navigation links."
+/>
 
 ```tsx showLineNumbers
 import { Tree, TreeItem } from "@/components/ui/tree"
 
-<Tree
-  aria-label="Navigation"
-  defaultExpandedKeys={["components", "hooks"]}
->
+;<Tree aria-label="Navigation" defaultExpandedKeys={["components", "hooks"]}>
   <TreeItem id="components" title="Components">
     <TreeItem id="button" title="Button" href="/docs/components/button" />
     <TreeItem id="input" title="Input" href="/docs/components/input" />
@@ -233,12 +247,16 @@ Tree items can be used as navigation links by providing an `href` prop. The `tit
 
 ### Dynamic Content
 
-<ComponentPreview name="tree-dynamic" description="Tree with dynamically added items." />
+<ComponentPreview
+  name="tree-dynamic"
+  description="Tree with dynamically added items."
+/>
 
 ```tsx showLineNumbers
 "use client"
 
 import { useState } from "react"
+
 import { Button } from "@/components/ui/button"
 import { Tree, TreeItem } from "@/components/ui/tree"
 
@@ -253,9 +271,7 @@ export default function Example() {
     {
       id: "documents",
       title: "Documents",
-      children: [
-        { id: "report", title: "Weekly Report" },
-      ],
+      children: [{ id: "report", title: "Weekly Report" }],
     },
   ])
 
@@ -294,28 +310,28 @@ You can dynamically add, remove, or modify tree items using React state.
 
 The `Tree` component displays hierarchical data with expandable/collapsible nodes.
 
-| Prop                  | Type                               | Default  | Description                                                  |
-| --------------------- | ---------------------------------- | -------- | ------------------------------------------------------------ |
-| `selectionMode`       | `"none" \| "single" \| "multiple"` | `"none"` | Whether the tree supports selection and what mode.           |
-| `selectedKeys`        | `Iterable<Key>`                    | -        | The currently selected keys (controlled).                    |
-| `defaultSelectedKeys` | `Iterable<Key>`                    | -        | The initial selected keys (uncontrolled).                    |
-| `onSelectionChange`   | `(keys: Selection) => void`        | -        | Handler called when the selection changes.                   |
-| `expandedKeys`        | `Iterable<Key>`                    | -        | The currently expanded keys (controlled).                    |
-| `defaultExpandedKeys` | `Iterable<Key>`                    | -        | The initial expanded keys (uncontrolled).                    |
-| `onExpandedChange`    | `(keys: Set<Key>) => void`         | -        | Handler called when the expanded state changes.              |
-| `disabledKeys`        | `Iterable<Key>`                    | -        | A list of keys for items that are disabled.                  |
-| `aria-label`          | `string`                           | -        | An accessibility label for the tree (required).              |
+| Prop                  | Type                               | Default  | Description                                        |
+| --------------------- | ---------------------------------- | -------- | -------------------------------------------------- |
+| `selectionMode`       | `"none" \| "single" \| "multiple"` | `"none"` | Whether the tree supports selection and what mode. |
+| `selectedKeys`        | `Iterable<Key>`                    | -        | The currently selected keys (controlled).          |
+| `defaultSelectedKeys` | `Iterable<Key>`                    | -        | The initial selected keys (uncontrolled).          |
+| `onSelectionChange`   | `(keys: Selection) => void`        | -        | Handler called when the selection changes.         |
+| `expandedKeys`        | `Iterable<Key>`                    | -        | The currently expanded keys (controlled).          |
+| `defaultExpandedKeys` | `Iterable<Key>`                    | -        | The initial expanded keys (uncontrolled).          |
+| `onExpandedChange`    | `(keys: Set<Key>) => void`         | -        | Handler called when the expanded state changes.    |
+| `disabledKeys`        | `Iterable<Key>`                    | -        | A list of keys for items that are disabled.        |
+| `aria-label`          | `string`                           | -        | An accessibility label for the tree (required).    |
 
 ### TreeItem
 
 Individual items within a tree. Tree items can be nested to create hierarchical structures.
 
-| Prop        | Type               | Default | Description                                                |
-| ----------- | ------------------ | ------- | ---------------------------------------------------------- |
-| `id`        | `Key`              | -       | A unique key for the item (required).                      |
-| `title`     | `string`           | -       | The text content for the item (required).                  |
-| `href`      | `string`           | -       | A URL to navigate to when the item is pressed.             |
-| `children`  | `React.ReactNode`  | -       | Child tree items for creating nested structures.           |
+| Prop       | Type              | Default | Description                                      |
+| ---------- | ----------------- | ------- | ------------------------------------------------ |
+| `id`       | `Key`             | -       | A unique key for the item (required).            |
+| `title`    | `string`          | -       | The text content for the item (required).        |
+| `href`     | `string`          | -       | A URL to navigate to when the item is pressed.   |
+| `children` | `React.ReactNode` | -       | Child tree items for creating nested structures. |
 
 Apart from the props above, the components support all props from the `react-aria-components` library. Check the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/Tree.html#props) for more details.
 
@@ -323,16 +339,16 @@ Apart from the props above, the components support all props from the `react-ari
 
 Trees support extensive keyboard navigation to provide an accessible experience:
 
-| Key                          | Action                                                    |
-| ---------------------------- | --------------------------------------------------------- |
-| `Arrow Down`                 | Moves focus to the next item.                             |
-| `Arrow Up`                   | Moves focus to the previous item.                         |
-| `Arrow Right`                | Expands a collapsed item or moves to first child.         |
-| `Arrow Left`                 | Collapses an expanded item or moves to parent.            |
-| `Home`                       | Moves focus to the first item.                            |
-| `End`                        | Moves focus to the last item.                             |
-| `Enter` or `Space`           | Selects the focused item (if selection is enabled).       |
-| `Ctrl/Cmd + A`               | Selects all items (if multiple selection is enabled).     |
+| Key                | Action                                                |
+| ------------------ | ----------------------------------------------------- |
+| `Arrow Down`       | Moves focus to the next item.                         |
+| `Arrow Up`         | Moves focus to the previous item.                     |
+| `Arrow Right`      | Expands a collapsed item or moves to first child.     |
+| `Arrow Left`       | Collapses an expanded item or moves to parent.        |
+| `Home`             | Moves focus to the first item.                        |
+| `End`              | Moves focus to the last item.                         |
+| `Enter` or `Space` | Selects the focused item (if selection is enabled).   |
+| `Ctrl/Cmd + A`     | Selects all items (if multiple selection is enabled). |
 
 ## Accessibility
 
@@ -346,9 +362,7 @@ Trees follow the [ARIA tree pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tr
 Always provide an `aria-label` to identify the tree to assistive technology:
 
 ```tsx
-<Tree aria-label="File system">
-  {/* items */}
-</Tree>
+<Tree aria-label="File system">{/* items */}</Tree>
 ```
 
 ## Related
@@ -356,4 +370,3 @@ Always provide an `aria-label` to identify the tree to assistive technology:
 - [GridList](/docs/components/grid-list) - For flat lists with selection
 - [ListBox](/docs/components/list-box) - For simple option lists
 - [Menu](/docs/components/menu) - For action menus
-

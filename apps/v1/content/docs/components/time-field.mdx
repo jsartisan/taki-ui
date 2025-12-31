@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/TimeField.html#props
 ---
 
-<ComponentPreview name="time-field-demo" description="A time field with label." />
+<ComponentPreview
+  name="time-field-demo"
+  description="A time field with label."
+/>
 
 ## Installation
 
@@ -54,10 +57,7 @@ import { TimeField } from "@/components/ui/time-field"
 ```
 
 ```tsx showLineNumbers
-<TimeField
-  label="Event time"
-  description="Select a time for your event."
-/>
+<TimeField label="Event time" description="Select a time for your event." />
 ```
 
 ## About
@@ -68,7 +68,10 @@ The `TimeField` component is built on top of [React Aria Components](https://rea
 
 ### Default
 
-<ComponentPreview name="time-field-demo" description="A basic time field with label." />
+<ComponentPreview
+  name="time-field-demo"
+  description="A basic time field with label."
+/>
 
 ```tsx showLineNumbers
 <TimeField label="Event time" />
@@ -76,7 +79,10 @@ The `TimeField` component is built on top of [React Aria Components](https://rea
 
 ### With Description
 
-<ComponentPreview name="time-field-description" description="A time field with a description." />
+<ComponentPreview
+  name="time-field-description"
+  description="A time field with a description."
+/>
 
 ```tsx showLineNumbers
 <TimeField
@@ -87,7 +93,10 @@ The `TimeField` component is built on top of [React Aria Components](https://rea
 
 ### Disabled
 
-<ComponentPreview name="time-field-disabled" description="A disabled time field." />
+<ComponentPreview
+  name="time-field-disabled"
+  description="A disabled time field."
+/>
 
 ```tsx showLineNumbers
 <TimeField label="Event time" isDisabled />
@@ -95,7 +104,10 @@ The `TimeField` component is built on top of [React Aria Components](https://rea
 
 ### Granularity
 
-<ComponentPreview name="time-field-granularity" description="Time fields with different granularities." />
+<ComponentPreview
+  name="time-field-granularity"
+  description="Time fields with different granularities."
+/>
 
 ```tsx showLineNumbers
 <div className="flex flex-col gap-4">
@@ -105,13 +117,17 @@ The `TimeField` component is built on top of [React Aria Components](https://rea
 ```
 
 The `granularity` prop determines which time segments are displayed:
+
 - `hour` - Only hour segment
 - `minute` - Hour and minute segments (default)
 - `second` - Hour, minute, and second segments
 
 ### Hour Cycle
 
-<ComponentPreview name="time-field-hour-cycle" description="Time fields with different hour cycles." />
+<ComponentPreview
+  name="time-field-hour-cycle"
+  description="Time fields with different hour cycles."
+/>
 
 ```tsx showLineNumbers
 <div className="flex flex-col gap-4">
@@ -121,12 +137,16 @@ The `granularity` prop determines which time segments are displayed:
 ```
 
 The `hourCycle` prop controls whether the time field uses 12-hour or 24-hour format:
+
 - `12` - 12-hour format with AM/PM
 - `24` - 24-hour format
 
 ### Validation
 
-<ComponentPreview name="time-field-validation" description="A time field with validation." />
+<ComponentPreview
+  name="time-field-validation"
+  description="A time field with validation."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -168,7 +188,10 @@ export default function TimeFieldValidation() {
 
 ### Controlled
 
-<ComponentPreview name="time-field-controlled" description="A controlled time field." />
+<ComponentPreview
+  name="time-field-controlled"
+  description="A controlled time field."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -184,7 +207,7 @@ export default function TimeFieldControlled() {
   return (
     <div className="flex flex-col gap-4">
       <TimeField label="Appointment time" value={time} onChange={setTime} />
-      <p className="text-sm text-muted-foreground">
+      <p className="text-muted-foreground text-sm">
         Selected time: {time.toString()}
       </p>
     </div>
@@ -196,22 +219,22 @@ export default function TimeFieldControlled() {
 
 ### TimeField
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `label` | `string` | - | Label text for the time field |
-| `description` | `string` | - | Help text displayed below the input |
-| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | - | Error message for validation |
-| `value` | `TimeValue` | - | The current value (controlled) |
-| `defaultValue` | `TimeValue` | - | The default value (uncontrolled) |
-| `onChange` | `(value: TimeValue) => void` | - | Handler called when the value changes |
-| `minValue` | `TimeValue` | - | The minimum allowed time |
-| `maxValue` | `TimeValue` | - | The maximum allowed time |
-| `granularity` | `"hour" \| "minute" \| "second"` | `"minute"` | Determines the smallest unit editable |
-| `hourCycle` | `12 \| 24` | - | Whether to use 12 or 24 hour time |
-| `isDisabled` | `boolean` | `false` | Whether the time field is disabled |
-| `isReadOnly` | `boolean` | `false` | Whether the time field is read-only |
-| `isRequired` | `boolean` | `false` | Whether the time field is required |
-| `placeholderValue` | `TimeValue` | - | A placeholder time that controls the default values of segments |
+| Prop               | Type                                                   | Default    | Description                                                     |
+| ------------------ | ------------------------------------------------------ | ---------- | --------------------------------------------------------------- |
+| `label`            | `string`                                               | -          | Label text for the time field                                   |
+| `description`      | `string`                                               | -          | Help text displayed below the input                             |
+| `errorMessage`     | `string \| ((validation: ValidationResult) => string)` | -          | Error message for validation                                    |
+| `value`            | `TimeValue`                                            | -          | The current value (controlled)                                  |
+| `defaultValue`     | `TimeValue`                                            | -          | The default value (uncontrolled)                                |
+| `onChange`         | `(value: TimeValue) => void`                           | -          | Handler called when the value changes                           |
+| `minValue`         | `TimeValue`                                            | -          | The minimum allowed time                                        |
+| `maxValue`         | `TimeValue`                                            | -          | The maximum allowed time                                        |
+| `granularity`      | `"hour" \| "minute" \| "second"`                       | `"minute"` | Determines the smallest unit editable                           |
+| `hourCycle`        | `12 \| 24`                                             | -          | Whether to use 12 or 24 hour time                               |
+| `isDisabled`       | `boolean`                                              | `false`    | Whether the time field is disabled                              |
+| `isReadOnly`       | `boolean`                                              | `false`    | Whether the time field is read-only                             |
+| `isRequired`       | `boolean`                                              | `false`    | Whether the time field is required                              |
+| `placeholderValue` | `TimeValue`                                            | -          | A placeholder time that controls the default values of segments |
 
 See the [React Aria TimeField documentation](https://react-spectrum.adobe.com/react-aria/TimeField.html#props) for more props and detailed information.
 
@@ -249,9 +272,10 @@ Restrict time selection to business hours:
 
 ```tsx showLineNumbers
 import { Time } from "@internationalized/date"
+
 import { TimeField } from "@/components/ui/time-field"
 
-<TimeField
+;<TimeField
   label="Meeting time"
   description="Select a time between 9 AM and 5 PM."
   minValue={new Time(9)}
@@ -268,6 +292,7 @@ Show time in 30-minute increments by using a controlled component:
 
 import { useState } from "react"
 import { Time } from "@internationalized/date"
+
 import { TimeField } from "@/components/ui/time-field"
 
 export default function AppointmentTime() {
@@ -280,11 +305,7 @@ export default function AppointmentTime() {
   }
 
   return (
-    <TimeField
-      label="Appointment time"
-      value={time}
-      onChange={handleChange}
-    />
+    <TimeField label="Appointment time" value={time} onChange={handleChange} />
   )
 }
 ```
@@ -294,4 +315,3 @@ export default function AppointmentTime() {
 - [Date Field](/docs/components/date-field) - For entering dates
 - [Date Picker](/docs/components/date-picker) - Combines a date field with a calendar
 - [Field](/docs/components/field) - For composing accessible form fields
-

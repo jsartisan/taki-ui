@@ -49,11 +49,11 @@ npm install ai tokenlens
 ```tsx showLineNumbers
 import {
   Context,
-  ContextTrigger,
   ContextContent,
+  ContextContentCost,
   ContextContentHeader,
   ContextContentTokens,
-  ContextContentCost,
+  ContextTrigger,
 } from "@/components/ai-elements/context"
 ```
 
@@ -77,7 +77,10 @@ import {
 
 ### Default
 
-<ComponentPreview name="context-demo" description="Token usage with cost estimation" />
+<ComponentPreview
+  name="context-demo"
+  description="Token usage with cost estimation"
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -120,50 +123,49 @@ export default function Example() {
 
 Main context container.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `usedTokens` | `number` | - | Current token usage |
-| `maxTokens` | `number` | - | Maximum context window |
-| `usage` | `LanguageModelUsage` | - | Detailed token usage |
-| `modelId` | `ModelId` | - | Model identifier for cost calculation |
+| Prop         | Type                 | Default | Description                           |
+| ------------ | -------------------- | ------- | ------------------------------------- |
+| `usedTokens` | `number`             | -       | Current token usage                   |
+| `maxTokens`  | `number`             | -       | Maximum context window                |
+| `usage`      | `LanguageModelUsage` | -       | Detailed token usage                  |
+| `modelId`    | `ModelId`            | -       | Model identifier for cost calculation |
 
 ### ContextTrigger
 
 Trigger button with usage percentage.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `ReactNode` | - | Custom trigger content |
+| Prop       | Type        | Default | Description            |
+| ---------- | ----------- | ------- | ---------------------- |
+| `children` | `ReactNode` | -       | Custom trigger content |
 
 ### ContextContent
 
 Hover card content.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### ContextContentHeader
 
 Header with usage summary.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### ContextContentTokens
 
 Token usage breakdown.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### ContextContentCost
 
 Cost estimation display.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
-
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |

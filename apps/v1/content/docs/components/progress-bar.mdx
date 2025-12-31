@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/ProgressBar.html#props
 ---
 
-<ComponentPreview name="progress-bar-demo" description="A progress bar showing loading progress." />
+<ComponentPreview
+  name="progress-bar-demo"
+  description="A progress bar showing loading progress."
+/>
 
 ## Installation
 
@@ -61,7 +64,10 @@ import { ProgressBar } from "@/components/ui/progress-bar"
 
 ### Default
 
-<ComponentPreview name="progress-bar-demo" description="A basic progress bar showing determinate progress." />
+<ComponentPreview
+  name="progress-bar-demo"
+  description="A basic progress bar showing determinate progress."
+/>
 
 ```tsx
 <ProgressBar label="Loading…" value={60} />
@@ -69,7 +75,10 @@ import { ProgressBar } from "@/components/ui/progress-bar"
 
 ### Indeterminate
 
-<ComponentPreview name="progress-bar-indeterminate" description="A progress bar showing indeterminate progress." />
+<ComponentPreview
+  name="progress-bar-indeterminate"
+  description="A progress bar showing indeterminate progress."
+/>
 
 Use the `isIndeterminate` prop when the exact progress is unknown.
 
@@ -79,7 +88,10 @@ Use the `isIndeterminate` prop when the exact progress is unknown.
 
 ### Custom Value Label
 
-<ComponentPreview name="progress-bar-label" description="A progress bar with a custom value label." />
+<ComponentPreview
+  name="progress-bar-label"
+  description="A progress bar with a custom value label."
+/>
 
 You can provide a custom value label using the `valueLabel` prop to show custom progress text.
 
@@ -94,7 +106,10 @@ You can provide a custom value label using the `valueLabel` prop to show custom 
 
 ### Custom Value Scale
 
-<ComponentPreview name="progress-bar-value-scale" description="Progress bars with custom min and max values." />
+<ComponentPreview
+  name="progress-bar-value-scale"
+  description="Progress bars with custom min and max values."
+/>
 
 By default, the `minValue` is 0 and `maxValue` is 100. You can customize these to use different scales.
 
@@ -133,16 +148,16 @@ Values are formatted as a percentage by default, but you can customize this usin
 
 ### ProgressBar
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `label` | `string` | - | Label text for the progress bar |
-| `value` | `number` | `0` | The current value (controlled) |
-| `minValue` | `number` | `0` | The smallest value allowed |
-| `maxValue` | `number` | `100` | The largest value allowed |
-| `isIndeterminate` | `boolean` | `false` | Whether the progress is indeterminate |
-| `valueLabel` | `ReactNode` | - | Custom content to display as the value label |
-| `formatOptions` | `Intl.NumberFormatOptions` | `{style: 'percent'}` | The display format of the value |
-| `aria-label` | `string` | - | Defines a label for screen readers when no visible label is present |
+| Prop              | Type                       | Default              | Description                                                         |
+| ----------------- | -------------------------- | -------------------- | ------------------------------------------------------------------- |
+| `label`           | `string`                   | -                    | Label text for the progress bar                                     |
+| `value`           | `number`                   | `0`                  | The current value (controlled)                                      |
+| `minValue`        | `number`                   | `0`                  | The smallest value allowed                                          |
+| `maxValue`        | `number`                   | `100`                | The largest value allowed                                           |
+| `isIndeterminate` | `boolean`                  | `false`              | Whether the progress is indeterminate                               |
+| `valueLabel`      | `ReactNode`                | -                    | Custom content to display as the value label                        |
+| `formatOptions`   | `Intl.NumberFormatOptions` | `{style: 'percent'}` | The display format of the value                                     |
+| `aria-label`      | `string`                   | -                    | Defines a label for screen readers when no visible label is present |
 
 The `ProgressBar` component also supports all props from the `react-aria-components` ProgressBar component.
 
@@ -150,4 +165,3 @@ The `ProgressBar` component also supports all props from the `react-aria-compone
 
 - [Progress](/docs/components/progress) - Radix UI-based progress component
 - [Meter](/docs/components/meter) - For showing a measurement within a known range
-

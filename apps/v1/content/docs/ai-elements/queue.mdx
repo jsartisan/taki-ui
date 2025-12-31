@@ -43,14 +43,14 @@ npx taki-ui@latest add queue
 ```tsx showLineNumbers
 import {
   Queue,
-  QueueSection,
-  QueueSectionTrigger,
-  QueueSectionLabel,
-  QueueSectionContent,
-  QueueList,
   QueueItem,
-  QueueItemIndicator,
   QueueItemContent,
+  QueueItemIndicator,
+  QueueList,
+  QueueSection,
+  QueueSectionContent,
+  QueueSectionLabel,
+  QueueSectionTrigger,
 } from "@/components/ai-elements/queue"
 ```
 
@@ -76,7 +76,10 @@ import {
 
 ### Default
 
-<ComponentPreview name="queue-demo" description="Queue with completed and pending sections" />
+<ComponentPreview
+  name="queue-demo"
+  description="Queue with completed and pending sections"
+/>
 
 ```tsx showLineNumbers
 import { CheckIcon, ClockIcon } from "lucide-react"
@@ -136,53 +139,52 @@ export default function Example() {
 
 Main queue container.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### QueueSection
 
 Collapsible section within the queue.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `defaultOpen` | `boolean` | `true` | Initial open state |
-| `className` | `string` | - | Custom CSS classes |
+| Prop          | Type      | Default | Description        |
+| ------------- | --------- | ------- | ------------------ |
+| `defaultOpen` | `boolean` | `true`  | Initial open state |
+| `className`   | `string`  | -       | Custom CSS classes |
 
 ### QueueSectionLabel
 
 Section header label with count.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `count` | `number` | - | Number of items |
-| `label` | `string` | - | Section label |
-| `icon` | `ReactNode` | - | Icon element |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type        | Default | Description        |
+| ----------- | ----------- | ------- | ------------------ |
+| `count`     | `number`    | -       | Number of items    |
+| `label`     | `string`    | -       | Section label      |
+| `icon`      | `ReactNode` | -       | Icon element       |
+| `className` | `string`    | -       | Custom CSS classes |
 
 ### QueueItem
 
 Individual queue item.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### QueueItemIndicator
 
 Status indicator dot.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
+| Prop        | Type      | Default | Description               |
+| ----------- | --------- | ------- | ------------------------- |
 | `completed` | `boolean` | `false` | Whether item is completed |
-| `className` | `string` | - | Custom CSS classes |
+| `className` | `string`  | -       | Custom CSS classes        |
 
 ### QueueItemContent
 
 Item content text.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
+| Prop        | Type      | Default | Description               |
+| ----------- | --------- | ------- | ------------------------- |
 | `completed` | `boolean` | `false` | Whether item is completed |
-| `className` | `string` | - | Custom CSS classes |
-
+| `className` | `string`  | -       | Custom CSS classes        |

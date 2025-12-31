@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/DisclosureGroup.html#props
 ---
 
-<ComponentPreview name="disclosure-group-demo" description="A disclosure group component." />
+<ComponentPreview
+  name="disclosure-group-demo"
+  description="A disclosure group component."
+/>
 
 ## Installation
 
@@ -62,15 +65,11 @@ import {
 <DisclosureGroup>
   <Disclosure id="personal">
     <DisclosureHeader>Personal Information</DisclosureHeader>
-    <DisclosurePanel>
-      Enter your personal details.
-    </DisclosurePanel>
+    <DisclosurePanel>Enter your personal details.</DisclosurePanel>
   </Disclosure>
   <Disclosure id="billing">
     <DisclosureHeader>Billing Address</DisclosureHeader>
-    <DisclosurePanel>
-      Provide your billing address.
-    </DisclosurePanel>
+    <DisclosurePanel>Provide your billing address.</DisclosurePanel>
   </Disclosure>
 </DisclosureGroup>
 ```
@@ -81,20 +80,26 @@ import {
 
 A basic disclosure group with multiple collapsible sections. By default, only one disclosure can be expanded at a time.
 
-<ComponentPreview name="disclosure-group-demo" description="A disclosure group with multiple items." />
+<ComponentPreview
+  name="disclosure-group-demo"
+  description="A disclosure group with multiple items."
+/>
 
 ### Default Expanded
 
 You can set one or more disclosures to be expanded by default using the `defaultExpandedKeys` prop.
 
-<ComponentPreview name="disclosure-group-default-expanded" description="A disclosure group with a default expanded item." />
+<ComponentPreview
+  name="disclosure-group-default-expanded"
+  description="A disclosure group with a default expanded item."
+/>
 
 ```tsx showLineNumbers
 <DisclosureGroup defaultExpandedKeys={["system"]}>
   <Disclosure id="system">
     <DisclosureHeader>System Requirements</DisclosureHeader>
     <DisclosurePanel>
-      <ul className="list-disc pl-4 space-y-1">
+      <ul className="list-disc space-y-1 pl-4">
         <li>Node.js 18 or higher</li>
         <li>4GB RAM minimum</li>
         <li>10GB available storage</li>
@@ -103,9 +108,7 @@ You can set one or more disclosures to be expanded by default using the `default
   </Disclosure>
   <Disclosure id="installation">
     <DisclosureHeader>Installation</DisclosureHeader>
-    <DisclosurePanel>
-      Run npm install to install dependencies.
-    </DisclosurePanel>
+    <DisclosurePanel>Run npm install to install dependencies.</DisclosurePanel>
   </Disclosure>
 </DisclosureGroup>
 ```
@@ -114,7 +117,10 @@ You can set one or more disclosures to be expanded by default using the `default
 
 By default, opening one disclosure automatically closes others. Use `allowsMultipleExpanded` to allow multiple disclosures to be open simultaneously.
 
-<ComponentPreview name="disclosure-group-multiple" description="A disclosure group allowing multiple expanded items." />
+<ComponentPreview
+  name="disclosure-group-multiple"
+  description="A disclosure group allowing multiple expanded items."
+/>
 
 ```tsx showLineNumbers
 <DisclosureGroup
@@ -148,19 +154,23 @@ By default, opening one disclosure automatically closes others. Use `allowsMulti
 
 For more control over the expanded state, use the `expandedKeys` and `onExpandedChange` props.
 
-<ComponentPreview name="disclosure-group-controlled" description="A controlled disclosure group." />
+<ComponentPreview
+  name="disclosure-group-controlled"
+  description="A controlled disclosure group."
+/>
 
 ```tsx showLineNumbers
 "use client"
 
 import { useState } from "react"
+
+import { Button } from "@/components/ui/button"
 import {
   Disclosure,
   DisclosureGroup,
   DisclosureHeader,
   DisclosurePanel,
 } from "@/components/ui/disclosure"
-import { Button } from "@/components/ui/button"
 
 export default function Example() {
   const [expandedKeys, setExpandedKeys] = useState<Set<React.Key>>(
@@ -211,7 +221,10 @@ export default function Example() {
 
 Individual disclosures can be disabled to prevent user interaction.
 
-<ComponentPreview name="disclosure-group-disabled" description="A disclosure group with disabled items." />
+<ComponentPreview
+  name="disclosure-group-disabled"
+  description="A disclosure group with disabled items."
+/>
 
 ```tsx showLineNumbers
 <DisclosureGroup>
@@ -242,23 +255,23 @@ Individual disclosures can be disabled to prevent user interaction.
 
 The `DisclosureGroup` component manages the expanded state of multiple disclosures and handles keyboard navigation between them.
 
-| Prop                     | Type                                                  | Default | Description                                                    |
-| ------------------------ | ----------------------------------------------------- | ------- | -------------------------------------------------------------- |
-| `defaultExpandedKeys`    | `Iterable<Key>`                                       | -       | The initial expanded keys (uncontrolled)                       |
-| `expandedKeys`           | `Iterable<Key>`                                       | -       | The controlled expanded keys                                   |
-| `onExpandedChange`       | `(keys: Set<Key>) => void`                            | -       | Callback when expanded keys change                             |
-| `allowsMultipleExpanded` | `boolean`                                             | `false` | Whether multiple disclosures can be expanded at the same time  |
-| `isDisabled`             | `boolean`                                             | `false` | Whether all disclosures in the group are disabled              |
-| `className`              | `string`                                              | -       | CSS class name for the group container                         |
+| Prop                     | Type                       | Default | Description                                                   |
+| ------------------------ | -------------------------- | ------- | ------------------------------------------------------------- |
+| `defaultExpandedKeys`    | `Iterable<Key>`            | -       | The initial expanded keys (uncontrolled)                      |
+| `expandedKeys`           | `Iterable<Key>`            | -       | The controlled expanded keys                                  |
+| `onExpandedChange`       | `(keys: Set<Key>) => void` | -       | Callback when expanded keys change                            |
+| `allowsMultipleExpanded` | `boolean`                  | `false` | Whether multiple disclosures can be expanded at the same time |
+| `isDisabled`             | `boolean`                  | `false` | Whether all disclosures in the group are disabled             |
+| `className`              | `string`                   | -       | CSS class name for the group container                        |
 
 ### Disclosure
 
 Each `Disclosure` represents a single collapsible section within the group.
 
-| Prop         | Type                 | Default | Description                                      |
-| ------------ | -------------------- | ------- | ------------------------------------------------ |
-| `id`         | `Key`                | -       | Unique identifier for the disclosure (required)  |
-| `isDisabled` | `boolean`            | `false` | Whether the disclosure is disabled               |
+| Prop         | Type                 | Default | Description                                     |
+| ------------ | -------------------- | ------- | ----------------------------------------------- |
+| `id`         | `Key`                | -       | Unique identifier for the disclosure (required) |
+| `isDisabled` | `boolean`            | `false` | Whether the disclosure is disabled              |
 | `className`  | `string \| Function` | -       | CSS class name or function for styling          |
 
 ### DisclosureHeader
@@ -273,10 +286,10 @@ The header contains the trigger button and heading for the disclosure.
 
 The panel contains the collapsible content.
 
-| Prop        | Type                 | Default | Description                             |
-| ----------- | -------------------- | ------- | --------------------------------------- |
-| `children`  | `ReactNode`          | -       | Content to display when expanded        |
-| `className` | `string \| Function` | -       | CSS class name or function for styling  |
+| Prop        | Type                 | Default | Description                            |
+| ----------- | -------------------- | ------- | -------------------------------------- |
+| `children`  | `ReactNode`          | -       | Content to display when expanded       |
+| `className` | `string \| Function` | -       | CSS class name or function for styling |
 
 Apart from the props above, all components support the props from their corresponding React Aria components. See the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/DisclosureGroup.html#props) for more details.
 
@@ -293,16 +306,15 @@ Apart from the props above, all components support the props from their correspo
 
 ## Keyboard Interactions
 
-| Key           | Description                                  |
-| ------------- | -------------------------------------------- |
-| `Tab`         | Move focus to the next disclosure trigger    |
+| Key           | Description                                   |
+| ------------- | --------------------------------------------- |
+| `Tab`         | Move focus to the next disclosure trigger     |
 | `Shift + Tab` | Move focus to the previous disclosure trigger |
-| `Enter`       | Toggle the focused disclosure                |
-| `Space`       | Toggle the focused disclosure                |
+| `Enter`       | Toggle the focused disclosure                 |
+| `Space`       | Toggle the focused disclosure                 |
 
 ## Related
 
 - [Disclosure](/docs/components/disclosure) - For single collapsible section
 - [Tabs](/docs/components/tabs) - For mutually exclusive content panels
 - [Collapsible](/docs/components/collapsible) - For a single collapsible section with animation
-

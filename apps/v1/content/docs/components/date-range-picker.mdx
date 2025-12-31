@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/DateRangePicker.html#props
 ---
 
-<ComponentPreview name="date-range-picker-demo" description="A date range picker with label and description." />
+<ComponentPreview
+  name="date-range-picker-demo"
+  description="A date range picker with label and description."
+/>
 
 ## Installation
 
@@ -49,7 +52,10 @@ The `DateRangePicker` component depends on several other components. Make sure y
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="date-range-picker" title="components/ui/date-range-picker.tsx" />
+<ComponentSource
+  name="date-range-picker"
+  title="components/ui/date-range-picker.tsx"
+/>
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -80,7 +86,10 @@ The `DateRangePicker` component is built on top of [React Aria Components](https
 
 ### Default
 
-<ComponentPreview name="date-range-picker-demo" description="A basic date range picker with label and description." />
+<ComponentPreview
+  name="date-range-picker-demo"
+  description="A basic date range picker with label and description."
+/>
 
 ```tsx showLineNumbers
 <DateRangePicker
@@ -91,7 +100,10 @@ The `DateRangePicker` component is built on top of [React Aria Components](https
 
 ### Disabled
 
-<ComponentPreview name="date-range-picker-disabled" description="A disabled date range picker." />
+<ComponentPreview
+  name="date-range-picker-disabled"
+  description="A disabled date range picker."
+/>
 
 ```tsx showLineNumbers
 <DateRangePicker
@@ -103,7 +115,10 @@ The `DateRangePicker` component is built on top of [React Aria Components](https
 
 ### Validation
 
-<ComponentPreview name="date-range-picker-validation" description="A date range picker with validation." />
+<ComponentPreview
+  name="date-range-picker-validation"
+  description="A date range picker with validation."
+/>
 
 ```tsx showLineNumbers
 <DateRangePicker
@@ -116,7 +131,10 @@ The `DateRangePicker` component is built on top of [React Aria Components](https
 
 ### Controlled
 
-<ComponentPreview name="date-range-picker-controlled" description="A controlled date range picker." />
+<ComponentPreview
+  name="date-range-picker-controlled"
+  description="A controlled date range picker."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -150,7 +168,10 @@ export default function DateRangePickerControlled() {
 
 ### Min and Max Values
 
-<ComponentPreview name="date-range-picker-min-max" description="A date range picker with minimum and maximum values." />
+<ComponentPreview
+  name="date-range-picker-min-max"
+  description="A date range picker with minimum and maximum values."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -175,7 +196,10 @@ export default function DateRangePickerMinMax() {
 
 ### Unavailable Dates
 
-<ComponentPreview name="date-range-picker-unavailable-dates" description="A date range picker with unavailable dates (weekends disabled)." />
+<ComponentPreview
+  name="date-range-picker-unavailable-dates"
+  description="A date range picker with unavailable dates (weekends disabled)."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -204,22 +228,22 @@ export default function DateRangePickerUnavailableDates() {
 
 ### DateRangePicker
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `label` | `string` | - | Label text for the date range picker |
-| `description` | `string` | - | Help text displayed below the input |
-| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | - | Error message for validation |
-| `value` | `{ start: DateValue, end: DateValue }` | - | The current value (controlled) |
-| `defaultValue` | `{ start: DateValue, end: DateValue }` | - | The default value (uncontrolled) |
-| `onChange` | `(value: { start: DateValue, end: DateValue }) => void` | - | Handler called when the value changes |
-| `minValue` | `DateValue` | - | The minimum allowed date |
-| `maxValue` | `DateValue` | - | The maximum allowed date |
-| `isDateUnavailable` | `(date: DateValue) => boolean` | - | Function to determine if a date is unavailable |
-| `allowsNonContiguousRanges` | `boolean` | `false` | Whether non-contiguous ranges are allowed |
-| `isDisabled` | `boolean` | `false` | Whether the date range picker is disabled |
-| `isReadOnly` | `boolean` | `false` | Whether the date range picker is read-only |
-| `isRequired` | `boolean` | `false` | Whether the date range picker is required |
-| `placeholderValue` | `DateValue` | - | A placeholder date that controls the default values |
+| Prop                        | Type                                                    | Default | Description                                         |
+| --------------------------- | ------------------------------------------------------- | ------- | --------------------------------------------------- |
+| `label`                     | `string`                                                | -       | Label text for the date range picker                |
+| `description`               | `string`                                                | -       | Help text displayed below the input                 |
+| `errorMessage`              | `string \| ((validation: ValidationResult) => string)`  | -       | Error message for validation                        |
+| `value`                     | `{ start: DateValue, end: DateValue }`                  | -       | The current value (controlled)                      |
+| `defaultValue`              | `{ start: DateValue, end: DateValue }`                  | -       | The default value (uncontrolled)                    |
+| `onChange`                  | `(value: { start: DateValue, end: DateValue }) => void` | -       | Handler called when the value changes               |
+| `minValue`                  | `DateValue`                                             | -       | The minimum allowed date                            |
+| `maxValue`                  | `DateValue`                                             | -       | The maximum allowed date                            |
+| `isDateUnavailable`         | `(date: DateValue) => boolean`                          | -       | Function to determine if a date is unavailable      |
+| `allowsNonContiguousRanges` | `boolean`                                               | `false` | Whether non-contiguous ranges are allowed           |
+| `isDisabled`                | `boolean`                                               | `false` | Whether the date range picker is disabled           |
+| `isReadOnly`                | `boolean`                                               | `false` | Whether the date range picker is read-only          |
+| `isRequired`                | `boolean`                                               | `false` | Whether the date range picker is required           |
+| `placeholderValue`          | `DateValue`                                             | -       | A placeholder date that controls the default values |
 
 See the [React Aria DateRangePicker documentation](https://react-spectrum.adobe.com/react-aria/DateRangePicker.html#props) for more props and detailed information.
 
@@ -280,4 +304,3 @@ The date range picker is ideal for:
 - [Range Calendar](/docs/components/range-calendar) - For visual date range selection
 - [Calendar](/docs/components/calendar) - For single date selection
 - [Field](/docs/components/field) - For composing accessible form fields
-

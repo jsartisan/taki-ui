@@ -53,11 +53,7 @@ import { Image } from "@/components/ai-elements/image"
 ```
 
 ```tsx showLineNumbers
-<Image
-  base64={imageData}
-  mediaType="image/png"
-  alt="AI Generated Image"
-/>
+<Image base64={imageData} mediaType="image/png" alt="AI Generated Image" />
 ```
 
 ## Examples
@@ -98,12 +94,11 @@ const { image } = await generateImage({
 
 Display AI-generated images.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `base64` | `string` | - | Base64 encoded image data |
-| `mediaType` | `string` | - | Image MIME type (e.g., "image/png") |
-| `alt` | `string` | - | Alt text for accessibility |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description                         |
+| ----------- | -------- | ------- | ----------------------------------- |
+| `base64`    | `string` | -       | Base64 encoded image data           |
+| `mediaType` | `string` | -       | Image MIME type (e.g., "image/png") |
+| `alt`       | `string` | -       | Alt text for accessibility          |
+| `className` | `string` | -       | Custom CSS classes                  |
 
 Extends all props from the HTML `img` element.
-

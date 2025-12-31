@@ -4,7 +4,10 @@ description: Display step-by-step reasoning process with progress indicators.
 component: true
 ---
 
-<ComponentPreview name="chain-of-thought-demo" description="Step-by-step reasoning" />
+<ComponentPreview
+  name="chain-of-thought-demo"
+  description="Step-by-step reasoning"
+/>
 
 ## Installation
 
@@ -28,7 +31,10 @@ npx taki-ui@latest add chain-of-thought
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="chain-of-thought" title="ai-elements/chain-of-thought.tsx" />
+<ComponentSource
+  name="chain-of-thought"
+  title="ai-elements/chain-of-thought.tsx"
+/>
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -43,8 +49,8 @@ npx taki-ui@latest add chain-of-thought
 ```tsx showLineNumbers
 import {
   ChainOfThought,
-  ChainOfThoughtHeader,
   ChainOfThoughtContent,
+  ChainOfThoughtHeader,
   ChainOfThoughtStep,
 } from "@/components/ai-elements/chain-of-thought"
 ```
@@ -64,7 +70,10 @@ import {
 
 ### Default
 
-<ComponentPreview name="chain-of-thought-demo" description="Multi-step reasoning process" />
+<ComponentPreview
+  name="chain-of-thought-demo"
+  description="Multi-step reasoning process"
+/>
 
 ```tsx showLineNumbers
 const steps = [
@@ -120,39 +129,38 @@ export default function Example() {
 
 Container for chain of thought.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `open` | `boolean` | - | Controlled open state |
-| `defaultOpen` | `boolean` | `false` | Initial open state |
-| `onOpenChange` | `(open: boolean) => void` | - | Callback when state changes |
-| `className` | `string` | - | Custom CSS classes |
+| Prop           | Type                      | Default | Description                 |
+| -------------- | ------------------------- | ------- | --------------------------- |
+| `open`         | `boolean`                 | -       | Controlled open state       |
+| `defaultOpen`  | `boolean`                 | `false` | Initial open state          |
+| `onOpenChange` | `(open: boolean) => void` | -       | Callback when state changes |
+| `className`    | `string`                  | -       | Custom CSS classes          |
 
 ### ChainOfThoughtHeader
 
 Collapsible header/trigger.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `ReactNode` | - | Header content |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type        | Default | Description        |
+| ----------- | ----------- | ------- | ------------------ |
+| `children`  | `ReactNode` | -       | Header content     |
+| `className` | `string`    | -       | Custom CSS classes |
 
 ### ChainOfThoughtContent
 
 Container for steps.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `ReactNode` | - | Step components |
+| Prop       | Type        | Default | Description     |
+| ---------- | ----------- | ------- | --------------- |
+| `children` | `ReactNode` | -       | Step components |
 
 ### ChainOfThoughtStep
 
 Individual reasoning step.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `number` | `number` | - | Step number |
-| `title` | `string` | - | Step title |
-| `isCompleted` | `boolean` | `false` | Whether step is completed |
-| `isActive` | `boolean` | `false` | Whether step is currently active |
-| `children` | `ReactNode` | - | Step content |
-
+| Prop          | Type        | Default | Description                      |
+| ------------- | ----------- | ------- | -------------------------------- |
+| `number`      | `number`    | -       | Step number                      |
+| `title`       | `string`    | -       | Step title                       |
+| `isCompleted` | `boolean`   | `false` | Whether step is completed        |
+| `isActive`    | `boolean`   | `false` | Whether step is currently active |
+| `children`    | `ReactNode` | -       | Step content                     |

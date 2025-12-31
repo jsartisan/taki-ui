@@ -4,7 +4,10 @@ description: Interactive suggestion chips for quick user actions.
 component: true
 ---
 
-<ComponentPreview name="suggestion-demo" description="Clickable suggestion chips." />
+<ComponentPreview
+  name="suggestion-demo"
+  description="Clickable suggestion chips."
+/>
 
 ## Installation
 
@@ -46,9 +49,18 @@ import { Suggestion, Suggestions } from "@/ai-elements/suggestion"
 
 ```tsx
 <Suggestions>
-  <Suggestion suggestion="Explain quantum computing" onClick={(value) => console.log(value)} />
-  <Suggestion suggestion="Write a haiku" onClick={(value) => console.log(value)} />
-  <Suggestion suggestion="Debug my code" onClick={(value) => console.log(value)} />
+  <Suggestion
+    suggestion="Explain quantum computing"
+    onClick={(value) => console.log(value)}
+  />
+  <Suggestion
+    suggestion="Write a haiku"
+    onClick={(value) => console.log(value)}
+  />
+  <Suggestion
+    suggestion="Debug my code"
+    onClick={(value) => console.log(value)}
+  />
 </Suggestions>
 ```
 
@@ -76,14 +88,13 @@ import { Suggestion, Suggestions } from "@/ai-elements/suggestion"
 
 ### Suggestion
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `suggestion` | `string` | - | The suggestion text/value |
-| `onClick` | `(suggestion: string) => void` | - | Callback when clicked |
-| `variant` | `"outline" \| "secondary"` | `"outline"` | Visual style variant |
-| `size` | `"sm" \| "default" \| "lg"` | `"sm"` | Size variant |
+| Prop         | Type                           | Default     | Description               |
+| ------------ | ------------------------------ | ----------- | ------------------------- |
+| `suggestion` | `string`                       | -           | The suggestion text/value |
+| `onClick`    | `(suggestion: string) => void` | -           | Callback when clicked     |
+| `variant`    | `"outline" \| "secondary"`     | `"outline"` | Visual style variant      |
+| `size`       | `"sm" \| "default" \| "lg"`    | `"sm"`      | Size variant              |
 
 ### Suggestions
 
 Container component for suggestion chips. Provides horizontal scroll behavior.
-

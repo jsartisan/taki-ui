@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/RangeCalendar.html#props
 ---
 
-<ComponentPreview name="range-calendar-demo" description="A range calendar for selecting date ranges." />
+<ComponentPreview
+  name="range-calendar-demo"
+  description="A range calendar for selecting date ranges."
+/>
 
 ## Installation
 
@@ -41,7 +44,10 @@ The `RangeCalendar` component depends on the [Calendar](/docs/components/calenda
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="range-calendar" title="components/ui/range-calendar.tsx" />
+<ComponentSource
+  name="range-calendar"
+  title="components/ui/range-calendar.tsx"
+/>
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -69,7 +75,10 @@ The `RangeCalendar` component is built on top of [React Aria Components](https:/
 
 ### Default
 
-<ComponentPreview name="range-calendar-demo" description="A basic range calendar." />
+<ComponentPreview
+  name="range-calendar-demo"
+  description="A basic range calendar."
+/>
 
 ```tsx showLineNumbers
 <RangeCalendar aria-label="Select a date range" />
@@ -77,7 +86,10 @@ The `RangeCalendar` component is built on top of [React Aria Components](https:/
 
 ### Controlled
 
-<ComponentPreview name="range-calendar-controlled" description="A controlled range calendar with state." />
+<ComponentPreview
+  name="range-calendar-controlled"
+  description="A controlled range calendar with state."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -110,7 +122,10 @@ export default function RangeCalendarControlled() {
 
 ### Disabled
 
-<ComponentPreview name="range-calendar-disabled" description="A disabled range calendar." />
+<ComponentPreview
+  name="range-calendar-disabled"
+  description="A disabled range calendar."
+/>
 
 ```tsx showLineNumbers
 <RangeCalendar aria-label="Select a date range" isDisabled />
@@ -118,7 +133,10 @@ export default function RangeCalendarControlled() {
 
 ### Min and Max Values
 
-<ComponentPreview name="range-calendar-min-max" description="A range calendar with minimum and maximum values." />
+<ComponentPreview
+  name="range-calendar-min-max"
+  description="A range calendar with minimum and maximum values."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -142,7 +160,10 @@ export default function RangeCalendarMinMax() {
 
 ### Unavailable Dates
 
-<ComponentPreview name="range-calendar-unavailable-dates" description="A range calendar with unavailable dates (weekends disabled)." />
+<ComponentPreview
+  name="range-calendar-unavailable-dates"
+  description="A range calendar with unavailable dates (weekends disabled)."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -168,34 +189,34 @@ export default function RangeCalendarUnavailableDates() {
 
 ### Non-Contiguous Ranges
 
-<ComponentPreview name="range-calendar-non-contiguous" description="A range calendar that allows non-contiguous ranges." />
+<ComponentPreview
+  name="range-calendar-non-contiguous"
+  description="A range calendar that allows non-contiguous ranges."
+/>
 
 ```tsx showLineNumbers
-<RangeCalendar
-  aria-label="Select a date range"
-  allowsNonContiguousRanges
-/>
+<RangeCalendar aria-label="Select a date range" allowsNonContiguousRanges />
 ```
 
 ## API Reference
 
 ### RangeCalendar
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `value` | `{ start: DateValue, end: DateValue }` | - | The current value (controlled) |
-| `defaultValue` | `{ start: DateValue, end: DateValue }` | - | The default value (uncontrolled) |
-| `onChange` | `(value: { start: DateValue, end: DateValue }) => void` | - | Handler called when the value changes |
-| `minValue` | `DateValue` | - | The minimum allowed date |
-| `maxValue` | `DateValue` | - | The maximum allowed date |
-| `isDateUnavailable` | `(date: DateValue) => boolean` | - | Function to determine if a date is unavailable |
-| `allowsNonContiguousRanges` | `boolean` | `false` | Whether non-contiguous ranges are allowed |
-| `isDisabled` | `boolean` | `false` | Whether the calendar is disabled |
-| `isReadOnly` | `boolean` | `false` | Whether the calendar is read-only |
-| `autoFocus` | `boolean` | `false` | Whether the calendar should auto focus |
-| `focusedValue` | `DateValue` | - | Controls which date is focused |
-| `errorMessage` | `string` | - | Error message to display |
-| `className` | `string` | - | Additional CSS classes |
+| Prop                        | Type                                                    | Default | Description                                    |
+| --------------------------- | ------------------------------------------------------- | ------- | ---------------------------------------------- |
+| `value`                     | `{ start: DateValue, end: DateValue }`                  | -       | The current value (controlled)                 |
+| `defaultValue`              | `{ start: DateValue, end: DateValue }`                  | -       | The default value (uncontrolled)               |
+| `onChange`                  | `(value: { start: DateValue, end: DateValue }) => void` | -       | Handler called when the value changes          |
+| `minValue`                  | `DateValue`                                             | -       | The minimum allowed date                       |
+| `maxValue`                  | `DateValue`                                             | -       | The maximum allowed date                       |
+| `isDateUnavailable`         | `(date: DateValue) => boolean`                          | -       | Function to determine if a date is unavailable |
+| `allowsNonContiguousRanges` | `boolean`                                               | `false` | Whether non-contiguous ranges are allowed      |
+| `isDisabled`                | `boolean`                                               | `false` | Whether the calendar is disabled               |
+| `isReadOnly`                | `boolean`                                               | `false` | Whether the calendar is read-only              |
+| `autoFocus`                 | `boolean`                                               | `false` | Whether the calendar should auto focus         |
+| `focusedValue`              | `DateValue`                                             | -       | Controls which date is focused                 |
+| `errorMessage`              | `string`                                                | -       | Error message to display                       |
+| `className`                 | `string`                                                | -       | Additional CSS classes                         |
 
 See the [React Aria RangeCalendar documentation](https://react-spectrum.adobe.com/react-aria/RangeCalendar.html#props) for more props and detailed information.
 
@@ -254,13 +275,11 @@ The range calendar supports full keyboard navigation:
 By default, the range calendar only allows contiguous date ranges. When `allowsNonContiguousRanges` is enabled, users can select multiple separate date ranges:
 
 ```tsx showLineNumbers
-<RangeCalendar
-  aria-label="Select date ranges"
-  allowsNonContiguousRanges
-/>
+<RangeCalendar aria-label="Select date ranges" allowsNonContiguousRanges />
 ```
 
 This is useful for scenarios like:
+
 - Selecting multiple non-consecutive vacation periods
 - Choosing available dates across different weeks
 - Booking multiple separate time slots
@@ -293,4 +312,3 @@ Always provide an `aria-label` or `aria-labelledby` prop to describe the calenda
 - [Date Range Picker](/docs/components/date-range-picker) - Combines range calendar with date fields
 - [Date Picker](/docs/components/date-picker) - For selecting a single date with a popover
 - [Date Field](/docs/components/date-field) - For keyboard-only date entry
-

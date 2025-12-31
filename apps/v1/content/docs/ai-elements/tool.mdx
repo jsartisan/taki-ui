@@ -51,8 +51,8 @@ npm install ai
 ```tsx showLineNumbers
 import {
   Tool,
-  ToolHeader,
   ToolContent,
+  ToolHeader,
   ToolInput,
   ToolOutput,
 } from "@/components/ai-elements/tool"
@@ -60,10 +60,10 @@ import {
 
 ```tsx showLineNumbers
 <Tool>
-  <ToolHeader 
-    title="Search Web" 
-    type="tool-search-web" 
-    state="output-available" 
+  <ToolHeader
+    title="Search Web"
+    type="tool-search-web"
+    state="output-available"
   />
   <ToolContent>
     <ToolInput input={input} />
@@ -130,38 +130,37 @@ The component supports different states:
 
 Collapsible container for tool call.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
+| Prop          | Type      | Default | Description        |
+| ------------- | --------- | ------- | ------------------ |
 | `defaultOpen` | `boolean` | `false` | Initial open state |
-| `className` | `string` | - | Custom CSS classes |
+| `className`   | `string`  | -       | Custom CSS classes |
 
 ### ToolHeader
 
 Header showing tool name and status.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `title` | `string` | - | Tool display name |
-| `type` | `string` | - | Tool type identifier |
-| `state` | `"input-streaming" \| "input-available" \| "output-available" \| "output-error"` | - | Current state |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type                                                                             | Default | Description          |
+| ----------- | -------------------------------------------------------------------------------- | ------- | -------------------- |
+| `title`     | `string`                                                                         | -       | Tool display name    |
+| `type`      | `string`                                                                         | -       | Tool type identifier |
+| `state`     | `"input-streaming" \| "input-available" \| "output-available" \| "output-error"` | -       | Current state        |
+| `className` | `string`                                                                         | -       | Custom CSS classes   |
 
 ### ToolInput
 
 Display tool input parameters.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `input` | `any` | - | Tool input data |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `input`     | `any`    | -       | Tool input data    |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### ToolOutput
 
 Display tool output or error.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `output` | `any` | - | Tool output data |
-| `errorText` | `string` | - | Error message if failed |
-| `className` | `string` | - | Custom CSS classes |
-
+| Prop        | Type     | Default | Description             |
+| ----------- | -------- | ------- | ----------------------- |
+| `output`    | `any`    | -       | Tool output data        |
+| `errorText` | `string` | -       | Error message if failed |
+| `className` | `string` | -       | Custom CSS classes      |

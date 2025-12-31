@@ -53,7 +53,7 @@ npm install react-aria-components tailwind-variants
 ## Usage
 
 ```tsx showLineNumbers
-import { Tabs, TabPanel, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { TabPanel, Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 ```
 
 ```tsx showLineNumbers
@@ -62,12 +62,8 @@ import { Tabs, TabPanel, TabsList, TabsTrigger } from "@/components/ui/tabs"
     <TabsTrigger id="account">Account</TabsTrigger>
     <TabsTrigger id="password">Password</TabsTrigger>
   </TabsList>
-  <TabPanel id="account">
-    Make changes to your account here.
-  </TabPanel>
-  <TabPanel id="password">
-    Change your password here.
-  </TabPanel>
+  <TabPanel id="account">Make changes to your account here.</TabPanel>
+  <TabPanel id="password">Change your password here.</TabPanel>
 </Tabs>
 ```
 
@@ -103,9 +99,9 @@ import { Tabs, TabPanel, TabsList, TabsTrigger } from "@/components/ui/tabs"
 />
 
 ```tsx showLineNumbers
-import { UserIcon, LockIcon, BellIcon } from "lucide-react"
+import { BellIcon, LockIcon, UserIcon } from "lucide-react"
 
-<Tabs defaultSelectedKey="account">
+;<Tabs defaultSelectedKey="account">
   <TabsList aria-label="Settings">
     <TabsTrigger id="account">
       <UserIcon />
@@ -202,9 +198,10 @@ Wrap your Menu component using `createHideableComponent` from `@react-aria/colle
 
 import { useMemo } from "react"
 import { createHideableComponent } from "@react-aria/collections"
-import { MenuTrigger, Menu, MenuItem } from "@/components/ui/menu"
+
 import { Button } from "@/components/ui/button"
-import { Tabs, TabsList, TabsTrigger, TabPanel } from "@/components/ui/tabs"
+import { Menu, MenuItem, MenuTrigger } from "@/components/ui/menu"
+import { TabPanel, Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function TabsWithMenu() {
   // Create a hideable component to prevent Menu from being part of Tabs collection
@@ -253,41 +250,41 @@ export function TabsWithMenu() {
 
 The root tabs component that manages the selection state.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `defaultSelectedKey` | `Key` | - | The initial selected tab (uncontrolled) |
-| `selectedKey` | `Key` | - | The currently selected tab (controlled) |
-| `onSelectionChange` | `(key: Key) => void` | - | Handler called when tab selection changes |
-| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | The orientation of the tabs |
-| `isDisabled` | `boolean` | `false` | Whether all tabs are disabled |
+| Prop                 | Type                         | Default        | Description                               |
+| -------------------- | ---------------------------- | -------------- | ----------------------------------------- |
+| `defaultSelectedKey` | `Key`                        | -              | The initial selected tab (uncontrolled)   |
+| `selectedKey`        | `Key`                        | -              | The currently selected tab (controlled)   |
+| `onSelectionChange`  | `(key: Key) => void`         | -              | Handler called when tab selection changes |
+| `orientation`        | `'horizontal' \| 'vertical'` | `'horizontal'` | The orientation of the tabs               |
+| `isDisabled`         | `boolean`                    | `false`        | Whether all tabs are disabled             |
 
 ### TabsList
 
 Container for the tab triggers.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `aria-label` | `string` | - | Accessible label for the tab list |
-| `children` | `ReactNode` | - | The tab triggers to display |
+| Prop         | Type        | Default | Description                       |
+| ------------ | ----------- | ------- | --------------------------------- |
+| `aria-label` | `string`    | -       | Accessible label for the tab list |
+| `children`   | `ReactNode` | -       | The tab triggers to display       |
 
 ### TabsTrigger
 
 Individual tab trigger button.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `id` | `Key` | - | Unique identifier for the tab |
-| `isDisabled` | `boolean` | `false` | Whether the tab is disabled |
-| `children` | `ReactNode` | - | The content to display in the tab |
+| Prop         | Type        | Default | Description                       |
+| ------------ | ----------- | ------- | --------------------------------- |
+| `id`         | `Key`       | -       | Unique identifier for the tab     |
+| `isDisabled` | `boolean`   | `false` | Whether the tab is disabled       |
+| `children`   | `ReactNode` | -       | The content to display in the tab |
 
 ### TabPanel
 
 The panel that displays the content for a selected tab.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `id` | `Key` | - | Must match the `id` of the corresponding trigger |
-| `children` | `ReactNode` | - | The content to display when tab is selected |
+| Prop       | Type        | Default | Description                                      |
+| ---------- | ----------- | ------- | ------------------------------------------------ |
+| `id`       | `Key`       | -       | Must match the `id` of the corresponding trigger |
+| `children` | `ReactNode` | -       | The content to display when tab is selected      |
 
 ## Accessibility
 

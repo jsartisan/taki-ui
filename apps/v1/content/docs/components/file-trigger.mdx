@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/FileTrigger.html#props
 ---
 
-<ComponentPreview name="file-trigger-demo" description="A basic file trigger." />
+<ComponentPreview
+  name="file-trigger-demo"
+  description="A basic file trigger."
+/>
 
 ## Installation
 
@@ -50,8 +53,8 @@ npm install react-aria-components
 ## Usage
 
 ```tsx
-import { FileTrigger } from "@/components/ui/file-trigger"
 import { Button } from "@/components/ui/button"
+import { FileTrigger } from "@/components/ui/file-trigger"
 ```
 
 ```tsx
@@ -74,12 +77,16 @@ A file input can be created with an `<input type="file">` element, but this supp
 
 ### Default
 
-<ComponentPreview name="file-trigger-demo" description="A basic file trigger with a button." />
+<ComponentPreview
+  name="file-trigger-demo"
+  description="A basic file trigger with a button."
+/>
 
 ```tsx showLineNumbers
 "use client"
 
 import { useState } from "react"
+
 import { Button } from "@/components/ui/button"
 import { FileTrigger } from "@/components/ui/file-trigger"
 
@@ -105,9 +112,9 @@ export default function FileTriggerDemo() {
 
 ### Multiple Files
 
-<ComponentPreview 
-  name="file-trigger-multiple" 
-  description="Allow users to select multiple files at once." 
+<ComponentPreview
+  name="file-trigger-multiple"
+  description="Allow users to select multiple files at once."
 />
 
 ```tsx showLineNumbers
@@ -124,9 +131,9 @@ export default function FileTriggerDemo() {
 
 ### Accepted File Types
 
-<ComponentPreview 
-  name="file-trigger-image" 
-  description="Restrict file selection to specific file types." 
+<ComponentPreview
+  name="file-trigger-image"
+  description="Restrict file selection to specific file types."
 />
 
 ```tsx showLineNumbers
@@ -154,9 +161,9 @@ You can specify file types using MIME types. Common examples include:
 
 ### Directory Selection
 
-<ComponentPreview 
-  name="file-trigger-directory" 
-  description="Enable selecting directories instead of files." 
+<ComponentPreview
+  name="file-trigger-directory"
+  description="Enable selecting directories instead of files."
 />
 
 ```tsx showLineNumbers
@@ -165,9 +172,7 @@ You can specify file types using MIME types. Common examples include:
   onSelect={(e) => {
     if (e) {
       const fileList = Array.from(e).map((file) =>
-        file.webkitRelativePath !== ""
-          ? file.webkitRelativePath
-          : file.name
+        file.webkitRelativePath !== "" ? file.webkitRelativePath : file.name
       )
       console.log(fileList)
     }
@@ -184,9 +189,9 @@ This reflects the `webkitdirectory` HTML attribute and allows users to select di
 
 ### Media Capture
 
-<ComponentPreview 
-  name="file-trigger-camera" 
-  description="Open device camera on mobile devices." 
+<ComponentPreview
+  name="file-trigger-camera"
+  description="Open device camera on mobile devices."
 />
 
 ```tsx showLineNumbers
@@ -215,15 +220,14 @@ This behavior only works on mobile devices. On desktop devices, it will open the
 
 The `FileTrigger` component wraps around a pressable child and includes a visually hidden input element that allows the user to select files from their device.
 
-| Prop                | Type                           | Default | Description                                                                                     |
-| ------------------- | ------------------------------ | ------- | ----------------------------------------------------------------------------------------------- |
-| `acceptedFileTypes` | `string[]`                     | -       | Specifies what MIME types of files are allowed.                                                 |
-| `allowsMultiple`    | `boolean`                      | `false` | Whether multiple files can be selected.                                                         |
-| `defaultCamera`     | `"user" \| "environment"`      | -       | Specifies the use of a media capture mechanism to capture the media on the spot.                |
-| `acceptDirectory`   | `boolean`                      | `false` | Enables the selection of directories instead of individual files.                               |
+| Prop                | Type                                | Default | Description                                                                                    |
+| ------------------- | ----------------------------------- | ------- | ---------------------------------------------------------------------------------------------- |
+| `acceptedFileTypes` | `string[]`                          | -       | Specifies what MIME types of files are allowed.                                                |
+| `allowsMultiple`    | `boolean`                           | `false` | Whether multiple files can be selected.                                                        |
+| `defaultCamera`     | `"user" \| "environment"`           | -       | Specifies the use of a media capture mechanism to capture the media on the spot.               |
+| `acceptDirectory`   | `boolean`                           | `false` | Enables the selection of directories instead of individual files.                              |
 | `onSelect`          | `(files: FileList \| null) => void` | -       | Handler called when a user selects files. Receives a `FileList` object or `null` if cancelled. |
 
 If a visual label is not provided on the pressable child, then an `aria-label` or `aria-labelledby` prop must be passed to identify the file trigger to assistive technology.
 
 Apart from the props above, the `FileTrigger` component also supports the props from the `react-aria-components` `FileTrigger` component. Check the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/FileTrigger.html#props) for more details.
-

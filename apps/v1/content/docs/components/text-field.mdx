@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/TextField.html#props
 ---
 
-<ComponentPreview name="text-field-demo" description="A text field component." />
+<ComponentPreview
+  name="text-field-demo"
+  description="A text field component."
+/>
 
 ## Installation
 
@@ -54,11 +57,7 @@ import { TextField } from "@/components/ui/text-field"
 ```
 
 ```tsx showLineNumbers
-<TextField
-  label="Name"
-  placeholder="Enter your name"
-  defaultValue="John Doe"
-/>
+<TextField label="Name" placeholder="Enter your name" defaultValue="John Doe" />
 ```
 
 ## Examples
@@ -67,13 +66,19 @@ import { TextField } from "@/components/ui/text-field"
 
 A basic text field with a label and default value.
 
-<ComponentPreview name="text-field-demo" description="A text field component." />
+<ComponentPreview
+  name="text-field-demo"
+  description="A text field component."
+/>
 
 ### With Description
 
 Add helpful context with a description below the label.
 
-<ComponentPreview name="text-field-with-description" description="A text field with a description." />
+<ComponentPreview
+  name="text-field-with-description"
+  description="A text field with a description."
+/>
 
 ```tsx showLineNumbers
 <TextField
@@ -88,21 +93,23 @@ Add helpful context with a description below the label.
 
 Disable the text field to prevent user interaction.
 
-<ComponentPreview name="text-field-disabled" description="A disabled text field." />
+<ComponentPreview
+  name="text-field-disabled"
+  description="A disabled text field."
+/>
 
 ```tsx showLineNumbers
-<TextField
-  label="Username"
-  defaultValue="johndoe"
-  isDisabled
-/>
+<TextField label="Username" defaultValue="johndoe" isDisabled />
 ```
 
 ### Read Only
 
 Make the text field read-only to display data that cannot be edited.
 
-<ComponentPreview name="text-field-readonly" description="A read-only text field." />
+<ComponentPreview
+  name="text-field-readonly"
+  description="A read-only text field."
+/>
 
 ```tsx showLineNumbers
 <TextField
@@ -117,12 +124,16 @@ Make the text field read-only to display data that cannot be edited.
 
 Use validation to ensure values meet your requirements.
 
-<ComponentPreview name="text-field-validation" description="A text field with validation." />
+<ComponentPreview
+  name="text-field-validation"
+  description="A text field with validation."
+/>
 
 ```tsx showLineNumbers
 "use client"
 
 import { useState } from "react"
+
 import { TextField } from "@/components/ui/text-field"
 
 export default function Example() {
@@ -159,7 +170,10 @@ export default function Example() {
 
 The TextField component supports various HTML input types for different use cases.
 
-<ComponentPreview name="text-field-types" description="Text fields with different input types." />
+<ComponentPreview
+  name="text-field-types"
+  description="Text fields with different input types."
+/>
 
 ```tsx showLineNumbers
 <TextField
@@ -193,24 +207,24 @@ The TextField component supports various HTML input types for different use case
 
 The `TextField` component extends the React Aria `TextField` component with consistent styling and built-in label, description, and error message support.
 
-| Prop           | Type                                                    | Default | Description                                      |
-| -------------- | ------------------------------------------------------- | ------- | ------------------------------------------------ |
-| `label`        | `string`                                                | -       | Label text for the text field                    |
-| `description`  | `string`                                                | -       | Helper text displayed below the label            |
-| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | -       | Error message for validation failures            |
-| `placeholder`  | `string`                                                | -       | Placeholder text shown when empty                |
-| `defaultValue` | `string`                                                | -       | Default value (uncontrolled)                     |
-| `value`        | `string`                                                | -       | Current value (controlled)                       |
-| `onChange`     | `(value: string) => void`                               | -       | Callback when value changes                      |
-| `type`         | `string`                                                | `"text"`| HTML input type (text, email, password, etc.)    |
-| `minLength`    | `number`                                                | -       | Minimum length of input value                    |
-| `maxLength`    | `number`                                                | -       | Maximum length of input value                    |
-| `pattern`      | `string`                                                | -       | Regex pattern for validation                     |
-| `isDisabled`   | `boolean`                                               | `false` | Whether the text field is disabled               |
-| `isRequired`   | `boolean`                                               | `false` | Whether the text field is required               |
-| `isReadOnly`   | `boolean`                                               | `false` | Whether the text field is read-only              |
-| `autoComplete` | `string`                                                | -       | HTML autocomplete attribute                      |
-| `autoFocus`    | `boolean`                                               | `false` | Whether to auto-focus the input on mount         |
+| Prop           | Type                                                   | Default  | Description                                   |
+| -------------- | ------------------------------------------------------ | -------- | --------------------------------------------- |
+| `label`        | `string`                                               | -        | Label text for the text field                 |
+| `description`  | `string`                                               | -        | Helper text displayed below the label         |
+| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | -        | Error message for validation failures         |
+| `placeholder`  | `string`                                               | -        | Placeholder text shown when empty             |
+| `defaultValue` | `string`                                               | -        | Default value (uncontrolled)                  |
+| `value`        | `string`                                               | -        | Current value (controlled)                    |
+| `onChange`     | `(value: string) => void`                              | -        | Callback when value changes                   |
+| `type`         | `string`                                               | `"text"` | HTML input type (text, email, password, etc.) |
+| `minLength`    | `number`                                               | -        | Minimum length of input value                 |
+| `maxLength`    | `number`                                               | -        | Maximum length of input value                 |
+| `pattern`      | `string`                                               | -        | Regex pattern for validation                  |
+| `isDisabled`   | `boolean`                                              | `false`  | Whether the text field is disabled            |
+| `isRequired`   | `boolean`                                              | `false`  | Whether the text field is required            |
+| `isReadOnly`   | `boolean`                                              | `false`  | Whether the text field is read-only           |
+| `autoComplete` | `string`                                               | -        | HTML autocomplete attribute                   |
+| `autoFocus`    | `boolean`                                              | `false`  | Whether to auto-focus the input on mount      |
 
 Apart from the props above, the `TextField` component also supports all props from the `react-aria-components` `TextField` component. See the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/TextField.html#props) for more details.
 
@@ -229,4 +243,3 @@ Apart from the props above, the `TextField` component also supports all props fr
 - [Field](/docs/components/field) - For custom form field composition
 - [Number Field](/docs/components/number-field) - For numeric input with steppers
 - [Search Field](/docs/components/search-field) - For search input with clear button
-

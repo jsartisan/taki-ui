@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/DateField.html#props
 ---
 
-<ComponentPreview name="date-field-demo" description="A date field with label and description." />
+<ComponentPreview
+  name="date-field-demo"
+  description="A date field with label and description."
+/>
 
 ## Installation
 
@@ -54,10 +57,7 @@ import { DateField } from "@/components/ui/date-field"
 ```
 
 ```tsx showLineNumbers
-<DateField
-  label="Event date"
-  description="Select a date for your event."
-/>
+<DateField label="Event date" description="Select a date for your event." />
 ```
 
 ## About
@@ -68,18 +68,21 @@ The `DateField` component is built on top of [React Aria Components](https://rea
 
 ### Default
 
-<ComponentPreview name="date-field-demo" description="A basic date field with label and description." />
+<ComponentPreview
+  name="date-field-demo"
+  description="A basic date field with label and description."
+/>
 
 ```tsx showLineNumbers
-<DateField
-  label="Event date"
-  description="Select a date for your event."
-/>
+<DateField label="Event date" description="Select a date for your event." />
 ```
 
 ### Disabled
 
-<ComponentPreview name="date-field-disabled" description="A disabled date field." />
+<ComponentPreview
+  name="date-field-disabled"
+  description="A disabled date field."
+/>
 
 ```tsx showLineNumbers
 <DateField
@@ -91,7 +94,10 @@ The `DateField` component is built on top of [React Aria Components](https://rea
 
 ### Validation
 
-<ComponentPreview name="date-field-validation" description="A date field with validation." />
+<ComponentPreview
+  name="date-field-validation"
+  description="A date field with validation."
+/>
 
 ```tsx showLineNumbers
 <DateField
@@ -104,7 +110,10 @@ The `DateField` component is built on top of [React Aria Components](https://rea
 
 ### Controlled
 
-<ComponentPreview name="date-field-controlled" description="A controlled date field." />
+<ComponentPreview
+  name="date-field-controlled"
+  description="A controlled date field."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -125,7 +134,7 @@ export default function DateFieldControlled() {
         value={value}
         onChange={setValue}
       />
-      <p className="text-sm text-muted-foreground">
+      <p className="text-muted-foreground text-sm">
         Selected date: {value ? value.toString() : "None"}
       </p>
     </div>
@@ -135,12 +144,15 @@ export default function DateFieldControlled() {
 
 ### Min and Max Values
 
-<ComponentPreview name="date-field-min-max" description="A date field with minimum and maximum values." />
+<ComponentPreview
+  name="date-field-min-max"
+  description="A date field with minimum and maximum values."
+/>
 
 ```tsx showLineNumbers
 "use client"
 
-import { today, getLocalTimeZone } from "@internationalized/date"
+import { getLocalTimeZone, today } from "@internationalized/date"
 
 import { DateField } from "@/components/ui/date-field"
 
@@ -160,7 +172,10 @@ export default function DateFieldMinMax() {
 
 ### Granularity
 
-<ComponentPreview name="date-field-granularity" description="Date fields with different granularities." />
+<ComponentPreview
+  name="date-field-granularity"
+  description="Date fields with different granularities."
+/>
 
 ```tsx showLineNumbers
 <div className="space-y-4">
@@ -181,21 +196,21 @@ export default function DateFieldMinMax() {
 
 ### DateField
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `label` | `string` | - | Label text for the date field |
-| `description` | `string` | - | Help text displayed below the input |
-| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | - | Error message for validation |
-| `value` | `DateValue` | - | The current value (controlled) |
-| `defaultValue` | `DateValue` | - | The default value (uncontrolled) |
-| `onChange` | `(value: DateValue) => void` | - | Handler called when the value changes |
-| `minValue` | `DateValue` | - | The minimum allowed date |
-| `maxValue` | `DateValue` | - | The maximum allowed date |
-| `granularity` | `"day" \| "hour" \| "minute" \| "second"` | `"day"` | Determines the smallest unit editable |
-| `isDisabled` | `boolean` | `false` | Whether the date field is disabled |
-| `isReadOnly` | `boolean` | `false` | Whether the date field is read-only |
-| `isRequired` | `boolean` | `false` | Whether the date field is required |
-| `placeholderValue` | `DateValue` | - | A placeholder date that controls the default values of segments |
+| Prop               | Type                                                   | Default | Description                                                     |
+| ------------------ | ------------------------------------------------------ | ------- | --------------------------------------------------------------- |
+| `label`            | `string`                                               | -       | Label text for the date field                                   |
+| `description`      | `string`                                               | -       | Help text displayed below the input                             |
+| `errorMessage`     | `string \| ((validation: ValidationResult) => string)` | -       | Error message for validation                                    |
+| `value`            | `DateValue`                                            | -       | The current value (controlled)                                  |
+| `defaultValue`     | `DateValue`                                            | -       | The default value (uncontrolled)                                |
+| `onChange`         | `(value: DateValue) => void`                           | -       | Handler called when the value changes                           |
+| `minValue`         | `DateValue`                                            | -       | The minimum allowed date                                        |
+| `maxValue`         | `DateValue`                                            | -       | The maximum allowed date                                        |
+| `granularity`      | `"day" \| "hour" \| "minute" \| "second"`              | `"day"` | Determines the smallest unit editable                           |
+| `isDisabled`       | `boolean`                                              | `false` | Whether the date field is disabled                              |
+| `isReadOnly`       | `boolean`                                              | `false` | Whether the date field is read-only                             |
+| `isRequired`       | `boolean`                                              | `false` | Whether the date field is required                              |
+| `placeholderValue` | `DateValue`                                            | -       | A placeholder date that controls the default values of segments |
 
 See the [React Aria DateField documentation](https://react-spectrum.adobe.com/react-aria/DateField.html#props) for more props and detailed information.
 
@@ -230,4 +245,3 @@ See the [@internationalized/date documentation](https://react-spectrum.adobe.com
 - [Calendar](/docs/components/calendar) - For visual date selection
 - [Date Picker](/docs/components/date-picker) - Combines a date field with a calendar popover
 - [Field](/docs/components/field) - For composing accessible form fields
-

@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/NumberField.html#props
 ---
 
-<ComponentPreview name="number-field-demo" description="A number field component." />
+<ComponentPreview
+  name="number-field-demo"
+  description="A number field component."
+/>
 
 ## Installation
 
@@ -69,13 +72,19 @@ import { NumberField } from "@/components/ui/number-field"
 
 A basic number field with a label and default value.
 
-<ComponentPreview name="number-field-demo" description="A number field component." />
+<ComponentPreview
+  name="number-field-demo"
+  description="A number field component."
+/>
 
 ### With Description
 
 Add helpful context with a description below the label.
 
-<ComponentPreview name="number-field-with-description" description="A number field with a description." />
+<ComponentPreview
+  name="number-field-with-description"
+  description="A number field with a description."
+/>
 
 ```tsx showLineNumbers
 <NumberField
@@ -95,26 +104,29 @@ Add helpful context with a description below the label.
 
 Disable the number field to prevent user interaction.
 
-<ComponentPreview name="number-field-disabled" description="A disabled number field." />
+<ComponentPreview
+  name="number-field-disabled"
+  description="A disabled number field."
+/>
 
 ```tsx showLineNumbers
-<NumberField
-  label="Items in stock"
-  defaultValue={42}
-  isDisabled
-/>
+<NumberField label="Items in stock" defaultValue={42} isDisabled />
 ```
 
 ### With Validation
 
 Use validation to ensure values meet your requirements.
 
-<ComponentPreview name="number-field-validation" description="A number field with validation." />
+<ComponentPreview
+  name="number-field-validation"
+  description="A number field with validation."
+/>
 
 ```tsx showLineNumbers
 "use client"
 
 import { useState } from "react"
+
 import { NumberField } from "@/components/ui/number-field"
 
 export default function Example() {
@@ -150,7 +162,10 @@ export default function Example() {
 
 Format numbers as percentages with custom fraction digits.
 
-<ComponentPreview name="number-field-percentage" description="A number field formatted as percentage." />
+<ComponentPreview
+  name="number-field-percentage"
+  description="A number field formatted as percentage."
+/>
 
 ```tsx showLineNumbers
 <NumberField
@@ -171,7 +186,10 @@ Format numbers as percentages with custom fraction digits.
 
 Use the `ButtonGroup` component to create custom steppers.
 
-<ComponentPreview name="number-field-custom-steppers" description="A number field with custom steppers." />
+<ComponentPreview
+  name="number-field-custom-steppers"
+  description="A number field with custom steppers."
+/>
 
 ## API Reference
 
@@ -179,20 +197,20 @@ Use the `ButtonGroup` component to create custom steppers.
 
 The `NumberField` component extends the React Aria `NumberField` component with consistent styling and built-in label, description, and error message support.
 
-| Prop           | Type                                                    | Default | Description                                      |
-| -------------- | ------------------------------------------------------- | ------- | ------------------------------------------------ |
-| `label`        | `string`                                                | -       | Label text for the number field                  |
-| `description`  | `string`                                                | -       | Helper text displayed below the label            |
-| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | -       | Error message for validation failures            |
-| `defaultValue` | `number`                                                | -       | Default value (uncontrolled)                     |
-| `value`        | `number`                                                | -       | Current value (controlled)                       |
-| `onChange`     | `(value: number) => void`                               | -       | Callback when value changes                      |
-| `minValue`     | `number`                                                | -       | Minimum allowed value                            |
-| `maxValue`     | `number`                                                | -       | Maximum allowed value                            |
-| `step`         | `number`                                                | `1`     | Amount to increment/decrement                    |
-| `isDisabled`   | `boolean`                                               | `false` | Whether the number field is disabled             |
-| `isRequired`   | `boolean`                                               | `false` | Whether the number field is required             |
-| `isReadOnly`   | `boolean`                                               | `false` | Whether the number field is read-only            |
+| Prop            | Type                                                   | Default | Description                                             |
+| --------------- | ------------------------------------------------------ | ------- | ------------------------------------------------------- |
+| `label`         | `string`                                               | -       | Label text for the number field                         |
+| `description`   | `string`                                               | -       | Helper text displayed below the label                   |
+| `errorMessage`  | `string \| ((validation: ValidationResult) => string)` | -       | Error message for validation failures                   |
+| `defaultValue`  | `number`                                               | -       | Default value (uncontrolled)                            |
+| `value`         | `number`                                               | -       | Current value (controlled)                              |
+| `onChange`      | `(value: number) => void`                              | -       | Callback when value changes                             |
+| `minValue`      | `number`                                               | -       | Minimum allowed value                                   |
+| `maxValue`      | `number`                                               | -       | Maximum allowed value                                   |
+| `step`          | `number`                                               | `1`     | Amount to increment/decrement                           |
+| `isDisabled`    | `boolean`                                              | `false` | Whether the number field is disabled                    |
+| `isRequired`    | `boolean`                                              | `false` | Whether the number field is required                    |
+| `isReadOnly`    | `boolean`                                              | `false` | Whether the number field is read-only                   |
 | `formatOptions` | `Intl.NumberFormatOptions`                             | -       | Options for number formatting (currency, percent, etc.) |
 
 Apart from the props above, the `NumberField` component also supports all props from the `react-aria-components` `NumberField` component. See the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/NumberField.html#props) for more details.
@@ -211,4 +229,3 @@ Apart from the props above, the `NumberField` component also supports all props 
 - [Input](/docs/components/input) - For text input
 - [Field](/docs/components/field) - For custom form field composition
 - [Input Group](/docs/components/input-group) - For adding additional context to inputs
-

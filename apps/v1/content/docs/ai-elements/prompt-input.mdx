@@ -4,7 +4,10 @@ description: A comprehensive input component for AI chat interfaces with file at
 component: true
 ---
 
-<ComponentPreview name="prompt-input-demo" description="Chat input with file attachments, speech input, and model selection" />
+<ComponentPreview
+  name="prompt-input-demo"
+  description="Chat input with file attachments, speech input, and model selection"
+/>
 
 ## Installation
 
@@ -94,8 +97,8 @@ const models = [
           <PromptInputActionAddAttachments />
         </PromptInputActionMenuContent>
       </PromptInputActionMenu>
-      <PromptInputModelSelect 
-        selectedKey={model} 
+      <PromptInputModelSelect
+        selectedKey={model}
         onSelectionChange={(key) => setModel(key as string)}
         items={models}
       >
@@ -115,7 +118,10 @@ const models = [
 
 ### Default
 
-<ComponentPreview name="prompt-input-demo" description="Full-featured chat input with file attachments, speech input, and model selection" />
+<ComponentPreview
+  name="prompt-input-demo"
+  description="Full-featured chat input with file attachments, speech input, and model selection"
+/>
 
 ## Features
 
@@ -157,145 +163,145 @@ The `PromptInput` component is composed of several sub-components that work toge
 
 Main container that handles form submission and file management.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `onSubmit` | `(message: PromptInputMessage, event: FormEvent) => void \| Promise<void>` | - | Called when form is submitted |
-| `accept` | `string` | - | File types to accept (e.g., "image/*") |
-| `multiple` | `boolean` | `false` | Allow multiple file uploads |
-| `globalDrop` | `boolean` | `false` | Enable document-wide drag & drop |
-| `syncHiddenInput` | `boolean` | `false` | Keep hidden input synced for native forms |
-| `maxFiles` | `number` | - | Maximum number of files allowed |
-| `maxFileSize` | `number` | - | Maximum file size in bytes |
-| `onError` | `(err: { code: string, message: string }) => void` | - | Error handler for file validation |
+| Prop              | Type                                                                       | Default | Description                               |
+| ----------------- | -------------------------------------------------------------------------- | ------- | ----------------------------------------- |
+| `onSubmit`        | `(message: PromptInputMessage, event: FormEvent) => void \| Promise<void>` | -       | Called when form is submitted             |
+| `accept`          | `string`                                                                   | -       | File types to accept (e.g., "image/\*")   |
+| `multiple`        | `boolean`                                                                  | `false` | Allow multiple file uploads               |
+| `globalDrop`      | `boolean`                                                                  | `false` | Enable document-wide drag & drop          |
+| `syncHiddenInput` | `boolean`                                                                  | `false` | Keep hidden input synced for native forms |
+| `maxFiles`        | `number`                                                                   | -       | Maximum number of files allowed           |
+| `maxFileSize`     | `number`                                                                   | -       | Maximum file size in bytes                |
+| `onError`         | `(err: { code: string, message: string }) => void`                         | -       | Error handler for file validation         |
 
 ### PromptInputBody
 
 Container for the textarea and attachments display.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### PromptInputTextarea
 
 Auto-resizing textarea that handles keyboard shortcuts.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `placeholder` | `string` | `"What would you like to know?"` | Placeholder text |
-| `value` | `string` | - | Input value (controlled) |
-| `onChange` | `(e: ChangeEvent<HTMLTextAreaElement>) => void` | - | Change handler |
-| `className` | `string` | - | Custom CSS classes |
+| Prop          | Type                                            | Default                          | Description              |
+| ------------- | ----------------------------------------------- | -------------------------------- | ------------------------ |
+| `placeholder` | `string`                                        | `"What would you like to know?"` | Placeholder text         |
+| `value`       | `string`                                        | -                                | Input value (controlled) |
+| `onChange`    | `(e: ChangeEvent<HTMLTextAreaElement>) => void` | -                                | Change handler           |
+| `className`   | `string`                                        | -                                | Custom CSS classes       |
 
 ### PromptInputAttachments
 
 Displays file attachments using a render prop pattern.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `(attachment: FileUIPart & { id: string }) => ReactNode` | - | Render function for each attachment |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type                                                     | Default | Description                         |
+| ----------- | -------------------------------------------------------- | ------- | ----------------------------------- |
+| `children`  | `(attachment: FileUIPart & { id: string }) => ReactNode` | -       | Render function for each attachment |
+| `className` | `string`                                                 | -       | Custom CSS classes                  |
 
 ### PromptInputAttachment
 
 Renders a single attachment with preview and remove button.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `data` | `FileUIPart & { id: string }` | - | Attachment data to display |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type                          | Default | Description                |
+| ----------- | ----------------------------- | ------- | -------------------------- |
+| `data`      | `FileUIPart & { id: string }` | -       | Attachment data to display |
+| `className` | `string`                      | -       | Custom CSS classes         |
 
 ### PromptInputFooter
 
 Container for tools and submit button.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### PromptInputTools
 
 Container for action buttons and controls.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### PromptInputButton
 
 Base button component for tools.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `variant` | `string` | `"ghost"` | Button variant |
-| `size` | `string` | Auto-calculated | Button size |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default         | Description        |
+| ----------- | -------- | --------------- | ------------------ |
+| `variant`   | `string` | `"ghost"`       | Button variant     |
+| `size`      | `string` | Auto-calculated | Button size        |
+| `className` | `string` | -               | Custom CSS classes |
 
 ### PromptInputActionMenu
 
 Dropdown menu for additional actions.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| Inherits props from `DropdownMenu` | | | |
+| Prop                               | Type | Default | Description |
+| ---------------------------------- | ---- | ------- | ----------- |
+| Inherits props from `DropdownMenu` |      |         |             |
 
 ### PromptInputActionAddAttachments
 
 Pre-built menu item to trigger file dialog.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
+| Prop    | Type     | Default                 | Description     |
+| ------- | -------- | ----------------------- | --------------- |
 | `label` | `string` | `"Add photos or files"` | Menu item label |
 
 ### PromptInputSubmit
 
 Submit button that changes based on status.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `status` | `ChatStatus` | - | Current chat status (shows loading/stop icon) |
-| `disabled` | `boolean` | - | Disable button |
-| `variant` | `string` | `"default"` | Button variant |
-| `size` | `string` | `"icon-sm"` | Button size |
+| Prop       | Type         | Default     | Description                                   |
+| ---------- | ------------ | ----------- | --------------------------------------------- |
+| `status`   | `ChatStatus` | -           | Current chat status (shows loading/stop icon) |
+| `disabled` | `boolean`    | -           | Disable button                                |
+| `variant`  | `string`     | `"default"` | Button variant                                |
+| `size`     | `string`     | `"icon-sm"` | Button size                                   |
 
 ### PromptInputSpeechButton
 
 Button with built-in speech recognition.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `textareaRef` | `RefObject<HTMLTextAreaElement>` | - | Ref to textarea for inserting text |
-| `onTranscriptionChange` | `(text: string) => void` | - | Called when transcription changes |
+| Prop                    | Type                             | Default | Description                        |
+| ----------------------- | -------------------------------- | ------- | ---------------------------------- |
+| `textareaRef`           | `RefObject<HTMLTextAreaElement>` | -       | Ref to textarea for inserting text |
+| `onTranscriptionChange` | `(text: string) => void`         | -       | Called when transcription changes  |
 
 ### PromptInputModelSelect
 
 Dropdown for selecting AI models. Built on react-aria-components Select.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `selectedKey` | `string` | - | Selected model key |
-| `onSelectionChange` | `(key: Key) => void` | - | Called when selection changes |
-| `items` | `Iterable<T>` | - | List of model objects |
-| `children` | `(item: T) => ReactNode` | - | Render function for items |
-| `placeholder` | `string` | - | Placeholder text when no selection |
+| Prop                | Type                     | Default | Description                        |
+| ------------------- | ------------------------ | ------- | ---------------------------------- |
+| `selectedKey`       | `string`                 | -       | Selected model key                 |
+| `onSelectionChange` | `(key: Key) => void`     | -       | Called when selection changes      |
+| `items`             | `Iterable<T>`            | -       | List of model objects              |
+| `children`          | `(item: T) => ReactNode` | -       | Render function for items          |
+| `placeholder`       | `string`                 | -       | Placeholder text when no selection |
 
 ### PromptInputModelSelectItem
 
 Individual item in the model select dropdown.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `id` | `string` | - | Unique identifier for the item |
-| `children` | `ReactNode` | - | Item content |
+| Prop       | Type        | Default | Description                    |
+| ---------- | ----------- | ------- | ------------------------------ |
+| `id`       | `string`    | -       | Unique identifier for the item |
+| `children` | `ReactNode` | -       | Item content                   |
 
 ### PromptInputProvider
 
 Optional provider for global state management. When used, allows controlling input state from outside the component.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `initialInput` | `string` | `""` | Initial text value |
-| `children` | `ReactNode` | - | Child components |
+| Prop           | Type        | Default | Description        |
+| -------------- | ----------- | ------- | ------------------ |
+| `initialInput` | `string`    | `""`    | Initial text value |
+| `children`     | `ReactNode` | -       | Child components   |
 
 ## Hooks
 
@@ -316,4 +322,3 @@ Access the full controller from a `PromptInputProvider`.
 const controller = usePromptInputController()
 // controller.textInput, controller.attachments
 ```
-

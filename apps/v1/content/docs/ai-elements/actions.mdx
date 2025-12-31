@@ -4,7 +4,10 @@ description: Action buttons for AI responses with tooltips.
 component: true
 ---
 
-<ComponentPreview name="actions-demo" description="Action buttons with icons and tooltips." />
+<ComponentPreview
+  name="actions-demo"
+  description="Action buttons with icons and tooltips."
+/>
 
 ## Installation
 
@@ -41,7 +44,7 @@ npx taki-ui@latest add actions
 ## Usage
 
 ```tsx
-import { Actions, Action } from "@/ai-elements/actions"
+import { Action, Actions } from "@/ai-elements/actions"
 ```
 
 ```tsx
@@ -86,16 +89,15 @@ import { Actions, Action } from "@/ai-elements/actions"
 
 Container for action buttons.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Additional CSS classes |
+| Prop        | Type     | Default | Description            |
+| ----------- | -------- | ------- | ---------------------- |
+| `className` | `string` | -       | Additional CSS classes |
 
 ### Action
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `tooltip` | `string` | - | Tooltip text (shows on hover) |
-| `label` | `string` | - | Accessibility label |
-| `variant` | `"ghost" \| "outline" \| ...` | `"ghost"` | Button variant |
-| `size` | `"sm" \| "default" \| ...` | `"sm"` | Button size |
-
+| Prop      | Type                          | Default   | Description                   |
+| --------- | ----------------------------- | --------- | ----------------------------- |
+| `tooltip` | `string`                      | -         | Tooltip text (shows on hover) |
+| `label`   | `string`                      | -         | Accessibility label           |
+| `variant` | `"ghost" \| "outline" \| ...` | `"ghost"` | Button variant                |
+| `size`    | `"sm" \| "default" \| ...`    | `"sm"`    | Button size                   |

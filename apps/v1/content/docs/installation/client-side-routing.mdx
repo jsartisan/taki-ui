@@ -17,7 +17,9 @@ import { RouterProvider } from "react-aria-components"
 
 declare module "react-aria-components" {
   interface RouterConfig {
-    routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>["push"]>[1]>
+    routerOptions: NonNullable<
+      Parameters<ReturnType<typeof useRouter>["push"]>[1]
+    >
   }
 }
 
@@ -31,7 +33,11 @@ export function ClientProviders({ children }: { children: React.ReactNode }) {
 ```tsx title="app/layout.tsx"
 import { ClientProviders } from "./provider"
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
       <body>
@@ -64,7 +70,9 @@ import { RouterProvider } from "react-aria-components"
 
 declare module "react-aria-components" {
   interface RouterConfig {
-    routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>["push"]>[1]>
+    routerOptions: NonNullable<
+      Parameters<ReturnType<typeof useRouter>["push"]>[1]
+    >
   }
 }
 
@@ -84,7 +92,7 @@ export function ClientProviders({ children }: { children: React.ReactNode }) {
 
 ```tsx title="pages/_app.tsx"
 import type { AppProps } from "next/app"
-import { type NextRouter, useRouter } from "next/router"
+import { useRouter, type NextRouter } from "next/router"
 import { RouterProvider } from "react-aria-components"
 
 declare module "react-aria-components" {
@@ -97,7 +105,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   return (
-    <RouterProvider navigate={(href, opts) => router.push(href, undefined, opts)}>
+    <RouterProvider
+      navigate={(href, opts) => router.push(href, undefined, opts)}
+    >
       <Component {...pageProps} />
     </RouterProvider>
   )
@@ -106,7 +116,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
 ```tsx title="pages/_app.tsx"
 import type { AppProps } from "next/app"
-import { type NextRouter, useRouter } from "next/router"
+import { useRouter, type NextRouter } from "next/router"
 import { RouterProvider } from "react-aria-components"
 
 declare module "react-aria-components" {
@@ -128,9 +138,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 ```
+
 ---
+
 title: Client-side routing
 description: Configure React Aria and React Spectrum components to navigate with client-side routers.
+
 ---
 
 React Aria and React Spectrum components expose an `href` prop so they can render accessible links that respond to keyboard and pointer interactions. By default those links trigger full page loads, but you can opt into client-side navigation by supplying router primitives through `RouterProvider`. The router configuration only needs to wrap your app once; every link-rendering component beneath it will reuse the shared navigate logic. [React Aria’s client-side routing guide](https://react-spectrum.adobe.com/react-aria/routing.html#nextjs) walks through framework-specific setups—mirrored below for convenience.
@@ -144,7 +157,7 @@ React Aria and React Spectrum components expose an `href` prop so they can rende
 
 ```tsx title="router-provider.tsx"
 import { RouterProvider } from "react-aria-components"
-import { useNavigate, useHref } from "your-router"
+import { useHref, useNavigate } from "your-router"
 
 export function AppRouterProvider({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate()
@@ -175,3 +188,4 @@ The `useRouter` hook from `next/navigation` returns the `push` function required
 
 ```tsx title="app/provider.tsx"
 
+```

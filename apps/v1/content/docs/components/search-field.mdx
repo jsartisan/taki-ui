@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/SearchField.html#props
 ---
 
-<ComponentPreview name="search-field-demo" description="A search field component." />
+<ComponentPreview
+  name="search-field-demo"
+  description="A search field component."
+/>
 
 ## Installation
 
@@ -54,10 +57,7 @@ import { SearchField } from "@/components/ui/search-field"
 ```
 
 ```tsx showLineNumbers
-<SearchField
-  label="Search"
-  placeholder="Search products..."
-/>
+<SearchField label="Search" placeholder="Search products..." />
 ```
 
 ## API Reference
@@ -66,20 +66,20 @@ import { SearchField } from "@/components/ui/search-field"
 
 The `SearchField` component extends the React Aria `SearchField` component with consistent styling and built-in label, description, and error message support.
 
-| Prop           | Type                                                    | Default        | Description                                      |
-| -------------- | ------------------------------------------------------- | -------------- | ------------------------------------------------ |
-| `label`        | `string`                                                | -              | Label text for the search field                  |
-| `description`  | `string`                                                | -              | Helper text displayed below the label            |
-| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | -              | Error message for validation failures            |
-| `placeholder`  | `string`                                                | `"Search..."` | Placeholder text                                 |
-| `defaultValue` | `string`                                                | -              | Default value (uncontrolled)                     |
-| `value`        | `string`                                                | -              | Current value (controlled)                       |
-| `onChange`     | `(value: string) => void`                               | -              | Callback when value changes                      |
-| `onSubmit`     | `(value: string) => void`                               | -              | Callback when Enter key is pressed               |
-| `onClear`      | `() => void`                                            | -              | Callback when clear button is pressed            |
-| `isDisabled`   | `boolean`                                               | `false`        | Whether the search field is disabled             |
-| `isRequired`   | `boolean`                                               | `false`        | Whether the search field is required             |
-| `isReadOnly`   | `boolean`                                               | `false`        | Whether the search field is read-only            |
+| Prop           | Type                                                   | Default       | Description                           |
+| -------------- | ------------------------------------------------------ | ------------- | ------------------------------------- |
+| `label`        | `string`                                               | -             | Label text for the search field       |
+| `description`  | `string`                                               | -             | Helper text displayed below the label |
+| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | -             | Error message for validation failures |
+| `placeholder`  | `string`                                               | `"Search..."` | Placeholder text                      |
+| `defaultValue` | `string`                                               | -             | Default value (uncontrolled)          |
+| `value`        | `string`                                               | -             | Current value (controlled)            |
+| `onChange`     | `(value: string) => void`                              | -             | Callback when value changes           |
+| `onSubmit`     | `(value: string) => void`                              | -             | Callback when Enter key is pressed    |
+| `onClear`      | `() => void`                                           | -             | Callback when clear button is pressed |
+| `isDisabled`   | `boolean`                                              | `false`       | Whether the search field is disabled  |
+| `isRequired`   | `boolean`                                              | `false`       | Whether the search field is required  |
+| `isReadOnly`   | `boolean`                                              | `false`       | Whether the search field is read-only |
 
 Apart from the props above, the `SearchField` component also supports all props from the `react-aria-components` `SearchField` component. See the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/SearchField.html#props) for more details.
 
@@ -93,14 +93,13 @@ Apart from the props above, the `SearchField` component also supports all props 
 
 ## Keyboard Interactions
 
-| Key      | Description                                    |
-| -------- | ---------------------------------------------- |
+| Key      | Description                                          |
+| -------- | ---------------------------------------------------- |
 | `Enter`  | Triggers the `onSubmit` event with the current value |
-| `Escape` | Clears the search field and triggers `onClear` |
+| `Escape` | Clears the search field and triggers `onClear`       |
 
 ## Related
 
 - [Input](/docs/components/input) - For standard text input
 - [Field](/docs/components/field) - For custom form field composition
 - [Input Group](/docs/components/input-group) - For adding additional context to inputs
-

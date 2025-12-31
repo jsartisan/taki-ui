@@ -4,7 +4,10 @@ description: An animated text shimmer effect for loading states in AI interfaces
 component: true
 ---
 
-<ComponentPreview name="shimmer-demo" description="Text with shimmer animation" />
+<ComponentPreview
+  name="shimmer-demo"
+  description="Text with shimmer animation"
+/>
 
 ## Installation
 
@@ -80,11 +83,10 @@ import { Shimmer } from "@/components/ai-elements/shimmer"
 
 Animated text with shimmer effect.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `string` | - | Text content to shimmer |
-| `as` | `ElementType` | `"p"` | HTML element type |
-| `duration` | `number` | `2` | Animation duration in seconds |
-| `spread` | `number` | `2` | Shimmer spread multiplier |
-| `className` | `string` | - | Custom CSS classes |
-
+| Prop        | Type          | Default | Description                   |
+| ----------- | ------------- | ------- | ----------------------------- |
+| `children`  | `string`      | -       | Text content to shimmer       |
+| `as`        | `ElementType` | `"p"`   | HTML element type             |
+| `duration`  | `number`      | `2`     | Animation duration in seconds |
+| `spread`    | `number`      | `2`     | Shimmer spread multiplier     |
+| `className` | `string`      | -       | Custom CSS classes            |

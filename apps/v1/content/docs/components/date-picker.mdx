@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/DatePicker.html#props
 ---
 
-<ComponentPreview name="date-picker-demo" description="A date picker with label and description." />
+<ComponentPreview
+  name="date-picker-demo"
+  description="A date picker with label and description."
+/>
 
 ## Installation
 
@@ -65,10 +68,7 @@ import { DatePicker } from "@/components/ui/date-picker"
 ```
 
 ```tsx showLineNumbers
-<DatePicker
-  label="Event date"
-  description="Select a date for your event."
-/>
+<DatePicker label="Event date" description="Select a date for your event." />
 ```
 
 ## About
@@ -79,18 +79,21 @@ The `DatePicker` component is built on top of [React Aria Components](https://re
 
 ### Default
 
-<ComponentPreview name="date-picker-demo" description="A basic date picker with label and description." />
+<ComponentPreview
+  name="date-picker-demo"
+  description="A basic date picker with label and description."
+/>
 
 ```tsx showLineNumbers
-<DatePicker
-  label="Event date"
-  description="Select a date for your event."
-/>
+<DatePicker label="Event date" description="Select a date for your event." />
 ```
 
 ### Disabled
 
-<ComponentPreview name="date-picker-disabled" description="A disabled date picker." />
+<ComponentPreview
+  name="date-picker-disabled"
+  description="A disabled date picker."
+/>
 
 ```tsx showLineNumbers
 <DatePicker
@@ -102,7 +105,10 @@ The `DatePicker` component is built on top of [React Aria Components](https://re
 
 ### Validation
 
-<ComponentPreview name="date-picker-validation" description="A date picker with validation." />
+<ComponentPreview
+  name="date-picker-validation"
+  description="A date picker with validation."
+/>
 
 ```tsx showLineNumbers
 <DatePicker
@@ -115,7 +121,10 @@ The `DatePicker` component is built on top of [React Aria Components](https://re
 
 ### Controlled
 
-<ComponentPreview name="date-picker-controlled" description="A controlled date picker." />
+<ComponentPreview
+  name="date-picker-controlled"
+  description="A controlled date picker."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -146,7 +155,10 @@ export default function DatePickerControlled() {
 
 ### Min and Max Values
 
-<ComponentPreview name="date-picker-min-max" description="A date picker with minimum and maximum values." />
+<ComponentPreview
+  name="date-picker-min-max"
+  description="A date picker with minimum and maximum values."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -171,7 +183,10 @@ export default function DatePickerMinMax() {
 
 ### Granularity
 
-<ComponentPreview name="date-picker-granularity" description="Date pickers with different granularities." />
+<ComponentPreview
+  name="date-picker-granularity"
+  description="Date pickers with different granularities."
+/>
 
 ```tsx showLineNumbers
 <div className="space-y-4">
@@ -190,7 +205,10 @@ export default function DatePickerMinMax() {
 
 ### Unavailable Dates
 
-<ComponentPreview name="date-picker-unavailable-dates" description="A date picker with unavailable dates (weekends disabled)." />
+<ComponentPreview
+  name="date-picker-unavailable-dates"
+  description="A date picker with unavailable dates (weekends disabled)."
+/>
 
 ```tsx showLineNumbers
 "use client"
@@ -222,22 +240,22 @@ export default function DatePickerUnavailableDates() {
 
 ### DatePicker
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `label` | `string` | - | Label text for the date picker |
-| `description` | `string` | - | Help text displayed below the input |
-| `errorMessage` | `string \| ((validation: ValidationResult) => string)` | - | Error message for validation |
-| `value` | `DateValue` | - | The current value (controlled) |
-| `defaultValue` | `DateValue` | - | The default value (uncontrolled) |
-| `onChange` | `(value: DateValue) => void` | - | Handler called when the value changes |
-| `minValue` | `DateValue` | - | The minimum allowed date |
-| `maxValue` | `DateValue` | - | The maximum allowed date |
-| `isDateUnavailable` | `(date: DateValue) => boolean` | - | Function to determine if a date is unavailable |
-| `granularity` | `"day" \| "hour" \| "minute" \| "second"` | `"day"` | Determines the smallest unit editable |
-| `isDisabled` | `boolean` | `false` | Whether the date picker is disabled |
-| `isReadOnly` | `boolean` | `false` | Whether the date picker is read-only |
-| `isRequired` | `boolean` | `false` | Whether the date picker is required |
-| `placeholderValue` | `DateValue` | - | A placeholder date that controls the default values |
+| Prop                | Type                                                   | Default | Description                                         |
+| ------------------- | ------------------------------------------------------ | ------- | --------------------------------------------------- |
+| `label`             | `string`                                               | -       | Label text for the date picker                      |
+| `description`       | `string`                                               | -       | Help text displayed below the input                 |
+| `errorMessage`      | `string \| ((validation: ValidationResult) => string)` | -       | Error message for validation                        |
+| `value`             | `DateValue`                                            | -       | The current value (controlled)                      |
+| `defaultValue`      | `DateValue`                                            | -       | The default value (uncontrolled)                    |
+| `onChange`          | `(value: DateValue) => void`                           | -       | Handler called when the value changes               |
+| `minValue`          | `DateValue`                                            | -       | The minimum allowed date                            |
+| `maxValue`          | `DateValue`                                            | -       | The maximum allowed date                            |
+| `isDateUnavailable` | `(date: DateValue) => boolean`                         | -       | Function to determine if a date is unavailable      |
+| `granularity`       | `"day" \| "hour" \| "minute" \| "second"`              | `"day"` | Determines the smallest unit editable               |
+| `isDisabled`        | `boolean`                                              | `false` | Whether the date picker is disabled                 |
+| `isReadOnly`        | `boolean`                                              | `false` | Whether the date picker is read-only                |
+| `isRequired`        | `boolean`                                              | `false` | Whether the date picker is required                 |
+| `placeholderValue`  | `DateValue`                                            | -       | A placeholder date that controls the default values |
 
 See the [React Aria DatePicker documentation](https://react-spectrum.adobe.com/react-aria/DatePicker.html#props) for more props and detailed information.
 

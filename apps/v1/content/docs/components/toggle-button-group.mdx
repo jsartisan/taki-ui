@@ -7,7 +7,10 @@ links:
   api: https://react-spectrum.adobe.com/react-aria/ToggleButton.html#props
 ---
 
-<ComponentPreview name="toggle-button-group-demo" description="A toggle button group." />
+<ComponentPreview
+  name="toggle-button-group-demo"
+  description="A toggle button group."
+/>
 
 ## Installation
 
@@ -37,7 +40,10 @@ npm install react-aria-components tailwind-variants
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="toggle-button-group" title="components/ui/toggle-button-group.tsx" />
+<ComponentSource
+  name="toggle-button-group"
+  title="components/ui/toggle-button-group.tsx"
+/>
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -83,7 +89,10 @@ A toggle button group is a set of toggle buttons that are visually grouped toget
 
 ### Default
 
-<ComponentPreview name="toggle-button-group-default" description="A default toggle button group." />
+<ComponentPreview
+  name="toggle-button-group-default"
+  description="A default toggle button group."
+/>
 
 ```tsx
 <ToggleButtonGroup aria-label="Text formatting">
@@ -101,7 +110,10 @@ A toggle button group is a set of toggle buttons that are visually grouped toget
 
 ### Outline
 
-<ComponentPreview name="toggle-button-group-demo" description="A toggle button group with outline variant." />
+<ComponentPreview
+  name="toggle-button-group-demo"
+  description="A toggle button group with outline variant."
+/>
 
 ```tsx
 <ToggleButtonGroup variant="outline" aria-label="Text formatting">
@@ -119,7 +131,10 @@ A toggle button group is a set of toggle buttons that are visually grouped toget
 
 ### Size
 
-<ComponentPreview name="toggle-button-group-size" description="Toggle button groups in different sizes." />
+<ComponentPreview
+  name="toggle-button-group-size"
+  description="Toggle button groups in different sizes."
+/>
 
 ```tsx
 // Small
@@ -168,25 +183,25 @@ A toggle button group is a set of toggle buttons that are visually grouped toget
 
 The `ToggleButtonGroup` component serves as a container for grouping multiple toggle buttons together.
 
-| Prop      | Type                            | Default     | Description                                        |
-| --------- | ------------------------------- | ----------- | -------------------------------------------------- |
-| `variant` | `"default" \| "outline"`        | `"default"` | The visual style applied to all buttons in the group. |
-| `size`    | `"default" \| "sm" \| "lg"`     | `"default"` | The size applied to all buttons in the group.      |
-| `aria-label` | `string`                     | -           | A label for the group (required for accessibility). |
+| Prop         | Type                        | Default     | Description                                           |
+| ------------ | --------------------------- | ----------- | ----------------------------------------------------- |
+| `variant`    | `"default" \| "outline"`    | `"default"` | The visual style applied to all buttons in the group. |
+| `size`       | `"default" \| "sm" \| "lg"` | `"default"` | The size applied to all buttons in the group.         |
+| `aria-label` | `string`                    | -           | A label for the group (required for accessibility).   |
 
 ### ToggleButtonGroupItem
 
 Individual toggle buttons within a group.
 
-| Prop              | Type                             | Default     | Description                                                      |
-| ----------------- | -------------------------------- | ----------- | ---------------------------------------------------------------- |
-| `variant`         | `"default" \| "outline"`         | -           | Override the variant from the parent group.                      |
-| `size`            | `"default" \| "sm" \| "lg"`      | -           | Override the size from the parent group.                         |
-| `isSelected`      | `boolean`                        | -           | Whether the toggle button is selected (controlled).              |
-| `defaultSelected` | `boolean`                        | `false`     | Whether the toggle button is selected by default (uncontrolled). |
-| `onChange`        | `(isSelected: boolean) => void`  | -           | Handler that is called when the selection state changes.         |
-| `isDisabled`      | `boolean`                        | `false`     | Whether the toggle button is disabled.                           |
-| `aria-label`      | `string`                         | -           | A label for the button (required if no visible text).            |
+| Prop              | Type                            | Default | Description                                                      |
+| ----------------- | ------------------------------- | ------- | ---------------------------------------------------------------- |
+| `variant`         | `"default" \| "outline"`        | -       | Override the variant from the parent group.                      |
+| `size`            | `"default" \| "sm" \| "lg"`     | -       | Override the size from the parent group.                         |
+| `isSelected`      | `boolean`                       | -       | Whether the toggle button is selected (controlled).              |
+| `defaultSelected` | `boolean`                       | `false` | Whether the toggle button is selected by default (uncontrolled). |
+| `onChange`        | `(isSelected: boolean) => void` | -       | Handler that is called when the selection state changes.         |
+| `isDisabled`      | `boolean`                       | `false` | Whether the toggle button is disabled.                           |
+| `aria-label`      | `string`                        | -       | A label for the button (required if no visible text).            |
 
 ## Accessibility
 
@@ -215,4 +230,3 @@ Each toggle button in the group should have an `aria-label` or visible text to i
 
 - [Toggle Button](/docs/components/toggle-button) - Individual toggle button component
 - [Button Group](/docs/components/button-group) - For grouping regular buttons
-

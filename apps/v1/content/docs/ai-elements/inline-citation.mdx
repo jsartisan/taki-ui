@@ -4,7 +4,10 @@ description: Display inline citations with source previews in AI responses.
 component: true
 ---
 
-<ComponentPreview name="inline-citation-demo" description="Inline citations with hover preview" />
+<ComponentPreview
+  name="inline-citation-demo"
+  description="Inline citations with hover preview"
+/>
 
 ## Installation
 
@@ -34,7 +37,10 @@ npm install ai
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="inline-citation" title="ai-elements/inline-citation.tsx" />
+<ComponentSource
+  name="inline-citation"
+  title="ai-elements/inline-citation.tsx"
+/>
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -49,10 +55,10 @@ npm install ai
 ```tsx showLineNumbers
 import {
   InlineCitation,
-  InlineCitationText,
   InlineCitationCard,
-  InlineCitationCardTrigger,
   InlineCitationCardBody,
+  InlineCitationCardTrigger,
+  InlineCitationText,
 } from "@/components/ai-elements/inline-citation"
 ```
 
@@ -61,9 +67,7 @@ import {
   <InlineCitationText>Referenced text</InlineCitationText>
   <InlineCitationCard>
     <InlineCitationCardTrigger sources={["https://example.com"]} />
-    <InlineCitationCardBody>
-      {/* Citation content */}
-    </InlineCitationCardBody>
+    <InlineCitationCardBody>{/* Citation content */}</InlineCitationCardBody>
   </InlineCitationCard>
 </InlineCitation>
 ```
@@ -72,7 +76,10 @@ import {
 
 ### Default
 
-<ComponentPreview name="inline-citation-demo" description="Citations with carousel preview" />
+<ComponentPreview
+  name="inline-citation-demo"
+  description="Citations with carousel preview"
+/>
 
 ```tsx showLineNumbers
 const sources = [
@@ -113,24 +120,23 @@ export default function Example() {
 
 Container for inline citation.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### InlineCitationText
 
 Cited text content.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### InlineCitationCardTrigger
 
 Trigger badge showing sources.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `sources` | `string[]` | - | Array of source URLs |
-| `className` | `string` | - | Custom CSS classes |
-
+| Prop        | Type       | Default | Description          |
+| ----------- | ---------- | ------- | -------------------- |
+| `sources`   | `string[]` | -       | Array of source URLs |
+| `className` | `string`   | -       | Custom CSS classes   |

@@ -4,7 +4,10 @@ description: A flexible component to preview web content with integrated console
 component: true
 ---
 
-<ComponentPreview name="web-preview-demo" description="Web preview with navigation and console" />
+<ComponentPreview
+  name="web-preview-demo"
+  description="Web preview with navigation and console"
+/>
 
 ## Installation
 
@@ -43,11 +46,11 @@ npx taki-ui@latest add web-preview
 ```tsx showLineNumbers
 import {
   WebPreview,
+  WebPreviewBody,
+  WebPreviewConsole,
   WebPreviewNavigation,
   WebPreviewNavigationButton,
   WebPreviewUrl,
-  WebPreviewBody,
-  WebPreviewConsole,
 } from "@/components/ai-elements/web-preview"
 ```
 
@@ -78,7 +81,10 @@ const [url, setUrl] = useState("https://example.com")
 
 ### Default
 
-<ComponentPreview name="web-preview-demo" description="Full web preview with navigation controls and console" />
+<ComponentPreview
+  name="web-preview-demo"
+  description="Full web preview with navigation controls and console"
+/>
 
 ## Anatomy
 
@@ -112,42 +118,42 @@ The `WebPreview` component is composed of several sub-components:
 
 Main container that provides context for all child components.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `defaultUrl` | `string` | `""` | Initial URL to load |
-| `onUrlChange` | `(url: string) => void` | - | Callback when URL changes |
-| `className` | `string` | - | Custom CSS classes |
+| Prop          | Type                    | Default | Description               |
+| ------------- | ----------------------- | ------- | ------------------------- |
+| `defaultUrl`  | `string`                | `""`    | Initial URL to load       |
+| `onUrlChange` | `(url: string) => void` | -       | Callback when URL changes |
+| `className`   | `string`                | -       | Custom CSS classes        |
 
 ### WebPreviewNavigation
 
 Navigation bar that contains controls and URL input.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
-| `children` | `ReactNode` | - | Navigation controls |
+| Prop        | Type        | Default | Description         |
+| ----------- | ----------- | ------- | ------------------- |
+| `className` | `string`    | -       | Custom CSS classes  |
+| `children`  | `ReactNode` | -       | Navigation controls |
 
 ### WebPreviewNavigationButton
 
 Button for navigation actions (back, forward, refresh, etc.).
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `tooltip` | `string` | - | Tooltip text on hover |
-| `disabled` | `boolean` | `false` | Disable the button |
-| `onClick` | `() => void` | - | Click handler |
-| `children` | `ReactNode` | - | Button content (usually an icon) |
+| Prop       | Type         | Default | Description                      |
+| ---------- | ------------ | ------- | -------------------------------- |
+| `tooltip`  | `string`     | -       | Tooltip text on hover            |
+| `disabled` | `boolean`    | `false` | Disable the button               |
+| `onClick`  | `() => void` | -       | Click handler                    |
+| `children` | `ReactNode`  | -       | Button content (usually an icon) |
 
 ### WebPreviewUrl
 
 URL input field with automatic syncing to preview context.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `placeholder` | `string` | `"Enter URL..."` | Placeholder text |
-| `value` | `string` | - | Controlled value (optional) |
-| `onChange` | `(e: ChangeEvent) => void` | - | Change handler (optional) |
-| `onKeyDown` | `(e: KeyboardEvent) => void` | - | Key down handler (optional) |
+| Prop          | Type                         | Default          | Description                 |
+| ------------- | ---------------------------- | ---------------- | --------------------------- |
+| `placeholder` | `string`                     | `"Enter URL..."` | Placeholder text            |
+| `value`       | `string`                     | -                | Controlled value (optional) |
+| `onChange`    | `(e: ChangeEvent) => void`   | -                | Change handler (optional)   |
+| `onKeyDown`   | `(e: KeyboardEvent) => void` | -                | Key down handler (optional) |
 
 The URL input automatically syncs with the preview context. Press Enter to navigate to the entered URL.
 
@@ -155,11 +161,11 @@ The URL input automatically syncs with the preview context. Press Enter to navig
 
 iframe container for displaying web content.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `src` | `string` | - | URL to display (overrides context URL) |
-| `loading` | `ReactNode` | - | Loading indicator overlay |
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type        | Default | Description                            |
+| ----------- | ----------- | ------- | -------------------------------------- |
+| `src`       | `string`    | -       | URL to display (overrides context URL) |
+| `loading`   | `ReactNode` | -       | Loading indicator overlay              |
+| `className` | `string`    | -       | Custom CSS classes                     |
 
 The iframe includes sandbox restrictions: `allow-scripts allow-same-origin allow-forms allow-popups allow-presentation`
 
@@ -167,11 +173,11 @@ The iframe includes sandbox restrictions: `allow-scripts allow-same-origin allow
 
 Collapsible console panel for displaying logs.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `logs` | `Array<ConsoleLog>` | `[]` | Array of console log entries |
-| `className` | `string` | - | Custom CSS classes |
-| `children` | `ReactNode` | - | Additional console content |
+| Prop        | Type                | Default | Description                  |
+| ----------- | ------------------- | ------- | ---------------------------- |
+| `logs`      | `Array<ConsoleLog>` | `[]`    | Array of console log entries |
+| `className` | `string`            | -       | Custom CSS classes           |
+| `children`  | `ReactNode`         | -       | Additional console content   |
 
 **ConsoleLog Type:**
 
@@ -184,6 +190,7 @@ Collapsible console panel for displaying logs.
 ```
 
 The console displays with color coding:
+
 - `log`: Default foreground color
 - `warn`: Yellow
 - `error`: Destructive color
@@ -201,7 +208,7 @@ The console displays with color coding:
     src={url}
     loading={
       isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-background/80">
+        <div className="bg-background/80 absolute inset-0 flex items-center justify-center">
           <Loader />
         </div>
       )
@@ -217,10 +224,10 @@ const [logs, setLogs] = useState<Array<ConsoleLog>>([])
 
 // Add logs from your app
 const addLog = (level: "log" | "warn" | "error", message: string) => {
-  setLogs(prev => [...prev, { level, message, timestamp: new Date() }])
+  setLogs((prev) => [...prev, { level, message, timestamp: new Date() }])
 }
 
-<WebPreview defaultUrl={url}>
+;<WebPreview defaultUrl={url}>
   <WebPreviewNavigation>
     <WebPreviewUrl />
   </WebPreviewNavigation>
@@ -235,13 +242,13 @@ const addLog = (level: "log" | "warn" | "error", message: string) => {
 <WebPreview defaultUrl={url}>
   <WebPreviewNavigation>
     <WebPreviewNavigationButton
-      onClick={() => console.log('Back')}
+      onClick={() => console.log("Back")}
       tooltip="Go back"
     >
       <ChevronLeftIcon className="size-4" />
     </WebPreviewNavigationButton>
     <WebPreviewNavigationButton
-      onClick={() => console.log('Forward')}
+      onClick={() => console.log("Forward")}
       tooltip="Go forward"
     >
       <ChevronRightIcon className="size-4" />
@@ -269,4 +276,3 @@ const { url, setUrl, consoleOpen, setConsoleOpen } = useWebPreview()
 ```
 
 This hook is used internally by the sub-components and is not typically needed in user code.
-

@@ -4,7 +4,10 @@ description: Render markdown responses with streaming support for AI assistants.
 component: true
 ---
 
-<ComponentPreview name="response-demo" description="Markdown response rendering" />
+<ComponentPreview
+  name="response-demo"
+  description="Markdown response rendering"
+/>
 
 ## Installation
 
@@ -67,24 +70,28 @@ const hello = "world"
 
 ### Default
 
-<ComponentPreview name="response-demo" description="Markdown content rendering" />
+<ComponentPreview
+  name="response-demo"
+  description="Markdown content rendering"
+/>
 
 ### With Streaming
 
 ```tsx showLineNumbers
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
+
 import { Response } from "@/components/ai-elements/response"
 
 export default function Example() {
   const [content, setContent] = useState("")
-  
+
   useEffect(() => {
     // Simulate streaming
     const fullText = "# Hello\n\nThis is streaming content..."
     let index = 0
-    
+
     const interval = setInterval(() => {
       if (index < fullText.length) {
         setContent(fullText.slice(0, index + 1))
@@ -93,10 +100,10 @@ export default function Example() {
         clearInterval(interval)
       }
     }, 50)
-    
+
     return () => clearInterval(interval)
   }, [])
-  
+
   return <Response>{content}</Response>
 }
 ```
@@ -114,8 +121,7 @@ export default function Example() {
 
 Markdown renderer with streaming support.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `string` | - | Markdown content to render |
-| `className` | `string` | - | Custom CSS classes |
-
+| Prop        | Type     | Default | Description                |
+| ----------- | -------- | ------- | -------------------------- |
+| `children`  | `string` | -       | Markdown content to render |
+| `className` | `string` | -       | Custom CSS classes         |

@@ -43,8 +43,8 @@ npx taki-ui@latest add open-in-chat
 ```tsx showLineNumbers
 import {
   OpenInChat,
-  OpenInChatLink,
   OpenInChatDropdown,
+  OpenInChatLink,
   OpenInChatTrigger,
 } from "@/components/ai-elements/open-in-chat"
 ```
@@ -67,7 +67,10 @@ import {
 
 ### Direct Link
 
-<ComponentPreview name="open-in-chat-demo" description="Open in specific platform" />
+<ComponentPreview
+  name="open-in-chat-demo"
+  description="Open in specific platform"
+/>
 
 ```tsx showLineNumbers
 export default function Example() {
@@ -112,33 +115,32 @@ export default function Example() {
 
 Container for chat links.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `prompt` | `string` | - | Prompt to open in chat |
-| `provider` | `"chatgpt" \| "claude" \| "gemini" \| "perplexity" \| "github" \| "scira"` | - | Specific provider (for direct links) |
-| `children` | `ReactNode` | - | Link or dropdown |
+| Prop       | Type                                                                       | Default | Description                          |
+| ---------- | -------------------------------------------------------------------------- | ------- | ------------------------------------ |
+| `prompt`   | `string`                                                                   | -       | Prompt to open in chat               |
+| `provider` | `"chatgpt" \| "claude" \| "gemini" \| "perplexity" \| "github" \| "scira"` | -       | Specific provider (for direct links) |
+| `children` | `ReactNode`                                                                | -       | Link or dropdown                     |
 
 ### OpenInChatLink
 
 Direct link button to provider.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |
 
 ### OpenInChatDropdown
 
 Dropdown menu with all providers.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `children` | `ReactNode` | - | Trigger button |
+| Prop       | Type        | Default | Description    |
+| ---------- | ----------- | ------- | -------------- |
+| `children` | `ReactNode` | -       | Trigger button |
 
 ### OpenInChatTrigger
 
 Trigger button for dropdown.
 
-| Prop | Type | Default | Description |
-|---|---|---|----|
-| `className` | `string` | - | Custom CSS classes |
-
+| Prop        | Type     | Default | Description        |
+| ----------- | -------- | ------- | ------------------ |
+| `className` | `string` | -       | Custom CSS classes |

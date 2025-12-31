@@ -71,7 +71,10 @@ Toggle buttons are similar to action buttons, but support an additional selectio
 
 ### Default
 
-<ComponentPreview name="toggle-button-default" description="A default toggle button." />
+<ComponentPreview
+  name="toggle-button-default"
+  description="A default toggle button."
+/>
 
 ```tsx
 <ToggleButton aria-label="Toggle bold">
@@ -81,7 +84,10 @@ Toggle buttons are similar to action buttons, but support an additional selectio
 
 ### Outline
 
-<ComponentPreview name="toggle-button-outline" description="A toggle button with an outline variant." />
+<ComponentPreview
+  name="toggle-button-outline"
+  description="A toggle button with an outline variant."
+/>
 
 ```tsx
 <ToggleButton variant="outline" aria-label="Toggle bold">
@@ -91,7 +97,10 @@ Toggle buttons are similar to action buttons, but support an additional selectio
 
 ### With Text
 
-<ComponentPreview name="toggle-button-demo" description="A toggle button with text and icon." />
+<ComponentPreview
+  name="toggle-button-demo"
+  description="A toggle button with text and icon."
+/>
 
 ```tsx
 <ToggleButton variant="outline" aria-label="Toggle bold">
@@ -102,7 +111,10 @@ Toggle buttons are similar to action buttons, but support an additional selectio
 
 ### Size
 
-<ComponentPreview name="toggle-button-size" description="Toggle buttons in different sizes." />
+<ComponentPreview
+  name="toggle-button-size"
+  description="Toggle buttons in different sizes."
+/>
 
 ```tsx
 <ToggleButton variant="outline" size="sm" aria-label="Toggle bold">
@@ -120,7 +132,10 @@ Toggle buttons are similar to action buttons, but support an additional selectio
 
 ### Disabled
 
-<ComponentPreview name="toggle-button-disabled" description="A disabled toggle button." />
+<ComponentPreview
+  name="toggle-button-disabled"
+  description="A disabled toggle button."
+/>
 
 ```tsx
 <ToggleButton variant="outline" isDisabled aria-label="Toggle bold">
@@ -130,13 +145,17 @@ Toggle buttons are similar to action buttons, but support an additional selectio
 
 ### Controlled
 
-<ComponentPreview name="toggle-button-controlled" description="A controlled toggle button." />
+<ComponentPreview
+  name="toggle-button-controlled"
+  description="A controlled toggle button."
+/>
 
 ```tsx showLineNumbers
 "use client"
 
 import { useState } from "react"
 import { StarIcon } from "lucide-react"
+
 import { ToggleButton } from "@/components/ui/toggle-button"
 
 export default function Example() {
@@ -164,15 +183,15 @@ A default selection state for a toggle button can be set using the `defaultSelec
 
 The `ToggleButton` component supports both uncontrolled and controlled states.
 
-| Prop              | Type                    | Default     | Description                                                    |
-| ----------------- | ----------------------- | ----------- | -------------------------------------------------------------- |
-| `variant`         | `"default" \| "outline"` | `"default"` | The visual style of the toggle button.                         |
-| `size`            | `"default" \| "sm" \| "lg"` | `"default"` | The size of the toggle button.                                 |
-| `isSelected`      | `boolean`               | -           | Whether the toggle button is selected (controlled).            |
-| `defaultSelected` | `boolean`               | `false`     | Whether the toggle button is selected by default (uncontrolled). |
-| `onChange`        | `(isSelected: boolean) => void` | -           | Handler that is called when the selection state changes.       |
-| `isDisabled`      | `boolean`               | `false`     | Whether the toggle button is disabled.                         |
-| `aria-label`      | `string`                | -           | A label for the toggle button (required if no visible text).   |
+| Prop              | Type                            | Default     | Description                                                      |
+| ----------------- | ------------------------------- | ----------- | ---------------------------------------------------------------- |
+| `variant`         | `"default" \| "outline"`        | `"default"` | The visual style of the toggle button.                           |
+| `size`            | `"default" \| "sm" \| "lg"`     | `"default"` | The size of the toggle button.                                   |
+| `isSelected`      | `boolean`                       | -           | Whether the toggle button is selected (controlled).              |
+| `defaultSelected` | `boolean`                       | `false`     | Whether the toggle button is selected by default (uncontrolled). |
+| `onChange`        | `(isSelected: boolean) => void` | -           | Handler that is called when the selection state changes.         |
+| `isDisabled`      | `boolean`                       | `false`     | Whether the toggle button is disabled.                           |
+| `aria-label`      | `string`                        | -           | A label for the toggle button (required if no visible text).     |
 
 Apart from the props above, the `ToggleButton` component also supports all props from the `react-aria-components` `ToggleButton` component. Check the [React Aria documentation](https://react-spectrum.adobe.com/react-aria/ToggleButton.html#props) for more details.
 
@@ -191,4 +210,3 @@ If a visual label is not provided (e.g. an icon only button), then an `aria-labe
   <BoldIcon />
 </ToggleButton>
 ```
-

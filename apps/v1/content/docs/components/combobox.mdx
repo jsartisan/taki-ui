@@ -169,17 +169,10 @@ const [selectedKey, setSelectedKey] = useState<string | null>(null)
 
 ### Disabled
 
-<ComponentPreview
-  name="combobox-disabled"
-  description="A disabled combobox."
-/>
+<ComponentPreview name="combobox-disabled" description="A disabled combobox." />
 
 ```tsx showLineNumbers
-<ComboBox
-  label="Disabled ComboBox"
-  placeholder="Cannot interact..."
-  isDisabled
->
+<ComboBox label="Disabled ComboBox" placeholder="Cannot interact..." isDisabled>
   <ComboBoxItem id="option1">Option 1</ComboBoxItem>
   <ComboBoxItem id="option2">Option 2</ComboBoxItem>
 </ComboBox>
@@ -211,38 +204,38 @@ const [selectedKey, setSelectedKey] = useState<string | null>(null)
 
 The `ComboBox` component combines a text input with a listbox, providing autocomplete and filtering functionality.
 
-| Prop           | Type                                                      | Default     | Description                                          |
-| -------------- | --------------------------------------------------------- | ----------- | ---------------------------------------------------- |
-| `label`        | `string`                                                  | -           | Label text for the combobox                          |
-| `placeholder`  | `string`                                                  | -           | Placeholder text for the input                       |
-| `description`  | `string`                                                  | -           | Help text displayed below the combobox               |
-| `errorMessage` | `string \| ((validation: ValidationResult) => string)`    | -           | Error message for validation                         |
-| `isDisabled`   | `boolean`                                                 | `false`     | Whether the combobox is disabled                     |
-| `isRequired`   | `boolean`                                                 | `false`     | Whether the combobox is required                     |
-| `size`         | `"default" \| "sm"`                                       | `"default"` | Size variant of the combobox                         |
-| `selectedKey`  | `string \| null`                                          | -           | Controlled selected key                              |
-| `defaultSelectedKey` | `string \| null`                                    | -           | Default selected key (uncontrolled)                  |
-| `onSelectionChange` | `(key: string \| null) => void`                      | -           | Callback when selection changes                      |
-| `items`        | `Iterable<T>`                                             | -           | Collection of items for dynamic rendering            |
+| Prop                 | Type                                                   | Default     | Description                               |
+| -------------------- | ------------------------------------------------------ | ----------- | ----------------------------------------- |
+| `label`              | `string`                                               | -           | Label text for the combobox               |
+| `placeholder`        | `string`                                               | -           | Placeholder text for the input            |
+| `description`        | `string`                                               | -           | Help text displayed below the combobox    |
+| `errorMessage`       | `string \| ((validation: ValidationResult) => string)` | -           | Error message for validation              |
+| `isDisabled`         | `boolean`                                              | `false`     | Whether the combobox is disabled          |
+| `isRequired`         | `boolean`                                              | `false`     | Whether the combobox is required          |
+| `size`               | `"default" \| "sm"`                                    | `"default"` | Size variant of the combobox              |
+| `selectedKey`        | `string \| null`                                       | -           | Controlled selected key                   |
+| `defaultSelectedKey` | `string \| null`                                       | -           | Default selected key (uncontrolled)       |
+| `onSelectionChange`  | `(key: string \| null) => void`                        | -           | Callback when selection changes           |
+| `items`              | `Iterable<T>`                                          | -           | Collection of items for dynamic rendering |
 
 ### ComboBoxItem
 
 The `ComboBoxItem` component represents an option in the combobox list.
 
-| Prop         | Type            | Default | Description                              |
-| ------------ | --------------- | ------- | ---------------------------------------- |
-| `id`         | `string`        | -       | Unique identifier for the item           |
-| `textValue`  | `string`        | -       | Text value used for filtering/searching  |
-| `isDisabled` | `boolean`       | `false` | Whether the item is disabled             |
+| Prop         | Type      | Default | Description                             |
+| ------------ | --------- | ------- | --------------------------------------- |
+| `id`         | `string`  | -       | Unique identifier for the item          |
+| `textValue`  | `string`  | -       | Text value used for filtering/searching |
+| `isDisabled` | `boolean` | `false` | Whether the item is disabled            |
 
 ### ComboBoxSection
 
 The `ComboBoxSection` component groups related items together.
 
-| Prop    | Type            | Default | Description                       |
-| ------- | --------------- | ------- | --------------------------------- |
-| `title` | `string`        | -       | Section header text               |
-| `items` | `Iterable<T>`   | -       | Collection of items in the section|
+| Prop    | Type          | Default | Description                        |
+| ------- | ------------- | ------- | ---------------------------------- |
+| `title` | `string`      | -       | Section header text                |
+| `items` | `Iterable<T>` | -       | Collection of items in the section |
 
 ## Features
 
